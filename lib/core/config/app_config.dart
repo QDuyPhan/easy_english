@@ -38,3 +38,5 @@ class AppConfig {
     }
   }
 }
+
+final AppConfig app_config = AppConfig();

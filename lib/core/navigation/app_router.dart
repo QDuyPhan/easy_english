@@ -46,5 +46,9 @@ class AppRouter {
         },
       ),
     ],
+    errorBuilder:
+        (context, state) => Scaffold(
+          body: Center(child: Text('Page not found: ${state.error}')),
+        ),
   );
 }
