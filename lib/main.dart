@@ -1,7 +1,10 @@
 import 'package:easy_english/core/navigation/app_router.dart';
+import 'package:easy_english/di/injector.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Injector().init();
   runApp(MyApp());
 }
 
