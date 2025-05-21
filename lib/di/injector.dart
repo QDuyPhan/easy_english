@@ -1,20 +1,15 @@
 import 'package:get_it/get_it.dart';
+import 'package:injectable/injectable.dart';
 
-class Injector {
-  static Injector? _instance;
+import 'injector.config.dart';
 
-  Injector._();
+final GetIt getIt = GetIt.instance;
 
-  factory Injector() {
-    _instance ??= Injector._();
-    return _instance!;
-  }
-
-  final locator = GetIt.instance;
-
-  void init() {
-    _initHive();
-  }
-
-  void _initHive() {}
+@InjectableInit(
+  initializerName: r'$initGetIt',
+  preferRelativeImports: true,
+  asExtension: false,
+)
+Future<void> setupDependencies() async {
+  await $initGetIt(getIt);
 }

@@ -1,10 +1,10 @@
 import 'package:easy_english/core/navigation/app_router.dart';
-import 'package:easy_english/di/injector.dart';
+import 'package:easy_english/di/injector.dart' as di;
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Injector().init();
+  await di.setupDependencies();
   runApp(MyApp());
 }
 
