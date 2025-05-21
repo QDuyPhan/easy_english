@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'generated/failure.freezed.dart';
@@ -17,9 +16,8 @@ class Failure with _$Failure {
   }) = NetworkFailure;
 
   // Lỗi dữ liệu không tìm thấy (not found)
-  const factory Failure.notFound({
-    @Default('Data not found') String message,
-  }) = NotFoundFailure;
+  const factory Failure.notFound({@Default('Data not found') String message}) =
+      NotFoundFailure;
 
   // Lỗi chung (general error)
   const factory Failure.general({

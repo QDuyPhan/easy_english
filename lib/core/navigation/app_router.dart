@@ -3,6 +3,7 @@ import 'package:easy_english/presentation/features/home/screen/home_screen.dart'
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
 import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
+import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,6 +38,14 @@ class AppRouter {
               GoRoute(
                 path: RoutePaths.settings,
                 builder: (context, state) => const SettingsScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RoutePaths.vocabulary,
+                builder: (context, state) => const VocabularyScreen(),
               ),
             ],
           ),
