@@ -6,6 +6,7 @@ import 'package:easy_english/core/mapper/app_mappr.dart';
 import 'package:easy_english/data/datasources/local/assets_data.dart';
 import 'package:easy_english/data/datasources/local/local_data.dart';
 import 'package:easy_english/data/models/word.dart';
+import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/repositories/oxford_words_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -24,8 +25,11 @@ class OxfordWordsRepositoryImpl implements OxfordWordsRepository {
        _appMappr = appMappr;
 
   @override
-  List<Word> getAllOxfordWords() {
-    return _localData.getWords();
+  List<WordEntity> getAllOxfordWords() {
+    final wordsModel = _localData.getWords();
+    return wordsModel
+        .map((word) => _appMappr.convert<Word, WordEntity>(word))
+        .toList();
   }
 
   @override
@@ -45,9 +49,10 @@ class OxfordWordsRepositoryImpl implements OxfordWordsRepository {
   }
 
   @override
-  Future<Either<Failure, void>> saveWord(Word word) async {
+  Future<Either<Failure, void>> saveWord(WordEntity word) async {
     try {
-      await _localData.saveWord(word);
+      final model = _appMappr.convert<WordEntity, Word>(word);
+      await _localData.saveWord(model);
       return Right(null);
     } catch (e) {
       return Left(Failure.general(message: 'Failed to save word'));
