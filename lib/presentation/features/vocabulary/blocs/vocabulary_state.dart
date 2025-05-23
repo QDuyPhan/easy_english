@@ -9,7 +9,6 @@ class VocabularyInitial extends VocabularyState {
   const VocabularyInitial();
 
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }
 
@@ -17,7 +16,6 @@ class VocabularyLoading extends VocabularyState {
   const VocabularyLoading();
 
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }
 
@@ -36,6 +34,5 @@ class VocabularyLoaded extends VocabularyState {
   const VocabularyLoaded(this.words);
 
   @override
-  // TODO: implement props
   List<Object?> get props => [words];
 }

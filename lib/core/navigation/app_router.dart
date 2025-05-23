@@ -1,10 +1,13 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
 import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
+import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
@@ -16,6 +19,17 @@ class AppRouter {
     navigatorKey: navigatorKey,
     routes: [
       StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) {
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => di.getIt<VocabularyBloc>()),
+            ],
+            child: HomeNavigation(
+              state: state,
+              navigationShell: navigationShell,
+            ),
+          );
+        },
         branches: [
           StatefulShellBranch(
             routes: [
@@ -50,9 +64,6 @@ class AppRouter {
             ],
           ),
         ],
-        builder: (context, state, navigationShell) {
-          return HomeNavigation(state: state, navigationShell: navigationShell);
-        },
       ),
     ],
     errorBuilder:

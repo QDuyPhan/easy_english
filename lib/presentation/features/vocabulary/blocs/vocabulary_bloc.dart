@@ -22,7 +22,7 @@ class VocabularyBloc extends Bloc<VocabularyEvent, VocabularyState> {
     try {
       emit(const VocabularyLoading());
       final words = _getAllOxfordWordsUseCase.execute();
-      app_config.printLog('i', 'words: $words');
+      app_config.printLog('i', 'words: ${words.map((e) => e.word).toList()}');
       emit(VocabularyLoaded(words));
     } catch (e) {
       app_config.printLog('e', e.toString());

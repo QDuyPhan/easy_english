@@ -8,7 +8,7 @@ import 'package:easy_english/domain/entities/sense_entity.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/entities/word_status_entity.dart';
 
-import 'app_mappr.auto_mappr.dart';
+import 'app_mappr.auto_mappr.dart';import 'package:injectable/injectable.dart';
 
 @AutoMappr([
   MapType<Word, WordEntity>(),
@@ -32,6 +32,5 @@ import 'app_mappr.auto_mappr.dart';
     ],
   ),
 ])
-class AppMappr extends $AppMappr {
-  static AppMappr get mappr => AppMappr();
-}
+@injectable
+class AppMappr extends $AppMappr {}
