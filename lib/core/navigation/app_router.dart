@@ -4,6 +4,7 @@ import 'package:easy_english/presentation/features/home/screen/home_screen.dart'
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
 import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
+import 'package:easy_english/presentation/features/translate/screen/translate_screen.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_screen.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,22 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                path: RoutePaths.vocabulary,
+                builder: (context, state) => const VocabularyScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RoutePaths.translate,
+                builder: (context, state) => const TranslateScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
                 path: RoutePaths.profile,
                 builder: (context, state) => const ProfileScreen(),
               ),
@@ -52,14 +69,6 @@ class AppRouter {
               GoRoute(
                 path: RoutePaths.settings,
                 builder: (context, state) => const SettingsScreen(),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: RoutePaths.vocabulary,
-                builder: (context, state) => const VocabularyScreen(),
               ),
             ],
           ),

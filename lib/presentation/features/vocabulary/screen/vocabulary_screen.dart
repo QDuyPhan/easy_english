@@ -10,6 +10,6 @@ class VocabularyScreen extends StatefulWidget {
 class _VocabularyScreenState extends State<VocabularyScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(child: Text('Vocabulary Screen'));
   }
 }
