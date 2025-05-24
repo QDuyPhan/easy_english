@@ -1,7 +1,9 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_english/core/config/app_config.dart';
 import 'package:easy_english/core/navigation/app_router.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/usecases/init_data_usecase.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -9,8 +11,10 @@ void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.setupDependencies();
-  runApp(MyApp());
+  runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
 }
+
+
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});

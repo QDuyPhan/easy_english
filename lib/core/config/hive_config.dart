@@ -4,6 +4,7 @@ import 'package:easy_english/data/models/sense.dart';
 import 'package:easy_english/data/models/settings_snapshot.dart';
 import 'package:easy_english/data/models/word.dart';
 import 'package:easy_english/data/models/word_status.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
@@ -24,8 +25,12 @@ class HiveConfig {
   }
 
   Future<void> _init() async {
-    final dir = await getApplicationDocumentsDirectory();
-    await Hive.initFlutter(dir.path);
+    if (kIsWeb) {
+      await Hive.initFlutter(); // Web không cần `dir.path`
+    } else {
+      final dir = await getApplicationDocumentsDirectory();
+      await Hive.initFlutter(dir.path);
+    }
     // Đăng ký adapter cho WordModel
     Hive.registerAdapter(ExampleAdapter());
     Hive.registerAdapter(SenseAdapter());
