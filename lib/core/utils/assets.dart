@@ -116,31 +116,6 @@ class Assets {
   static const String speakingSpeaking = 'assets/md/speaking/speaking.md';
   static const String speakingTheInternationalPhoneticAlphabetIPA =
       'assets/md/speaking/the__international__phonetic__alphabet__i_p_a.md';
-
-  // static const String svgArrowBackIos = 'assets/svg/arrow_back_ios.svg';
-  // static const String svgArrowLeftIos = 'assets/svg/arrow_left_ios.svg';
-  // static const String svgCheck = 'assets/svg/check.svg';
-  // static const String svgClear = 'assets/svg/clear.svg';
-  // static const String svgClose = 'assets/svg/close.svg';
-  // static const String svgCopy = 'assets/svg/copy.svg';
-  // static const String svgDelete = 'assets/svg/delete.svg';
-  // static const String svgEdit = 'assets/svg/edit.svg';
-  // static const String svgError = 'assets/svg/error.svg';
-  // static const String svgGrammar = 'assets/svg/grammar.svg';
-  // static const String svgHome = 'assets/svg/home.svg';
-  // static const String svgMic = 'assets/svg/mic.svg';
-  // static const String svgNotifications = 'assets/svg/notifications.svg';
-  // static const String svgPaste = 'assets/svg/paste.svg';
-  // static const String svgReset = 'assets/svg/reset.svg';
-  // static const String svgSearch = 'assets/svg/search.svg';
-  // static const String svgSettings = 'assets/svg/settings.svg';
-  // static const String svgStar = 'assets/svg/star.svg';
-  // static const String svgStreak = 'assets/svg/streak.svg';
-  // static const String svgSuccess = 'assets/svg/success.svg';
-  // static const String svgTimerPlay = 'assets/svg/timer_play.svg';
-  // static const String svgUndo = 'assets/svg/undo.svg';
-  // static const String svgVocabulary = 'assets/svg/vocabulary.svg';
-  // static const String svgVolumeUp = 'assets/svg/volume_up.svg';
   static const String tensesTenses = 'assets/md/grammar/tenses/tenses.md';
   static const String wordFamiliesAdjectives =
       'assets/md/grammar/words/word__families/adjectives.md';
@@ -170,4 +145,5 @@ class Assets {
   static const String svgBookOpenText = 'assets/svg/bookopentext.svg';
   static const String svgFire = 'assets/svg/fire.svg';
   static const String svgGearSix = 'assets/svg/gearsix.svg';
+  static const String svgTranslate = 'assets/svg/translate.svg';
 }

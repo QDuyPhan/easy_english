@@ -35,16 +35,40 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.home,
-                builder: (context, state) => const HomeScreen(),
+                path: RoutePaths.vocabulary,
+                pageBuilder:
+                    (context, state) => CustomTransitionPage(
+                      child: VocabularyScreen(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      transitionDuration: Duration(milliseconds: 300),
+                    ),
               ),
             ],
           ),
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.vocabulary,
-                builder: (context, state) => const VocabularyScreen(),
+                path: RoutePaths.home,
+                pageBuilder:
+                    (context, state) => CustomTransitionPage(
+                      child: HomeScreen(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      transitionDuration: Duration(milliseconds: 300),
+                    ),
               ),
             ],
           ),
@@ -52,7 +76,19 @@ class AppRouter {
             routes: [
               GoRoute(
                 path: RoutePaths.translate,
-                builder: (context, state) => const TranslateScreen(),
+                pageBuilder:
+                    (context, state) => CustomTransitionPage(
+                      child: TranslateScreen(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      transitionDuration: Duration(milliseconds: 300),
+                    ),
               ),
             ],
           ),
@@ -60,7 +96,19 @@ class AppRouter {
             routes: [
               GoRoute(
                 path: RoutePaths.profile,
-                builder: (context, state) => const ProfileScreen(),
+                pageBuilder:
+                    (context, state) => CustomTransitionPage(
+                      child: ProfileScreen(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      transitionDuration: Duration(milliseconds: 300),
+                    ),
               ),
             ],
           ),
@@ -68,7 +116,19 @@ class AppRouter {
             routes: [
               GoRoute(
                 path: RoutePaths.settings,
-                builder: (context, state) => const SettingsScreen(),
+                pageBuilder:
+                    (context, state) => CustomTransitionPage(
+                      child: SettingsScreen(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      transitionDuration: Duration(milliseconds: 300),
+                    ),
               ),
             ],
           ),

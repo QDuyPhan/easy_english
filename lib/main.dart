@@ -1,5 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:easy_english/core/config/app_config.dart';
+import 'package:easy_english/core/config/app_color.dart';
 import 'package:easy_english/core/navigation/app_router.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/usecases/init_data_usecase.dart';
@@ -13,8 +13,6 @@ void main() async {
   await di.setupDependencies();
   runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
 }
-
-
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -31,17 +29,24 @@ class _MyAppState extends State<MyApp> {
   }
 
   void initializeApp() async {
-    app_config.printLog('i', 'pasuing...');
     await di.getIt<InitDataUseCase>().execute();
-    app_config.printLog('i', 'unpasuing...');
     FlutterNativeSplash.remove();
   }
 
   @override
   Widget build(BuildContext context) {
+    final fontFamily = 'SF Pro Display';
     return MaterialApp.router(
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.from(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColor.primary100,
+          brightness: Brightness.light,
+          surface: Colors.white,
+        ),
+        textTheme: TextTheme().apply(fontFamily: fontFamily),
+      ),
     );
   }
 }

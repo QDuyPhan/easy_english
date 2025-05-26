@@ -10,26 +10,26 @@ class HomeNavigation extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
 
   static const routes = [
-    RoutePaths.home,
     RoutePaths.vocabulary,
+    RoutePaths.home,
     RoutePaths.translate,
     RoutePaths.profile,
     RoutePaths.settings,
   ];
 
   static const icons = [
-    Assets.svgBook,
     Assets.svgBookmarks,
-    Assets.svgBookOpenText,
+    Assets.svgBook,
+    Assets.svgTranslate,
     Assets.svgFire,
     Assets.svgGearSix,
   ];
 
   static const labels = [
-    "Home",
     "Vocabulary",
+    "Studying",
     "Translate",
-    "Profile",
+    "Streak",
     "Settings",
   ];
 
@@ -58,37 +58,43 @@ class _HomeNavigationState extends State<HomeNavigation> {
         ],
       ),
       // Hiển thị nội dung của tab hiện tại
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex == -1 ? 0 : selectedIndex,
-        showUnselectedLabels: true,
-        selectedFontSize: 12,
-        elevation: 0,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: selectedColor,
-        unselectedItemColor: unselectedColor,
-        onTap: (index) {
-          widget.navigationShell.goBranch(index);
-        },
-        items: List.generate(
-          HomeNavigation.labels.length,
-          (item) => BottomNavigationBarItem(
-            label: HomeNavigation.labels[item],
-            icon: Container(
-              decoration: BoxDecoration(
-                color:
-                    item == selectedIndex
-                        ? colorScheme.primaryContainer
-                        : Colors.transparent,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              padding: const EdgeInsets.all(2),
-              child: SvgPicture.asset(
-                HomeNavigation.icons[item],
-                colorFilter: ColorFilter.mode(
-                  item == selectedIndex ? selectedColor : unselectedColor,
-                  BlendMode.srcIn,
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: selectedIndex == -1 ? 0 : selectedIndex,
+          showUnselectedLabels: true,
+          selectedFontSize: 12,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: selectedColor,
+          unselectedItemColor: unselectedColor,
+          onTap: (index) {
+            widget.navigationShell.goBranch(index);
+          },
+          items: List.generate(
+            HomeNavigation.labels.length,
+            (item) => BottomNavigationBarItem(
+              label: HomeNavigation.labels[item],
+              icon: Container(
+                decoration: BoxDecoration(
+                  color:
+                      item == selectedIndex
+                          ? colorScheme.primaryContainer
+                          : Colors.transparent,
+                  borderRadius: BorderRadius.circular(8),
                 ),
-                height: 24,
+                padding: const EdgeInsets.all(2),
+                child: SvgPicture.asset(
+                  HomeNavigation.icons[item],
+                  colorFilter: ColorFilter.mode(
+                    item == selectedIndex ? selectedColor : unselectedColor,
+                    BlendMode.srcIn,
+                  ),
+                  height: 24,
+                ),
               ),
             ),
           ),
