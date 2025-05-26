@@ -146,4 +146,7 @@ class Assets {
   static const String svgFire = 'assets/svg/fire.svg';
   static const String svgGearSix = 'assets/svg/gearsix.svg';
   static const String svgTranslate = 'assets/svg/translate.svg';
+  static const String svgStarOutline = 'assets/svg/staroutline.svg';
+  static const String svgStarFilled = 'assets/svg/starfilled.svg';
+  static const String svgVolume = 'assets/svg/volume.svg';
 }

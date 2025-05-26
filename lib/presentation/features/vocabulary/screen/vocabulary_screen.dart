@@ -16,10 +16,11 @@ class VocabularyScreen extends StatefulWidget {
 class _VocabularyScreenState extends State<VocabularyScreen> {
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return BlocProvider.value(
       value: di.getIt<VocabularyBloc>()..add(const GetAllOxfordWords()),
       child: Scaffold(
-        appBar: AppBar(title: const Text('Vocabulary List')),
         body: BlocBuilder<VocabularyBloc, VocabularyState>(
           builder: (context, state) {
             if (state is VocabularyInitial) {
@@ -28,37 +29,62 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
               return const Center(child: CircularProgressIndicator());
             }
             if (state is VocabularyLoaded) {
-              return ListView.builder(
-                itemCount: state.words.length,
-                itemBuilder: (context, index) {
-                  final word = state.words[index];
-                  return WordCard(word: word);
-                },
+              return SafeArea(
+                child: Column(
+                  children: [
+                    Container(
+                      height: screenHeight * 0.15,
+                      width: double.infinity,
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Vocabulary",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: state.words.length,
+                        itemBuilder: (context, index) {
+                          final word = state.words[index];
+                          return WordCard(word: word);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               );
             }
             return const Center(child: Text('Press button to load words'));
           },
         ),
-        floatingActionButton: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              onPressed: () {
-                context.read<VocabularyBloc>().add(const GetAllOxfordWords());
-              },
-              child: const Icon(Icons.refresh),
-              heroTag: 'refresh',
-            ),
-            const SizedBox(height: 10),
-            FloatingActionButton(
-              onPressed: () {
-                // context.read<VocabularyBloc>().add(const AddWordRandomly());
-              },
-              child: const Icon(Icons.add),
-              heroTag: 'add',
-            ),
-          ],
-        ),
+        // floatingActionButton: Column(
+        //   mainAxisAlignment: MainAxisAlignment.end,
+        //   children: [
+        //     FloatingActionButton(
+        //       onPressed: () {
+        //         context.read<VocabularyBloc>().add(const GetAllOxfordWords());
+        //       },
+        //       child: const Icon(Icons.refresh),
+        //       heroTag: 'refresh',
+        //     ),
+        //     const SizedBox(height: 10),
+        //     FloatingActionButton(
+        //       onPressed: () {
+        //         // context.read<VocabularyBloc>().add(const AddWordRandomly());
+        //       },
+        //       child: const Icon(Icons.add),
+        //       heroTag: 'add',
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }
