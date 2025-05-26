@@ -43,3 +43,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/lib/core/errors/generated
+/lib/core/mapper/generated
+/lib/core/mapper/app_mappr.auto_mappr.dart
+/lib/data/models/generated
+/lib/di/injector.config.dart
+/lib/domain/entities/generated
+
+
