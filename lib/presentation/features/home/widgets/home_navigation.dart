@@ -18,11 +18,11 @@ class HomeNavigation extends StatefulWidget {
   ];
 
   static const icons = [
-    Assets.svgHome,
-    Assets.svgVocabulary,
-    Assets.svgGrammar,
-    Assets.svgStreak,
-    Assets.svgSettings,
+    Assets.svgBook,
+    Assets.svgBookmarks,
+    Assets.svgBookOpenText,
+    Assets.svgFire,
+    Assets.svgGearSix,
   ];
 
   static const labels = [
