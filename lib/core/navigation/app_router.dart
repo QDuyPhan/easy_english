@@ -1,8 +1,8 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/di/injector.dart' as di;
+import 'package:easy_english/presentation/features/grammar/screen/grammar_screen.dart';
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
-import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
 import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
 import 'package:easy_english/presentation/features/translate/screen/translate_screen.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
@@ -16,7 +16,7 @@ class AppRouter {
       GlobalKey<NavigatorState>(debugLabel: 'root');
 
   static final router = GoRouter(
-    initialLocation: RoutePaths.home,
+    initialLocation: RoutePaths.vocabulary,
     navigatorKey: navigatorKey,
     routes: [
       StatefulShellRoute.indexedStack(
@@ -38,6 +38,7 @@ class AppRouter {
                 path: RoutePaths.vocabulary,
                 pageBuilder:
                     (context, state) => CustomTransitionPage(
+                      key: state.pageKey,
                       child: VocabularyScreen(),
                       transitionsBuilder: (
                         context,
@@ -47,27 +48,7 @@ class AppRouter {
                       ) {
                         return FadeTransition(opacity: animation, child: child);
                       },
-                      transitionDuration: Duration(milliseconds: 300),
-                    ),
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: RoutePaths.home,
-                pageBuilder:
-                    (context, state) => CustomTransitionPage(
-                      child: HomeScreen(),
-                      transitionsBuilder: (
-                        context,
-                        animation,
-                        secondaryAnimation,
-                        child,
-                      ) {
-                        return FadeTransition(opacity: animation, child: child);
-                      },
-                      transitionDuration: Duration(milliseconds: 300),
+                      transitionDuration: Duration(milliseconds: 500),
                     ),
               ),
             ],
@@ -78,6 +59,7 @@ class AppRouter {
                 path: RoutePaths.translate,
                 pageBuilder:
                     (context, state) => CustomTransitionPage(
+                      key: state.pageKey,
                       child: TranslateScreen(),
                       transitionsBuilder: (
                         context,
@@ -87,7 +69,7 @@ class AppRouter {
                       ) {
                         return FadeTransition(opacity: animation, child: child);
                       },
-                      transitionDuration: Duration(milliseconds: 300),
+                      transitionDuration: Duration(milliseconds: 500),
                     ),
               ),
             ],
@@ -95,10 +77,11 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.profile,
+                path: RoutePaths.grammar,
                 pageBuilder:
                     (context, state) => CustomTransitionPage(
-                      child: ProfileScreen(),
+                      key: state.pageKey,
+                      child: GrammarScreen(),
                       transitionsBuilder: (
                         context,
                         animation,
@@ -107,7 +90,7 @@ class AppRouter {
                       ) {
                         return FadeTransition(opacity: animation, child: child);
                       },
-                      transitionDuration: Duration(milliseconds: 300),
+                      transitionDuration: Duration(milliseconds: 500),
                     ),
               ),
             ],
@@ -115,9 +98,32 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
+                path: RoutePaths.home,
+                pageBuilder:
+                    (context, state) => CustomTransitionPage(
+                      key: state.pageKey,
+                      child: HomeScreen(),
+                      transitionsBuilder: (
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ) {
+                        return FadeTransition(opacity: animation, child: child);
+                      },
+                      transitionDuration: Duration(milliseconds: 500),
+                    ),
+              ),
+            ],
+          ),
+
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
                 path: RoutePaths.settings,
                 pageBuilder:
                     (context, state) => CustomTransitionPage(
+                      key: state.pageKey,
                       child: SettingsScreen(),
                       transitionsBuilder: (
                         context,
@@ -127,7 +133,7 @@ class AppRouter {
                       ) {
                         return FadeTransition(opacity: animation, child: child);
                       },
-                      transitionDuration: Duration(milliseconds: 300),
+                      transitionDuration: Duration(milliseconds: 500),
                     ),
               ),
             ],

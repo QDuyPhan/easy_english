@@ -1,4 +1,3 @@
-import 'package:easy_english/core/config/app_color.dart';
 import 'package:logger/logger.dart';
 
 const bool isDev = true;
