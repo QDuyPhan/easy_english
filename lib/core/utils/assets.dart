@@ -153,4 +153,6 @@ class Assets {
   static const String svgFlagUK = 'assets/svg/flagUK.svg';
   static const String svgFlagUS24 = 'assets/svg/flagUSA24.svg';
   static const String svgFlagUK24 = 'assets/svg/flagUK24.svg';
+  static const String svgArrowRigh = 'assets/svg/arrow_back_ios.svg';
+  static const String svgArrowLeft = 'assets/svg/arrow_left_ios.svg';
 }

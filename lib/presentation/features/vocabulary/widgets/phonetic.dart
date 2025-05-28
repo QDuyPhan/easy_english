@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class Phonetic extends StatefulWidget {
   final String phonetic;
   final String phoneticText;
-  final String flag;
+  final String? flag;
   final Color backgroundColor;
 
   const Phonetic({
@@ -14,7 +14,7 @@ class Phonetic extends StatefulWidget {
     required this.phonetic,
     required this.phoneticText,
     required this.backgroundColor,
-    required this.flag,
+    this.flag,
   });
 
   @override
@@ -27,7 +27,7 @@ class _PhoneticState extends State<Phonetic> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.flag),
+        Text(widget.flag ?? ''),
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [

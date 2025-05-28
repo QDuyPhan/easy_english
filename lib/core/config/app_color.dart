@@ -50,6 +50,7 @@ class AppColor {
   static const Color info40 = Color(0xFFA8CEEA);
   static const Color info20 = Color(0xFFD4E7F4);
 
+  static const Color boxColor = Color(0xFFDBF6FF);
   // POS badge colors (for vocabulary app)
   static const Map<String, Color> posBadgeColors = {
     'noun': Color(0xFF42A5F5), // Blue for nouns
