@@ -60,6 +60,7 @@ class AppRouter {
                   final word = extra?['word'] as WordEntity;
                   return CustomTransitionPage(
                     key: state.pageKey,
+                    opaque: false,
                     child: VocabularyDetailScreen(word: word),
                     transitionsBuilder: (
                       context,
@@ -67,9 +68,26 @@ class AppRouter {
                       secondaryAnimation,
                       child,
                     ) {
-                      return FadeTransition(opacity: animation, child: child);
+                      const begin = Offset(1.0, 0.0); // Trượt từ phải sang trái
+                      const end = Offset.zero;
+                      const curve = Curves.easeInOut;
+                      final tween = Tween(
+                        begin: begin,
+                        end: end,
+                      ).chain(CurveTween(curve: curve));
+                      final offsetAnimation = animation.drive(tween);
+                      return SlideTransition(
+                        position: offsetAnimation,
+                        child: FadeTransition(
+                          opacity: CurvedAnimation(
+                            parent: animation,
+                            curve: Curves.easeInOut,
+                          ),
+                          child: child,
+                        ),
+                      );
                     },
-                    transitionDuration: Duration(milliseconds: 200),
+                    transitionDuration: const Duration(milliseconds: 300),
                   );
                 },
               ),
