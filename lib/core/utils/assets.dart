@@ -149,4 +149,8 @@ class Assets {
   static const String svgStarOutline = 'assets/svg/staroutline.svg';
   static const String svgStarFilled = 'assets/svg/starfilled.svg';
   static const String svgVolume = 'assets/svg/volume.svg';
+  static const String svgFlagUS = 'assets/svg/flagUSA.svg';
+  static const String svgFlagUK = 'assets/svg/flagUK.svg';
+  static const String svgFlagUS24 = 'assets/svg/flagUSA24.svg';
+  static const String svgFlagUK24 = 'assets/svg/flagUK24.svg';
 }

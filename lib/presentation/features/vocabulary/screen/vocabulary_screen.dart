@@ -1,3 +1,4 @@
+import 'package:easy_english/core/config/app_color.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_event.dart';
@@ -43,7 +44,10 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
                         children: [
                           Text(
                             "Vocabulary",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: TextStyle(
+                              color: AppColor.black0,
+                              fontSize: 16,
+                            ),
                           ),
                         ],
                       ),

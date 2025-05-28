@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class AppColor {
-  const AppColor._();
+  // const AppColor._();
 
   //Primary Color
   static const Color primary100 = Color(0xFF0074CE);
@@ -49,4 +49,45 @@ class AppColor {
   static const Color info60 = Color(0xFF7DB6DF);
   static const Color info40 = Color(0xFFA8CEEA);
   static const Color info20 = Color(0xFFD4E7F4);
+
+  // POS badge colors (for vocabulary app)
+  static const Map<String, Color> posBadgeColors = {
+    'noun': Color(0xFF42A5F5), // Blue for nouns
+    'verb': Color(0xFFE57373), // Red for verbs
+    'adjective': Color(0xFF66BB6A), // Green for adjectives
+    'adverb': Color(0xFFFFB300), // Yellow for adverbs
+  };
+
+  // Get color scheme for ThemeData
+  // static ColorScheme get lightColorScheme => const ColorScheme(
+  //   brightness: Brightness.light,
+  //   primary: primary,
+  //   onPrimary: onPrimary,
+  //   primaryContainer: primaryContainer,
+  //   secondary: secondary,
+  //   onSecondary: onSecondary,
+  //   secondaryContainer: secondaryContainer,
+  //   background: background,
+  //   surface: surface,
+  //   onBackground: textPrimary,
+  //   onSurface: textPrimary,
+  //   error: error,
+  //   onError: onPrimary,
+  // );
+  //
+  // static ColorScheme get darkColorScheme => const ColorScheme(
+  //   brightness: Brightness.dark,
+  //   primary: primary,
+  //   onPrimary: onPrimary,
+  //   primaryContainer: Color(0xFF1976D2), // Darker blue for dark theme
+  //   secondary: secondary,
+  //   onSecondary: onSecondary,
+  //   secondaryContainer: Color(0xFF388E3C), // Darker green for dark theme
+  //   background: Color(0xFF121212), // Dark background
+  //   surface: Color(0xFF1E1E1E), // Dark surface
+  //   onBackground: Color(0xFFE0E0E0), // Light text for dark theme
+  //   onSurface: Color(0xFFE0E0E0),
+  //   error: error,
+  //   onError: onPrimary,
+  // );
 }
