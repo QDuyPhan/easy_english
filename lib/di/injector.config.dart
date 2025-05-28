@@ -1,0 +1,57 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// **************************************************************************
+// InjectableConfigGenerator
+// **************************************************************************
+
+// ignore_for_file: type=lint
+// coverage:ignore-file
+
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:get_it/get_it.dart' as _i174;
+import 'package:injectable/injectable.dart' as _i526;
+
+import '../core/config/hive_config.dart' as _i719;
+import '../core/mapper/app_mappr.dart' as _i556;
+import '../data/datasources/local/assets_data.dart' as _i481;
+import '../data/datasources/local/local_data.dart' as _i614;
+import '../data/repositories/oxford_words_repository_impl.dart' as _i319;
+import '../domain/repositories/oxford_words_repository.dart' as _i212;
+import '../domain/usecases/get_all_oxford_words_usecase.dart' as _i797;
+import '../domain/usecases/init_data_usecase.dart' as _i287;
+import '../presentation/features/vocabulary/blocs/vocabulary_bloc.dart'
+    as _i431;
+
+// initializes the registration of main-scope dependencies inside of GetIt
+Future<_i174.GetIt> $initGetIt(
+  _i174.GetIt getIt, {
+  String? environment,
+  _i526.EnvironmentFilter? environmentFilter,
+}) async {
+  final gh = _i526.GetItHelper(
+    getIt,
+    environment,
+    environmentFilter,
+  );
+  gh.factory<_i556.AppMappr>(() => _i556.AppMappr());
+  await gh.singletonAsync<_i719.HiveConfig>(
+    () => _i719.HiveConfig.create(),
+    preResolve: true,
+  );
+  gh.lazySingleton<_i481.AssetsData>(() => _i481.AssetsDataImpl());
+  gh.lazySingleton<_i614.LocalData>(
+      () => _i614.LocalDataImpl(hiveConfig: gh<_i719.HiveConfig>()));
+  gh.lazySingleton<_i212.OxfordWordsRepository>(
+      () => _i319.OxfordWordsRepositoryImpl(
+            assetsData: gh<_i481.AssetsData>(),
+            localData: gh<_i614.LocalData>(),
+            appMappr: gh<_i556.AppMappr>(),
+          ));
+  gh.factory<_i797.GetAllOxfordWordsUseCase>(
+      () => _i797.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
+  gh.factory<_i287.InitDataUseCase>(
+      () => _i287.InitDataUseCase(gh<_i212.OxfordWordsRepository>()));
+  gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc(
+      getAllOxfordWordsUseCase: gh<_i797.GetAllOxfordWordsUseCase>()));
+  return getIt;
+}
