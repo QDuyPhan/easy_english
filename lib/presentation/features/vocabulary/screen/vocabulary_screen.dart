@@ -28,6 +28,8 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
               return const Center(child: CircularProgressIndicator());
             } else if (state is VocabularyLoading) {
               return const Center(child: CircularProgressIndicator());
+            } else if (state is VocabularyError) {
+              return Center(child: Text(state.message));
             }
             if (state is VocabularyLoaded) {
               return SafeArea(

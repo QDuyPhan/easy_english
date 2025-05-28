@@ -1,5 +1,5 @@
 import 'package:easy_english/core/config/app_color.dart';
-import 'package:easy_english/core/config/app_config.dart';
+import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/svg_button.dart';
 import 'package:easy_english/data/models/word_status.dart';
@@ -7,6 +7,7 @@ import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/phonetic.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/pos_badge.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class WordCard extends StatelessWidget {
   final WordEntity word;
@@ -20,7 +21,7 @@ class WordCard extends StatelessWidget {
     final pos = word.pos.split(', ');
     return GestureDetector(
       onTap: () {
-        app_config.printLog('i', word.pos);
+        context.push(RoutePaths.vocabularyDetails, extra: {'word': word});
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
