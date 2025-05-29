@@ -2,23 +2,36 @@ import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget {
   final String title;
+  final List<Widget> leading;
   final List<Widget> actions;
 
-  const CustomAppbar({super.key, required this.title, required this.actions});
+  const CustomAppbar({
+    super.key,
+    required this.title,
+    this.leading = const [],
+    this.actions = const [],
+  });
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    final height = MediaQuery.of(context).size.height;
+    final textTheme = Theme.of(context).textTheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-      child: Container(
-        height: 80,
-        decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(8),
-        ),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          if (leading.isNotEmpty) ...leading else const SizedBox(width: 24),
+          Text(
+            title,
+            style: textTheme.titleLarge?.copyWith(
+              color: colorScheme.primary,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          if (actions.isNotEmpty) ...actions else const SizedBox(width: 24),
+        ],
       ),
     );
   }

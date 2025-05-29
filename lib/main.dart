@@ -7,6 +7,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
+import 'core/config/app_config.dart';
+
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -22,31 +24,47 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  late Future<void> _initialization;
+
   @override
   void initState() {
     super.initState();
-    initializeApp();
+    _initialization = initializeApp();
   }
 
-  void initializeApp() async {
-    await di.getIt<InitDataUseCase>().execute();
-    FlutterNativeSplash.remove();
+  Future<void> initializeApp() async {
+    try {
+      await di.getIt<InitDataUseCase>().execute();
+    } catch (e) {
+      app_config.printLog('e', 'Failed to initialize app: $e');
+    } finally {
+      FlutterNativeSplash.remove();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final fontFamily = 'SF Pro Display';
-    return MaterialApp.router(
-      routerConfig: AppRouter.router,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.from(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColor.primary100,
-          brightness: Brightness.light,
-          surface: Colors.white,
-        ),
-        textTheme: TextTheme().apply(fontFamily: fontFamily),
-      ),
+    return FutureBuilder(
+      future: _initialization,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return MaterialApp.router(
+            routerConfig: AppRouter.router,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData.from(
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: AppColor.primary100,
+                brightness: Brightness.light,
+                surface: Colors.white,
+              ),
+              textTheme: TextTheme().apply(fontFamily: fontFamily),
+            ),
+          );
+        } else {
+          return Container(color: Colors.white); // Màn hình splash
+        }
+      },
     );
   }
 }

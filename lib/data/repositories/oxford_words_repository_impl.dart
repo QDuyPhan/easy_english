@@ -16,7 +16,7 @@ class OxfordWordsRepositoryImpl implements OxfordWordsRepository {
   final LocalData _localData;
   final AppMappr _appMappr;
 
-  OxfordWordsRepositoryImpl({
+  const OxfordWordsRepositoryImpl({
     required AssetsData assetsData,
     required LocalData localData,
     required AppMappr appMappr,

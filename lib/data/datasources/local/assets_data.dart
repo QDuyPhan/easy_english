@@ -24,6 +24,23 @@ class AssetsDataImpl implements AssetsData {
     }
   }
 
+  // @override
+  // Future<List<Word>> getAllOxfordWords() async {
+  //   try {
+  //     final List<String> letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  //     final List<Future<List<Word>>> futures =
+  //         letters.map((letter) {
+  //           final path = 'assets/json/oxford_words/$letter.json';
+  //           return Isolate.run(() => _loadWordsInIsolate(path));
+  //         }).toList();
+  //     final List<List<Word>> results = await Future.wait(futures);
+  //     return results.expand((words) => words).toList();
+  //   } catch (e) {
+  //     app_config.printLog("e", 'Failed to load words: $e');
+  //     throw Exception('Failed to load words: $e');
+  //   }
+  // }
+
   @override
   Future<List<Word>> getAllOxfordWords() async {
     try {
@@ -31,12 +48,18 @@ class AssetsDataImpl implements AssetsData {
       final List<Future<List<Word>>> futures =
           letters.map((letter) {
             final path = 'assets/json/oxford_words/$letter.json';
-            return Isolate.run(() => _loadWordsInIsolate(path));
+            return rootBundle.loadString(path).then((jsonString) {
+              return Isolate.run(() {
+                final List<dynamic> jsonData = jsonDecode(jsonString);
+                return jsonData.map((e) => Word.fromJson(e)).toList();
+              });
+            });
           }).toList();
+
       final List<List<Word>> results = await Future.wait(futures);
       return results.expand((words) => words).toList();
     } catch (e) {
-      app_config.printLog("e", 'Failed to load words: $e');
+      app_config.printLog('e', 'Failed to load words: $e');
       throw Exception('Failed to load words: $e');
     }
   }

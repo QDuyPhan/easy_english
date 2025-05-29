@@ -1,7 +1,5 @@
 import 'package:easy_english/core/config/app_color.dart';
 import 'package:easy_english/core/utils/assets.dart';
-import 'package:easy_english/core/utils/widgets/svg_button.dart';
-import 'package:easy_english/data/models/word_status.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/phonetic.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/pos_badge.dart';
@@ -40,18 +38,18 @@ class WordCardDetail extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 15),
-                  SvgButton(
-                    svg: Assets.svgStarOutline,
-                    size: 24,
-                    backgroundColor:
-                        word.status == WordStatus.star
-                            ? colorScheme.primary
-                            : colorScheme.surface,
-                    color:
-                        word.status == WordStatus.star
-                            ? colorScheme.primaryContainer
-                            : colorScheme.onPrimaryContainer,
-                  ),
+                  // SvgButton(
+                  //   svg: Assets.svgStarOutline,
+                  //   size: 24,
+                  //   backgroundColor:
+                  //       word.status == WordStatus.star
+                  //           ? colorScheme.primary
+                  //           : colorScheme.surface,
+                  //   color:
+                  //       word.status == WordStatus.star
+                  //           ? colorScheme.primaryContainer
+                  //           : colorScheme.onPrimaryContainer,
+                  // ),
                 ],
               ),
               Spacer(),

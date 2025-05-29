@@ -1,4 +1,7 @@
-import 'package:easy_english/core/config/app_color.dart';
+import 'package:easy_english/core/config/app_config.dart';
+import 'package:easy_english/core/utils/assets.dart';
+import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
+import 'package:easy_english/core/utils/widgets/svg_button.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_event.dart';
@@ -24,37 +27,28 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
       child: Scaffold(
         body: BlocBuilder<VocabularyBloc, VocabularyState>(
           builder: (context, state) {
-            if (state is VocabularyInitial) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is VocabularyLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is VocabularyError) {
-              return Center(child: Text(state.message));
-            }
+            // if (state is VocabularyInitial) {
+            //   return const Center(child: CircularProgressIndicator());
+            // } else if (state is VocabularyLoading) {
+            //   return const Center(child: CircularProgressIndicator());
+            // } else if (state is VocabularyError) {
+            //   return Center(child: Text(state.message));
+            // }
             if (state is VocabularyLoaded) {
               return SafeArea(
                 child: Column(
                   children: [
-                    Container(
-                      height: screenHeight * 0.15,
-                      width: double.infinity,
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            "Vocabulary",
-                            style: TextStyle(
-                              color: AppColor.black0,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
+                    CustomAppbar(
+                      title: 'Vocabulary',
+                      actions: [
+                        SvgButton(
+                          svg: Assets.svgSearch,
+                          onPressed: () {
+
+                          },
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 10),
                     Expanded(
                       child: ListView.builder(
                         itemCount: state.words.length,
