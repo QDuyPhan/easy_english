@@ -1,10 +1,11 @@
 import 'package:easy_english/core/config/app_color.dart';
-import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/utils/assets.dart';
+import 'package:easy_english/presentation/features/home/widgets/topic_box.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -32,8 +33,35 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(color: AppColor.black0),
+              child: Column(
+                children: [
+                  Text(
+                    'Chose your topic',
+                    style: textTheme.titleLarge?.copyWith(
+                      color: colorScheme.onPrimaryContainer,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Expanded(
+                    child: MasonryGridView.count(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 12,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 14,
+                        vertical: 8,
+                      ),
+                      crossAxisSpacing: 12,
+                      physics: BouncingScrollPhysics(),
+                      itemCount: Assets.listTopic.length,
+                      itemBuilder: (context, index) {
+                        final entry = Assets.listTopic.entries.elementAt(
+                          index,
+                        );
+                        return TopicBox(topicEntry: entry);
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
             // FloatingActionButton(onPressed: () {

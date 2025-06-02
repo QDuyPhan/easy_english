@@ -4,14 +4,17 @@ import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/usecases/init_data_topics.dart';
 import 'package:easy_english/domain/usecases/init_data_usecase.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'core/config/app_config.dart';
+import 'presentation/observers/my_bloc_observer.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.setupDependencies();
+  Bloc.observer = MyBlocObserver();
   // runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
   runApp(MyApp());
 }

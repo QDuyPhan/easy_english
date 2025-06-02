@@ -5,7 +5,9 @@ import 'package:easy_english/presentation/features/grammar/screen/grammar_screen
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
+import 'package:easy_english/presentation/features/studing/screen/studying_screen.dart';
 import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
+import 'package:easy_english/presentation/features/topics/screen/topic_category_screen.dart';
 import 'package:easy_english/presentation/features/topics/screen/topics_screen.dart';
 import 'package:easy_english/presentation/features/translate/screen/translate_screen.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
@@ -67,6 +69,48 @@ class AppRouter {
                   return CustomTransitionPage(
                     key: state.pageKey,
                     child: VocabularyScreen(),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      return FadeTransition(opacity: animation, child: child);
+                    },
+                    transitionDuration: Duration(milliseconds: 500),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.topics,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final folder = extra?['folder'] as String? ?? '';
+                  final topic = extra?['topic'] as String? ?? '';
+                  return CustomTransitionPage(
+                    key: state.pageKey,
+                    child: TopicsScreen(folder: folder, topic: topic),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      return FadeTransition(opacity: animation, child: child);
+                    },
+                    transitionDuration: Duration(milliseconds: 500),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.topicCategory,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final listCategory =
+                      extra?['topics'] as MapEntry<String, List<String>>;
+                  return CustomTransitionPage(
+                    key: state.pageKey,
+                    child: TopicCategoryScreen(topicEntry: listCategory),
                     transitionsBuilder: (
                       context,
                       animation,
@@ -186,11 +230,11 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.topics,
+                path: RoutePaths.studying,
                 pageBuilder:
                     (context, state) => CustomTransitionPage(
                       key: state.pageKey,
-                      child: TopicsScreen(),
+                      child: StudyingScreen(),
                       transitionsBuilder: (
                         context,
                         animation,

@@ -11,8 +11,10 @@ class RoutePaths {
   static const String onboarding = '/onboarding';
   static const String grammar = '/grammar';
   static const String category = '/category';
+  static const String topicCategory = '/topic-category';
   static const String lesson = '/lesson';
   static const String home = '/home';
   static const String translate = '/translate';
   static const String topics = '/topics';
+  static const String studying = '/studying';
 }

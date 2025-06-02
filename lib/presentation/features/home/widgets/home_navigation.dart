@@ -13,7 +13,7 @@ class HomeNavigation extends StatefulWidget {
     RoutePaths.home,
     RoutePaths.translate,
     RoutePaths.grammar,
-    RoutePaths.topics,
+    RoutePaths.studying,
     RoutePaths.settings,
   ];
 
@@ -29,7 +29,7 @@ class HomeNavigation extends StatefulWidget {
     "Home",
     "Translate",
     "Grammar",
-    "Topics",
+    "Studying",
     "Settings",
   ];
 

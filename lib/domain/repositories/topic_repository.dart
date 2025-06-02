@@ -12,8 +12,4 @@ abstract interface class TopicRepository {
   );
 
   List<WordEntity> getTopic(String folder, String topic);
-
-  // List<WordEntity> getAllTopics();
-  //
-  // Future<Either<Failure, void>> saveWord(WordEntity word);
 }
