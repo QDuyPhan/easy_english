@@ -14,4 +14,5 @@ class RoutePaths {
   static const String lesson = '/lesson';
   static const String home = '/home';
   static const String translate = '/translate';
+  static const String topics = '/topics';
 }

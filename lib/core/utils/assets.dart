@@ -157,4 +157,6 @@ class Assets {
   static const String svgArrowLeft = 'assets/svg/arrow_left_ios.svg';
   static const String svgSearch = 'assets/svg/search.svg';
   static const String svgClose = 'assets/svg/close.svg';
+  static const String svgHouse = 'assets/svg/house.svg';
+  static const String ilustrationhomepage = 'assets/svg/ilustrationhomepage.svg';
 }

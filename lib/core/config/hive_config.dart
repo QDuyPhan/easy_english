@@ -13,9 +13,38 @@ import 'package:path_provider/path_provider.dart';
 @preResolve
 class HiveConfig {
   static const String _wordKey = 'word';
+  static const String _topicsKey = 'topics';
+
+  final List<String> _listKey = [
+    'animals',
+    'birds',
+    'fish_and_shellfish',
+    'insects_worms',
+    'appearance',
+    'body',
+    'clothes_and_fashion',
+    'colours_and_shapes',
+    'language',
+    'phones_email_and_the_internet',
+    'cooking_and_eating',
+    'drinks',
+    'food',
+    'art',
+    'film_and_theatre',
+    'literature_and_writing',
+    'music',
+    'tv_radio_and_news',
+  ];
+
   late Box<Word> _wordsBox;
+  late Box<List<Word>> _topicsBox;
+  late Box<List<Word>> _animalsBox;
 
   Box<Word> get wordsBox => _wordsBox;
+
+  Box<List<Word>> get animalsBox => _animalsBox;
+
+  Box<List<Word>> get topicsBox => _topicsBox;
 
   @factoryMethod // Phương thức khởi tạo đặc biệt
   static Future<HiveConfig> create() async {
@@ -40,5 +69,8 @@ class HiveConfig {
     Hive.registerAdapter(ScheduledNotificationAdapter());
     // Mở box
     _wordsBox = await Hive.openBox<Word>(_wordKey);
+    _topicsBox = await Hive.openBox<List<Word>>(_topicsKey);
+
+    _animalsBox = await Hive.openBox<List<Word>>(_listKey[0]);
   }
 }

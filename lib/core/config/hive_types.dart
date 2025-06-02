@@ -7,4 +7,5 @@ class HiveTypes {
   static const wordStatus = 3;
   static const settingsSnapshot = 4;
   static const scheduledNotification = 5;
+  static const topicMetadata = 6;
 }

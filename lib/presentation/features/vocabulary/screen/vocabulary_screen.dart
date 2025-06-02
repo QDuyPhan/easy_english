@@ -1,4 +1,3 @@
-import 'package:easy_english/core/config/app_config.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
 import 'package:easy_english/core/utils/widgets/svg_button.dart';
@@ -6,6 +5,7 @@ import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_event.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_state.dart';
+import 'package:easy_english/presentation/features/vocabulary/widgets/search_box.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/word_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +18,8 @@ class VocabularyScreen extends StatefulWidget {
 }
 
 class _VocabularyScreenState extends State<VocabularyScreen> {
+  bool _showSearch = false;
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -42,13 +44,12 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
                       title: 'Vocabulary',
                       actions: [
                         SvgButton(
-                          svg: Assets.svgSearch,
-                          onPressed: () {
-
-                          },
+                          svg: _showSearch ? Assets.svgClose : Assets.svgSearch,
+                          onPressed: _isOpenSearch,
                         ),
                       ],
                     ),
+                    SearchBox(isSearch: _showSearch),
                     Expanded(
                       child: ListView.builder(
                         itemCount: state.words.length,
@@ -62,30 +63,16 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
                 ),
               );
             }
-            return const Center(child: Text('Press button to load words'));
+            return const Center(child: CircularProgressIndicator());
           },
         ),
-        // floatingActionButton: Column(
-        //   mainAxisAlignment: MainAxisAlignment.end,
-        //   children: [
-        //     FloatingActionButton(
-        //       onPressed: () {
-        //         context.read<VocabularyBloc>().add(const GetAllOxfordWords());
-        //       },
-        //       child: const Icon(Icons.refresh),
-        //       heroTag: 'refresh',
-        //     ),
-        //     const SizedBox(height: 10),
-        //     FloatingActionButton(
-        //       onPressed: () {
-        //         // context.read<VocabularyBloc>().add(const AddWordRandomly());
-        //       },
-        //       child: const Icon(Icons.add),
-        //       heroTag: 'add',
-        //     ),
-        //   ],
-        // ),
       ),
     );
+  }
+
+  void _isOpenSearch() {
+    setState(() {
+      _showSearch = !_showSearch;
+    });
   }
 }

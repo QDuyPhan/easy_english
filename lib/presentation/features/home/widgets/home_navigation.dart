@@ -10,15 +10,15 @@ class HomeNavigation extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
 
   static const routes = [
-    RoutePaths.vocabulary,
+    RoutePaths.home,
     RoutePaths.translate,
     RoutePaths.grammar,
-    RoutePaths.home,
+    RoutePaths.topics,
     RoutePaths.settings,
   ];
 
   static const icons = [
-    Assets.svgBook,
+    Assets.svgHouse,
     Assets.svgTranslate,
     Assets.svgBookOpenText,
     Assets.svgBookmarks,
@@ -26,10 +26,10 @@ class HomeNavigation extends StatefulWidget {
   ];
 
   static const labels = [
-    "Vocabulary",
+    "Home",
     "Translate",
     "Grammar",
-    "Studying",
+    "Topics",
     "Settings",
   ];
 

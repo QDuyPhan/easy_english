@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 class GetAllOxfordWordsUseCase {
   final OxfordWordsRepository _oxfordWordsRepository;
 
-  GetAllOxfordWordsUseCase(this._oxfordWordsRepository);
+  const GetAllOxfordWordsUseCase(this._oxfordWordsRepository);
 
   List<WordEntity> execute() {
     return _oxfordWordsRepository.getAllOxfordWords();

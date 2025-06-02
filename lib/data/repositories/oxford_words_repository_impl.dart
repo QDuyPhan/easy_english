@@ -41,6 +41,7 @@ class OxfordWordsRepositoryImpl implements OxfordWordsRepository {
           (await _assetsData.getAllOxfordWords())
               .mapIndexed((index, word) => word.copyWith(index: index + 1))
               .toList();
+      app_config.printLog('i', "${words.map((e) => e.word).toList()}");
       await _localData.saveWords(words);
     } catch (e) {
       app_config.printLog('e', 'Failed to init data: $e');

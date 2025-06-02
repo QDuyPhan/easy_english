@@ -18,19 +18,23 @@ class CustomAppbar extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          if (leading.isNotEmpty) ...leading else const SizedBox(width: 24),
-          Text(
-            title,
-            style: textTheme.titleLarge?.copyWith(
-              color: colorScheme.primary,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              if (leading.isNotEmpty) ...leading else const SizedBox(width: 24),
+              Text(
+                title,
+                style: textTheme.titleLarge?.copyWith(
+                  color: colorScheme.primary,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              if (actions.isNotEmpty) ...actions else const SizedBox(width: 24),
+            ],
           ),
-          if (actions.isNotEmpty) ...actions else const SizedBox(width: 24),
         ],
       ),
     );
