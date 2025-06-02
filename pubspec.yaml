@@ -120,6 +120,8 @@ flutter:
     - assets/json/topics/communication/
     - assets/json/topics/food_and_drink/
     - assets/json/topics/culture/
+    - assets/json/topics/functions/
+    - assets/json/topics/health/
     - assets/fonts/
     - assets/lottie/
     - assets/md/

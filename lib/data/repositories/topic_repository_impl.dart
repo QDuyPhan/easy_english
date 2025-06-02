@@ -39,9 +39,12 @@ class TopicRepositoryImpl implements TopicRepository {
   @override
   Future<void> initData() async {
     try {
-      final List<Word> animalsTopic =
-          await _assetsData.readFromJsonAnimalsTopic();
-      await _localData.saveAnimalsTopics('animals', animalsTopic);
+      // Load animals topic as an example
+      final List<Word> animalsTopic = await _assetsData.readFromJsonTopic(
+        'animals',
+        'animals',
+      );
+      await _localData.saveTopic('animals', 'animals', animalsTopic);
     } catch (e) {
       app_config.printLog('e', 'Failed to init data: $e');
       throw Exception('Failed to init data: $e');
@@ -49,10 +52,14 @@ class TopicRepositoryImpl implements TopicRepository {
   }
 
   @override
-  Future<Either<Failure, void>> saveAnimalsTopic(WordEntity word) async {
+  Future<Either<Failure, void>> saveTopic(
+    String folder,
+    String topic,
+    WordEntity word,
+  ) async {
     try {
       final model = _appMappr.convert<WordEntity, Word>(word);
-      await _localData.saveAnimalsTopics('animals', model as List<Word>);
+      await _localData.saveTopic(folder, topic, model as List<Word>);
       return Right(null);
     } catch (e) {
       return Left(Failure.general(message: 'Failed to save word'));
@@ -60,18 +67,19 @@ class TopicRepositoryImpl implements TopicRepository {
   }
 
   @override
-  List<WordEntity> getAnimalsTopic() {
+  List<WordEntity> getTopic(String folder, String topic) {
     try {
-      final animalsTopic = _localData.getAnimalsTopics('animals')!;
-      if (animalsTopic.isEmpty) {
-        app_config.printLog('e', 'Animals topic is empty');
+      final topicWords = _localData.getTopic(folder, topic);
+      if (topicWords == null || topicWords.isEmpty) {
+        app_config.printLog('e', 'Topic $folder/$topic is empty');
+        return [];
       }
-      return animalsTopic
+      return topicWords
           .map((word) => _appMappr.convert<Word, WordEntity>(word))
           .toList();
     } catch (e) {
-      app_config.printLog('e', 'Failed to init data: $e');
-      throw Exception('Failed to init data: $e');
+      app_config.printLog('e', 'Failed to get topic $folder/$topic: $e');
+      throw Exception('Failed to get topic $folder/$topic: $e');
     }
   }
 

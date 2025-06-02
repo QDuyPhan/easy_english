@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 class InitDataUseCase {
   final OxfordWordsRepository _oxfordWordsRepository;
 
-  InitDataUseCase(this._oxfordWordsRepository);
+  const InitDataUseCase(this._oxfordWordsRepository);
 
   Future<void> execute() async {
     await _oxfordWordsRepository.initData();

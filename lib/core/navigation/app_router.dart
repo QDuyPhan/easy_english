@@ -5,6 +5,7 @@ import 'package:easy_english/presentation/features/grammar/screen/grammar_screen
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
+import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
 import 'package:easy_english/presentation/features/topics/screen/topics_screen.dart';
 import 'package:easy_english/presentation/features/translate/screen/translate_screen.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
@@ -27,6 +28,7 @@ class AppRouter {
           return MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => di.getIt<VocabularyBloc>()),
+              BlocProvider(create: (context) => di.getIt<TopicsBloc>()),
             ],
             child: HomeNavigation(
               state: state,

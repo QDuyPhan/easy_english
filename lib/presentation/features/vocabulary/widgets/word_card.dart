@@ -45,27 +45,26 @@ class WordCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      SvgButton(
-                        svg: Assets.svgStarOutline,
-                        size: 16,
-                        backgroundColor:
-                            word.status == WordStatus.star
-                                ? colorScheme.primary
-                                : colorScheme.surface,
-                        color:
-                            word.status == WordStatus.star
-                                ? colorScheme.primaryContainer
-                                : colorScheme.onPrimaryContainer,
-                      ),
                     ],
                   ),
-                  Spacer(),
-                  ...List.generate(
-                    pos.length,
-                    (index) => Padding(
-                      padding: const EdgeInsets.only(right: 4),
-                      child: PosBadge(word: pos[index]),
+                  const SizedBox(width: 8),
+                  Flexible(
+                    child: Wrap(
+                      spacing: 4,
+                      children: pos.map((p) => PosBadge(word: p)).toList(),
                     ),
+                  ),
+                  SvgButton(
+                    svg: Assets.svgStarOutline,
+                    size: 16,
+                    backgroundColor:
+                        word.status == WordStatus.star
+                            ? colorScheme.primary
+                            : colorScheme.surface,
+                    color:
+                        word.status == WordStatus.star
+                            ? colorScheme.primaryContainer
+                            : colorScheme.onPrimaryContainer,
                   ),
                 ],
               ),

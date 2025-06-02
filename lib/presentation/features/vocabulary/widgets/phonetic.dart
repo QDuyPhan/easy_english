@@ -11,8 +11,8 @@ class Phonetic extends StatefulWidget {
 
   const Phonetic({
     super.key,
-    required this.phonetic,
-    required this.phoneticText,
+    this.phonetic = '',
+    this.phoneticText = '',
     required this.backgroundColor,
     this.flag,
   });
@@ -31,13 +31,15 @@ class _PhoneticState extends State<Phonetic> {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SvgButton(
-              svg: Assets.svgVolume,
-              size: 16,
-              color: AppColor.black0,
-              backgroundColor: widget.backgroundColor,
-              onPressed: _playSound,
-            ),
+            (widget.phonetic.isNotEmpty && widget.phoneticText.isNotEmpty)
+                ? SvgButton(
+                  svg: Assets.svgVolume,
+                  size: 16,
+                  color: AppColor.black0,
+                  backgroundColor: widget.backgroundColor,
+                  onPressed: _playSound,
+                )
+                : SizedBox.shrink(),
             SizedBox(width: 8),
             Text(
               widget.phoneticText,

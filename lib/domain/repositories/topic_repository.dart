@@ -5,9 +5,13 @@ import 'package:easy_english/domain/entities/word_entity.dart';
 abstract interface class TopicRepository {
   Future<void> initData();
 
-  Future<Either<Failure, void>> saveAnimalsTopic(WordEntity word);
+  Future<Either<Failure, void>> saveTopic(
+    String folder,
+    String topic,
+    WordEntity word,
+  );
 
-  List<WordEntity> getAnimalsTopic();
+  List<WordEntity> getTopic(String folder, String topic);
 
   // List<WordEntity> getAllTopics();
   //

@@ -9,6 +9,11 @@ abstract interface class LocalData {
   List<Word> getWords();
 
   Future<void> saveWord(Word word);
+
+  // Topics
+  Future<void> saveTopic(String folder, String topic, List<Word> words);
+
+  List<Word>? getTopic(String folder, String topic);
 }
 
 @LazySingleton(as: LocalData)
@@ -41,6 +46,26 @@ class LocalDataImpl implements LocalData {
     } catch (e) {
       app_config.printLog('e', "Error saving words: $e");
       throw Exception("Error saving words: $e");
+    }
+  }
+
+  @override
+  Future<void> saveTopic(String folder, String topic, List<Word> words) async {
+    try {
+      await _hiveConfig.topicsBox.put('$folder/$topic', words);
+    } catch (e) {
+      app_config.printLog('e', "Error saving topic $folder/$topic: $e");
+      throw Exception("Error saving topic $folder/$topic: $e");
+    }
+  }
+
+  @override
+  List<Word>? getTopic(String folder, String topic) {
+    try {
+      return _hiveConfig.topicsBox.get('$folder/$topic');
+    } catch (e) {
+      app_config.printLog('e', "Error get topic $folder/$topic: $e");
+      throw Exception("Error get topic $folder/$topic: $e");
     }
   }
 }
