@@ -21,21 +21,28 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
   bool _showSearch = false;
 
   @override
+  void initState() {
+    super.initState();
+    final bloc = di.getIt<VocabularyBloc>();
+    if (bloc.state is VocabularyInitial) {
+      bloc.add(const GetAllOxfordWords());
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return BlocProvider.value(
-      value: di.getIt<VocabularyBloc>()..add(const GetAllOxfordWords()),
+      value: di.getIt<VocabularyBloc>(),
       child: Scaffold(
         body: BlocBuilder<VocabularyBloc, VocabularyState>(
           builder: (context, state) {
-            // if (state is VocabularyInitial) {
-            //   return const Center(child: CircularProgressIndicator());
-            // } else if (state is VocabularyLoading) {
-            //   return const Center(child: CircularProgressIndicator());
-            // } else if (state is VocabularyError) {
-            //   return Center(child: Text(state.message));
-            // }
+            if (state is VocabularyLoading) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is VocabularyError) {
+              return Center(child: Text(state.message));
+            }
             if (state is VocabularyLoaded) {
               return Column(
                 children: [
