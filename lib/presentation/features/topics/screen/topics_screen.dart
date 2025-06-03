@@ -99,7 +99,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
                       color: colorScheme.onSurfaceVariant,
                     ),
                   ),
-                );
+              );
               }
 
               return Column(

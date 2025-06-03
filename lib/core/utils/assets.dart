@@ -17,7 +17,7 @@ class Assets {
       'music',
       'tv_radio_and_news',
     ],
-    'food_and_Drink': ['cooking_and_eating', 'drinks', 'food'],
+    'food_and_drink': ['cooking_and_eating', 'drinks', 'food'],
     'functions': [
       'discussion_and_agreement',
       'doubt_guessing_and_certainty',

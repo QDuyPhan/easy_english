@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:easy_english/core/config/hive_config.dart';
 import 'package:easy_english/core/errors/failure.dart';
 import 'package:easy_english/core/mapper/app_mappr.dart';
+import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/data/datasources/local/assets_data.dart';
 import 'package:easy_english/data/datasources/local/local_data.dart';
 import 'package:easy_english/data/models/word.dart';
@@ -28,23 +29,30 @@ class TopicRepositoryImpl implements TopicRepository {
        _localData = localData,
        _appMappr = appMappr;
 
-  // @override
-  // List<WordEntity> getAllTopics() {
-  //   // final wordsModel = _localData.getTopics();
-  //   return wordsModel
-  //       .map((word) => _appMappr.convert<Word, WordEntity>(word))
-  //       .toList();
-  // }
-
   @override
   Future<void> initData() async {
     try {
+      final listTopic = Assets.listTopic;
+      listTopic.forEach((key, value) async {
+        final folder = key;
+        for (var topic in value) {
+          final List<Word> list = await _assetsData.readFromJsonTopic(
+            folder.toLowerCase(),
+            topic.toLowerCase(),
+          );
+          await _localData.saveTopic(
+            folder.toLowerCase(),
+            topic.toLowerCase(),
+            list,
+          );
+        }
+      });
       // Load animals topic as an example
-      final List<Word> animalsTopic = await _assetsData.readFromJsonTopic(
-        'animals',
-        'animals',
-      );
-      await _localData.saveTopic('animals', 'animals', animalsTopic);
+      // final List<Word> animalsTopic = await _assetsData.readFromJsonTopic(
+      //   'animals',
+      //   'animals',
+      // );
+      // await _localData.saveTopic('animals', 'animals', animalsTopic);
     } catch (e) {
       app_config.printLog('e', 'Failed to init data: $e');
       throw Exception('Failed to init data: $e');
@@ -82,21 +90,4 @@ class TopicRepositoryImpl implements TopicRepository {
       throw Exception('Failed to get topic $folder/$topic: $e');
     }
   }
-
-  // @override
-  // Future<Either<Failure, void>> saveWord(WordEntity word) {
-  //   // TODO: implement saveWord
-  //   throw UnimplementedError();
-  // }
-
-  // @override
-  // Future<Either<Failure, void>> saveWord(WordEntity word) async {
-  //   try {
-  //     final model = _appMappr.convert<WordEntity, Word>(word);
-  //     await _localData.saveTopic(model);
-  //     return Right(null);
-  //   } catch (e) {
-  //     return Left(Failure.general(message: 'Failed to save word'));
-  //   }
-  // }
 }
