@@ -125,6 +125,7 @@ flutter:
     - assets/json/topics/health/
     - assets/json/topics/homes_and_buildings/
     - assets/json/topics/leisure/
+    - assets/json/topics/notions/
     - assets/fonts/
     - assets/lottie/
     - assets/md/
