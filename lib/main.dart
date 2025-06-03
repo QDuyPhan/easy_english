@@ -6,12 +6,22 @@ import 'package:easy_english/domain/usecases/init_data_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter/services.dart';
 
 import 'core/config/app_config.dart';
 import 'presentation/observers/my_bloc_observer.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor:
+          Colors.transparent, // Cho phép background kéo lên tận status bar
+      statusBarIconBrightness:
+          Brightness.dark, // Đổi thành light nếu status bar tối
+    ),
+  );
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.setupDependencies();
   Bloc.observer = MyBlocObserver();

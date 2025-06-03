@@ -35,6 +35,12 @@ class Assets {
     ],
     'homes_and_buildings': ['buildings', 'gardens', 'houses_and_homes'],
     'leisure': ['games_and_toys', 'hobbies', 'shopping'],
+    'notions': [
+      'change_cause_and_effect',
+      'danger',
+      'difficulty_and_failure',
+      'success',
+    ],
   };
 
   static const String fontsSFProDisplayBlack =

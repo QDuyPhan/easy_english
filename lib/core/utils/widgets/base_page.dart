@@ -20,13 +20,11 @@ class BasePage extends StatelessWidget {
     final backgroundColor = Theme.of(context).colorScheme.background;
     return Container(
       decoration: BoxDecoration(color: backgroundColor),
-      child: SafeArea(
-        child: Column(
-          children: [
-            CustomAppbar(title: title, actions: actions),
-            Expanded(child: Padding(padding: padding, child: child)),
-          ],
-        ),
+      child: Column(
+        children: [
+          CustomAppbar(title: title, actions: actions),
+          Expanded(child: Padding(padding: padding, child: child)),
+        ],
       ),
     );
   }

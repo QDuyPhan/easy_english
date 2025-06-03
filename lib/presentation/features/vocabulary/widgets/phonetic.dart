@@ -1,7 +1,10 @@
 import 'package:easy_english/core/config/app_color.dart';
+import 'package:easy_english/core/config/app_config.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/svg_button.dart';
+import 'package:easy_english/di/injector.dart' as di;
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class Phonetic extends StatefulWidget {
   final String phonetic;
@@ -22,6 +25,8 @@ class Phonetic extends StatefulWidget {
 }
 
 class _PhoneticState extends State<Phonetic> {
+  final _player = di.getIt<AudioPlayer>();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -51,5 +56,12 @@ class _PhoneticState extends State<Phonetic> {
     );
   }
 
-  void _playSound() async {}
+  void _playSound() async {
+    try {
+      await _player.setUrl(widget.phonetic);
+      await _player.play();
+    } catch (e) {
+      app_config.printLog('e', 'Error play sound: $e');
+    }
+  }
 }

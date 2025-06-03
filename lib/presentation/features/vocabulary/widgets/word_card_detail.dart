@@ -68,7 +68,7 @@ class WordCardDetail extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  SvgPicture.asset(Assets.svgFlagUS, height: 24),
+                  SvgPicture.asset(Assets.svgFlagUK, height: 24),
                   SizedBox(width: 10),
                   Phonetic(
                     phonetic: word.phonetic,
@@ -81,7 +81,7 @@ class WordCardDetail extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  SvgPicture.asset(Assets.svgFlagUK, height: 24),
+                  SvgPicture.asset(Assets.svgFlagUS, height: 24),
                   SizedBox(width: 10),
                   Phonetic(
                     phonetic: word.phoneticAm,

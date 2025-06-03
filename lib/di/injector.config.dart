@@ -10,7 +10,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:just_audio/just_audio.dart' as _i501;
 
+import '../core/audio/audio_player_provider.dart' as _i461;
 import '../core/config/hive_config.dart' as _i719;
 import '../core/mapper/app_mappr.dart' as _i556;
 import '../data/datasources/local/assets_data.dart' as _i481;
@@ -38,11 +40,13 @@ Future<_i174.GetIt> $initGetIt(
     environment,
     environmentFilter,
   );
+  final audioPlayerModule = _$AudioPlayerModule();
   gh.factory<_i556.AppMappr>(() => _i556.AppMappr());
   await gh.singletonAsync<_i719.HiveConfig>(
     () => _i719.HiveConfig.create(),
     preResolve: true,
   );
+  gh.lazySingleton<_i501.AudioPlayer>(() => audioPlayerModule.audioPlayer());
   gh.lazySingleton<_i481.AssetsData>(
       () => _i481.AssetsDataImpl(hiveConfig: gh<_i719.HiveConfig>()));
   gh.lazySingleton<_i614.LocalData>(
@@ -73,3 +77,5 @@ Future<_i174.GetIt> $initGetIt(
       () => _i282.TopicsBloc(getAllTopics: gh<_i206.GetTopicsUsecase>()));
   return getIt;
 }
+
+class _$AudioPlayerModule extends _i461.AudioPlayerModule {}

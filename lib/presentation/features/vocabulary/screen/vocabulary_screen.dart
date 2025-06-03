@@ -37,30 +37,28 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
             //   return Center(child: Text(state.message));
             // }
             if (state is VocabularyLoaded) {
-              return SafeArea(
-                child: Column(
-                  children: [
-                    CustomAppbar(
-                      title: 'Vocabulary',
-                      actions: [
-                        SvgButton(
-                          svg: _showSearch ? Assets.svgClose : Assets.svgSearch,
-                          onPressed: _isOpenSearch,
-                        ),
-                      ],
-                    ),
-                    SearchBox(isSearch: _showSearch),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: state.words.length,
-                        itemBuilder: (context, index) {
-                          final word = state.words[index];
-                          return WordCard(word: word);
-                        },
+              return Column(
+                children: [
+                  CustomAppbar(
+                    title: 'Vocabulary',
+                    actions: [
+                      SvgButton(
+                        svg: _showSearch ? Assets.svgClose : Assets.svgSearch,
+                        onPressed: _isOpenSearch,
                       ),
+                    ],
+                  ),
+                  SearchBox(isSearch: _showSearch),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: state.words.length,
+                      itemBuilder: (context, index) {
+                        final word = state.words[index];
+                        return WordCard(word: word);
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               );
             }
             return const Center(child: CircularProgressIndicator());

@@ -47,12 +47,6 @@ class TopicRepositoryImpl implements TopicRepository {
           );
         }
       });
-      // Load animals topic as an example
-      // final List<Word> animalsTopic = await _assetsData.readFromJsonTopic(
-      //   'animals',
-      //   'animals',
-      // );
-      // await _localData.saveTopic('animals', 'animals', animalsTopic);
     } catch (e) {
       app_config.printLog('e', 'Failed to init data: $e');
       throw Exception('Failed to init data: $e');

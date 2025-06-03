@@ -52,10 +52,12 @@ class _HomeNavigationState extends State<HomeNavigation> {
     final selectedColor = colorScheme.primary;
     final unselectedColor = Colors.grey[600]!;
     return Scaffold(
-      body: Stack(
-        children: [
-          Column(children: [Flexible(child: widget.navigationShell)]),
-        ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Column(children: [Flexible(child: widget.navigationShell)]),
+          ],
+        ),
       ),
       // Hiển thị nội dung của tab hiện tại
       bottomNavigationBar: Theme(
