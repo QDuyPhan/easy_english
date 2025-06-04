@@ -41,6 +41,13 @@ class Assets {
       'difficulty_and_failure',
       'success',
     ],
+    'people': [
+      'education',
+      'family_and_relationships',
+      'feelings',
+      'life_stages',
+      'personal_qualities',
+    ],
   };
 
   static const String fontsSFProDisplayBlack =
@@ -174,6 +181,9 @@ class Assets {
   static const String svgSearch = 'assets/svg/search.svg';
   static const String svgClose = 'assets/svg/close.svg';
   static const String svgHouse = 'assets/svg/house.svg';
+  static const String svgUser = 'assets/svg/user.svg';
+  static const String svgGrammar = 'assets/svg/grammar.svg';
+  static const String svgDictionary = 'assets/svg/dictionary.svg';
   static const String ilustrationhomepage =
       'assets/svg/ilustrationhomepage.svg';
 

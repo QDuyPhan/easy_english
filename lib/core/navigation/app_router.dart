@@ -1,18 +1,17 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/entities/word_entity.dart';
+import 'package:easy_english/presentation/features/dictionary/screen/dictionary_screen.dart';
 import 'package:easy_english/presentation/features/grammar/screen/grammar_screen.dart';
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
-import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
+import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
 import 'package:easy_english/presentation/features/studing/screen/studying_screen.dart';
 import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
 import 'package:easy_english/presentation/features/topics/screen/topic_category_screen.dart';
 import 'package:easy_english/presentation/features/topics/screen/topics_screen.dart';
-import 'package:easy_english/presentation/features/translate/screen/translate_screen.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_detail_screen.dart';
-import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -51,23 +50,47 @@ class AppRouter {
                   );
                 },
               ),
+              // GoRoute(
+              //   path: RoutePaths.vocabulary,
+              //   pageBuilder: (context, state) {
+              //     // final extra = state.extra as Map<String, dynamic>?;
+              //     // final word = extra?['word'] as WordEntity;
+              //     return CustomTransitionPage(
+              //       key: state.pageKey,
+              //       child: VocabularyScreen(),
+              //       transitionsBuilder: (
+              //         context,
+              //         animation,
+              //         secondaryAnimation,
+              //         child,
+              //       ) {
+              //         return FadeTransition(opacity: animation, child: child);
+              //       },
+              //       transitionDuration: Duration(milliseconds: 500),
+              //     );
+              //   },
+              // ),
+              // GoRoute(
+              //   path: RoutePaths.vocabularyDetails,
+              //   pageBuilder: (context, state) {
+              //     final extra = state.extra as Map<String, dynamic>?;
+              //     final word = extra?['word'] as WordEntity;
+              //     return SwipeablePage(
+              //       key: state.pageKey,
+              //       builder: (context) => VocabularyDetailScreen(word: word),
+              //     );
+              //   },
+              // ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
               GoRoute(
-                path: RoutePaths.vocabulary,
+                path: RoutePaths.dictionary,
                 pageBuilder: (context, state) {
-                  // final extra = state.extra as Map<String, dynamic>?;
-                  // final word = extra?['word'] as WordEntity;
-                  return CustomTransitionPage(
+                  return NoTransitionPage(
                     key: state.pageKey,
-                    child: VocabularyScreen(),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      return FadeTransition(opacity: animation, child: child);
-                    },
-                    transitionDuration: Duration(milliseconds: 500),
+                    child: DictionaryScreen(),
                   );
                 },
               ),
@@ -77,10 +100,9 @@ class AppRouter {
                   final extra = state.extra as Map<String, dynamic>?;
                   final folder = extra?['folder'] as String? ?? '';
                   final topic = extra?['topic'] as String? ?? '';
-                  return SwipeablePage(
+                  return NoTransitionPage(
                     key: state.pageKey,
-                    builder:
-                        (context) => TopicsScreen(folder: folder, topic: topic),
+                    child: TopicsScreen(folder: folder, topic: topic),
                   );
                 },
               ),
@@ -88,13 +110,11 @@ class AppRouter {
                 path: RoutePaths.topicCategory,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
-                  final listCategory =
+                  final topicEntry =
                       extra?['topics'] as MapEntry<String, List<String>>;
-                  return SwipeablePage(
+                  return NoTransitionPage(
                     key: state.pageKey,
-                    builder:
-                        (context) =>
-                            TopicCategoryScreen(topicEntry: listCategory),
+                    child: TopicCategoryScreen(topicEntry: topicEntry),
                   );
                 },
               ),
@@ -108,27 +128,6 @@ class AppRouter {
                     builder: (context) => VocabularyDetailScreen(word: word),
                   );
                 },
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: RoutePaths.translate,
-                pageBuilder:
-                    (context, state) => CustomTransitionPage(
-                      key: state.pageKey,
-                      child: TranslateScreen(),
-                      transitionsBuilder: (
-                        context,
-                        animation,
-                        secondaryAnimation,
-                        child,
-                      ) {
-                        return FadeTransition(opacity: animation, child: child);
-                      },
-                      transitionDuration: Duration(milliseconds: 500),
-                    ),
               ),
             ],
           ),
@@ -150,6 +149,20 @@ class AppRouter {
                       },
                       transitionDuration: Duration(milliseconds: 500),
                     ),
+              ),
+              GoRoute(
+                path: RoutePaths.topicCategory,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final listCategory =
+                      extra?['topics'] as MapEntry<String, List<String>>;
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder:
+                        (context) =>
+                            TopicCategoryScreen(topicEntry: listCategory),
+                  );
+                },
               ),
             ],
           ),
@@ -200,11 +213,11 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.settings,
+                path: RoutePaths.profile,
                 pageBuilder:
                     (context, state) => CustomTransitionPage(
                       key: state.pageKey,
-                      child: SettingsScreen(),
+                      child: ProfileScreen(),
                       transitionsBuilder: (
                         context,
                         animation,

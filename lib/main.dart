@@ -4,9 +4,9 @@ import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/usecases/init_data_topics.dart';
 import 'package:easy_english/domain/usecases/init_data_usecase.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:flutter/services.dart';
 
 import 'core/config/app_config.dart';
 import 'presentation/observers/my_bloc_observer.dart';
@@ -16,10 +16,8 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor:
-          Colors.transparent,
-      statusBarIconBrightness:
-          Brightness.light,
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
     ),
   );
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -58,7 +56,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final fontFamily = 'SF Pro Display';
+    final fontFamily = 'WorkSans';
     return FutureBuilder(
       future: _initialization,
       builder: (context, snapshot) {
