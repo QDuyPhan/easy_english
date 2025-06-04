@@ -32,6 +32,7 @@ class WordCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
@@ -69,7 +70,8 @@ class WordCard extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 5),
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Phonetic(
                     phonetic: word.phonetic,

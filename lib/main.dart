@@ -17,9 +17,9 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       statusBarColor:
-          Colors.transparent, // Cho phép background kéo lên tận status bar
+          Colors.transparent,
       statusBarIconBrightness:
-          Brightness.dark, // Đổi thành light nếu status bar tối
+          Brightness.light,
     ),
   );
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);

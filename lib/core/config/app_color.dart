@@ -51,6 +51,7 @@ class AppColor {
   static const Color info20 = Color(0xFFD4E7F4);
 
   static const Color boxColor = Color(0xFFDBF6FF);
+
   // POS badge colors (for vocabulary app)
   static const Map<String, Color> posBadgeColors = {
     'noun': Color(0xFF42A5F5), // Blue for nouns
@@ -59,36 +60,22 @@ class AppColor {
     'adverb': Color(0xFFFFB300), // Yellow for adverbs
   };
 
-  // Get color scheme for ThemeData
-  // static ColorScheme get lightColorScheme => const ColorScheme(
-  //   brightness: Brightness.light,
-  //   primary: primary,
-  //   onPrimary: onPrimary,
-  //   primaryContainer: primaryContainer,
-  //   secondary: secondary,
-  //   onSecondary: onSecondary,
-  //   secondaryContainer: secondaryContainer,
-  //   background: background,
-  //   surface: surface,
-  //   onBackground: textPrimary,
-  //   onSurface: textPrimary,
-  //   error: error,
-  //   onError: onPrimary,
-  // );
-  //
-  // static ColorScheme get darkColorScheme => const ColorScheme(
-  //   brightness: Brightness.dark,
-  //   primary: primary,
-  //   onPrimary: onPrimary,
-  //   primaryContainer: Color(0xFF1976D2), // Darker blue for dark theme
-  //   secondary: secondary,
-  //   onSecondary: onSecondary,
-  //   secondaryContainer: Color(0xFF388E3C), // Darker green for dark theme
-  //   background: Color(0xFF121212), // Dark background
-  //   surface: Color(0xFF1E1E1E), // Dark surface
-  //   onBackground: Color(0xFFE0E0E0), // Light text for dark theme
-  //   onSurface: Color(0xFFE0E0E0),
-  //   error: error,
-  //   onError: onPrimary,
-  // );
+  static const Color purple = Color(0xFFA439FF);
+  static const Color lightGreen = Color(0xFFCEEBC7);
+  static const Color lightBlue = Color(0xFFB2E5FF);
+  static const Color lightViolet = Color(0xFFEFCCFE);
+  static const Color lightPink = Color(0xFFFFD6E4);
+  static const Color blackGray = Color(0xFF524D54);
+  static const Color softCoral = Color(0xFFFFB5A7);
+  static const Color babyBlue = Color(0xFFD0F4FF);
+  static const Color mintGreen = Color(0xFFD3F8E2);
+  static const Color palePeach = Color(0xFFFFD8BE);
+  static const Color lavenderMist = Color(0xFFD7C4F0);
+  static const Color skyGray = Color(0xFFC9D6DF);
+  static const Color lemonCream = Color(0xFFFFF9B0);
+  static const Color blushRose = Color(0xFFF7C1C0);
+  static const Color softLilac = Color(0xFFE4D0F4);
+  static const Color powderBlue = Color(0xFFC1D3FE);
+  static const Color lightTeal = Color(0xFFB5F8F1);
+  static const Color lightApricot = Color(0xFFFFD4B2);
 }

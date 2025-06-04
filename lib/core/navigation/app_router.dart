@@ -16,6 +16,7 @@ import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =
@@ -44,20 +45,9 @@ class AppRouter {
               GoRoute(
                 path: RoutePaths.home,
                 pageBuilder: (context, state) {
-                  // final extra = state.extra as Map<String, dynamic>?;
-                  // final word = extra?['word'] as WordEntity;
-                  return CustomTransitionPage(
+                  return NoTransitionPage(
                     key: state.pageKey,
                     child: HomeScreen(),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      return FadeTransition(opacity: animation, child: child);
-                    },
-                    transitionDuration: Duration(milliseconds: 500),
                   );
                 },
               ),
@@ -87,18 +77,10 @@ class AppRouter {
                   final extra = state.extra as Map<String, dynamic>?;
                   final folder = extra?['folder'] as String? ?? '';
                   final topic = extra?['topic'] as String? ?? '';
-                  return CustomTransitionPage(
+                  return SwipeablePage(
                     key: state.pageKey,
-                    child: TopicsScreen(folder: folder, topic: topic),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      return FadeTransition(opacity: animation, child: child);
-                    },
-                    transitionDuration: Duration(milliseconds: 500),
+                    builder:
+                        (context) => TopicsScreen(folder: folder, topic: topic),
                   );
                 },
               ),
@@ -108,18 +90,11 @@ class AppRouter {
                   final extra = state.extra as Map<String, dynamic>?;
                   final listCategory =
                       extra?['topics'] as MapEntry<String, List<String>>;
-                  return CustomTransitionPage(
+                  return SwipeablePage(
                     key: state.pageKey,
-                    child: TopicCategoryScreen(topicEntry: listCategory),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      return FadeTransition(opacity: animation, child: child);
-                    },
-                    transitionDuration: Duration(milliseconds: 500),
+                    builder:
+                        (context) =>
+                            TopicCategoryScreen(topicEntry: listCategory),
                   );
                 },
               ),
@@ -128,36 +103,9 @@ class AppRouter {
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
                   final word = extra?['word'] as WordEntity;
-                  return CustomTransitionPage(
+                  return SwipeablePage(
                     key: state.pageKey,
-                    opaque: false,
-                    child: VocabularyDetailScreen(word: word),
-                    transitionsBuilder: (
-                      context,
-                      animation,
-                      secondaryAnimation,
-                      child,
-                    ) {
-                      const begin = Offset(1.0, 0.0); // Trượt từ phải sang trái
-                      const end = Offset.zero;
-                      const curve = Curves.easeInOut;
-                      final tween = Tween(
-                        begin: begin,
-                        end: end,
-                      ).chain(CurveTween(curve: curve));
-                      final offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: FadeTransition(
-                          opacity: CurvedAnimation(
-                            parent: animation,
-                            curve: Curves.easeInOut,
-                          ),
-                          child: child,
-                        ),
-                      );
-                    },
-                    transitionDuration: const Duration(milliseconds: 300),
+                    builder: (context) => VocabularyDetailScreen(word: word),
                   );
                 },
               ),

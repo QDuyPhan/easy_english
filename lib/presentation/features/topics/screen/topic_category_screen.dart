@@ -1,4 +1,3 @@
-import 'package:easy_english/core/config/app_config.dart';
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
