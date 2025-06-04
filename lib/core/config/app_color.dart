@@ -78,4 +78,25 @@ class AppColor {
   static const Color powderBlue = Color(0xFFC1D3FE);
   static const Color lightTeal = Color(0xFFB5F8F1);
   static const Color lightApricot = Color(0xFFFFD4B2);
+
+  static List<Color> listColor = [
+    purple,
+    lightGreen,
+    lightBlue,
+    lightViolet,
+    lightPink,
+    // blackGray,
+    softCoral,
+    babyBlue,
+    mintGreen,
+    palePeach,
+    lavenderMist,
+    skyGray,
+    lemonCream,
+    blushRose,
+    softLilac,
+    powderBlue,
+    lightTeal,
+    lightApricot,
+  ];
 }

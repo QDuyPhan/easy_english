@@ -189,4 +189,14 @@ class Assets {
 
   // image
   static const String imageTopic = 'assets/images/image_topic.jpg';
+  static const String pngCat = 'assets/png/cat.png';
+  static const String pngAppearance = 'assets/png/appearance.png';
+  static const String pngCommunication = 'assets/png/communication.png';
+  static const String pngCulture = 'assets/png/culture.png';
+  static const String pngFoodAndDrink = 'assets/png/food_and_drink.png';
+  static const String pngFunction = 'assets/png/function.png';
+  static const String pngHealth = 'assets/png/health.png';
+  static const String pngHomeAndBuilding = 'assets/png/home_and_building.png';
+  static const String pngLeisure = 'assets/png/leisure.png';
+  static const String pngNotions = 'assets/png/notions.png';
 }

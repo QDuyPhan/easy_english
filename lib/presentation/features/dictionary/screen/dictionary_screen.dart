@@ -1,8 +1,12 @@
 import 'package:easy_english/core/config/app_color.dart';
+import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/core/utils/assets.dart';
-import 'package:easy_english/presentation/features/home/widgets/topic_box.dart';
+import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
+import 'package:easy_english/core/utils/widgets/svg_button.dart';
+import 'package:easy_english/presentation/features/topics/widgets/topic_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
 
 class DictionaryScreen extends StatefulWidget {
   const DictionaryScreen({super.key});
@@ -20,49 +24,30 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     return Scaffold(
       body: Column(
         children: [
-          // Container(
-          //   height: height * 0.2,
-          //   decoration: BoxDecoration(
-          //     gradient: LinearGradient(
-          //       colors: [AppColor.primary40, AppColor.primary60],
-          //       stops: [0.0, 0.7],
-          //       begin: Alignment.topCenter,
-          //       end: Alignment.bottomCenter,
-          //     ),
-          //   ),
-          // ),
+          CustomAppbar(
+            title: 'Mini Dictionary',
+            actions: [SvgButton(svg: Assets.svgSearch, onPressed: _openSearch)],
+          ),
           Expanded(
-            child: Column(
-              children: [
-                Text(
-                  'Chose your topic',
-                  style: textTheme.titleLarge?.copyWith(
-                    color: colorScheme.onPrimaryContainer,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Expanded(
-                  child: MasonryGridView.count(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 12,
-                    padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-                    crossAxisSpacing: 12,
-                    physics: BouncingScrollPhysics(),
-                    itemCount: Assets.listTopic.length,
-                    itemBuilder: (context, index) {
-                      final entry = Assets.listTopic.entries.elementAt(index);
-                      return TopicBox(topicEntry: entry);
-                    },
-                  ),
-                ),
-              ],
+            child: MasonryGridView.count(
+              crossAxisCount: 2,
+              mainAxisSpacing: 12,
+              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+              crossAxisSpacing: 12,
+              physics: BouncingScrollPhysics(),
+              itemCount: Assets.listTopic.length,
+              itemBuilder: (context, index) {
+                final entry = Assets.listTopic.entries.elementAt(index);
+                return TopicBox(topicEntry: entry, index: index);
+              },
             ),
           ),
-          // FloatingActionButton(onPressed: () {
-          //   context.push(RoutePaths.vocabulary);
-          // }),
         ],
       ),
     );
+  }
+
+  void _openSearch() {
+    context.push(RoutePaths.search);
   }
 }

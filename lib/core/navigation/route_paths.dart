@@ -18,4 +18,5 @@ class RoutePaths {
   static const String topics = '/topics';
   static const String studying = '/studying';
   static const String dictionary = '/dictionary';
+  static const String search = '/search';
 }

@@ -39,6 +39,8 @@ class WordCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         word.word,
                         style: textTheme.titleLarge?.copyWith(
                           color: colorScheme.onPrimaryContainer,

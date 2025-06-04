@@ -6,6 +6,7 @@ import 'package:easy_english/presentation/features/grammar/screen/grammar_screen
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
+import 'package:easy_english/presentation/features/search/screen/search_screen.dart';
 import 'package:easy_english/presentation/features/studing/screen/studying_screen.dart';
 import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
 import 'package:easy_english/presentation/features/topics/screen/topic_category_screen.dart';
@@ -100,9 +101,10 @@ class AppRouter {
                   final extra = state.extra as Map<String, dynamic>?;
                   final folder = extra?['folder'] as String? ?? '';
                   final topic = extra?['topic'] as String? ?? '';
-                  return NoTransitionPage(
+                  return SwipeablePage(
                     key: state.pageKey,
-                    child: TopicsScreen(folder: folder, topic: topic),
+                    builder:
+                        (context) => TopicsScreen(folder: folder, topic: topic),
                   );
                 },
               ),
@@ -112,9 +114,11 @@ class AppRouter {
                   final extra = state.extra as Map<String, dynamic>?;
                   final topicEntry =
                       extra?['topics'] as MapEntry<String, List<String>>;
-                  return NoTransitionPage(
+                  return SwipeablePage(
                     key: state.pageKey,
-                    child: TopicCategoryScreen(topicEntry: topicEntry),
+                    builder:
+                        (context) =>
+                            TopicCategoryScreen(topicEntry: topicEntry),
                   );
                 },
               ),
@@ -209,7 +213,6 @@ class AppRouter {
               ),
             ],
           ),
-
           StatefulShellBranch(
             routes: [
               GoRoute(
@@ -232,6 +235,15 @@ class AppRouter {
             ],
           ),
         ],
+      ),
+      GoRoute(
+        path: RoutePaths.search,
+        pageBuilder: (context, state) {
+          return SwipeablePage(
+            key: state.pageKey,
+            builder: (context) => SearchScreen(),
+          );
+        },
       ),
     ],
     errorBuilder:
