@@ -154,6 +154,16 @@ class _TopicsScreenState extends State<TopicsScreen> {
       final currentWord = state.words[_curIndexNum];
       final totalWords = state.words.length;
 
+      final definition = currentWord.senses.first.definition;
+      final example = currentWord.senses.first.examples.first.x;
+      if (state.words.isEmpty) {
+        return Text('');
+      }
+      {
+        final definition = currentWord.senses.first.definition;
+        final example = currentWord.senses.first.examples.first.x;
+      }
+
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -167,12 +177,12 @@ class _TopicsScreenState extends State<TopicsScreen> {
           Expanded(
             child: Center(
               child: CustomFlashcards(
-                front: currentWord.word!.toUpperCase(),
-                back: currentWord.phoneticText ?? 'No phonetic available',
+                front: [currentWord.word, currentWord.phoneticText],
+                back: [definition.toString(), example.toString()],
+                sound: currentWord.phonetic,
               ),
             ),
           ),
-          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -181,7 +191,10 @@ class _TopicsScreenState extends State<TopicsScreen> {
                     _curIndexNum > 0
                         ? () {
                           setState(() {
-                            _curIndexNum--;
+                            _curIndexNum =
+                                (_curIndexNum - 1 >= 0)
+                                    ? _curIndexNum - 1
+                                    : state.words.length - 1;
                           });
                         }
                         : null,
@@ -193,7 +206,10 @@ class _TopicsScreenState extends State<TopicsScreen> {
                     _curIndexNum < totalWords - 1
                         ? () {
                           setState(() {
-                            _curIndexNum++;
+                            _curIndexNum =
+                                (_curIndexNum - 1 >= 0)
+                                    ? _curIndexNum - 1
+                                    : state.words.length - 1;
                           });
                         }
                         : null,
