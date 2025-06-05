@@ -48,6 +48,15 @@ class Assets {
       'life_stages',
       'personal_qualities',
     ],
+    'politics_and_society': [
+      'crime_and_punishment',
+      'law_and_justice',
+      'people_in_society',
+      'politics',
+      'religion_and_festivals',
+      'social_issues',
+      'war_and_conflict',
+    ],
   };
 
   static const String fontsSFProDisplayBlack =
@@ -200,4 +209,7 @@ class Assets {
   static const String pngHomeAndBuilding = 'assets/png/home_and_building.png';
   static const String pngLeisure = 'assets/png/leisure.png';
   static const String pngNotions = 'assets/png/notions.png';
+  static const String pngPeople = 'assets/png/people.png';
+  static const String pngPoliticsAndSociety =
+      'assets/png/politics_and_society.png';
 }

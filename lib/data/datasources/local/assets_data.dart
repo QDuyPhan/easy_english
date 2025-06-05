@@ -22,7 +22,7 @@ class AssetsDataImpl implements AssetsData {
   final HiveConfig _hiveConfig;
 
   const AssetsDataImpl({required HiveConfig hiveConfig})
-    : _hiveConfig = hiveConfig;
+  : _hiveConfig = hiveConfig;
 
   static Future<List<Word>> _loadWordsInIsolate(String path) async {
     try {

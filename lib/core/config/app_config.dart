@@ -50,7 +50,8 @@ class AppConfig {
     Assets.pngHomeAndBuilding,
     Assets.pngLeisure,
     Assets.pngNotions,
-    Assets.pngCat,
+    Assets.pngPeople,
+    Assets.pngPoliticsAndSociety,
   ];
 }
 
