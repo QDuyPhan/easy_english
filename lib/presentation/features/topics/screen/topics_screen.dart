@@ -1,5 +1,3 @@
-import 'package:easy_english/core/config/app_color.dart';
-import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/base_screen.dart';
 import 'package:easy_english/core/utils/widgets/custom_flashcards.dart';
 import 'package:easy_english/di/injector.dart' as di;
@@ -7,7 +5,6 @@ import 'package:easy_english/presentation/features/topics/blocs/topics_event.dar
 import 'package:easy_english/presentation/features/topics/blocs/topics_state.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/search_box.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/word_card.dart';
-import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -96,6 +93,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
           ),
         );
       }
+
       return ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: state.words.length,
@@ -109,17 +107,35 @@ class _TopicsScreenState extends State<TopicsScreen> {
   }
 
   Widget _buildFlashcardTab(BuildContext context, TopicsState state) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     if (state is TopicsLoading) {
       return const Center(child: CircularProgressIndicator());
     }
     if (state is TopicsError) {
       return Center(
-        child: Text(
-          state.message,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            color: Theme.of(context).colorScheme.error,
-          ),
-          textAlign: TextAlign.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              state.message,
+              style: textTheme.bodyLarge?.copyWith(color: colorScheme.error),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _curIndexNum = 0;
+                });
+                context.read<TopicsBloc>().add(
+                  GetTopic(folder: widget.folder, topic: widget.topic),
+                );
+              },
+              child: const Text('Try Again'),
+            ),
+          ],
         ),
       );
     }
@@ -128,79 +144,60 @@ class _TopicsScreenState extends State<TopicsScreen> {
         return Center(
           child: Text(
             'No words found for this topic',
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            style: textTheme.bodyLarge?.copyWith(
+              color: colorScheme.onSurfaceVariant,
             ),
           ),
         );
       }
 
       final currentWord = state.words[_curIndexNum];
+      final totalWords = state.words.length;
 
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            width: 300,
-            height: 300,
-            child: FlipCard(
-              direction: FlipDirection.HORIZONTAL,
-              front: CustomFlashcards(text: currentWord.word.toUpperCase()),
-              back: CustomFlashcards(
-                text: currentWord.phoneticText,
+          Text(
+            '${_curIndexNum + 1}/$totalWords',
+            style: textTheme.titleMedium?.copyWith(
+              color: colorScheme.onSurfaceVariant,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Expanded(
+            child: Center(
+              child: CustomFlashcards(
+                front: currentWord.word!.toUpperCase(),
+                back: currentWord.phoneticText ?? 'No phonetic available',
               ),
             ),
           ),
-          const SizedBox(height: 20),
-          Text(
-            '${_curIndexNum + 1}/${state.words.length}',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 16),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton.icon(
-                onPressed: state.words.length > 1 ? showPreviousCard : null,
-                icon: const Icon(
-                  Icons.arrow_left,
-                  size: 30,
-                  color: Color(0xFFE4E4E4),
-                ),
-                label: const Text(""),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green[700],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.only(
-                    right: 20,
-                    left: 25,
-                    top: 15,
-                    bottom: 15,
-                  ),
-                ),
+              IconButton(
+                onPressed:
+                    _curIndexNum > 0
+                        ? () {
+                          setState(() {
+                            _curIndexNum--;
+                          });
+                        }
+                        : null,
+                icon: const Icon(Icons.arrow_back),
               ),
-              ElevatedButton.icon(
-                onPressed: state.words.length > 1 ? showNextCard : null,
-                icon: const Icon(
-                  Icons.arrow_right,
-                  size: 30,
-                  color: Color(0xFFE4E4E4),
-                ),
-                label: const Text(""),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green[700],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.only(
-                    right: 20,
-                    left: 25,
-                    top: 15,
-                    bottom: 15,
-                  ),
-                ),
+              const SizedBox(width: 16),
+              IconButton(
+                onPressed:
+                    _curIndexNum < totalWords - 1
+                        ? () {
+                          setState(() {
+                            _curIndexNum++;
+                          });
+                        }
+                        : null,
+                icon: const Icon(Icons.arrow_forward),
               ),
             ],
           ),
@@ -208,25 +205,5 @@ class _TopicsScreenState extends State<TopicsScreen> {
       );
     }
     return const SizedBox.shrink();
-  }
-
-  void showNextCard() {
-    setState(() {
-      if (context.read<TopicsBloc>().state is TopicsLoaded) {
-        final state = context.read<TopicsBloc>().state as TopicsLoaded;
-        _curIndexNum =
-            (_curIndexNum + 1 < state.words.length) ? _curIndexNum + 1 : 0;
-      }
-    });
-  }
-
-  void showPreviousCard() {
-    setState(() {
-      if (context.read<TopicsBloc>().state is TopicsLoaded) {
-        final state = context.read<TopicsBloc>().state as TopicsLoaded;
-        _curIndexNum =
-            (_curIndexNum - 1 >= 0) ? _curIndexNum - 1 : state.words.length - 1;
-      }
-    });
   }
 }

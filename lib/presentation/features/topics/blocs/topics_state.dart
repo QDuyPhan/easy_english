@@ -31,7 +31,7 @@ class TopicsError extends TopicsState {
 class TopicsLoaded extends TopicsState {
   final List<WordEntity> words;
 
-  const TopicsLoaded(this.words);
+  const TopicsLoaded({required this.words});
 
   @override
   List<Object> get props => [words];
