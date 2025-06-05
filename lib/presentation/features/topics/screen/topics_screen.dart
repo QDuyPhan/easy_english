@@ -109,78 +109,124 @@ class _TopicsScreenState extends State<TopicsScreen> {
   }
 
   Widget _buildFlashcardTab(BuildContext context, TopicsState state) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SizedBox(
-          width: 300,
-          height: 300,
-          child: FlipCard(
-            direction: FlipDirection.HORIZONTAL,
-            front: const CustomFlashcards(text: 'Trước'),
-            back: const CustomFlashcards(text: 'Sau'),
+    if (state is TopicsLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (state is TopicsError) {
+      return Center(
+        child: Text(
+          state.message,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            color: Theme.of(context).colorScheme.error,
           ),
+          textAlign: TextAlign.center,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            ElevatedButton.icon(
-              onPressed: showPreviousCard,
-              icon: const Icon(
-                Icons.arrow_left,
-                size: 30,
-                color: Color(0xFFE4E4E4),
-              ),
-              label: const Text(""),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green[700],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding: const EdgeInsets.only(
-                  right: 20,
-                  left: 25,
-                  top: 15,
-                  bottom: 15,
-                ),
+      );
+    }
+    if (state is TopicsLoaded) {
+      if (state.words.isEmpty) {
+        return Center(
+          child: Text(
+            'No words found for this topic',
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
+          ),
+        );
+      }
+
+      final currentWord = state.words[_curIndexNum];
+
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: 300,
+            height: 300,
+            child: FlipCard(
+              direction: FlipDirection.HORIZONTAL,
+              front: CustomFlashcards(text: currentWord.word.toUpperCase()),
+              back: CustomFlashcards(
+                text: currentWord.phoneticText,
               ),
             ),
-            ElevatedButton.icon(
-              onPressed: showNextCard,
-              icon: const Icon(
-                Icons.arrow_right,
-                size: 30,
-                color: Color(0xFFE4E4E4),
-              ),
-              label: const Text(""),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green[700],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            '${_curIndexNum + 1}/${state.words.length}',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton.icon(
+                onPressed: state.words.length > 1 ? showPreviousCard : null,
+                icon: const Icon(
+                  Icons.arrow_left,
+                  size: 30,
+                  color: Color(0xFFE4E4E4),
                 ),
-                padding: const EdgeInsets.only(
-                  right: 20,
-                  left: 25,
-                  top: 15,
-                  bottom: 15,
+                label: const Text(""),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green[700],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.only(
+                    right: 20,
+                    left: 25,
+                    top: 15,
+                    bottom: 15,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ],
-    );
+              ElevatedButton.icon(
+                onPressed: state.words.length > 1 ? showNextCard : null,
+                icon: const Icon(
+                  Icons.arrow_right,
+                  size: 30,
+                  color: Color(0xFFE4E4E4),
+                ),
+                label: const Text(""),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green[700],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.only(
+                    right: 20,
+                    left: 25,
+                    top: 15,
+                    bottom: 15,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
+    }
+    return const SizedBox.shrink();
   }
 
   void showNextCard() {
     setState(() {
-      // _curIndexNum = (_curIndexNum + 1 < qaList.length) ? _curIndexNum + 1 : 0;
+      if (context.read<TopicsBloc>().state is TopicsLoaded) {
+        final state = context.read<TopicsBloc>().state as TopicsLoaded;
+        _curIndexNum =
+            (_curIndexNum + 1 < state.words.length) ? _curIndexNum + 1 : 0;
+      }
     });
   }
 
   void showPreviousCard() {
     setState(() {
-      // _curIndexNum = (_curIndexNum - 1 >= 0) ? _curIndexNum - 1 : qaList.length - 1;
+      if (context.read<TopicsBloc>().state is TopicsLoaded) {
+        final state = context.read<TopicsBloc>().state as TopicsLoaded;
+        _curIndexNum =
+            (_curIndexNum - 1 >= 0) ? _curIndexNum - 1 : state.words.length - 1;
+      }
     });
   }
 }
