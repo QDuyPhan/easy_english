@@ -19,46 +19,56 @@ class WordCard extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final pos = word.pos.split(', ');
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
     return GestureDetector(
       onTap: () {
         context.push(RoutePaths.vocabularyDetails, extra: {'word': word});
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
-        child: Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: AppColor.primary40,
-            borderRadius: BorderRadius.circular(10),
-          ),
+      child: Card(
+        color: colorScheme.primaryContainer,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        word.word,
-                        style: textTheme.titleLarge?.copyWith(
-                          color: colorScheme.onPrimaryContainer,
-                          fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Flexible(
+                          flex: 3,
+                          child: Text(
+                            word.word,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: textTheme.titleLarge?.copyWith(
+                              color: colorScheme.onPrimaryContainer,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 8),
-                    ],
-                  ),
-                  const SizedBox(width: 8),
-                  Flexible(
-                    child: Wrap(
-                      spacing: 4,
-                      children: pos.map((p) => PosBadge(word: p)).toList(),
+                        const SizedBox(width: 8),
+                        Flexible(
+                          flex: 2,
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Wrap(
+                              spacing: 4,
+                              children:
+                                  pos.map((p) => PosBadge(word: p)).toList(),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SvgButton(
-                    svg: Assets.svgStarOutline,
+                    svg: Assets.svgBookmarkSimple,
                     size: 16,
                     backgroundColor:
                         word.status == WordStatus.star
@@ -68,10 +78,10 @@ class WordCard extends StatelessWidget {
                         word.status == WordStatus.star
                             ? colorScheme.primaryContainer
                             : colorScheme.onPrimaryContainer,
+                    onPressed: _onSave,
                   ),
                 ],
               ),
-              SizedBox(height: 5),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -79,14 +89,11 @@ class WordCard extends StatelessWidget {
                     phonetic: word.phonetic,
                     phoneticText: word.phoneticText,
                     backgroundColor: AppColor.primary60,
-                    flag: 'UK',
                   ),
-                  SizedBox(width: 10),
                   Phonetic(
                     phonetic: word.phoneticAm,
                     phoneticText: word.phoneticAmText,
                     backgroundColor: AppColor.primary60,
-                    flag: 'US',
                   ),
                 ],
               ),
@@ -96,4 +103,6 @@ class WordCard extends StatelessWidget {
       ),
     );
   }
+
+  void _onSave() {}
 }

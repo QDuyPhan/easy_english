@@ -4,12 +4,14 @@ class CustomAppbar extends StatelessWidget {
   final String title;
   final List<Widget> leading;
   final List<Widget> actions;
+  final Widget? child;
 
   const CustomAppbar({
     super.key,
     required this.title,
     this.leading = const [],
     this.actions = const [],
+    this.child,
   });
 
   @override
