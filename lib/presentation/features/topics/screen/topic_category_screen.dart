@@ -18,7 +18,40 @@ class TopicCategoryScreen extends StatefulWidget {
 }
 
 class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
-  final randomColor = AppColor.listColor;
+  static final Random random = Random();
+  static final List<Color> availableColors =
+      AppColor.listColor; // Danh sách màu ban đầu
+  static final List<Color> usedColors = []; // Theo dõi màu đã sử dụng
+  late List<Color> _colors; // Danh sách màu cho các mục
+
+  @override
+  void initState() {
+    super.initState();
+    _assignUniqueColors();
+  }
+
+  void _assignUniqueColors() {
+    if (usedColors.length >= availableColors.length) {
+      // Làm mới danh sách màu nếu đã dùng hết
+      usedColors.clear();
+    }
+    // Gán màu duy nhất cho từng mục
+    _colors = List.generate(widget.topicEntry.value.length, (index) {
+      final available =
+          availableColors
+              .where((color) => !usedColors.contains(color))
+              .toList();
+      if (available.isNotEmpty) {
+        final color = available[random.nextInt(available.length)];
+        usedColors.add(color);
+        return color;
+      } else {
+        // Nếu không còn màu, chọn ngẫu nhiên từ toàn bộ danh sách
+        return availableColors[random.nextInt(availableColors.length)];
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -43,8 +76,7 @@ class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
               padding: const EdgeInsets.all(16),
               itemCount: widget.topicEntry.value.length,
               itemBuilder: (context, index) {
-                final shuffledColors = List<Color>.from(randomColor)..shuffle();
-                final color = shuffledColors[index];
+                final color = _colors[index]; // Sử dụng màu đã gán
                 final category = widget.topicEntry.value[index];
                 return Card(
                   color: color,

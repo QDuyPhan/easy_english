@@ -52,6 +52,12 @@ class AppConfig {
     Assets.pngNotions,
     Assets.pngPeople,
     Assets.pngPoliticsAndSociety,
+    Assets.pngScienceAndTechnology,
+    Assets.pngSport,
+    Assets.pngTheNaturalWorld,
+    Assets.pngTimeAndSpace,
+    Assets.pngTravel,
+    Assets.pngWorkAndBusiness,
   ];
 }
 

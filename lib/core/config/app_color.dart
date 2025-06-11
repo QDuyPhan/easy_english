@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class AppColor {
-  // const AppColor._();
+  const AppColor._();
 
   //Primary Color
   static const Color primary100 = Color(0xFF0074CE);
@@ -79,24 +79,43 @@ class AppColor {
   static const Color lightTeal = Color(0xFFB5F8F1);
   static const Color lightApricot = Color(0xFFFFD4B2);
 
+  static const Color deepSkyBlue = Color(0xFF00BFFF);
+  static const Color seaFoam = Color(0xFF93FFD8);
+  static const Color pastelOrange = Color(0xFFFFB877);
+  static const Color dustyRose = Color(0xFFE5989B);
+  static const Color paleLavender = Color(0xFFE6E6FA);
+  static const Color mellowYellow = Color(0xFFFFF3B0);
+  static const Color freshMint = Color(0xFFBDFCC9);
+  static const Color peachBlossom = Color(0xFFFFCAB0);
+  static const Color glacierBlue = Color(0xFFA9D6E5);
+  static const Color periwinkle = Color(0xFFB4C5E4);
+  static const Color warmSand = Color(0xFFEED6C4);
+  static const Color limeSorbet = Color(0xFFE5FCC2);
+  static const Color coralMist = Color(0xFFFFB3AB);
+  static const Color iceBlue = Color(0xFFDEF3F6);
+  static const Color honeyGlow = Color(0xFFFFE8A1);
+  static const Color mutedPlum = Color(0xFFBFA2DB);
+  static const Color teaGreen = Color(0xFFD5F2E3);
+  static const Color cantaloupe = Color(0xFFFFBC9A);
+
   static List<Color> listColor = [
-    purple,
-    lightGreen,
-    lightBlue,
-    lightViolet,
-    lightPink,
-    // blackGray,
-    softCoral,
-    babyBlue,
-    mintGreen,
-    palePeach,
-    lavenderMist,
-    skyGray,
-    lemonCream,
-    blushRose,
-    softLilac,
-    powderBlue,
-    lightTeal,
-    lightApricot,
+    deepSkyBlue,
+    seaFoam,
+    pastelOrange,
+    dustyRose,
+    paleLavender,
+    mellowYellow,
+    freshMint,
+    peachBlossom,
+    glacierBlue,
+    periwinkle,
+    warmSand,
+    limeSorbet,
+    coralMist,
+    iceBlue,
+    honeyGlow,
+    mutedPlum,
+    teaGreen,
+    cantaloupe,
   ];
 }

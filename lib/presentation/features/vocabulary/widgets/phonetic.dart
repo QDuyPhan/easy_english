@@ -25,7 +25,52 @@ class Phonetic extends StatefulWidget {
 }
 
 class _PhoneticState extends State<Phonetic> {
-  final _player = di.getIt<AudioPlayer>();
+  final AudioPlayer _player = di.getIt<AudioPlayer>();
+
+  @override
+  void initState() {
+    super.initState();
+    _initializePlayer();
+  }
+
+  @override
+  void didUpdateWidget(covariant Phonetic oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.phonetic != oldWidget.phonetic) {
+      _initializePlayer();
+    }
+  }
+
+  @override
+  void dispose() {
+    _player.stop();
+    _player.dispose();
+    super.dispose();
+  }
+
+  Future<void> _initializePlayer() async {
+    try {
+      if (widget.phonetic.isNotEmpty) {
+        await _player.setUrl(widget.phonetic);
+        await _player.load(); // Tiền tải âm thanh
+      }
+    } catch (e) {
+      app_config.printLog('e', 'Lỗi khởi tạo người chơi: $e');
+    }
+  }
+
+  Future<void> _playSound() async {
+    if (widget.phonetic.isEmpty) return;
+
+    try {
+      if (_player.playerState.processingState == ProcessingState.idle) {
+        await _player.setUrl(widget.phonetic);
+      }
+      await _player.play();
+    } catch (e) {
+      app_config.printLog('e', 'Lỗi phát âm thanh: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +99,5 @@ class _PhoneticState extends State<Phonetic> {
         ),
       ],
     );
-  }
-
-  void _playSound() async {
-    try {
-      await _player.setUrl(widget.phonetic);
-      await _player.play();
-    } catch (e) {
-      app_config.printLog('e', 'Error play sound: $e');
-    }
   }
 }

@@ -41,10 +41,10 @@ class _TopicsScreenState extends State<TopicsScreen> {
               });
             },
             searchBox: _showSearch ? const SearchBox(isSearch: true) : null,
-            tabTitles: const ['Word List', 'Flashcard'],
+            // tabTitles: const ['Word List', 'Flashcard'],
             tabViews: [
               _buildWordListTab(context, state),
-              _buildFlashcardTab(context, state),
+              // _buildFlashcardTab(context, state),
             ],
           );
         },

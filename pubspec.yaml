@@ -131,6 +131,12 @@ flutter:
     - assets/json/topics/notions/
     - assets/json/topics/people/
     - assets/json/topics/politics_and_society/
+    - assets/json/topics/science_and_technology/
+    - assets/json/topics/sport/
+    - assets/json/topics/the_natural_world/
+    - assets/json/topics/time_and_space/
+    - assets/json/topics/travel/
+    - assets/json/topics/work_and_business/
     - assets/lottie/
     - assets/md/
     - assets/md/grammar/

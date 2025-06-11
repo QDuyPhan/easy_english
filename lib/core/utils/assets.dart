@@ -57,26 +57,32 @@ class Assets {
       'social_issues',
       'war_and_conflict',
     ],
+    'science_and_technology': [
+      'biology',
+      'computers',
+      'engineering',
+      'maths_and_measurement',
+      'physics_and_chemistry',
+      'scientific_research',
+    ],
+    'sport': ['other_sports', 'sports_ball_and_racket_sports', 'water_sports'],
+    'the_natural_world': [
+      'farming',
+      'geography',
+      'plants_and_trees',
+      'the_environment',
+      'weather',
+    ],
+    'time_and_space': ['history', 'space', 'time'],
+    'travel': [
+      'holidays',
+      'transport_by_air',
+      'transport_by_bus_and_train',
+      'transport_by_car_or_lorry',
+      'transport_by_water',
+    ],
+    'work_and_business': ['business', 'jobs'],
   };
-
-  static const String fontsSFProDisplayBlack =
-      'assets/fonts/SF-Pro-Display-Black.otf';
-  static const String fontsSFProDisplayBold =
-      'assets/fonts/SF-Pro-Display-Bold.otf';
-  static const String fontsSFProDisplayHeavy =
-      'assets/fonts/SF-Pro-Display-Heavy.otf';
-  static const String fontsSFProDisplayLight =
-      'assets/fonts/SF-Pro-Display-Light.otf';
-  static const String fontsSFProDisplayMedium =
-      'assets/fonts/SF-Pro-Display-Medium.otf';
-  static const String fontsSFProDisplayRegular =
-      'assets/fonts/SF-Pro-Display-Regular.otf';
-  static const String fontsSFProDisplaySemibold =
-      'assets/fonts/SF-Pro-Display-Semibold.otf';
-  static const String fontsSFProDisplayThin =
-      'assets/fonts/SF-Pro-Display-Thin.otf';
-  static const String fontsSFProDisplayUltralight =
-      'assets/fonts/SF-Pro-Display-Ultralight.otf';
   static const String futureFuture =
       'assets/md/grammar/tenses/future/future.md';
   static const String futureFutureContinuousTense =
@@ -185,7 +191,7 @@ class Assets {
   static const String svgFlagUK = 'assets/svg/flagUK.svg';
   static const String svgFlagUS24 = 'assets/svg/flagUSA24.svg';
   static const String svgFlagUK24 = 'assets/svg/flagUK24.svg';
-  static const String svgArrowRigh = 'assets/svg/arrow_back_ios.svg';
+  static const String svgArrowRight = 'assets/svg/arrow_back_ios.svg';
   static const String svgArrowLeft = 'assets/svg/arrow_left_ios.svg';
   static const String svgSearch = 'assets/svg/search.svg';
   static const String svgClose = 'assets/svg/close.svg';
@@ -212,4 +218,11 @@ class Assets {
   static const String pngPeople = 'assets/png/people.png';
   static const String pngPoliticsAndSociety =
       'assets/png/politics_and_society.png';
+  static const String pngScienceAndTechnology =
+      'assets/png/science_and_technology.png';
+  static const String pngSport = 'assets/png/sport.png';
+  static const String pngTheNaturalWorld = 'assets/png/the_natural_world.png';
+  static const String pngTimeAndSpace = 'assets/png/time_and_space.png';
+  static const String pngTravel = 'assets/png/travel.png';
+  static const String pngWorkAndBusiness = 'assets/png/work_and_business.png';
 }
