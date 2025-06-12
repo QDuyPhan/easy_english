@@ -1,4 +1,3 @@
-import 'package:easy_english/core/config/app_color.dart';
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';

@@ -95,19 +95,7 @@ class AppRouter {
                   );
                 },
               ),
-              GoRoute(
-                path: RoutePaths.topics,
-                pageBuilder: (context, state) {
-                  final extra = state.extra as Map<String, dynamic>?;
-                  final folder = extra?['folder'] as String? ?? '';
-                  final topic = extra?['topic'] as String? ?? '';
-                  return SwipeablePage(
-                    key: state.pageKey,
-                    builder:
-                        (context) => TopicsScreen(folder: folder, topic: topic),
-                  );
-                },
-              ),
+
               GoRoute(
                 path: RoutePaths.topicCategory,
                 pageBuilder: (context, state) {
@@ -119,6 +107,19 @@ class AppRouter {
                     builder:
                         (context) =>
                             TopicCategoryScreen(topicEntry: topicEntry),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.topics,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final folder = extra?['folder'] as String? ?? '';
+                  final topic = extra?['topic'] as String? ?? '';
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder:
+                        (context) => TopicsScreen(folder: folder, topic: topic),
                   );
                 },
               ),

@@ -1,18 +1,6 @@
-import 'package:equatable/equatable.dart';
+part of 'topics_bloc.dart';
 
-abstract class TopicsEvent extends Equatable {
-  const TopicsEvent();
-
-  @override
-  List<Object> get props => [];
-}
-
-class GetTopic extends TopicsEvent {
-  final String folder;
-  final String topic;
-
-  const GetTopic({required this.folder, required this.topic});
-
-  @override
-  List<Object> get props => [folder, topic];
+@freezed
+class TopicsEvent with _$TopicsEvent {
+  const factory TopicsEvent.getAllTopics({required String folder,required String topic}) = _GetAllTopics;
 }

@@ -20,8 +20,8 @@ class TopicBox extends StatefulWidget {
 class _TopicBoxState extends State<TopicBox> {
   static final Random random = Random();
   static final List<Color> availableColors =
-      AppColor.listColor; // Danh sách màu ban đầu
-  static final List<Color> usedColors = []; // Theo dõi màu đã sử dụng
+      AppColor.listColor;
+  static final List<Color> usedColors = [];
   late Color _color;
 
   @override
@@ -32,17 +32,14 @@ class _TopicBoxState extends State<TopicBox> {
 
   void _assignUniqueColor() {
     if (usedColors.length >= availableColors.length) {
-      // Nếu đã dùng hết màu, làm mới danh sách
       usedColors.clear();
     }
-    // Lấy màu ngẫu nhiên từ danh sách còn lại
     final available =
         availableColors.where((color) => !usedColors.contains(color)).toList();
     if (available.isNotEmpty) {
       _color = available[random.nextInt(available.length)];
       usedColors.add(_color);
     } else {
-      // Nếu không còn màu nào, chọn ngẫu nhiên từ toàn bộ danh sách
       _color = availableColors[random.nextInt(availableColors.length)];
     }
   }
@@ -64,7 +61,7 @@ class _TopicBoxState extends State<TopicBox> {
       },
       child: Card(
         elevation: 4,
-        color: _color, // Sử dụng màu đã gán duy nhất
+        color: _color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),

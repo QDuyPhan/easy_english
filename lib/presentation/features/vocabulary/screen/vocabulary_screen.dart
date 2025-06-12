@@ -55,7 +55,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
                       ),
                     ],
                   ),
-                  SearchBox(isSearch: _showSearch),
+                  // SearchBox(isSearch: _showSearch),
                   Expanded(
                     child: ListView.builder(
                       itemCount: state.words.length,

@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> {
             ),
           );
         } else {
-          return Container(color: Colors.white); // Màn hình splash
+          return Container(color: Colors.redAccent); // Màn hình splash
         }
       },
     );

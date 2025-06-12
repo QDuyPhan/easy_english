@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SearchBox extends StatefulWidget {
-  final bool isSearch;
+import '../../../../core/utils/word_pos.dart';
 
-  const SearchBox({super.key, required this.isSearch});
+class SearchBox extends StatefulWidget {
+  final bool showSearch;
+
+  const SearchBox({super.key, required this.showSearch});
 
   @override
   State<SearchBox> createState() => _SearchBoxState();
@@ -21,7 +23,7 @@ class _SearchBoxState extends State<SearchBox> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: AnimatedContainer(
-        height: widget.isSearch ? 250 : 0,
+        height: widget.showSearch ? 250 : 0,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(color: colorScheme.onPrimary),
         duration: const Duration(milliseconds: 300),
@@ -40,21 +42,20 @@ class _SearchBoxState extends State<SearchBox> {
                         itemCount: filters.length,
                         // scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          ExerciseFilter.values.map((ExerciseFilter exercise) {
-                            return FilterChip(
-                              label: Text(exercise.name),
-                              selected: filters.contains(exercise),
-                              onSelected: (bool selected) {
-                                setState(() {
-                                  if (selected) {
-                                    filters.add(exercise);
-                                  } else {
-                                    filters.remove(exercise);
-                                  }
-                                });
-                              },
-                            );
-                          }).toList();
+                          final pos = WordPos.values[index];
+                          return FilterChip(
+                            label: Text(pos.value),
+                            // selected: filters.contains(exercise),
+                            onSelected: (bool selected) {
+                              setState(() {
+                                if (selected) {
+                                  // filters.add(exercise);
+                                } else {
+                                  // filters.remove(exercise);
+                                }
+                              });
+                            },
+                          );
                         },
                       ),
                     ),

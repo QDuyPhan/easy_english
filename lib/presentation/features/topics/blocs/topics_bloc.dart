@@ -1,11 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
-import 'package:easy_english/presentation/features/topics/blocs/topics_event.dart';
-import 'package:easy_english/presentation/features/topics/blocs/topics_state.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/config/app_config.dart';
 import '../../../../domain/usecases/get_topics_usecase.dart';
+
+part 'generated/topics_bloc.freezed.dart';
+part 'topics_event.dart';
+part 'topics_state.dart';
 
 @injectable
 class TopicsBloc extends Bloc<TopicsEvent, TopicsState> {
@@ -13,24 +16,22 @@ class TopicsBloc extends Bloc<TopicsEvent, TopicsState> {
 
   TopicsBloc({required GetTopicsUsecase getAllTopics})
     : _getAllTopics = getAllTopics,
-      super(TopicsInitial()) {
-    on<GetTopic>(_handleGetTopic);
+      super(const TopicsState.initial()) {
+    on<TopicsEvent>((event, emit) async {
+      await event.map(getAllTopics: (event) => _handleGetTopic(event, emit));
+    });
   }
 
-  void _handleGetTopic(GetTopic event, Emitter<TopicsState> emit) {
+  _handleGetTopic(_GetAllTopics event, Emitter<TopicsState> emit) {
     try {
-      emit(const TopicsLoading());
-      final words = _getAllTopics.execute(event.folder, event.topic);
+      final topics = _getAllTopics.execute(event.folder, event.topic);
       app_config.printLog(
         'i',
-        "Loaded words: ${words.map((e) => e.word!).toList()}",
+        "Loaded topics for ${event.folder}/${event.topic}: ${topics.length} topics",
       );
-      emit(TopicsLoaded(words: words));
+      emit(state.copyWith(words: topics));
     } catch (e) {
       app_config.printLog('e', e.toString());
-      emit(
-        TopicsError('Failed to get topic ${event.folder}/${event.topic}: $e'),
-      );
     }
   }
 }
