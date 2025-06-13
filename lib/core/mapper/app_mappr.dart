@@ -7,8 +7,11 @@ import 'package:easy_english/domain/entities/example_entity.dart';
 import 'package:easy_english/domain/entities/sense_entity.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/entities/word_status_entity.dart';
+import 'package:injectable/injectable.dart';
 
-import 'app_mappr.auto_mappr.dart';import 'package:injectable/injectable.dart';
+import '../../data/models/theme.dart';
+import '../../domain/entities/theme_entity.dart';
+import 'app_mappr.auto_mappr.dart';
 
 @AutoMappr([
   MapType<Word, WordEntity>(),
@@ -31,6 +34,9 @@ import 'app_mappr.auto_mappr.dart';import 'package:injectable/injectable.dart';
       Field.custom('star', custom: WordStatus.star),
     ],
   ),
+  MapType<Theme, ThemeEntity>(),
+  MapType<ThemeEntity, Theme>(),
+  MapType<ThemeType, ThemeType>(),
 ])
 @injectable
 class AppMappr extends $AppMappr {}

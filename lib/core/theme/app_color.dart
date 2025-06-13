@@ -118,4 +118,16 @@ class AppColor {
     teaGreen,
     cantaloupe,
   ];
+
+  static const Color primaryLight = Color(0xFF007AFF);
+  static const Color primaryDark = Color(0xFF007AFF);
+
+  static const Color surfaceLight = Color(0xFFF8F8F8);
+  static const Color surfaceDark = Color(0xFF262626);
+
+  static const Color onSurfaceLight = Color(0xFFE6F2FF);
+  static const Color onSurfaceDark = Color(0xFF00254D);
+
+  static const Color secondaryLight = Color(0xFFD7D7D7);
+  static const Color secondaryDark = Color(0xFF4C4C4C);
 }

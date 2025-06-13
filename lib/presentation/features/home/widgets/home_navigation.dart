@@ -22,7 +22,7 @@ class HomeNavigation extends StatefulWidget {
     Assets.svgDictionary,
     Assets.svgGrammar,
     Assets.svgBookmarks,
-    Assets.svgUser,
+    Assets.svgGearSix,
   ];
 
   static const labels = [
@@ -30,7 +30,7 @@ class HomeNavigation extends StatefulWidget {
     "Dictionary",
     "Grammar",
     "My Words",
-    "Profile",
+    "Settings",
   ];
 
   const HomeNavigation({

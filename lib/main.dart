@@ -1,8 +1,8 @@
-import 'package:easy_english/core/config/app_color.dart';
+import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/navigation/app_router.dart';
 import 'package:easy_english/di/injector.dart' as di;
-import 'package:easy_english/domain/usecases/init_data_topics.dart';
-import 'package:easy_english/domain/usecases/init_data_usecase.dart';
+import 'package:easy_english/domain/usecases/init_data_topics_use_case.dart';
+import 'package:easy_english/domain/usecases/init_data_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,4 +1,4 @@
-import 'package:easy_english/core/config/app_color.dart';
+import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
 import 'package:easy_english/core/utils/widgets/svg_button.dart';

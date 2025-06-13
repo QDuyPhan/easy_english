@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/config/app_config.dart';
-import '../../../../domain/usecases/get_topics_usecase.dart';
+import '../../../../domain/usecases/get_topics_use_case.dart';
 
 part 'generated/topics_bloc.freezed.dart';
 part 'topics_event.dart';

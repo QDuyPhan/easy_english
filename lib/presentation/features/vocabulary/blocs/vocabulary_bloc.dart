@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:easy_english/core/config/app_config.dart';
-import 'package:easy_english/domain/usecases/get_all_oxford_words_usecase.dart';
+import 'package:easy_english/domain/usecases/get_all_oxford_words_use_case.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_event.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_state.dart';
 import 'package:injectable/injectable.dart';

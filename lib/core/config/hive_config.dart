@@ -67,6 +67,7 @@ class HiveConfig {
     Hive.registerAdapter(WordAdapter());
     Hive.registerAdapter(SettingsSnapshotAdapter());
     Hive.registerAdapter(ScheduledNotificationAdapter());
+    Hive.registerAdapter(ScheduledNotificationAdapter());
     // Mở box
     _wordsBox = await Hive.openBox<Word>(_wordKey);
     _topicsBox = await Hive.openBox<List<Word>>(_topicsKey);

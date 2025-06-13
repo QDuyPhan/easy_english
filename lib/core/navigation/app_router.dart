@@ -7,6 +7,7 @@ import 'package:easy_english/presentation/features/home/screen/home_screen.dart'
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
 import 'package:easy_english/presentation/features/search/screen/search_screen.dart';
+import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
 import 'package:easy_english/presentation/features/studing/screen/studying_screen.dart';
 import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
 import 'package:easy_english/presentation/features/topics/screen/topic_category_screen.dart';
@@ -216,6 +217,15 @@ class AppRouter {
           ),
           StatefulShellBranch(
             routes: [
+              GoRoute(
+                path: RoutePaths.settings,
+                pageBuilder: (context, state) {
+                  return NoTransitionPage(
+                    key: state.pageKey,
+                    child: SettingsScreen(),
+                  );
+                },
+              ),
               GoRoute(
                 path: RoutePaths.profile,
                 pageBuilder:

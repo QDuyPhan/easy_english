@@ -200,6 +200,7 @@ class Assets {
   static const String svgGrammar = 'assets/svg/grammar.svg';
   static const String svgBookmarkSimple = 'assets/svg/bookmarksimple.svg';
   static const String svgDictionary = 'assets/svg/dictionary.svg';
+  static const String svgSun = 'assets/svg/sun.svg';
   static const String ilustrationhomepage =
       'assets/svg/ilustrationhomepage.svg';
 

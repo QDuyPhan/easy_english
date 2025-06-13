@@ -11,20 +11,27 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:just_audio/just_audio.dart' as _i501;
+import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
-import '../core/audio/audio_player_provider.dart' as _i461;
 import '../core/config/hive_config.dart' as _i719;
 import '../core/mapper/app_mappr.dart' as _i556;
+import '../core/register_module/audio_player_provider.dart' as _i526;
 import '../data/datasources/local/assets_data.dart' as _i481;
 import '../data/datasources/local/local_data.dart' as _i614;
+import '../data/datasources/local/them_local.dart' as _i110;
 import '../data/repositories/oxford_words_repository_impl.dart' as _i319;
+import '../data/repositories/theme_repository_impl.dart' as _i792;
 import '../data/repositories/topic_repository_impl.dart' as _i867;
 import '../domain/repositories/oxford_words_repository.dart' as _i212;
+import '../domain/repositories/theme_repository.dart' as _i443;
 import '../domain/repositories/topic_repository.dart' as _i13;
-import '../domain/usecases/get_all_oxford_words_usecase.dart' as _i797;
-import '../domain/usecases/get_topics_usecase.dart' as _i206;
-import '../domain/usecases/init_data_topics.dart' as _i700;
-import '../domain/usecases/init_data_usecase.dart' as _i287;
+import '../domain/usecases/get_all_oxford_words_use_case.dart' as _i822;
+import '../domain/usecases/get_theme_use_case.dart' as _i131;
+import '../domain/usecases/get_topics_use_case.dart' as _i280;
+import '../domain/usecases/init_data_topics_use_case.dart' as _i599;
+import '../domain/usecases/init_data_use_case.dart' as _i579;
+import '../domain/usecases/save_theme_use_case.dart' as _i883;
+import '../presentation/features/theme/blocs/theme_bloc.dart' as _i1032;
 import '../presentation/features/topics/blocs/topics_bloc.dart' as _i282;
 import '../presentation/features/vocabulary/blocs/vocabulary_bloc.dart'
     as _i431;
@@ -40,8 +47,14 @@ Future<_i174.GetIt> $initGetIt(
     environment,
     environmentFilter,
   );
+  final sharedPreferencesModule = _$SharedPreferencesModule();
   final audioPlayerModule = _$AudioPlayerModule();
   gh.factory<_i556.AppMappr>(() => _i556.AppMappr());
+  await gh.factoryAsync<_i460.SharedPreferences>(
+    () => sharedPreferencesModule.prefs,
+    preResolve: true,
+  );
+  gh.factory<_i1032.ThemeBloc>(() => _i1032.ThemeBloc());
   await gh.singletonAsync<_i719.HiveConfig>(
     () => _i719.HiveConfig.create(),
     preResolve: true,
@@ -57,25 +70,35 @@ Future<_i174.GetIt> $initGetIt(
             localData: gh<_i614.LocalData>(),
             appMappr: gh<_i556.AppMappr>(),
           ));
-  gh.factory<_i797.GetAllOxfordWordsUseCase>(
-      () => _i797.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
-  gh.factory<_i287.InitDataUseCase>(
-      () => _i287.InitDataUseCase(gh<_i212.OxfordWordsRepository>()));
+  gh.lazySingleton<_i110.ThemeLocal>(() =>
+      _i110.ThemeLocalImpl(sharedPreferences: gh<_i460.SharedPreferences>()));
+  gh.factory<_i822.GetAllOxfordWordsUseCase>(
+      () => _i822.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
+  gh.factory<_i579.InitDataUseCase>(
+      () => _i579.InitDataUseCase(gh<_i212.OxfordWordsRepository>()));
+  gh.lazySingleton<_i443.ThemeRepository>(
+      () => _i792.ThemeRepositoryImpl(themeLocal: gh<_i110.ThemeLocal>()));
   gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc(
-      getAllOxfordWordsUseCase: gh<_i797.GetAllOxfordWordsUseCase>()));
+      getAllOxfordWordsUseCase: gh<_i822.GetAllOxfordWordsUseCase>()));
+  gh.factory<_i131.GetThemeUseCase>(() =>
+      _i131.GetThemeUseCase(themeRepository: gh<_i443.ThemeRepository>()));
+  gh.factory<_i883.SaveThemeUseCase>(() =>
+      _i883.SaveThemeUseCase(themeRepository: gh<_i443.ThemeRepository>()));
   gh.lazySingleton<_i13.TopicRepository>(() => _i867.TopicRepositoryImpl(
         assetsData: gh<_i481.AssetsData>(),
         hiveConfig: gh<_i719.HiveConfig>(),
         localData: gh<_i614.LocalData>(),
         appMappr: gh<_i556.AppMappr>(),
       ));
-  gh.factory<_i206.GetTopicsUsecase>(
-      () => _i206.GetTopicsUsecase(gh<_i13.TopicRepository>()));
-  gh.factory<_i700.InitDataTopics>(
-      () => _i700.InitDataTopics(gh<_i13.TopicRepository>()));
+  gh.factory<_i280.GetTopicsUsecase>(
+      () => _i280.GetTopicsUsecase(gh<_i13.TopicRepository>()));
+  gh.factory<_i599.InitDataTopics>(
+      () => _i599.InitDataTopics(gh<_i13.TopicRepository>()));
   gh.factory<_i282.TopicsBloc>(
-      () => _i282.TopicsBloc(getAllTopics: gh<_i206.GetTopicsUsecase>()));
+      () => _i282.TopicsBloc(getAllTopics: gh<_i280.GetTopicsUsecase>()));
   return getIt;
 }
 
-class _$AudioPlayerModule extends _i461.AudioPlayerModule {}
+class _$SharedPreferencesModule extends _i526.SharedPreferencesModule {}
+
+class _$AudioPlayerModule extends _i526.AudioPlayerModule {}

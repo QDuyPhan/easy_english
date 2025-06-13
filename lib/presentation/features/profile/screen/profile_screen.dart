@@ -1,3 +1,6 @@
+import 'package:easy_english/core/utils/assets.dart';
+import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
+import 'package:easy_english/core/utils/widgets/svg_button.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -5,6 +8,15 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Profile Screen'));
+    return Scaffold(
+      body: Column(
+        children: [
+          CustomAppbar(
+            title: 'Settings',
+            actions: [SvgButton(svg: Assets.svgSun, onPressed: null)],
+          ),
+        ],
+      ),
+    );
   }
 }

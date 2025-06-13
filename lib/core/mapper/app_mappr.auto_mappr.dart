@@ -11,10 +11,12 @@ import 'package:auto_mappr_annotation/auto_mappr_annotation.dart' as _i3;
 
 import '../../data/models/example.dart' as _i8;
 import '../../data/models/sense.dart' as _i6;
+import '../../data/models/theme.dart' as _i10;
 import '../../data/models/word.dart' as _i4;
 import '../../data/models/word_status.dart' as _i2;
 import '../../domain/entities/example_entity.dart' as _i9;
 import '../../domain/entities/sense_entity.dart' as _i7;
+import '../../domain/entities/theme_entity.dart' as _i11;
 import '../../domain/entities/word_entity.dart' as _i5;
 import '../../domain/entities/word_status_entity.dart' as _i1;
 
@@ -28,6 +30,9 @@ import '../../domain/entities/word_status_entity.dart' as _i1;
 /// - `ExampleEntity` → `Example`.
 /// - `WordStatus` → `WordStatusEntity`.
 /// - `WordStatusEntity` → `WordStatus`.
+/// - `Theme` → `ThemeEntity`.
+/// - `ThemeEntity` → `Theme`.
+/// - `ThemeType` → `ThemeType`.
 /// {@endtemplate}
 class $AppMappr implements _i3.AutoMapprInterface {
   const $AppMappr();
@@ -88,6 +93,24 @@ class $AppMappr implements _i3.AutoMapprInterface {
             sourceTypeOf == _typeOf<_i1.WordStatusEntity?>()) &&
         (targetTypeOf == _typeOf<_i2.WordStatus>() ||
             targetTypeOf == _typeOf<_i2.WordStatus?>())) {
+      return true;
+    }
+    if ((sourceTypeOf == _typeOf<_i10.Theme>() ||
+            sourceTypeOf == _typeOf<_i10.Theme?>()) &&
+        (targetTypeOf == _typeOf<_i11.ThemeEntity>() ||
+            targetTypeOf == _typeOf<_i11.ThemeEntity?>())) {
+      return true;
+    }
+    if ((sourceTypeOf == _typeOf<_i11.ThemeEntity>() ||
+            sourceTypeOf == _typeOf<_i11.ThemeEntity?>()) &&
+        (targetTypeOf == _typeOf<_i10.Theme>() ||
+            targetTypeOf == _typeOf<_i10.Theme?>())) {
+      return true;
+    }
+    if ((sourceTypeOf == _typeOf<_i11.ThemeType>() ||
+            sourceTypeOf == _typeOf<_i11.ThemeType?>()) &&
+        (targetTypeOf == _typeOf<_i11.ThemeType>() ||
+            targetTypeOf == _typeOf<_i11.ThemeType?>())) {
       return true;
     }
     if (recursive) {
@@ -360,6 +383,36 @@ class $AppMappr implements _i3.AutoMapprInterface {
       return (_map__i1$WordStatusEntity_To__i2$WordStatus(
           (model as _i1.WordStatusEntity?)) as TARGET);
     }
+    if ((sourceTypeOf == _typeOf<_i10.Theme>() ||
+            sourceTypeOf == _typeOf<_i10.Theme?>()) &&
+        (targetTypeOf == _typeOf<_i11.ThemeEntity>() ||
+            targetTypeOf == _typeOf<_i11.ThemeEntity?>())) {
+      if (canReturnNull && model == null) {
+        return null;
+      }
+      return (_map__i10$Theme_To__i11$ThemeEntity((model as _i10.Theme?))
+          as TARGET);
+    }
+    if ((sourceTypeOf == _typeOf<_i11.ThemeEntity>() ||
+            sourceTypeOf == _typeOf<_i11.ThemeEntity?>()) &&
+        (targetTypeOf == _typeOf<_i10.Theme>() ||
+            targetTypeOf == _typeOf<_i10.Theme?>())) {
+      if (canReturnNull && model == null) {
+        return null;
+      }
+      return (_map__i11$ThemeEntity_To__i10$Theme((model as _i11.ThemeEntity?))
+          as TARGET);
+    }
+    if ((sourceTypeOf == _typeOf<_i11.ThemeType>() ||
+            sourceTypeOf == _typeOf<_i11.ThemeType?>()) &&
+        (targetTypeOf == _typeOf<_i11.ThemeType>() ||
+            targetTypeOf == _typeOf<_i11.ThemeType?>())) {
+      if (canReturnNull && model == null) {
+        return null;
+      }
+      return (_map__i11$ThemeType_To__i11$ThemeType((model as _i11.ThemeType?))
+          as TARGET);
+    }
     throw Exception('No ${model.runtimeType} -> $targetTypeOf mapping.');
   }
 
@@ -517,5 +570,35 @@ class $AppMappr implements _i3.AutoMapprInterface {
           r'Consider setting the whenSourceIsNull parameter on the MapType<WordStatusEntity, WordStatus> to handle null values during mapping.');
     }
     return _i2.WordStatus.values.firstWhere((x) => x.name == model.name);
+  }
+
+  _i11.ThemeEntity _map__i10$Theme_To__i11$ThemeEntity(_i10.Theme? input) {
+    final model = input;
+    if (model == null) {
+      throw Exception(
+          r'Mapping Theme → ThemeEntity failed because Theme was null, and no default value was provided. '
+          r'Consider setting the whenSourceIsNull parameter on the MapType<Theme, ThemeEntity> to handle null values during mapping.');
+    }
+    return _i11.ThemeEntity(themeType: model.themeType);
+  }
+
+  _i10.Theme _map__i11$ThemeEntity_To__i10$Theme(_i11.ThemeEntity? input) {
+    final model = input;
+    if (model == null) {
+      throw Exception(
+          r'Mapping ThemeEntity → Theme failed because ThemeEntity was null, and no default value was provided. '
+          r'Consider setting the whenSourceIsNull parameter on the MapType<ThemeEntity, Theme> to handle null values during mapping.');
+    }
+    return _i10.Theme(themeType: model.themeType);
+  }
+
+  _i11.ThemeType _map__i11$ThemeType_To__i11$ThemeType(_i11.ThemeType? input) {
+    final model = input;
+    if (model == null) {
+      throw Exception(
+          r'Mapping ThemeType → ThemeType failed because ThemeType was null, and no default value was provided. '
+          r'Consider setting the whenSourceIsNull parameter on the MapType<ThemeType, ThemeType> to handle null values during mapping.');
+    }
+    return _i11.ThemeType.values.firstWhere((x) => x.name == model.name);
   }
 }
