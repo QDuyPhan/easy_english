@@ -35,10 +35,10 @@ class SvgButton extends StatelessWidget {
           child: SvgPicture.asset(
             height: size,
             svg,
-            colorFilter: ColorFilter.mode(
-              color ?? colorScheme.onPrimaryContainer,
-              BlendMode.srcIn,
-            ),
+            // colorFilter: ColorFilter.mode(
+            //   color ?? colorScheme.onPrimaryContainer,
+            //   BlendMode.srcIn,
+            // ),
           ),
         ),
       ),

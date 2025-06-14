@@ -1,8 +1,10 @@
-import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/navigation/app_router.dart';
+import 'package:easy_english/core/theme/app_theme.dart';
 import 'package:easy_english/di/injector.dart' as di;
+import 'package:easy_english/domain/entities/theme_entity.dart';
 import 'package:easy_english/domain/usecases/init_data_topics_use_case.dart';
 import 'package:easy_english/domain/usecases/init_data_use_case.dart';
+import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +26,17 @@ void main() async {
   await di.setupDependencies();
   Bloc.observer = MyBlocObserver();
   // runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
-  runApp(MyApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create:
+              (context) => di.getIt<ThemeBloc>()..add(ThemeEvent.getTheme()),
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -57,25 +69,25 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final fontFamily = 'WorkSans';
-    return FutureBuilder(
-      future: _initialization,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          return MaterialApp.router(
-            routerConfig: AppRouter.router,
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData.from(
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: AppColor.primary100,
-                brightness: Brightness.light,
-                surface: Colors.white,
-              ),
-              textTheme: TextTheme().apply(fontFamily: fontFamily),
-            ),
-          );
-        } else {
-          return Container(color: Colors.redAccent); // Màn hình splash
-        }
+    return BlocBuilder<ThemeBloc, ThemeState>(
+      builder: (context, state) {
+        return FutureBuilder(
+          future: _initialization,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return MaterialApp.router(
+                routerConfig: AppRouter.router,
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.getTheme(
+                  state.themeEntity?.themeType == ThemeType.dark,
+                ),
+                themeMode: ThemeMode.system,
+              );
+            } else {
+              return Container(color: Colors.redAccent); // Màn hình splash
+            }
+          },
+        );
       },
     );
   }
