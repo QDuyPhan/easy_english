@@ -19,6 +19,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
+import '../../presentation/features/vocabulary/screen/vocabulary_screen.dart';
+
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -52,37 +54,35 @@ class AppRouter {
                   );
                 },
               ),
-              // GoRoute(
-              //   path: RoutePaths.vocabulary,
-              //   pageBuilder: (context, state) {
-              //     // final extra = state.extra as Map<String, dynamic>?;
-              //     // final word = extra?['word'] as WordEntity;
-              //     return CustomTransitionPage(
-              //       key: state.pageKey,
-              //       child: VocabularyScreen(),
-              //       transitionsBuilder: (
-              //         context,
-              //         animation,
-              //         secondaryAnimation,
-              //         child,
-              //       ) {
-              //         return FadeTransition(opacity: animation, child: child);
-              //       },
-              //       transitionDuration: Duration(milliseconds: 500),
-              //     );
-              //   },
-              // ),
-              // GoRoute(
-              //   path: RoutePaths.vocabularyDetails,
-              //   pageBuilder: (context, state) {
-              //     final extra = state.extra as Map<String, dynamic>?;
-              //     final word = extra?['word'] as WordEntity;
-              //     return SwipeablePage(
-              //       key: state.pageKey,
-              //       builder: (context) => VocabularyDetailScreen(word: word),
-              //     );
-              //   },
-              // ),
+              GoRoute(
+                path: RoutePaths.vocabulary,
+                pageBuilder: (context, state) {
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder: (context) => VocabularyScreen(),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.grammar,
+                pageBuilder: (context, state) {
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder: (context) => GrammarScreen(),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.vocabularyDetails,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final word = extra?['word'] as WordEntity;
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder: (context) => VocabularyDetailScreen(word: word),
+                  );
+                },
+              ),
             ],
           ),
           StatefulShellBranch(

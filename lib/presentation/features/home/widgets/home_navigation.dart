@@ -84,7 +84,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 decoration: BoxDecoration(
                   color:
                       item == selectedIndex
-                          ? colorScheme.primaryContainer
+                          ? colorScheme.primaryContainer.withOpacity(0.2)
                           : Colors.transparent,
                   borderRadius: BorderRadius.circular(8),
                 ),

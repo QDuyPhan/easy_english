@@ -115,7 +115,6 @@ class Assets {
   static const String pngBook = 'assets/png/book.png';
   static const String pngFlame = 'assets/png/flame.png';
   static const String pngFlameInactive = 'assets/png/flame_inactive.png';
-  static const String pngGrammar = 'assets/png/grammar.png';
   static const String pngImg = 'assets/png/img.png';
   static const String pngImg1 = 'assets/png/img_1.png';
   static const String pngLauncher = 'assets/png/launcher.png';
@@ -227,4 +226,6 @@ class Assets {
   static const String pngTimeAndSpace = 'assets/png/time_and_space.png';
   static const String pngTravel = 'assets/png/travel.png';
   static const String pngWorkAndBusiness = 'assets/png/work_and_business.png';
+  static const String pngWordsList = 'assets/png/wordslist.png';
+  static const String pngGrammar = 'assets/png/grammar.png';
 }
