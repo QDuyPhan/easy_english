@@ -4,11 +4,8 @@ enum ThemeStatus { initial, loading, success, error }
 
 @freezed
 class ThemeState with _$ThemeState {
-  const factory ThemeState({
-    required ThemeStatus status,
-    String? errorMessage,
-    ThemeEntity? themeEntity,
-  }) = _ThemeState;
 
-  const factory ThemeState.initial() = _Initial;
+  const factory ThemeState.initial({
+    ThemeEntity? themeEntity,
+  }) = _Initial;
 }

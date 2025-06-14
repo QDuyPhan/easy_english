@@ -8,6 +8,6 @@ class HiveTypes {
   static const settingsSnapshot = 4;
   static const scheduledNotification = 5;
   static const topicMetadata = 6;
-  static const theme = 7;
-  static const themeType = 8;
+  // static const theme = 7;
+  // static const themeType = 8;
 }

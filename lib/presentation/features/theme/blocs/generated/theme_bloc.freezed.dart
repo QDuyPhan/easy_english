@@ -289,49 +289,44 @@ abstract class _ToggleTheme implements ThemeEvent {
 
 /// @nodoc
 mixin _$ThemeState {
+  ThemeEntity? get themeEntity => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)
-        $default, {
-    required TResult Function() initial,
+  TResult when<TResult extends Object?>({
+    required TResult Function(ThemeEntity? themeEntity) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)?
-        $default, {
-    TResult? Function()? initial,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ThemeEntity? themeEntity)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)?
-        $default, {
-    TResult Function()? initial,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ThemeEntity? themeEntity)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ThemeState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ThemeState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ThemeState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of ThemeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ThemeStateCopyWith<ThemeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -340,6 +335,8 @@ abstract class $ThemeStateCopyWith<$Res> {
   factory $ThemeStateCopyWith(
           ThemeState value, $Res Function(ThemeState) then) =
       _$ThemeStateCopyWithImpl<$Res, ThemeState>;
+  @useResult
+  $Res call({ThemeEntity? themeEntity});
 }
 
 /// @nodoc
@@ -354,185 +351,29 @@ class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
 
   /// Create a copy of ThemeState
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$ThemeStateImplCopyWith<$Res> {
-  factory _$$ThemeStateImplCopyWith(
-          _$ThemeStateImpl value, $Res Function(_$ThemeStateImpl) then) =
-      __$$ThemeStateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call(
-      {ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity});
-}
-
-/// @nodoc
-class __$$ThemeStateImplCopyWithImpl<$Res>
-    extends _$ThemeStateCopyWithImpl<$Res, _$ThemeStateImpl>
-    implements _$$ThemeStateImplCopyWith<$Res> {
-  __$$ThemeStateImplCopyWithImpl(
-      _$ThemeStateImpl _value, $Res Function(_$ThemeStateImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ThemeState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? errorMessage = freezed,
     Object? themeEntity = freezed,
   }) {
-    return _then(_$ThemeStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ThemeStatus,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_value.copyWith(
       themeEntity: freezed == themeEntity
           ? _value.themeEntity
           : themeEntity // ignore: cast_nullable_to_non_nullable
               as ThemeEntity?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-
-class _$ThemeStateImpl implements _ThemeState {
-  const _$ThemeStateImpl(
-      {required this.status, this.errorMessage, this.themeEntity});
-
-  @override
-  final ThemeStatus status;
-  @override
-  final String? errorMessage;
-  @override
-  final ThemeEntity? themeEntity;
-
-  @override
-  String toString() {
-    return 'ThemeState(status: $status, errorMessage: $errorMessage, themeEntity: $themeEntity)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ThemeStateImpl &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage) &&
-            (identical(other.themeEntity, themeEntity) ||
-                other.themeEntity == themeEntity));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, status, errorMessage, themeEntity);
-
-  /// Create a copy of ThemeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ThemeStateImplCopyWith<_$ThemeStateImpl> get copyWith =>
-      __$$ThemeStateImplCopyWithImpl<_$ThemeStateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)
-        $default, {
-    required TResult Function() initial,
-  }) {
-    return $default(status, errorMessage, themeEntity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)?
-        $default, {
-    TResult? Function()? initial,
-  }) {
-    return $default?.call(status, errorMessage, themeEntity);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)?
-        $default, {
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(status, errorMessage, themeEntity);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ThemeState value) $default, {
-    required TResult Function(_Initial value) initial,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ThemeState value)? $default, {
-    TResult? Function(_Initial value)? initial,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ThemeState value)? $default, {
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ThemeState implements ThemeState {
-  const factory _ThemeState(
-      {required final ThemeStatus status,
-      final String? errorMessage,
-      final ThemeEntity? themeEntity}) = _$ThemeStateImpl;
-
-  ThemeStatus get status;
-  String? get errorMessage;
-  ThemeEntity? get themeEntity;
-
-  /// Create a copy of ThemeState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ThemeStateImplCopyWith<_$ThemeStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
+abstract class _$$InitialImplCopyWith<$Res>
+    implements $ThemeStateCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
           _$InitialImpl value, $Res Function(_$InitialImpl) then) =
       __$$InitialImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ThemeEntity? themeEntity});
 }
 
 /// @nodoc
@@ -545,68 +386,84 @@ class __$$InitialImplCopyWithImpl<$Res>
 
   /// Create a copy of ThemeState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? themeEntity = freezed,
+  }) {
+    return _then(_$InitialImpl(
+      themeEntity: freezed == themeEntity
+          ? _value.themeEntity
+          : themeEntity // ignore: cast_nullable_to_non_nullable
+              as ThemeEntity?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+  const _$InitialImpl({this.themeEntity});
+
+  @override
+  final ThemeEntity? themeEntity;
 
   @override
   String toString() {
-    return 'ThemeState.initial()';
+    return 'ThemeState.initial(themeEntity: $themeEntity)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$InitialImpl &&
+            (identical(other.themeEntity, themeEntity) ||
+                other.themeEntity == themeEntity));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, themeEntity);
+
+  /// Create a copy of ThemeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)
-        $default, {
-    required TResult Function() initial,
+  TResult when<TResult extends Object?>({
+    required TResult Function(ThemeEntity? themeEntity) initial,
   }) {
-    return initial();
+    return initial(themeEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)?
-        $default, {
-    TResult? Function()? initial,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ThemeEntity? themeEntity)? initial,
   }) {
-    return initial?.call();
+    return initial?.call(themeEntity);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            ThemeStatus status, String? errorMessage, ThemeEntity? themeEntity)?
-        $default, {
-    TResult Function()? initial,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ThemeEntity? themeEntity)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial();
+      return initial(themeEntity);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ThemeState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
   }) {
     return initial(this);
@@ -614,8 +471,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ThemeState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
   }) {
     return initial?.call(this);
@@ -623,8 +479,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ThemeState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     required TResult orElse(),
   }) {
@@ -636,5 +491,15 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements ThemeState {
-  const factory _Initial() = _$InitialImpl;
+  const factory _Initial({final ThemeEntity? themeEntity}) = _$InitialImpl;
+
+  @override
+  ThemeEntity? get themeEntity;
+
+  /// Create a copy of ThemeState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

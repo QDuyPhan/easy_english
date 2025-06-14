@@ -54,7 +54,6 @@ Future<_i174.GetIt> $initGetIt(
     () => sharedPreferencesModule.prefs,
     preResolve: true,
   );
-  gh.factory<_i1032.ThemeBloc>(() => _i1032.ThemeBloc());
   await gh.singletonAsync<_i719.HiveConfig>(
     () => _i719.HiveConfig.create(),
     preResolve: true,
@@ -94,6 +93,10 @@ Future<_i174.GetIt> $initGetIt(
       () => _i280.GetTopicsUsecase(gh<_i13.TopicRepository>()));
   gh.factory<_i599.InitDataTopics>(
       () => _i599.InitDataTopics(gh<_i13.TopicRepository>()));
+  gh.factory<_i1032.ThemeBloc>(() => _i1032.ThemeBloc(
+        getTheme: gh<_i131.GetThemeUseCase>(),
+        saveTheme: gh<_i883.SaveThemeUseCase>(),
+      ));
   gh.factory<_i282.TopicsBloc>(
       () => _i282.TopicsBloc(getAllTopics: gh<_i280.GetTopicsUsecase>()));
   return getIt;
