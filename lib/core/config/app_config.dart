@@ -11,7 +11,7 @@ class AppConfig {
       // Number of method calls to be displayed
       errorMethodCount: 8,
       // Number of method calls if stacktrace is provided
-      lineLength: 1000,
+      lineLength: 200,
       // Width of the output
       colors: true,
       // Colorful log messages

@@ -20,12 +20,12 @@ class MyBlocObserver extends BlocObserver {
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
     super.onError(bloc, error, stackTrace);
-    app_config.printLog('i', 'Lỗi trong ${bloc.runtimeType}: $error');
+    app_config.printLog('e', 'Lỗi trong ${bloc.runtimeType}: $error');
   }
 
   @override
   void onClose(BlocBase bloc) {
     super.onClose(bloc);
-    app_config.printLog('i', 'Đóng Bloc: ${bloc.runtimeType}');
+    app_config.printLog('d', 'Đóng Bloc: ${bloc.runtimeType}');
   }
 }

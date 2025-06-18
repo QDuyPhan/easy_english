@@ -1,5 +1,5 @@
-import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/svg_button.dart';
 import 'package:easy_english/data/models/word_status.dart';
@@ -24,10 +24,9 @@ class WordCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        context.push(RoutePaths.vocabularyDetails, extra: {'word': word});
+        context.push(RoutePaths.wordDetails, extra: {'word': word});
       },
       child: Card(
-        color: colorScheme.primaryContainer,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

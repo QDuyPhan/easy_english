@@ -1,10 +1,12 @@
 import 'package:easy_english/core/utils/widgets/base_screen.dart';
-import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/presentation/features/vocabulary/widgets/search_box.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/word_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/navigation/route_paths.dart';
+import '../../flashcard/widgets/flash_cards_button.dart';
 import '../blocs/topics_bloc.dart';
 
 class TopicsScreen extends StatefulWidget {
@@ -22,14 +24,19 @@ class _TopicsScreenState extends State<TopicsScreen> {
   int _curIndexNum = 0;
 
   @override
+  void initState() {
+    super.initState();
+    context.read<TopicsBloc>().add(
+      TopicsEvent.getAllTopics(folder: widget.folder, topic: widget.topic),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value:
-          di.getIt<TopicsBloc>()
-            ..add(TopicsEvent.getAllTopics(folder: widget.folder, topic: widget.topic)),
-      child: BlocBuilder<TopicsBloc, TopicsState>(
-        builder: (context, state) {
-          return BaseScreen(
+    return BlocBuilder<TopicsBloc, TopicsState>(
+      builder: (context, state) {
+        return Scaffold(
+          body: BaseScreen(
             title: widget.topic.replaceAll('_', ' ').toUpperCase(),
             showSearch: _showSearch,
             onSearchToggle: () {
@@ -38,14 +45,17 @@ class _TopicsScreenState extends State<TopicsScreen> {
               });
             },
             searchBox: _showSearch ? SearchBox(showSearch: _showSearch) : null,
-            // tabTitles: const ['Word List', 'Flashcard'],
-            tabViews: [
-              _buildWordListTab(context, state),
-              // _buildFlashcardTab(context, state),
-            ],
-          );
-        },
-      ),
+            tabViews: [_buildWordListTab(context, state)],
+          ),
+          floatingActionButton: FlashCardsButton(
+            onPressed:
+                () => context.push(
+                  RoutePaths.flashcards,
+                  extra: {'word': state.words},
+                ),
+          ),
+        );
+      },
     );
   }
 

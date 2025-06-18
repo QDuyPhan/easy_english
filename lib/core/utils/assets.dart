@@ -228,4 +228,5 @@ class Assets {
   static const String pngWorkAndBusiness = 'assets/png/work_and_business.png';
   static const String pngWordsList = 'assets/png/wordslist.png';
   static const String pngGrammar = 'assets/png/grammar.png';
+  static const String pngFlashCards = 'assets/png/flashcard.png';
 }

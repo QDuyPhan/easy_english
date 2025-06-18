@@ -25,10 +25,10 @@ class TopicsBloc extends Bloc<TopicsEvent, TopicsState> {
   _handleGetTopic(_GetAllTopics event, Emitter<TopicsState> emit) {
     try {
       final topics = _getAllTopics.execute(event.folder, event.topic);
-      app_config.printLog(
-        'i',
-        "Loaded topics for ${event.folder}/${event.topic}: ${topics.length} topics",
-      );
+      // app_config.printLog(
+      //   'i',
+      //   "Loaded topics for ${event.folder}/${event.topic}: ${topics.length} topics",
+      // );
       emit(state.copyWith(words: topics));
     } catch (e) {
       app_config.printLog('e', e.toString());

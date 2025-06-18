@@ -2,6 +2,7 @@ import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/presentation/features/dictionary/screen/dictionary_screen.dart';
+import 'package:easy_english/presentation/features/flashcard/screen/flashcards_screen.dart';
 import 'package:easy_english/presentation/features/grammar/screen/grammar_screen.dart';
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
@@ -14,12 +15,11 @@ import 'package:easy_english/presentation/features/topics/screen/topic_category_
 import 'package:easy_english/presentation/features/topics/screen/topics_screen.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_detail_screen.dart';
+import 'package:easy_english/presentation/features/vocabulary/screen/word_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
-
-import '../../presentation/features/vocabulary/screen/vocabulary_screen.dart';
 
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =
@@ -54,35 +54,35 @@ class AppRouter {
                   );
                 },
               ),
-              GoRoute(
-                path: RoutePaths.vocabulary,
-                pageBuilder: (context, state) {
-                  return SwipeablePage(
-                    key: state.pageKey,
-                    builder: (context) => VocabularyScreen(),
-                  );
-                },
-              ),
-              GoRoute(
-                path: RoutePaths.grammar,
-                pageBuilder: (context, state) {
-                  return SwipeablePage(
-                    key: state.pageKey,
-                    builder: (context) => GrammarScreen(),
-                  );
-                },
-              ),
-              GoRoute(
-                path: RoutePaths.vocabularyDetails,
-                pageBuilder: (context, state) {
-                  final extra = state.extra as Map<String, dynamic>?;
-                  final word = extra?['word'] as WordEntity;
-                  return SwipeablePage(
-                    key: state.pageKey,
-                    builder: (context) => VocabularyDetailScreen(word: word),
-                  );
-                },
-              ),
+              // GoRoute(
+              //   path: RoutePaths.vocabulary,
+              //   pageBuilder: (context, state) {
+              //     return SwipeablePage(
+              //       key: state.pageKey,
+              //       builder: (context) => VocabularyScreen(),
+              //     );
+              //   },
+              // ),
+              // GoRoute(
+              //   path: RoutePaths.grammar,
+              //   pageBuilder: (context, state) {
+              //     return SwipeablePage(
+              //       key: state.pageKey,
+              //       builder: (context) => GrammarScreen(),
+              //     );
+              //   },
+              // ),
+              // GoRoute(
+              //   path: RoutePaths.vocabularyDetails,
+              //   pageBuilder: (context, state) {
+              //     final extra = state.extra as Map<String, dynamic>?;
+              //     final word = extra?['word'] as WordEntity;
+              //     return SwipeablePage(
+              //       key: state.pageKey,
+              //       builder: (context) => VocabularyDetailScreen(word: word),
+              //     );
+              //   },
+              // ),
             ],
           ),
           StatefulShellBranch(
@@ -132,6 +132,28 @@ class AppRouter {
                   return SwipeablePage(
                     key: state.pageKey,
                     builder: (context) => VocabularyDetailScreen(word: word),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.wordDetails,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final word = extra?['word'] as WordEntity;
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder: (context) => WordDetailScreen(word: word),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.flashcards,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final word = extra?['word'] as List<WordEntity>;
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder: (context) => FlashcardsScreen(words: word),
                   );
                 },
               ),

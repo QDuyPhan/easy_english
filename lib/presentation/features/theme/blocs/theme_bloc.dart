@@ -33,7 +33,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   _handleGetTheme(_GetTheme event, Emitter<ThemeState> emit) async {
     try {
       final getTheme = await _getTheme.call();
-      app_config.printLog('i', 'Loaded theme: $getTheme');
+      // app_config.printLog('i', 'Loaded theme: $getTheme');
       emit(state.copyWith(themeEntity: getTheme));
     } catch (e) {
       app_config.printLog('e', 'Error load theme: $e');
