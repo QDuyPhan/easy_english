@@ -11,7 +11,7 @@ class BaseScreen extends StatelessWidget {
   final List<Widget> actions;
   final List<String>? tabTitles;
   final List<Widget> tabViews;
-  final bool showSearch;
+  final bool? showSearch;
   final VoidCallback? onSearchToggle;
   final Widget? searchBox;
   final bool showBackButton;
@@ -54,7 +54,7 @@ class BaseScreen extends StatelessWidget {
                       ? [
                         SvgButton(
                           svg:
-                              showSearch
+                              showSearch!
                                   ? Assets.svgClose
                                   : Assets.svgSearch,
                           onPressed: onSearchToggle,
@@ -85,7 +85,7 @@ class BaseScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            if (showSearch && searchBox != null) searchBox!,
+            if (showSearch! && searchBox != null) searchBox!,
             Expanded(child: TabBarView(children: tabViews)),
           ],
         ),
