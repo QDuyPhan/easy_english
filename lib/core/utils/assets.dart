@@ -1,3 +1,9 @@
+import 'package:easy_english/domain/entities/category_data_entity.dart';
+
+import '../../data/models/category_data.dart';
+import '../../data/models/lesson.dart';
+import '../../domain/entities/lesson_entity.dart';
+
 class Assets {
   Assets._();
 
@@ -83,6 +89,257 @@ class Assets {
     ],
     'work_and_business': ['business', 'jobs'],
   };
+
+  static final List<CategoryDataEntity> categories = [
+    const CategoryDataEntity(
+      id: 1,
+      title: 'Tenses',
+      description: '13 tenses in English',
+      progress: 0,
+      total: 13,
+      lessons: [
+        LessonEntity(
+          id: 1,
+          title: 'Simple Present',
+          subTitle: 'S + to be/V + O',
+          path: Assets.presentSimplePresentTense,
+        ),
+        LessonEntity(
+          id: 2,
+          title: 'Present Continuous',
+          subTitle: 'S + to be + V-ing + O',
+          path: Assets.presentPresentContinuousTense,
+        ),
+        LessonEntity(
+          id: 3,
+          title: 'Present Perfect',
+          subTitle: 'S + have/has + V3 + O',
+          path: Assets.presentPresentPerfectTense,
+        ),
+        LessonEntity(
+          id: 4,
+          title: 'Present Perfect Continuous',
+          subTitle: 'S + have/has + been + V-ing + O',
+          path: Assets.presentPresentPerfectContinuousTense,
+        ),
+        LessonEntity(
+          id: 5,
+          title: 'Simple Past',
+          subTitle: 'S + V2 + O',
+          path: Assets.pastSimplePastTense,
+        ),
+        LessonEntity(
+          id: 6,
+          title: 'Past Continuous',
+          subTitle: 'S + was/were + V-ing + O',
+          path: Assets.pastPastContinuousTense,
+        ),
+        LessonEntity(
+          id: 7,
+          title: 'Past Perfect',
+          subTitle: 'S + had + V3 + O',
+          path: Assets.pastPastPerfectTense,
+        ),
+        LessonEntity(
+          id: 8,
+          title: 'Past Perfect Continuous',
+          subTitle: 'S + had + been + V-ing + O',
+          path: Assets.pastPastPerfectContinuousTense,
+        ),
+        LessonEntity(
+          id: 9,
+          title: 'Simple Future',
+          subTitle: 'S + will + V + O',
+          path: Assets.futureFutureSimpleTense,
+        ),
+        LessonEntity(
+          id: 10,
+          title: 'Future Continuous',
+          subTitle: 'S + will + be + V-ing + O',
+          path: Assets.futureFutureContinuousTense,
+        ),
+        LessonEntity(
+          id: 11,
+          title: 'Future Perfect',
+          subTitle: 'S + will + have + V3 + O',
+          path: Assets.futureFuturePerfectTense,
+        ),
+        LessonEntity(
+          id: 12,
+          title: 'Future Perfect Continuous',
+          subTitle: 'S + will + have + been + V-ing + O',
+          path: Assets.futureFuturePerfectContinuousTense,
+        ),
+        LessonEntity(
+          id: 13,
+          title: 'Near Future',
+          subTitle: 'S + to be + going to + V + O',
+          path: Assets.futureNearFuture,
+        ),
+      ],
+    ),
+    const CategoryDataEntity(
+      id: 2,
+      title: 'Sentences',
+      description: 'Sentences in English',
+      progress: 0,
+      total: 8,
+      lessons: [
+        LessonEntity(
+          id: 14,
+          title: 'Passive Voice',
+          subTitle: 'Emphasize the action rather than the doer',
+          path: Assets.sentencesPassiveVoice,
+        ),
+        LessonEntity(
+          id: 15,
+          title: 'Reported Speech',
+          subTitle: 'Report what someone else said',
+          path: Assets.sentencesReportedSpeech,
+        ),
+        LessonEntity(
+          id: 16,
+          title: 'Conditional Sentences',
+          subTitle: '4 types of conditional sentences',
+          path: Assets.sentencesConditionalSentences,
+        ),
+        LessonEntity(
+          id: 17,
+          title: 'Wish Sentences',
+          subTitle: 'Express regret or desire',
+          path: Assets.sentencesWishSentences,
+        ),
+        LessonEntity(
+          id: 18,
+          title: 'Question Tags',
+          subTitle: 'Short questions at the end of a sentence',
+          path: Assets.sentencesQuestionTags,
+        ),
+        LessonEntity(
+          id: 19,
+          title: 'Imperative Sentences',
+          subTitle: 'Give orders or instructions',
+          path: Assets.sentencesImperativeSentences,
+        ),
+        LessonEntity(
+          id: 20,
+          title: 'Comparison Sentences',
+          subTitle: 'Compare two or more things',
+          path: Assets.sentencesComparisonSentences,
+        ),
+        LessonEntity(
+          id: 21,
+          title: 'Exclamatory Sentences',
+          subTitle: 'Express strong feelings',
+          path: Assets.sentencesExclamatorySentences,
+        ),
+      ],
+    ),
+    const CategoryDataEntity(
+      id: 3,
+      title: 'Words',
+      description: 'Words in English',
+      progress: 0,
+      total: 9,
+      lessons: [
+        LessonEntity(
+          id: 22,
+          title: 'Nouns',
+          subTitle: 'Person, place, thing, or idea',
+          path: Assets.wordFamiliesNouns,
+        ),
+        LessonEntity(
+          id: 23,
+          title: 'Pronouns',
+          subTitle: 'Replace nouns',
+          path: Assets.wordsPronouns,
+        ),
+        LessonEntity(
+          id: 24,
+          title: 'Adjectives',
+          subTitle: 'Describe nouns',
+          path: Assets.wordFamiliesAdjectives,
+        ),
+        LessonEntity(
+          id: 25,
+          title: 'Adverbs',
+          subTitle: 'Describe verbs, adjectives, or other adverbs',
+          path: Assets.wordFamiliesAdverbs,
+        ),
+        LessonEntity(
+          id: 26,
+          title: 'Prepositions',
+          subTitle: 'Show the relationship between a noun and another word',
+          path: Assets.wordsPreposition,
+        ),
+        LessonEntity(
+          id: 27,
+          title: 'Conjunctions',
+          subTitle: 'Connect words, phrases, or clauses',
+          path: Assets.wordsConjunction,
+        ),
+        LessonEntity(
+          id: 28,
+          title: 'Interjections',
+          subTitle: 'Express strong feelings or emotions',
+          path: Assets.wordsInterjection,
+        ),
+        LessonEntity(
+          id: 29,
+          title: 'Articles',
+          subTitle: 'A, an, the',
+          path: Assets.wordsArticle,
+        ),
+        LessonEntity(
+          id: 32,
+          title: 'Modals Verbs',
+          subTitle: 'Can, could, may, might, must, shall, should, will, would',
+          path: Assets.wordsModalVerbs,
+        ),
+      ],
+    ),
+    const CategoryDataEntity(
+      id: 4,
+      title: "Others",
+      description: "Other grammar topics",
+      progress: 0,
+      total: 5,
+      lessons: [
+        LessonEntity(
+          id: 33,
+          title: "Word Families",
+          subTitle: "Words that are related to each other",
+          path: Assets.wordFamiliesWordFamilies,
+        ),
+        LessonEntity(
+          id: 34,
+          title: "Phrasal Verbs",
+          subTitle: "Verb + preposition or adverb",
+          path: Assets.grammarPhrasalVerbs,
+        ),
+        LessonEntity(
+          id: 35,
+          title: "Idioms",
+          subTitle:
+              "Expressions that have a meaning different from the meaning of the individual words",
+          path: Assets.grammarIdioms,
+        ),
+        LessonEntity(
+          id: 36,
+          title: "Proverbs",
+          subTitle: "Short sayings that give advice or express a belief",
+          path: Assets.grammarProverbs,
+        ),
+        LessonEntity(
+          id: 37,
+          title: "Quantifiers",
+          subTitle: "Words that describe quantity",
+          path: Assets.grammarQuantifiers,
+        ),
+      ],
+    ),
+  ];
+
   static const String futureFuture =
       'assets/md/grammar/tenses/future/future.md';
   static const String futureFutureContinuousTense =

@@ -1,8 +1,10 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/di/injector.dart' as di;
+import 'package:easy_english/domain/entities/category_data_entity.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/presentation/features/dictionary/screen/dictionary_screen.dart';
 import 'package:easy_english/presentation/features/flashcard/screen/flashcards_screen.dart';
+import 'package:easy_english/presentation/features/grammar/screen/grammar_category_screen.dart';
 import 'package:easy_english/presentation/features/grammar/screen/grammar_screen.dart';
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
@@ -179,43 +181,19 @@ class AppRouter {
                     ),
               ),
               GoRoute(
-                path: RoutePaths.topicCategory,
+                path: RoutePaths.grammarCategory,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
-                  final listCategory =
-                      extra?['topics'] as MapEntry<String, List<String>>;
+                  final category = extra?['category'] as CategoryDataEntity;
                   return SwipeablePage(
                     key: state.pageKey,
                     builder:
-                        (context) =>
-                            TopicCategoryScreen(topicEntry: listCategory),
+                        (context) => GrammarCategoryScreen(category: category),
                   );
                 },
               ),
             ],
           ),
-
-          // StatefulShellBranch(
-          //   routes: [
-          //     GoRoute(
-          //       path: RoutePaths.home,
-          //       pageBuilder:
-          //           (context, state) => CustomTransitionPage(
-          //             key: state.pageKey,
-          //             child: HomeScreen(),
-          //             transitionsBuilder: (
-          //               context,
-          //               animation,
-          //               secondaryAnimation,
-          //               child,
-          //             ) {
-          //               return FadeTransition(opacity: animation, child: child);
-          //             },
-          //             transitionDuration: Duration(milliseconds: 500),
-          //           ),
-          //     ),
-          //   ],
-          // ),
           StatefulShellBranch(
             routes: [
               GoRoute(

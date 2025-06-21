@@ -1,13 +1,13 @@
 class LessonEntity {
   final int id;
   final String title;
-  final String? subTitl;
+  final String? subTitle;
   final String path;
 
-  LessonEntity({
+ const LessonEntity({
     required this.id,
     required this.title,
-    required this.subTitl,
+    required this.subTitle,
     required this.path,
   });
 }

@@ -7,15 +7,15 @@ class CategoryDataEntity {
   final List<LessonEntity> lessons;
   final int progress;
   final int total;
-  final bool isBeta;
+  final bool? isBeta;
 
-  CategoryDataEntity({
+  const CategoryDataEntity({
     required this.id,
     required this.title,
     required this.description,
     required this.lessons,
     required this.progress,
     required this.total,
-    required this.isBeta,
+    this.isBeta,
   });
 }
