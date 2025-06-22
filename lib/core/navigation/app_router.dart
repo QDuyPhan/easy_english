@@ -1,11 +1,13 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/entities/category_data_entity.dart';
+import 'package:easy_english/domain/entities/lesson_entity.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/presentation/features/dictionary/screen/dictionary_screen.dart';
 import 'package:easy_english/presentation/features/flashcard/screen/flashcards_screen.dart';
 import 'package:easy_english/presentation/features/grammar/screen/grammar_category_screen.dart';
 import 'package:easy_english/presentation/features/grammar/screen/grammar_screen.dart';
+import 'package:easy_english/presentation/features/grammar/screen/lesson_screen.dart';
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
@@ -189,6 +191,17 @@ class AppRouter {
                     key: state.pageKey,
                     builder:
                         (context) => GrammarCategoryScreen(category: category),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.lesson,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final lesson = extra?['lesson'] as LessonEntity;
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder: (context) => LessonScreen(lesson: lesson),
                   );
                 },
               ),
