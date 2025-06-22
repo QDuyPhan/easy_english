@@ -11,6 +11,7 @@ import 'package:easy_english/presentation/features/grammar/screen/lesson_screen.
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
+import 'package:easy_english/presentation/features/search/blocs/search_bloc.dart';
 import 'package:easy_english/presentation/features/search/screen/search_screen.dart';
 import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
 import 'package:easy_english/presentation/features/studing/screen/studying_screen.dart';
@@ -264,8 +265,23 @@ class AppRouter {
         path: RoutePaths.search,
         pageBuilder: (context, state) {
           return SwipeablePage(
-            key: state.pageKey,
-            builder: (context) => SearchScreen(),
+            key: const ValueKey('SearchScreen'),
+            builder:
+                (context) => BlocProvider(
+                  create: (_) => di.getIt<SearchBloc>(),
+                  child: SearchScreen(),
+                ),
+          );
+        },
+      ),
+      GoRoute(
+        path: '${RoutePaths.wordDetails}-external',
+        pageBuilder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>?;
+          final word = extra?['word'] as WordEntity;
+          return SwipeablePage(
+            key: const ValueKey('WordDetailScreen_Outside'),
+            builder: (context) => WordDetailScreen(word: word),
           );
         },
       ),

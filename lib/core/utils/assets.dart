@@ -1,7 +1,5 @@
 import 'package:easy_english/domain/entities/category_data_entity.dart';
 
-import '../../data/models/category_data.dart';
-import '../../data/models/lesson.dart';
 import '../../domain/entities/lesson_entity.dart';
 
 class Assets {

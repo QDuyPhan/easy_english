@@ -12,9 +12,9 @@ part 'topics_state.dart';
 
 @injectable
 class TopicsBloc extends Bloc<TopicsEvent, TopicsState> {
-  final GetTopicsUsecase _getAllTopics;
+  final GetTopicsUseCase _getAllTopics;
 
-  TopicsBloc({required GetTopicsUsecase getAllTopics})
+  TopicsBloc({required GetTopicsUseCase getAllTopics})
     : _getAllTopics = getAllTopics,
       super(const TopicsState.initial()) {
     on<TopicsEvent>((event, emit) async {

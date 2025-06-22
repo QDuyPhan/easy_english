@@ -31,6 +31,8 @@ import '../domain/usecases/get_topics_use_case.dart' as _i280;
 import '../domain/usecases/init_data_topics_use_case.dart' as _i599;
 import '../domain/usecases/init_data_use_case.dart' as _i579;
 import '../domain/usecases/save_theme_use_case.dart' as _i883;
+import '../domain/usecases/search_words_use_case.dart' as _i63;
+import '../presentation/features/search/blocs/search_bloc.dart' as _i529;
 import '../presentation/features/theme/blocs/theme_bloc.dart' as _i1032;
 import '../presentation/features/topics/blocs/topics_bloc.dart' as _i282;
 import '../presentation/features/vocabulary/blocs/vocabulary_bloc.dart'
@@ -42,11 +44,7 @@ Future<_i174.GetIt> $initGetIt(
   String? environment,
   _i526.EnvironmentFilter? environmentFilter,
 }) async {
-  final gh = _i526.GetItHelper(
-    getIt,
-    environment,
-    environmentFilter,
-  );
+  final gh = _i526.GetItHelper(getIt, environment, environmentFilter);
   final sharedPreferencesModule = _$SharedPreferencesModule();
   final audioPlayerModule = _$AudioPlayerModule();
   gh.factory<_i556.AppMappr>(() => _i556.AppMappr());
@@ -60,45 +58,74 @@ Future<_i174.GetIt> $initGetIt(
   );
   gh.lazySingleton<_i501.AudioPlayer>(() => audioPlayerModule.audioPlayer());
   gh.lazySingleton<_i481.AssetsData>(
-      () => _i481.AssetsDataImpl(hiveConfig: gh<_i719.HiveConfig>()));
+    () => _i481.AssetsDataImpl(hiveConfig: gh<_i719.HiveConfig>()),
+  );
   gh.lazySingleton<_i614.LocalData>(
-      () => _i614.LocalDataImpl(hiveConfig: gh<_i719.HiveConfig>()));
+    () => _i614.LocalDataImpl(hiveConfig: gh<_i719.HiveConfig>()),
+  );
   gh.lazySingleton<_i212.OxfordWordsRepository>(
-      () => _i319.OxfordWordsRepositoryImpl(
-            assetsData: gh<_i481.AssetsData>(),
-            localData: gh<_i614.LocalData>(),
-            appMappr: gh<_i556.AppMappr>(),
-          ));
-  gh.lazySingleton<_i110.ThemeLocal>(() =>
-      _i110.ThemeLocalImpl(sharedPreferences: gh<_i460.SharedPreferences>()));
+    () => _i319.OxfordWordsRepositoryImpl(
+      assetsData: gh<_i481.AssetsData>(),
+      localData: gh<_i614.LocalData>(),
+      appMappr: gh<_i556.AppMappr>(),
+    ),
+  );
+  gh.lazySingleton<_i110.ThemeLocal>(
+    () =>
+        _i110.ThemeLocalImpl(sharedPreferences: gh<_i460.SharedPreferences>()),
+  );
   gh.factory<_i822.GetAllOxfordWordsUseCase>(
-      () => _i822.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
+    () => _i822.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()),
+  );
   gh.factory<_i579.InitDataUseCase>(
-      () => _i579.InitDataUseCase(gh<_i212.OxfordWordsRepository>()));
+    () => _i579.InitDataUseCase(gh<_i212.OxfordWordsRepository>()),
+  );
   gh.lazySingleton<_i443.ThemeRepository>(
-      () => _i792.ThemeRepositoryImpl(themeLocal: gh<_i110.ThemeLocal>()));
-  gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc(
-      getAllOxfordWordsUseCase: gh<_i822.GetAllOxfordWordsUseCase>()));
-  gh.factory<_i131.GetThemeUseCase>(() =>
-      _i131.GetThemeUseCase(themeRepository: gh<_i443.ThemeRepository>()));
-  gh.factory<_i883.SaveThemeUseCase>(() =>
-      _i883.SaveThemeUseCase(themeRepository: gh<_i443.ThemeRepository>()));
-  gh.lazySingleton<_i13.TopicRepository>(() => _i867.TopicRepositoryImpl(
-        assetsData: gh<_i481.AssetsData>(),
-        hiveConfig: gh<_i719.HiveConfig>(),
-        localData: gh<_i614.LocalData>(),
-        appMappr: gh<_i556.AppMappr>(),
-      ));
-  gh.factory<_i280.GetTopicsUsecase>(
-      () => _i280.GetTopicsUsecase(gh<_i13.TopicRepository>()));
+    () => _i792.ThemeRepositoryImpl(themeLocal: gh<_i110.ThemeLocal>()),
+  );
+  gh.factory<_i431.VocabularyBloc>(
+    () => _i431.VocabularyBloc(
+      getAllOxfordWordsUseCase: gh<_i822.GetAllOxfordWordsUseCase>(),
+    ),
+  );
+  gh.factory<_i131.GetThemeUseCase>(
+    () => _i131.GetThemeUseCase(themeRepository: gh<_i443.ThemeRepository>()),
+  );
+  gh.factory<_i883.SaveThemeUseCase>(
+    () => _i883.SaveThemeUseCase(themeRepository: gh<_i443.ThemeRepository>()),
+  );
+  gh.lazySingleton<_i13.TopicRepository>(
+    () => _i867.TopicRepositoryImpl(
+      assetsData: gh<_i481.AssetsData>(),
+      hiveConfig: gh<_i719.HiveConfig>(),
+      localData: gh<_i614.LocalData>(),
+      appMappr: gh<_i556.AppMappr>(),
+    ),
+  );
+  gh.factory<_i280.GetTopicsUseCase>(
+    () => _i280.GetTopicsUseCase(gh<_i13.TopicRepository>()),
+  );
   gh.factory<_i599.InitDataTopics>(
-      () => _i599.InitDataTopics(gh<_i13.TopicRepository>()));
-  gh.factory<_i1032.ThemeBloc>(() => _i1032.ThemeBloc(
-        getTheme: gh<_i131.GetThemeUseCase>(),
-        saveTheme: gh<_i883.SaveThemeUseCase>(),
-      ));
+    () => _i599.InitDataTopics(gh<_i13.TopicRepository>()),
+  );
   gh.factory<_i282.TopicsBloc>(
-      () => _i282.TopicsBloc(getAllTopics: gh<_i280.GetTopicsUsecase>()));
+    () => _i282.TopicsBloc(getAllTopics: gh<_i280.GetTopicsUseCase>()),
+  );
+  gh.factory<_i63.SearchWordsUseCase>(
+    () => _i63.SearchWordsUseCase(
+      oxfordWordsRepository: gh<_i212.OxfordWordsRepository>(),
+      topicRepository: gh<_i13.TopicRepository>(),
+    ),
+  );
+  gh.factory<_i1032.ThemeBloc>(
+    () => _i1032.ThemeBloc(
+      getTheme: gh<_i131.GetThemeUseCase>(),
+      saveTheme: gh<_i883.SaveThemeUseCase>(),
+    ),
+  );
+  gh.factory<_i529.SearchBloc>(
+    () => _i529.SearchBloc(searchWordsUseCase: gh<_i63.SearchWordsUseCase>()),
+  );
   return getIt;
 }
 
