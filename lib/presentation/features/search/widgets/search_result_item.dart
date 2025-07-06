@@ -14,7 +14,6 @@ class SearchResultItem extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    // Get the first definition from senses
     final definition =
         word.senses.isNotEmpty ? word.senses.first.definition : '';
 

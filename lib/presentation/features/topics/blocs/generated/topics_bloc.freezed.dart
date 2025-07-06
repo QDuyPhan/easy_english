@@ -16,45 +16,44 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TopicsEvent {
-  String get folder => throw _privateConstructorUsedError;
-  String get topic => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String folder, String topic) getAllTopics,
+    required TResult Function(WordEntity word, WordStatusEntity wordStatus)
+        saveWord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String folder, String topic)? getAllTopics,
+    TResult? Function(WordEntity word, WordStatusEntity wordStatus)? saveWord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String folder, String topic)? getAllTopics,
+    TResult Function(WordEntity word, WordStatusEntity wordStatus)? saveWord,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllTopics value) getAllTopics,
+    required TResult Function(_SaveWord value) saveWord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllTopics value)? getAllTopics,
+    TResult? Function(_SaveWord value)? saveWord,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllTopics value)? getAllTopics,
+    TResult Function(_SaveWord value)? saveWord,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of TopicsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $TopicsEventCopyWith<TopicsEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -63,8 +62,6 @@ abstract class $TopicsEventCopyWith<$Res> {
   factory $TopicsEventCopyWith(
           TopicsEvent value, $Res Function(TopicsEvent) then) =
       _$TopicsEventCopyWithImpl<$Res, TopicsEvent>;
-  @useResult
-  $Res call({String folder, String topic});
 }
 
 /// @nodoc
@@ -79,32 +76,13 @@ class _$TopicsEventCopyWithImpl<$Res, $Val extends TopicsEvent>
 
   /// Create a copy of TopicsEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? folder = null,
-    Object? topic = null,
-  }) {
-    return _then(_value.copyWith(
-      folder: null == folder
-          ? _value.folder
-          : folder // ignore: cast_nullable_to_non_nullable
-              as String,
-      topic: null == topic
-          ? _value.topic
-          : topic // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$GetAllTopicsImplCopyWith<$Res>
-    implements $TopicsEventCopyWith<$Res> {
+abstract class _$$GetAllTopicsImplCopyWith<$Res> {
   factory _$$GetAllTopicsImplCopyWith(
           _$GetAllTopicsImpl value, $Res Function(_$GetAllTopicsImpl) then) =
       __$$GetAllTopicsImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String folder, String topic});
 }
@@ -177,6 +155,8 @@ class _$GetAllTopicsImpl implements _GetAllTopics {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String folder, String topic) getAllTopics,
+    required TResult Function(WordEntity word, WordStatusEntity wordStatus)
+        saveWord,
   }) {
     return getAllTopics(folder, topic);
   }
@@ -185,6 +165,7 @@ class _$GetAllTopicsImpl implements _GetAllTopics {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String folder, String topic)? getAllTopics,
+    TResult? Function(WordEntity word, WordStatusEntity wordStatus)? saveWord,
   }) {
     return getAllTopics?.call(folder, topic);
   }
@@ -193,6 +174,7 @@ class _$GetAllTopicsImpl implements _GetAllTopics {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String folder, String topic)? getAllTopics,
+    TResult Function(WordEntity word, WordStatusEntity wordStatus)? saveWord,
     required TResult orElse(),
   }) {
     if (getAllTopics != null) {
@@ -205,6 +187,7 @@ class _$GetAllTopicsImpl implements _GetAllTopics {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllTopics value) getAllTopics,
+    required TResult Function(_SaveWord value) saveWord,
   }) {
     return getAllTopics(this);
   }
@@ -213,6 +196,7 @@ class _$GetAllTopicsImpl implements _GetAllTopics {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllTopics value)? getAllTopics,
+    TResult? Function(_SaveWord value)? saveWord,
   }) {
     return getAllTopics?.call(this);
   }
@@ -221,6 +205,7 @@ class _$GetAllTopicsImpl implements _GetAllTopics {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllTopics value)? getAllTopics,
+    TResult Function(_SaveWord value)? saveWord,
     required TResult orElse(),
   }) {
     if (getAllTopics != null) {
@@ -235,16 +220,166 @@ abstract class _GetAllTopics implements TopicsEvent {
       {required final String folder,
       required final String topic}) = _$GetAllTopicsImpl;
 
-  @override
   String get folder;
-  @override
   String get topic;
 
   /// Create a copy of TopicsEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetAllTopicsImplCopyWith<_$GetAllTopicsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SaveWordImplCopyWith<$Res> {
+  factory _$$SaveWordImplCopyWith(
+          _$SaveWordImpl value, $Res Function(_$SaveWordImpl) then) =
+      __$$SaveWordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({WordEntity word, WordStatusEntity wordStatus});
+}
+
+/// @nodoc
+class __$$SaveWordImplCopyWithImpl<$Res>
+    extends _$TopicsEventCopyWithImpl<$Res, _$SaveWordImpl>
+    implements _$$SaveWordImplCopyWith<$Res> {
+  __$$SaveWordImplCopyWithImpl(
+      _$SaveWordImpl _value, $Res Function(_$SaveWordImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TopicsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? word = null,
+    Object? wordStatus = null,
+  }) {
+    return _then(_$SaveWordImpl(
+      word: null == word
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as WordEntity,
+      wordStatus: null == wordStatus
+          ? _value.wordStatus
+          : wordStatus // ignore: cast_nullable_to_non_nullable
+              as WordStatusEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SaveWordImpl implements _SaveWord {
+  const _$SaveWordImpl({required this.word, required this.wordStatus});
+
+  @override
+  final WordEntity word;
+  @override
+  final WordStatusEntity wordStatus;
+
+  @override
+  String toString() {
+    return 'TopicsEvent.saveWord(word: $word, wordStatus: $wordStatus)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SaveWordImpl &&
+            (identical(other.word, word) || other.word == word) &&
+            (identical(other.wordStatus, wordStatus) ||
+                other.wordStatus == wordStatus));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, word, wordStatus);
+
+  /// Create a copy of TopicsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SaveWordImplCopyWith<_$SaveWordImpl> get copyWith =>
+      __$$SaveWordImplCopyWithImpl<_$SaveWordImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String folder, String topic) getAllTopics,
+    required TResult Function(WordEntity word, WordStatusEntity wordStatus)
+        saveWord,
+  }) {
+    return saveWord(word, wordStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String folder, String topic)? getAllTopics,
+    TResult? Function(WordEntity word, WordStatusEntity wordStatus)? saveWord,
+  }) {
+    return saveWord?.call(word, wordStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String folder, String topic)? getAllTopics,
+    TResult Function(WordEntity word, WordStatusEntity wordStatus)? saveWord,
+    required TResult orElse(),
+  }) {
+    if (saveWord != null) {
+      return saveWord(word, wordStatus);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllTopics value) getAllTopics,
+    required TResult Function(_SaveWord value) saveWord,
+  }) {
+    return saveWord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllTopics value)? getAllTopics,
+    TResult? Function(_SaveWord value)? saveWord,
+  }) {
+    return saveWord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllTopics value)? getAllTopics,
+    TResult Function(_SaveWord value)? saveWord,
+    required TResult orElse(),
+  }) {
+    if (saveWord != null) {
+      return saveWord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveWord implements TopicsEvent {
+  const factory _SaveWord(
+      {required final WordEntity word,
+      required final WordStatusEntity wordStatus}) = _$SaveWordImpl;
+
+  WordEntity get word;
+  WordStatusEntity get wordStatus;
+
+  /// Create a copy of TopicsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SaveWordImplCopyWith<_$SaveWordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

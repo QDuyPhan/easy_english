@@ -1,8 +1,7 @@
-import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/config/app_config.dart';
+import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/svg_button.dart';
-import 'package:easy_english/di/injector.dart' as di;
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -25,20 +24,12 @@ class Phonetic extends StatefulWidget {
 }
 
 class _PhoneticState extends State<Phonetic> {
-  final AudioPlayer _player = di.getIt<AudioPlayer>();
+  // final AudioPlayer _player = di.getIt<AudioPlayer>();
+  final AudioPlayer _player = AudioPlayer();
 
   @override
   void initState() {
     super.initState();
-    _initializePlayer();
-  }
-
-  @override
-  void didUpdateWidget(covariant Phonetic oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.phonetic != oldWidget.phonetic) {
-      _initializePlayer();
-    }
   }
 
   @override
@@ -48,27 +39,23 @@ class _PhoneticState extends State<Phonetic> {
     super.dispose();
   }
 
-  Future<void> _initializePlayer() async {
-    try {
-      if (widget.phonetic.isNotEmpty) {
-        await _player.setUrl(widget.phonetic);
-        await _player.load(); // Tiền tải âm thanh
-      }
-    } catch (e) {
-      app_config.printLog('e', 'Lỗi khởi tạo người chơi: $e');
-    }
-  }
-
   Future<void> _playSound() async {
     if (widget.phonetic.isEmpty) return;
-
     try {
-      if (_player.playerState.processingState == ProcessingState.idle) {
-        await _player.setUrl(widget.phonetic);
-      }
+      app_config.printLog('i', '🔊 Try to play: ${widget.phonetic}');
+      await _player.setAudioSource(
+        AudioSource.uri(
+          Uri.parse(widget.phonetic),
+          headers: {
+            'User-Agent':
+                'Mozilla/5.0 (Android 10; Mobile; rv:89.0) Gecko/89.0 Firefox/89.0',
+          },
+        ),
+      );
       await _player.play();
+      app_config.printLog('i', '✅ Đã phát xong');
     } catch (e) {
-      app_config.printLog('e', 'Lỗi phát âm thanh: $e');
+      app_config.printLog('e', '❌ Lỗi phát âm thanh: $e');
     }
   }
 

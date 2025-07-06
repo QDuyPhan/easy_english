@@ -25,4 +25,30 @@ class WordEntity {
     required this.index,
     this.userDefinition,
   });
+
+  WordEntity copyWith({
+    String? word,
+    String? pos,
+    String? phonetic,
+    String? phoneticText,
+    String? phoneticAm,
+    String? phoneticAmText,
+    List<SenseEntity>? senses,
+    WordStatusEntity? status,
+    int? index,
+    String? userDefinition,
+  }) {
+    return WordEntity(
+      word: word ?? this.word,
+      pos: pos ?? this.pos,
+      phonetic: phonetic ?? this.phonetic,
+      phoneticText: phoneticText ?? this.phoneticText,
+      phoneticAm: phoneticAm ?? this.phoneticAm,
+      phoneticAmText: phoneticAmText ?? this.phoneticAmText,
+      senses: senses ?? this.senses,
+      status: status ?? this.status,
+      index: index ?? this.index,
+      userDefinition: userDefinition ?? this.userDefinition,
+    );
+  }
 }

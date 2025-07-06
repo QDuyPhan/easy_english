@@ -84,4 +84,15 @@ class TopicRepositoryImpl implements TopicRepository {
       throw Exception('Failed to get topic $folder/$topic: $e');
     }
   }
+
+  @override
+  Future<Either<Failure, void>> saveWord(WordEntity word) async {
+    try {
+      final model = _appMappr.convert<WordEntity, Word>(word);
+      _localData.saveWord(model);
+      return Right(null);
+    } catch (e) {
+      return Left(Failure.general(message: 'Failed to save word'));
+    }
+  }
 }

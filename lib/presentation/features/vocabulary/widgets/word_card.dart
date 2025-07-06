@@ -4,9 +4,12 @@ import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/svg_button.dart';
 import 'package:easy_english/data/models/word_status.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
+import 'package:easy_english/domain/entities/word_status_entity.dart';
+import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/phonetic.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/pos_badge.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class WordCard extends StatelessWidget {
@@ -70,14 +73,14 @@ class WordCard extends StatelessWidget {
                     svg: Assets.svgBookmarkSimple,
                     size: 16,
                     backgroundColor:
-                        word.status == WordStatus.star
-                            ? colorScheme.primary
-                            : colorScheme.surface,
+                        word.status == WordStatusEntity.star
+                            ? AppColor.primary40
+                            : AppColor.black0,
                     color:
-                        word.status == WordStatus.star
-                            ? colorScheme.primaryContainer
-                            : colorScheme.onPrimaryContainer,
-                    onPressed: _onSave,
+                        word.status == WordStatusEntity.star
+                            ? AppColor.primary40
+                            : AppColor.black0,
+                    onPressed: () => _onSave(context),
                   ),
                 ],
               ),
@@ -103,5 +106,15 @@ class WordCard extends StatelessWidget {
     );
   }
 
-  void _onSave() {}
+  void _onSave(BuildContext context) {
+    if (word.status == WordStatusEntity.star) {
+      context.read<TopicsBloc>().add(
+        TopicsEvent.saveWord(word: word, wordStatus: WordStatusEntity.unknown),
+      );
+      return;
+    }
+    context.read<TopicsBloc>().add(
+      TopicsEvent.saveWord(word: word, wordStatus: WordStatusEntity.star),
+    );
+  }
 }
