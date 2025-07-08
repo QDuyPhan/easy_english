@@ -14,11 +14,15 @@ import 'package:path_provider/path_provider.dart';
 class HiveConfig {
   static const String _wordKey = 'word';
   static const String _topicsKey = 'topics';
+  static const String _dailyWordsKey = 'daily_words';
 
   late Box<Word> _wordsBox;
+  late Box<Word> _dailyWordsBox;
   late Box<List<Word>> _topicsBox;
 
   Box<Word> get wordsBox => _wordsBox;
+
+  Box<Word> get dailyWordsBox => _dailyWordsBox;
 
   Box<List<Word>> get topicsBox => _topicsBox;
 
@@ -45,6 +49,7 @@ class HiveConfig {
     Hive.registerAdapter(ScheduledNotificationAdapter());
     // Mở box
     _wordsBox = await Hive.openBox<Word>(_wordKey);
+    _dailyWordsBox = await Hive.openBox<Word>(_dailyWordsKey);
     _topicsBox = await Hive.openBox<List<Word>>(_topicsKey);
   }
 }

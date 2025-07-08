@@ -8,6 +8,7 @@ import 'package:easy_english/presentation/features/flashcard/screen/flashcards_s
 import 'package:easy_english/presentation/features/grammar/screen/grammar_category_screen.dart';
 import 'package:easy_english/presentation/features/grammar/screen/grammar_screen.dart';
 import 'package:easy_english/presentation/features/grammar/screen/lesson_screen.dart';
+import 'package:easy_english/presentation/features/home/bloc/daily_words_bloc.dart';
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
 import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
@@ -40,6 +41,12 @@ class AppRouter {
             providers: [
               BlocProvider(create: (context) => di.getIt<VocabularyBloc>()),
               BlocProvider(create: (context) => di.getIt<TopicsBloc>()),
+              BlocProvider(
+                create:
+                    (context) =>
+                        di.getIt<DailyWordsBloc>()
+                          ..add(const GetDailyWordsEvent()),
+              ),
             ],
             child: HomeNavigation(
               state: state,

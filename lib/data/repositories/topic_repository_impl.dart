@@ -40,7 +40,7 @@ class TopicRepositoryImpl implements TopicRepository {
             folder.toLowerCase(),
             topic.toLowerCase(),
           );
-          await _localData.saveTopic(
+          await _localData.saveVocabularyByTopic(
             folder.toLowerCase(),
             topic.toLowerCase(),
             list,
@@ -61,7 +61,7 @@ class TopicRepositoryImpl implements TopicRepository {
   ) async {
     try {
       final model = _appMappr.convert<WordEntity, Word>(word);
-      await _localData.saveTopic(folder, topic, model as List<Word>);
+      await _localData.saveVocabularyByTopic(folder, topic, model as List<Word>);
       return Right(null);
     } catch (e) {
       return Left(Failure.general(message: 'Failed to save word'));
@@ -71,7 +71,7 @@ class TopicRepositoryImpl implements TopicRepository {
   @override
   List<WordEntity> getTopic(String folder, String topic) {
     try {
-      final topicWords = _localData.getTopic(folder, topic);
+      final topicWords = _localData.getVocabularyByTopic(folder, topic);
       if (topicWords == null || topicWords.isEmpty) {
         app_config.printLog('e', 'Topic $folder/$topic is empty');
         return [];
@@ -89,7 +89,7 @@ class TopicRepositoryImpl implements TopicRepository {
   Future<Either<Failure, void>> saveWord(WordEntity word) async {
     try {
       final model = _appMappr.convert<WordEntity, Word>(word);
-      _localData.saveWord(model);
+      await _localData.saveWord(model);
       return Right(null);
     } catch (e) {
       return Left(Failure.general(message: 'Failed to save word'));

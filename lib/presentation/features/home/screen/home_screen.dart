@@ -1,7 +1,9 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
+import 'package:easy_english/presentation/features/home/bloc/daily_words_bloc.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,6 +31,36 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: const Icon(FluentIcons.search_12_regular),
               ),
             ],
+          ),
+          BlocBuilder<DailyWordsBloc, DailyWordsState>(
+            builder: (context, state) {
+              if (state is DailyWordsLoading) {
+                return Center(child: CircularProgressIndicator());
+              } else if (state is DailyWordsLoaded) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        '📅 Hôm nay học gì?',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    Wrap(
+                      spacing: 8,
+                      children:
+                          state.words
+                              .map((word) => Chip(label: Text(word.word)))
+                              .toList(),
+                    ),
+                  ],
+                );
+              } else if (state is DailyWordsError) {
+                return Center(child: Text('Lỗi: ${state.message}'));
+              }
+              return SizedBox();
+            },
           ),
         ],
       ),

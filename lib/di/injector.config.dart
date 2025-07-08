@@ -22,10 +22,13 @@ import '../data/datasources/local/them_local.dart' as _i110;
 import '../data/repositories/oxford_words_repository_impl.dart' as _i319;
 import '../data/repositories/theme_repository_impl.dart' as _i792;
 import '../data/repositories/topic_repository_impl.dart' as _i867;
+import '../data/repositories/vocabulary_repository_impl.dart' as _i904;
 import '../domain/repositories/oxford_words_repository.dart' as _i212;
 import '../domain/repositories/theme_repository.dart' as _i443;
 import '../domain/repositories/topic_repository.dart' as _i13;
+import '../domain/repositories/vocabulary_repository.dart' as _i1063;
 import '../domain/usecases/get_all_oxford_words_use_case.dart' as _i822;
+import '../domain/usecases/get_daily_words_use_case.dart' as _i246;
 import '../domain/usecases/get_theme_use_case.dart' as _i131;
 import '../domain/usecases/get_topics_use_case.dart' as _i280;
 import '../domain/usecases/init_data_topics_use_case.dart' as _i599;
@@ -33,6 +36,7 @@ import '../domain/usecases/init_data_use_case.dart' as _i579;
 import '../domain/usecases/save_theme_use_case.dart' as _i883;
 import '../domain/usecases/save_word_use_case.dart' as _i528;
 import '../domain/usecases/search_words_use_case.dart' as _i63;
+import '../presentation/features/home/bloc/daily_words_bloc.dart' as _i531;
 import '../presentation/features/search/blocs/search_bloc.dart' as _i529;
 import '../presentation/features/theme/blocs/theme_bloc.dart' as _i1032;
 import '../presentation/features/topics/blocs/topics_bloc.dart' as _i282;
@@ -80,6 +84,11 @@ Future<_i174.GetIt> $initGetIt(
       () => _i579.InitDataUseCase(gh<_i212.OxfordWordsRepository>()));
   gh.lazySingleton<_i443.ThemeRepository>(
       () => _i792.ThemeRepositoryImpl(themeLocal: gh<_i110.ThemeLocal>()));
+  gh.lazySingleton<_i1063.VocabularyRepository>(
+      () => _i904.VocabularyRepositoryImpl(
+            localData: gh<_i614.LocalData>(),
+            appMappr: gh<_i556.AppMappr>(),
+          ));
   gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc(
       getAllOxfordWordsUseCase: gh<_i822.GetAllOxfordWordsUseCase>()));
   gh.factory<_i131.GetThemeUseCase>(() =>
@@ -92,6 +101,11 @@ Future<_i174.GetIt> $initGetIt(
         localData: gh<_i614.LocalData>(),
         appMappr: gh<_i556.AppMappr>(),
       ));
+  gh.factory<_i246.GetDailyWordsUseCase>(() => _i246.GetDailyWordsUseCase(
+        vocabularyRepository: gh<_i1063.VocabularyRepository>(),
+        oxfordWordsRepository: gh<_i212.OxfordWordsRepository>(),
+        topicRepository: gh<_i13.TopicRepository>(),
+      ));
   gh.factory<_i280.GetTopicsUseCase>(
       () => _i280.GetTopicsUseCase(gh<_i13.TopicRepository>()));
   gh.factory<_i599.InitDataTopics>(
@@ -102,6 +116,8 @@ Future<_i174.GetIt> $initGetIt(
         saveWordUseCase: gh<_i528.SaveWordUseCase>(),
         getAllTopics: gh<_i280.GetTopicsUseCase>(),
       ));
+  gh.factory<_i531.DailyWordsBloc>(() => _i531.DailyWordsBloc(
+      getDailyWordsUseCase: gh<_i246.GetDailyWordsUseCase>()));
   gh.factory<_i63.SearchWordsUseCase>(() => _i63.SearchWordsUseCase(
         oxfordWordsRepository: gh<_i212.OxfordWordsRepository>(),
         topicRepository: gh<_i13.TopicRepository>(),
