@@ -16,18 +16,21 @@ class _GrammarScreenState extends State<GrammarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
+      backgroundColor: colorScheme.background,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomAppbar(title: 'Grammar'),
+          const CustomAppbar(title: 'Grammar'),
           const SizedBox(height: 12),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: ListView.separated(
-                separatorBuilder:
-                    (context, index) => const SizedBox(height: 12),
                 itemCount: categories.length,
+                separatorBuilder: (_, __) => const SizedBox(height: 12),
                 itemBuilder: (context, index) {
                   return GrammarItem(category: categories[index]);
                 },

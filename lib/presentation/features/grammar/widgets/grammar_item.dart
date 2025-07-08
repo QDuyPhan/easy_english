@@ -12,20 +12,42 @@ class GrammarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
-    final size = MediaQuery.of(context).size;
-    return GestureDetector(
+
+    return InkWell(
       onTap: () {
         context.push(RoutePaths.grammarCategory, extra: {'category': category});
       },
+      borderRadius: BorderRadius.circular(12),
       child: Container(
-        width: size.width,
-        height: size.height * 0.1,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        margin: const EdgeInsets.only(bottom: 12),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.grey[300]!),
+          color: colorScheme.surface,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: colorScheme.outline.withOpacity(0.3)),
         ),
         child: Column(
-          children: [Text(category.title), Text(category.description)],
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              category.title,
+              style: textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+                color: colorScheme.onSurface,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 6),
+            Text(
+              category.description,
+              style: textTheme.bodyMedium?.copyWith(
+                color: colorScheme.onSurface.withOpacity(0.7),
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
         ),
       ),
     );

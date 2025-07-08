@@ -1,7 +1,6 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
-import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
-import 'package:easy_english/core/utils/widgets/svg_button.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,67 +16,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final currentHeight = MediaQuery.of(context).size.height;
-    final currentWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomAppbar(
             title: 'Hi, 👋',
-            actions: [SvgButton(svg: Assets.svgSearch, onPressed: _openSearch)],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Text(
-              'Discover 🔥',
-              style: textTheme.titleLarge?.copyWith(
-                color: colorScheme.primary,
-                fontWeight: FontWeight.bold,
+            actions: [
+              IconButton(
+                onPressed: _openSearch,
+                icon: const Icon(FluentIcons.search_12_regular),
               ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildDiscoverCard(
-                    context,
-                    title: '3000 Words',
-                    image: Assets.pngWordsList,
-                    onTap: () {
-                      context.push(RoutePaths.vocabulary);
-                    },
-                  ),
-                  const SizedBox(height: 10),
-                  _buildDiscoverCard(
-                    context,
-                    title: 'Grammar',
-                    image: Assets.pngGrammar,
-                    onTap: () {
-                      context.push(RoutePaths.grammar);
-                    },
-                  ),
-                  const SizedBox(height: 10),
-                  _buildDiscoverCard(
-                    context,
-                    title: 'Topics',
-                    image: Assets.pngGrammar,
-                    onTap: () {},
-                  ),
-                  const SizedBox(height: 10),
-                  _buildDiscoverCard(
-                    context,
-                    title: 'My Words',
-                    image: Assets.pngGrammar,
-                    onTap: () {},
-                  ),
-                ],
-              ),
-            ),
+            ],
           ),
         ],
       ),
@@ -88,42 +39,51 @@ class _HomeScreenState extends State<HomeScreen> {
     context.push(RoutePaths.search);
   }
 
-  Widget _buildDiscoverCard(
-    BuildContext context, {
+  Widget _buildDiscoverCard({
     required String title,
     required String image,
     VoidCallback? onTap,
   }) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final currentHeight = MediaQuery.of(context).size.height;
-    final currentWidth = MediaQuery.of(context).size.width;
-    return GestureDetector(
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return InkWell(
       onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        width: currentWidth,
+      borderRadius: BorderRadius.circular(12),
+      child: Ink(
         decoration: BoxDecoration(
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.circular(10),
-          color: colorScheme.primary.withOpacity(0.15),
-          border: Border.all(color: colorScheme.primary, width: 1.5),
+          color: colorScheme.primaryContainer.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: colorScheme.outline.withOpacity(0.3),
+            width: 1.2,
+          ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(
-              image,
-              height: currentHeight * 0.15,
-              width: double.infinity,
-              filterQuality: FilterQuality.high,
-            ),
-            SizedBox(height: 10),
-            Text(
-              title,
-              style: textTheme.titleLarge?.copyWith(color: colorScheme.primary),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  image,
+                  height: screenHeight * 0.15,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                title,
+                style: textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: colorScheme.onSurface,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

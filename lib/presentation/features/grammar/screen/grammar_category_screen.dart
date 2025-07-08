@@ -1,11 +1,10 @@
 import 'package:easy_english/core/utils/widgets/app_text_field.dart';
 import 'package:easy_english/domain/entities/category_data_entity.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
-import '../../../../core/utils/widgets/svg_button.dart';
 import '../widgets/grammar_category_item.dart';
 
 class GrammarCategoryScreen extends StatefulWidget {
@@ -22,6 +21,9 @@ class _GrammarCategoryScreenState extends State<GrammarCategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     final result =
         query.isNotEmpty
             ? widget.category.lessons.where((e) {
@@ -31,15 +33,20 @@ class _GrammarCategoryScreenState extends State<GrammarCategoryScreen> {
                   );
             }).toList()
             : widget.category.lessons;
+
     return Scaffold(
+      backgroundColor: colorScheme.surface,
       body: Column(
         children: [
           CustomAppbar(
             title: widget.category.title,
             leading: [
-              SvgButton(
-                svg: Assets.svgArrowLeft,
+              IconButton(
                 onPressed: () => context.pop(),
+                icon: Icon(
+                  FluentIcons.chevron_left_12_regular,
+                  color: colorScheme.onSurface,
+                ),
               ),
             ],
           ),
@@ -51,13 +58,15 @@ class _GrammarCategoryScreenState extends State<GrammarCategoryScreen> {
                   AppTextField(
                     hint: 'Search',
                     prefixIcon: const Icon(Icons.search_rounded),
+                    onChanged: (val) {
+                      setState(() => query = val);
+                    },
                   ),
                   const SizedBox(height: 10),
                   Expanded(
                     child: ListView.separated(
-                      separatorBuilder:
-                          (context, index) => const SizedBox(height: 10),
                       itemCount: result.length,
+                      separatorBuilder: (_, __) => const SizedBox(height: 10),
                       itemBuilder: (context, index) {
                         return GrammarCategoryItem(lesson: result[index]);
                       },
