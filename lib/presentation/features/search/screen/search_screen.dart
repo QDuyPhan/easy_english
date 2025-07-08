@@ -21,73 +21,70 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     _searchController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final currentHeight = MediaQuery.of(context).size.height;
-    final currentWidth = MediaQuery.of(context).size.width;
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 15.0, left: 16.0, right: 16.0),
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Search Header
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Row(
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: AppTextField(
-                          controller: _searchController,
-                          hint: 'Search words...',
-                          prefixIcon: const Icon(Icons.search_rounded),
-                          onChanged: (value) {
-                            const duration = Duration(milliseconds: 500);
-                            _debouncer.debounce(
-                              duration: duration,
-                              onDebounce: () {
-                                context.read<SearchBloc>().add(
-                                  SearchEvent.searchWords(query: value),
-                                );
-                              },
+                  Expanded(
+                    child: AppTextField(
+                      controller: _searchController,
+                      hint: 'Search words...',
+                      prefixIcon: const Icon(Icons.search_rounded),
+                      onChanged: (value) {
+                        _debouncer.debounce(
+                          duration: const Duration(milliseconds: 500),
+                          onDebounce: () {
+                            context.read<SearchBloc>().add(
+                              SearchEvent.searchWords(query: value),
                             );
                           },
-                        ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  TextButton(
+                    onPressed: () {
+                      _searchController.clear();
+                      context.read<SearchBloc>().add(
+                        const SearchEvent.clearSearch(),
+                      );
+                      context.pop();
+                    },
+                    child: Text(
+                      'Cancel',
+                      style: textTheme.labelLarge?.copyWith(
+                        color: colorScheme.primary,
                       ),
-                      TextButton(
-                        onPressed: () {
-                          _searchController.clear();
-                          context.read<SearchBloc>().add(
-                            const SearchEvent.clearSearch(),
-                          );
-                          context.pop();
-                        },
-                        child: const Text('Cancel'),
-                      ),
-                    ],
+                    ),
                   ),
                 ],
               ),
               const SizedBox(height: 16),
-
-              // Search Results
               Expanded(
                 child: BlocBuilder<SearchBloc, SearchState>(
                   builder: (context, state) {
                     return state.when(
                       initial: () => _buildInitialState(textTheme, colorScheme),
-                      loading: () => _buildLoadingState(),
-                      success: (results) => _buildSuccessState(results),
+                      loading:
+                          () => const Center(
+                            child: CircularProgressIndicator.adaptive(),
+                          ),
+                      success:
+                          (results) => _buildSuccessState(context, results),
                       noResults:
                           () => _buildNoResultsState(textTheme, colorScheme),
                       error:
@@ -105,91 +102,22 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Widget _buildInitialState(TextTheme textTheme, ColorScheme colorScheme) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.search_rounded,
-            size: 64,
-            color: colorScheme.onSurfaceVariant,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            'Search for words',
-            style: textTheme.headlineSmall?.copyWith(
-              color: colorScheme.onSurfaceVariant,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Search in Oxford dictionary and topics',
-            style: textTheme.bodyMedium?.copyWith(
-              color: colorScheme.onSurfaceVariant,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildLoadingState() {
-    return const Center(child: CircularProgressIndicator());
-  }
-
-  Widget _buildSuccessState(List<WordEntity> results) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Text(
-            'Found ${results.length} results',
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-          ),
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: results.length,
-            itemBuilder: (context, index) {
-              return SearchResultItem(word: results[index]);
-            },
-          ),
-        ),
-      ],
+    return _buildPlaceholder(
+      icon: Icons.search_rounded,
+      title: 'Search for words',
+      subtitle: 'Search in Oxford dictionary and topics',
+      textTheme: textTheme,
+      colorScheme: colorScheme,
     );
   }
 
   Widget _buildNoResultsState(TextTheme textTheme, ColorScheme colorScheme) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.search_off_rounded,
-            size: 64,
-            color: colorScheme.onSurfaceVariant,
-          ),
-          const SizedBox(height: 16),
-          Text(
-            'No results found',
-            style: textTheme.headlineSmall?.copyWith(
-              color: colorScheme.onSurfaceVariant,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Try searching with different keywords',
-            style: textTheme.bodyMedium?.copyWith(
-              color: colorScheme.onSurfaceVariant,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+    return _buildPlaceholder(
+      icon: Icons.search_off_rounded,
+      title: 'No results found',
+      subtitle: 'Try searching with different keywords',
+      textTheme: textTheme,
+      colorScheme: colorScheme,
     );
   }
 
@@ -198,19 +126,46 @@ class _SearchScreenState extends State<SearchScreen> {
     TextTheme textTheme,
     ColorScheme colorScheme,
   ) {
+    return _buildPlaceholder(
+      icon: Icons.error_outline_rounded,
+      title: 'Error occurred',
+      subtitle: message,
+      iconColor: colorScheme.error,
+      titleColor: colorScheme.error,
+      textTheme: textTheme,
+      colorScheme: colorScheme,
+    );
+  }
+
+  Widget _buildPlaceholder({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required TextTheme textTheme,
+    required ColorScheme colorScheme,
+    Color? iconColor,
+    Color? titleColor,
+  }) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.error_outline_rounded, size: 64, color: colorScheme.error),
+          Icon(
+            icon,
+            size: 64,
+            color: iconColor ?? colorScheme.onSurfaceVariant,
+          ),
           const SizedBox(height: 16),
           Text(
-            'Error occurred',
-            style: textTheme.headlineSmall?.copyWith(color: colorScheme.error),
+            title,
+            style: textTheme.headlineSmall?.copyWith(
+              color: titleColor ?? colorScheme.onSurfaceVariant,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           const SizedBox(height: 8),
           Text(
-            message,
+            subtitle,
             style: textTheme.bodyMedium?.copyWith(
               color: colorScheme.onSurfaceVariant,
             ),
@@ -218,6 +173,34 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildSuccessState(BuildContext context, List<WordEntity> results) {
+    final textTheme = Theme.of(context).textTheme;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+          child: Text(
+            'Found ${results.length} result${results.length > 1 ? 's' : ''}',
+            style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Expanded(
+          child: ListView.separated(
+            padding: const EdgeInsets.only(bottom: 12),
+            itemCount: results.length,
+            separatorBuilder: (_, __) => const Divider(height: 1),
+            itemBuilder: (context, index) {
+              return SearchResultItem(word: results[index]);
+            },
+          ),
+        ),
+      ],
     );
   }
 }

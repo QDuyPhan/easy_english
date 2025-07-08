@@ -15,37 +15,56 @@ class StudyingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return BlocBuilder<TopicsBloc, TopicsState>(
       builder: (context, state) {
-        final newWords =
-            state.words
-                .where((e) => e.status == WordStatusEntity.star)
-                .toList();
+        final newWords = state.words
+            .where((e) => e.status == WordStatusEntity.star)
+            .toList();
+
         return Scaffold(
-          body: SizedBox(
-            width: double.infinity,
-            height: size.height,
+          backgroundColor: colorScheme.background,
+          body: SafeArea(
             child: Column(
               children: [
-                CustomAppbar(title: 'My Words'),
-                Expanded(
-                  child: ListView.builder(
-                    padding: const EdgeInsets.all(16),
-                    itemCount: newWords.length,
-                    itemBuilder: (context, index) {
-                      return WordCard(word: newWords[index]);
-                    },
+                const CustomAppbar(title: 'My Words'),
+                const SizedBox(height: 8),
+                if (newWords.isEmpty)
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'No saved words yet',
+                        style: textTheme.bodyLarge?.copyWith(
+                          color: colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ),
+                  )
+                else
+                  Expanded(
+                    child: ListView.separated(
+                      padding: const EdgeInsets.all(16),
+                      itemCount: newWords.length,
+                      itemBuilder: (context, index) {
+                        return WordCard(word: newWords[index]);
+                      },
+                      separatorBuilder: (_, __) => const SizedBox(height: 12),
+                    ),
                   ),
-                ),
               ],
             ),
           ),
-          floatingActionButton: FlashCardsButton(
-            onPressed:
-                () => context.push(
-                  RoutePaths.flashcards,
-                  extra: {'word': state.words},
-                ),
+          floatingActionButton: newWords.isEmpty
+              ? null
+              : FlashCardsButton(
+            onPressed: () {
+              context.push(
+                RoutePaths.flashcards,
+                extra: {'word': newWords},
+              );
+            },
           ),
         );
       },

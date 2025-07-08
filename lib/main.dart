@@ -4,7 +4,6 @@ import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/entities/theme_entity.dart';
 import 'package:easy_english/domain/usecases/init_data_topics_use_case.dart';
 import 'package:easy_english/domain/usecases/init_data_use_case.dart';
-import 'package:easy_english/presentation/features/search/blocs/search_bloc.dart';
 import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,13 +15,7 @@ import 'presentation/observers/my_bloc_observer.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-    ),
-  );
+
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.setupDependencies();
   Bloc.observer = MyBlocObserver();
@@ -85,7 +78,7 @@ class _MyAppState extends State<MyApp> {
                 themeMode: ThemeMode.system,
               );
             } else {
-              return Container(color: Colors.redAccent); // Màn hình splash
+              return Container(); // Màn hình splash
             }
           },
         );

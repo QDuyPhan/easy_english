@@ -9,15 +9,24 @@ class PosBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final pos = WordPos.fromString(word);
+    final backgroundColor = pos.color;
+    final textColor = ThemeData.estimateBrightnessForColor(backgroundColor) == Brightness.dark
+        ? Colors.white
+        : Colors.black;
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: WordPos.fromString(word).color,
+        color: backgroundColor,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         word,
-        style: textTheme.titleSmall?.copyWith(color: Colors.white),
+        style: textTheme.labelSmall?.copyWith(
+          color: textColor,
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }
