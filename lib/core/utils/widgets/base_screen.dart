@@ -1,7 +1,5 @@
-import 'package:easy_english/core/theme/app_color.dart';
-import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
-import 'package:easy_english/core/utils/widgets/svg_button.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,6 +31,10 @@ class BaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return DefaultTabController(
       length: tabTitles?.length ?? 1,
       child: Scaffold(
@@ -43,49 +45,63 @@ class BaseScreen extends StatelessWidget {
               leading:
                   leading.isEmpty && showBackButton
                       ? [
-                        SvgButton(
-                          svg: Assets.svgArrowLeft,
+                        IconButton(
                           onPressed: onBackPressed ?? () => context.pop(),
+                          icon: Icon(
+                            FluentIcons.chevron_left_12_regular,
+                            color: colorScheme.onSurface,
+                          ),
                         ),
                       ]
                       : leading,
               actions:
                   actions.isEmpty && onSearchToggle != null
                       ? [
-                        SvgButton(
-                          svg:
-                              showSearch!
-                                  ? Assets.svgClose
-                                  : Assets.svgSearch,
+                        IconButton(
                           onPressed: onSearchToggle,
+                          icon: Icon(
+                            showSearch!
+                                ? FluentIcons.dismiss_12_regular
+                                : FluentIcons.search_12_regular,
+                            color: colorScheme.onSurface,
+                          ),
                         ),
                       ]
                       : actions,
             ),
+
+            /// TabBar
             if (tabTitles != null && tabTitles!.isNotEmpty)
               Container(
                 height: 40,
-                margin: const EdgeInsets.symmetric(horizontal: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
-                  color: AppColor.black40,
+                  borderRadius: BorderRadius.circular(10),
+                  color: colorScheme.surfaceVariant.withOpacity(0.5),
                 ),
                 child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  borderRadius: BorderRadius.circular(10),
                   child: TabBar(
                     indicatorSize: TabBarIndicatorSize.tab,
                     dividerColor: Colors.transparent,
-                    indicator: const BoxDecoration(
-                      color: AppColor.primary100,
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    indicator: BoxDecoration(
+                      color: colorScheme.primary,
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    labelColor: Colors.white,
-                    unselectedLabelColor: Colors.black54,
+                    labelColor: colorScheme.onPrimary,
+                    unselectedLabelColor: colorScheme.onSurface.withOpacity(
+                      0.6,
+                    ),
+                    labelStyle: textTheme.labelLarge,
                     tabs: tabTitles!.map((title) => Tab(text: title)).toList(),
                   ),
                 ),
               ),
+
+            /// Search Box
             if (showSearch! && searchBox != null) searchBox!,
+
+            /// Tab Views
             Expanded(child: TabBarView(children: tabViews)),
           ],
         ),

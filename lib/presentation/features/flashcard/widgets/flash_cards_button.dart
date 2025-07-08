@@ -1,6 +1,5 @@
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class FlashCardsButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -10,22 +9,25 @@ class FlashCardsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final currentHeight = MediaQuery.of(context).size.height;
-    final currentWidth = MediaQuery.of(context).size.width;
+    final size = MediaQuery.of(context).size;
+    final iconSize = size.width * 0.09;
+
     return Material(
-      color: colorScheme.primary,
-      borderRadius: BorderRadius.circular(1000),
+      color: Colors.transparent,
       child: InkWell(
         borderRadius: BorderRadius.circular(1000),
         onTap: onPressed,
-        child: CircularPercentIndicator(
-          radius: 24.0,
-          lineWidth: 4.0,
-          circularStrokeCap: CircularStrokeCap.round,
-          center: Image.asset(
+        child: Container(
+          decoration: BoxDecoration(
+            color: colorScheme.primary,
+            shape: BoxShape.circle,
+          ),
+          padding: const EdgeInsets.all(12),
+          child: Image.asset(
             Assets.pngFlashCards,
-            height: currentHeight * 0.09,
-            width: currentWidth * 0.09,
+            height: iconSize,
+            width: iconSize,
+            fit: BoxFit.contain,
           ),
         ),
       ),

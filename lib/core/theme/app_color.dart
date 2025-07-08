@@ -1,54 +1,7 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class AppColor {
   const AppColor._();
-
-  //Primary Color
-  static const Color primary100 = Color(0xFF0074CE);
-  static const Color primary80 = Color(0xFF0693F1);
-  static const Color primary60 = Color(0xFF3DB2FF);
-  static const Color primary40 = Color(0xFFB8E1FF);
-  static const Color primary20 = Color(0xFFEFF8FF);
-
-  //Secondary Color
-  static const Color secondary100 = Color(0xFFFFC107);
-  static const Color secondary80 = Color(0xFFFFD899);
-  static const Color secondary60 = Color(0xFFFFE5BB);
-  static const Color secondary40 = Color(0xFFFFF2DD);
-  static const Color secondary20 = Color(0xFFFFF9EF);
-
-  //Base Color
-  static const Color black100 = Color(0xFF2C3131);
-  static const Color black80 = Color(0xFF626262);
-  static const Color black60 = Color(0xFFA9A9A9);
-  static const Color black40 = Color(0xFFCACACA);
-  static const Color black20 = Color(0xFFE9E9E9);
-  static const Color black0 = Color(0xFFFFFFFF);
-
-  //Accent Color
-  static const Color success100 = Color(0xFF3F845F);
-  static const Color success80 = Color(0xFF659D7F);
-  static const Color success60 = Color(0xFF8CB59F);
-  static const Color success40 = Color(0xFFB2CEBF);
-  static const Color success20 = Color(0xFFD9E6DF);
-
-  static const Color warning100 = Color(0xFFE4C65B);
-  static const Color warning80 = Color(0xFFE9D17C);
-  static const Color warning60 = Color(0xFFEFDD9D);
-  static const Color warning40 = Color(0xFFF4E8BD);
-  static const Color warning20 = Color(0xFFFAF4DE);
-
-  static const Color error100 = Color(0xFFE25C5C);
-  static const Color error80 = Color(0xFFE87D7D);
-  static const Color error60 = Color(0xFFEE9D9D);
-  static const Color error40 = Color(0xFFF3BEBE);
-  static const Color error20 = Color(0xFFF9DEDE);
-
-  static const Color info100 = Color(0xFF2685CA);
-  static const Color info80 = Color(0xFF519DD5);
-  static const Color info60 = Color(0xFF7DB6DF);
-  static const Color info40 = Color(0xFFA8CEEA);
-  static const Color info20 = Color(0xFFD4E7F4);
 
   static const Color boxColor = Color(0xFFDBF6FF);
 
@@ -60,75 +13,70 @@ class AppColor {
     'adverb': Color(0xFFFFB300), // Yellow for adverbs
   };
 
-  static const Color purple = Color(0xFFA439FF);
-  static const Color lightGreen = Color(0xFFCEEBC7);
-  static const Color lightBlue = Color(0xFFB2E5FF);
-  static const Color lightViolet = Color(0xFFEFCCFE);
-  static const Color lightPink = Color(0xFFFFD6E4);
-  static const Color blackGray = Color(0xFF524D54);
-  static const Color softCoral = Color(0xFFFFB5A7);
-  static const Color babyBlue = Color(0xFFD0F4FF);
-  static const Color mintGreen = Color(0xFFD3F8E2);
-  static const Color palePeach = Color(0xFFFFD8BE);
-  static const Color lavenderMist = Color(0xFFD7C4F0);
-  static const Color skyGray = Color(0xFFC9D6DF);
-  static const Color lemonCream = Color(0xFFFFF9B0);
-  static const Color blushRose = Color(0xFFF7C1C0);
-  static const Color softLilac = Color(0xFFE4D0F4);
-  static const Color powderBlue = Color(0xFFC1D3FE);
-  static const Color lightTeal = Color(0xFFB5F8F1);
-  static const Color lightApricot = Color(0xFFFFD4B2);
-
-  static const Color deepSkyBlue = Color(0xFF00BFFF);
-  static const Color seaFoam = Color(0xFF93FFD8);
-  static const Color pastelOrange = Color(0xFFFFB877);
-  static const Color dustyRose = Color(0xFFE5989B);
-  static const Color paleLavender = Color(0xFFE6E6FA);
-  static const Color mellowYellow = Color(0xFFFFF3B0);
-  static const Color freshMint = Color(0xFFBDFCC9);
-  static const Color peachBlossom = Color(0xFFFFCAB0);
-  static const Color glacierBlue = Color(0xFFA9D6E5);
-  static const Color periwinkle = Color(0xFFB4C5E4);
-  static const Color warmSand = Color(0xFFEED6C4);
-  static const Color limeSorbet = Color(0xFFE5FCC2);
-  static const Color coralMist = Color(0xFFFFB3AB);
-  static const Color iceBlue = Color(0xFFDEF3F6);
-  static const Color honeyGlow = Color(0xFFFFE8A1);
-  static const Color mutedPlum = Color(0xFFBFA2DB);
-  static const Color teaGreen = Color(0xFFD5F2E3);
-  static const Color cantaloupe = Color(0xFFFFBC9A);
-
+  static const Color strongBlue = Color(0xFF005F99); // Dark Blue
+  static const Color jungleGreen = Color(0xFF00796B); // Teal dark
+  static const Color vividOrange = Color(0xFFFF6F00); // Bright but dark orange
+  static const Color darkRose = Color(0xFF9C3F5C); // Deeper dusty rose
+  static const Color indigo = Color(0xFF3F51B5); // Indigo
+  static const Color mustard = Color(0xFFB28900); // Mustard deep
+  static const Color forestGreen = Color(0xFF2E7D32); // Forest green
+  static const Color burntCoral = Color(0xFFD1495B); // Coral strong
+  static const Color steelBlue = Color(0xFF4682B4); // Steel blue
+  static const Color denim = Color(0xFF3B5998); // Facebook-like blue
+  static const Color clay = Color(0xFF8D6E63); // Brown-gray
+  static const Color olive = Color(0xFF808000); // Olive green
+  static const Color deepCoral = Color(0xFFE75454); // Deep coral
+  static const Color teal = Color(0xFF00796B); // Reused deep teal
+  static const Color amber = Color(0xFFFFA000); // Amber strong
+  static const Color eggplant = Color(0xFF6A1B9A); // Muted purple
+  static const Color pine = Color(0xFF2C6E49); // Dark green
+  static const Color darkCantaloupe = Color(0xFFCC6B49); // Deep cantaloupe
   static List<Color> listColor = [
-    deepSkyBlue,
-    seaFoam,
-    pastelOrange,
-    dustyRose,
-    paleLavender,
-    mellowYellow,
-    freshMint,
-    peachBlossom,
-    glacierBlue,
-    periwinkle,
-    warmSand,
-    limeSorbet,
-    coralMist,
-    iceBlue,
-    honeyGlow,
-    mutedPlum,
-    teaGreen,
-    cantaloupe,
+    strongBlue,
+    jungleGreen,
+    vividOrange,
+    darkRose,
+    indigo,
+    mustard,
+    forestGreen,
+    burntCoral,
+    steelBlue,
+    denim,
+    clay,
+    olive,
+    deepCoral,
+    teal,
+    amber,
+    eggplant,
+    pine,
+    darkCantaloupe,
   ];
 
-  static const Color primaryLight = Color(0xFF007AFF);
-  static const Color primaryDark = Color(0xFFFFC107);
+  // Light Theme
+  static const Color lightPrimary = Color(0xFF2979FF);
+  static const Color lightOnPrimary = Colors.white;
+  static const Color lightPrimaryContainer = Color(0xFFE3F2FD);
+  static const Color lightOnPrimaryContainer = Color(0xFF0D47A1);
+  static const Color lightSecondary = Color(0xFFFFA000);
+  static const Color lightOnSecondary = Color(0xFF212121);
+  static const Color lightBackground = Colors.white;
+  static const Color lightOnBackground = Color(0xFF212121);
+  static const Color lightSurface = Color(0xFFFAFAFA);
+  static const Color lightOnSurface = Color(0xFF212121);
 
-  static const Color surfaceLight = Color(0xFFF8F8F8);
-  static const Color surfaceDark = Color(0xFF262626);
+  // Dark Theme
+  static const Color darkPrimary = Color(0xFF82B1FF);
+  static const Color darkOnPrimary = Colors.black;
+  static const Color darkPrimaryContainer = Color(0xFF263238);
+  static const Color darkOnPrimaryContainer = Color(0xFFE3F2FD);
+  static const Color darkSecondary = Color(0xFFFFB74D);
+  static const Color darkOnSecondary = Colors.black;
+  static const Color darkBackground = Color(0xFF121212);
+  static const Color darkOnBackground = Colors.white;
+  static const Color darkSurface = Color(0xFF1E1E1E);
+  static const Color darkOnSurface = Colors.white;
 
-
-  static const Color onSurfaceLight = Color(0xFF3395FF);
-  static const Color onSurfaceDark = Color(0xFF00254D);
-
-  static const Color secondaryLight = Color(0xFFD7D7D7);
-  static const Color secondaryDark = Color(0xFF4C4C4C);
+  // Shared
+  static const Color error = Color(0xFFD32F2F);
+  static const Color onError = Colors.white;
 }

@@ -24,21 +24,22 @@ class SvgButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     return Material(
       color: backgroundColor,
       borderRadius: borderRadius ?? BorderRadius.circular(8),
-      child: InkWell(
+      child: GestureDetector(
         onTap: onPressed,
-        borderRadius: borderRadius ?? BorderRadius.circular(8),
+        // borderRadius: borderRadius ?? BorderRadius.circular(8),
         child: Padding(
           padding: padding,
           child: SvgPicture.asset(
             height: size,
             svg,
-            // colorFilter: ColorFilter.mode(
-            //   color ?? colorScheme.onPrimaryContainer,
-            //   BlendMode.srcIn,
-            // ),
+            colorFilter: ColorFilter.mode(
+              color ?? colorScheme.onPrimary,
+              BlendMode.srcIn,
+            ),
           ),
         ),
       ),
