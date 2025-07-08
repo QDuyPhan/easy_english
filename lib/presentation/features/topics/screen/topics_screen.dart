@@ -21,7 +21,6 @@ class TopicsScreen extends StatefulWidget {
 
 class _TopicsScreenState extends State<TopicsScreen> {
   bool _showSearch = false;
-  int _curIndexNum = 0;
 
   @override
   void initState() {
@@ -33,9 +32,12 @@ class _TopicsScreenState extends State<TopicsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return BlocBuilder<TopicsBloc, TopicsState>(
       builder: (context, state) {
         return Scaffold(
+          backgroundColor: colorScheme.background,
           body: BaseScreen(
             title: widget.topic.replaceAll('_', ' ').toUpperCase(),
             showSearch: _showSearch,
@@ -48,11 +50,12 @@ class _TopicsScreenState extends State<TopicsScreen> {
             tabViews: [_buildWordListTab(context, state)],
           ),
           floatingActionButton: FlashCardsButton(
-            onPressed:
-                () => context.push(
-                  RoutePaths.flashcards,
-                  extra: {'word': state.words},
-                ),
+            onPressed: () {
+              context.push(
+                RoutePaths.flashcards,
+                extra: {'word': state.words},
+              );
+            },
           ),
         );
       },
@@ -60,12 +63,23 @@ class _TopicsScreenState extends State<TopicsScreen> {
   }
 
   Widget _buildWordListTab(BuildContext context, TopicsState state) {
-    final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
+
+    if (state.words.isEmpty) {
+      return Center(
+        child: Text(
+          'No words available',
+          style: textTheme.bodyLarge?.copyWith(
+            color: colorScheme.onSurfaceVariant,
+          ),
+        ),
+      );
+    }
 
     return ListView.builder(
-      padding: const EdgeInsets.all(16),
       itemCount: state.words.length,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       itemBuilder: (context, index) {
         final word = state.words[index];
         return WordCard(word: word);
@@ -73,84 +87,3 @@ class _TopicsScreenState extends State<TopicsScreen> {
     );
   }
 }
-
-// Widget _buildFlashcardTab(BuildContext context, TopicsState state) {
-//   final colorScheme = Theme
-//       .of(context)
-//       .colorScheme;
-//   final textTheme = Theme
-//       .of(context)
-//       .textTheme;
-//
-//
-//
-//     final currentWord = state.words[];
-//     final totalWords = state.words.length;
-//
-//     final definition = currentWord.senses.first.definition;
-//     final example = currentWord.senses.first.examples.first.x;
-//     if (state.words.isEmpty) {
-//       return Text('');
-//     }
-//     {
-//       final definition = currentWord.senses.first.definition;
-//       final example = currentWord.senses.first.examples.first.x;
-//     }
-//
-//     return Column(
-//       mainAxisAlignment: MainAxisAlignment.center,
-//       children: [
-//         Text(
-//           '${_curIndexNum + 1}/$totalWords',
-//           style: textTheme.titleMedium?.copyWith(
-//             color: colorScheme.onSurfaceVariant,
-//           ),
-//         ),
-//         const SizedBox(height: 16),
-//         Expanded(
-//           child: Center(
-//             child: CustomFlashcards(
-//               front: [currentWord.word, currentWord.phoneticText],
-//               back: [definition.toString(), example.toString()],
-//               sound: currentWord.phonetic,
-//             ),
-//           ),
-//         ),
-//         Row(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             IconButton(
-//               onPressed:
-//               _curIndexNum > 0
-//                   ? () {
-//                 setState(() {
-//                   _curIndexNum =
-//                   (_curIndexNum - 1 >= 0)
-//                       ? _curIndexNum - 1
-//                       : state.words.length - 1;
-//                 });
-//               }
-//                   : null,
-//               icon: const Icon(Icons.arrow_back),
-//             ),
-//             const SizedBox(width: 16),
-//             IconButton(
-//               onPressed:
-//               _curIndexNum < totalWords - 1
-//                   ? () {
-//                 setState(() {
-//                   _curIndexNum =
-//                   (_curIndexNum - 1 >= 0)
-//                       ? _curIndexNum - 1
-//                       : state.words.length - 1;
-//                 });
-//               }
-//                   : null,
-//               icon: const Icon(Icons.arrow_forward),
-//             ),
-//           ],
-//         ),
-//       ],
-//     );
-//   }
-// }

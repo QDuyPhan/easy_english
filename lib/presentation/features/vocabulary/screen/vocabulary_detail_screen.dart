@@ -8,7 +8,6 @@ import 'package:easy_english/presentation/features/vocabulary/widgets/pos_badge.
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-
 class VocabularyDetailScreen extends StatelessWidget {
   final WordEntity word;
 
@@ -19,145 +18,139 @@ class VocabularyDetailScreen extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final pos = word.pos.split(', ');
+
     return Scaffold(
       body: Column(
         children: [
           CustomAppbar(
-            title: 'Detail Vocabulary',
+            title: 'Vocabulary Detail',
             leading: [
               SvgButton(
                 svg: Assets.svgArrowLeft,
-                onPressed: () {
-                  context.pop();
-                },
+                onPressed: () => context.pop(),
               ),
             ],
-            actions: [SvgButton(svg: Assets.svgBookmarks, onPressed: () {})],
+            actions: [
+              SvgButton(
+                svg: Assets.svgBookmarks,
+                onPressed: () {},
+              ),
+            ],
           ),
           Expanded(
             child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: AppColor.boxColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    word.word,
-                                    style: textTheme.titleLarge?.copyWith(
-                                      color: colorScheme.onPrimaryContainer,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 15),
-                                ],
-                              ),
-                              Spacer(),
-                              ...List.generate(
-                                pos.length,
-                                (index) => Padding(
-                                  padding: const EdgeInsets.only(right: 4),
-                                  child: PosBadge(word: pos[index]),
-                                ),
-                              ),
-                            ],
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: colorScheme.surfaceVariant,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// Header
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            word.word,
+                            style: textTheme.headlineSmall?.copyWith(
+                              color: colorScheme.onSurface,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          SizedBox(height: 5),
-                          Column(
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  SvgPicture.asset(
-                                    Assets.svgFlagUK,
-                                    height: 24,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Phonetic(
-                                    phonetic: word.phonetic,
-                                    phoneticText: word.phoneticText,
-                                    backgroundColor: AppColor.primary60,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(width: 10),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  SvgPicture.asset(
-                                    Assets.svgFlagUS,
-                                    height: 24,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Phonetic(
-                                    phonetic: word.phoneticAm,
-                                    phoneticText: word.phoneticAmText,
-                                    backgroundColor: AppColor.primary60,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        "Definition",
-                        style: textTheme.titleMedium?.copyWith(
-                          color: colorScheme.primary,
-                          fontWeight: FontWeight.bold,
                         ),
+                        Wrap(
+                          spacing: 6,
+                          children: pos.map((p) => PosBadge(word: p)).toList(),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+
+                    /// Pronunciation
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            SvgPicture.asset(Assets.svgFlagUK, height: 20),
+                            const SizedBox(width: 8),
+                            Phonetic(
+                              phonetic: word.phonetic,
+                              phoneticText: word.phoneticText,
+                              backgroundColor: AppColor.strongBlue,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          children: [
+                            SvgPicture.asset(Assets.svgFlagUS, height: 20),
+                            const SizedBox(width: 8),
+                            Phonetic(
+                              phonetic: word.phoneticAm,
+                              phoneticText: word.phoneticAmText,
+                              backgroundColor: AppColor.jungleGreen,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
+
+                    /// Definitions
+                    Text(
+                      "Definitions",
+                      style: textTheme.titleLarge?.copyWith(
+                        color: colorScheme.primary,
+                        fontWeight: FontWeight.w600,
                       ),
-                      const SizedBox(height: 8),
-                      ...List.generate(word.senses.length, (index) {
-                        final sense = word.senses[index];
-                        return Align(
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                    ),
+                    const SizedBox(height: 12),
+
+                    ...List.generate(word.senses.length, (index) {
+                      final sense = word.senses[index];
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '${index + 1}. ${sense.definition}',
+                              style: textTheme.bodyLarge?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: colorScheme.onSurface,
+                              ),
+                            ),
+                            if (sense.examples.isNotEmpty) ...[
+                              const SizedBox(height: 8),
                               Text(
-                                '${index + 1}. ${sense.definition}',
+                                "Examples:",
                                 style: textTheme.bodyMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
+                                  color: colorScheme.secondary,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              const SizedBox(height: 8),
-                              if (sense.examples.isNotEmpty) ...[
-                                Text("Examples:"),
-                                const SizedBox(height: 8),
-                                ...List.generate(sense.examples.length, (
-                                  index,
-                                ) {
-                                  final example = sense.examples[index];
-                                  return Text(
-                                    '${index + 1}.${example.cf.isNotEmpty ? ' (${example.cf})' : ''} ${example.x}',
-                                    style: textTheme.bodyMedium?.copyWith(
-                                      fontSize: 16,
-                                    ),
-                                  );
-                                }),
-                                const SizedBox(height: 8),
-                              ],
+                              const SizedBox(height: 6),
+                              ...List.generate(sense.examples.length, (i) {
+                                final ex = sense.examples[i];
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 4),
+                                  child: Text(
+                                    '${i + 1}. ${ex.cf.isNotEmpty ? '(${ex.cf}) ' : ''}${ex.x}',
+                                    style: textTheme.bodyMedium,
+                                  ),
+                                );
+                              }),
                             ],
-                          ),
-                        );
-                      }),
-                    ],
-                  ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ],
                 ),
               ),
             ),

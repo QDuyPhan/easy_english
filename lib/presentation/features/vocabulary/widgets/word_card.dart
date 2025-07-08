@@ -1,13 +1,10 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
-import 'package:easy_english/core/theme/app_color.dart';
-import 'package:easy_english/core/utils/assets.dart';
-import 'package:easy_english/core/utils/widgets/svg_button.dart';
-import 'package:easy_english/data/models/word_status.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/entities/word_status_entity.dart';
 import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/phonetic.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/pos_badge.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -22,99 +19,123 @@ class WordCard extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final pos = word.pos.split(', ');
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
 
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         context.push(RoutePaths.wordDetails, extra: {'word': word});
       },
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Flexible(
-                          flex: 3,
-                          child: Text(
-                            word.word,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: textTheme.titleLarge?.copyWith(
-                              color: colorScheme.onPrimaryContainer,
-                              fontWeight: FontWeight.bold,
-                            ),
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: colorScheme.surfaceVariant,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: colorScheme.shadow.withOpacity(0.05),
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            /// Word title + bookmark icon
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                /// Word + POS badges
+                Expanded(
+                  child: Row(
+                    children: [
+                      /// Word
+                      Flexible(
+                        flex: 3,
+                        child: Text(
+                          word.word,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: textTheme.titleMedium?.copyWith(
+                            color: colorScheme.onSurface,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(width: 8),
-                        Flexible(
-                          flex: 2,
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Wrap(
-                              spacing: 4,
-                              children:
-                                  pos.map((p) => PosBadge(word: p)).toList(),
-                            ),
+                      ),
+                      const SizedBox(width: 8),
+
+                      /// POS badges
+                      Flexible(
+                        flex: 2,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Wrap(
+                            spacing: 4,
+                            children:
+                                pos.map((p) => PosBadge(word: p)).toList(),
                           ),
                         ),
-                      ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                /// Bookmark icon
+                Tooltip(
+                  message:
+                      word.status == WordStatusEntity.star
+                          ? 'Unsave word'
+                          : 'Save word',
+                  child: IconButton(
+                    onPressed: () => _onSave(context),
+                    icon: Icon(
+                      word.status == WordStatusEntity.star
+                          ? FluentIcons.bookmark_16_filled
+                          : FluentIcons.bookmark_16_regular,
+                      color:
+                          word.status == WordStatusEntity.star
+                              ? colorScheme.secondary
+                              : colorScheme.onSurfaceVariant,
                     ),
                   ),
-                  SvgButton(
-                    svg: Assets.svgBookmarkSimple,
-                    size: 16,
-                    backgroundColor:
-                        word.status == WordStatusEntity.star
-                            ? AppColor.primary40
-                            : AppColor.black0,
-                    color:
-                        word.status == WordStatusEntity.star
-                            ? AppColor.primary40
-                            : AppColor.black0,
-                    onPressed: () => _onSave(context),
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Phonetic(
-                    phonetic: word.phonetic,
-                    phoneticText: word.phoneticText,
-                    backgroundColor: AppColor.primary60,
-                  ),
-                  Phonetic(
-                    phonetic: word.phoneticAm,
-                    phoneticText: word.phoneticAmText,
-                    backgroundColor: AppColor.primary60,
-                  ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 8),
+
+            /// Phonetics
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Phonetic(
+                  phonetic: word.phonetic,
+                  phoneticText: word.phoneticText,
+                  backgroundColor: colorScheme.primaryContainer,
+                ),
+                const SizedBox(height: 4),
+                Phonetic(
+                  phonetic: word.phoneticAm,
+                  phoneticText: word.phoneticAmText,
+                  backgroundColor: colorScheme.tertiaryContainer,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
   }
 
   void _onSave(BuildContext context) {
-    if (word.status == WordStatusEntity.star) {
-      context.read<TopicsBloc>().add(
-        TopicsEvent.saveWord(word: word, wordStatus: WordStatusEntity.unknown),
-      );
-      return;
-    }
+    final newStatus =
+        word.status == WordStatusEntity.star
+            ? WordStatusEntity.unknown
+            : WordStatusEntity.star;
+
     context.read<TopicsBloc>().add(
-      TopicsEvent.saveWord(word: word, wordStatus: WordStatusEntity.star),
+      TopicsEvent.saveWord(word: word, wordStatus: newStatus),
     );
   }
 }
