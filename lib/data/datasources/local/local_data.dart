@@ -63,9 +63,10 @@ class LocalDataImpl implements LocalData {
     List<Word> words,
   ) async {
     try {
-      await _hiveConfig.topicsBox.put('$folder/$topic', words);
+      final jsonList = words.map((w) => w.toJson()).toList();
+      await _hiveConfig.topicsBox.put('$folder/$topic', jsonList);
     } catch (e) {
-      app_config.printLog('e', "Error saving topic $folder/$topic: $e");
+      app_config.printLog('e', "❌ Error saving topic $folder/$topic: $e");
       throw Exception("Error saving topic $folder/$topic: $e");
     }
   }
@@ -73,9 +74,14 @@ class LocalDataImpl implements LocalData {
   @override
   List<Word>? getVocabularyByTopic(String folder, String topic) {
     try {
-      return _hiveConfig.topicsBox.get('$folder/$topic');
+      final raw = _hiveConfig.topicsBox.get('$folder/$topic');
+      if (raw == null) return null;
+
+      return (raw as List<dynamic>)
+          .map((e) => Word.fromJson(Map<String, dynamic>.from(e)))
+          .toList();
     } catch (e) {
-      app_config.printLog('e', "Error get topic $folder/$topic: $e");
+      app_config.printLog('e', "❌ Error get topic $folder/$topic: $e");
       throw Exception("Error get topic $folder/$topic: $e");
     }
   }

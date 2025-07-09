@@ -16,13 +16,13 @@ class SearchResultItem extends StatelessWidget {
     final textTheme = theme.textTheme;
 
     final definition =
-    word.senses.isNotEmpty ? word.senses.first.definition : '';
+        word.senses.isNotEmpty ? word.senses.first.definition : '';
 
     return InkWell(
       borderRadius: BorderRadius.circular(12),
       onTap: () {
-        context.go(
-          '${RoutePaths.wordDetails}-external',
+        context.push(
+          RoutePaths.search + RoutePaths.wordDetails,
           extra: {'word': word},
         );
       },
@@ -38,7 +38,7 @@ class SearchResultItem extends StatelessWidget {
               color: colorScheme.shadow.withOpacity(0.05),
               blurRadius: 4,
               offset: Offset(0, 2),
-            )
+            ),
           ],
         ),
         child: Row(
@@ -67,7 +67,9 @@ class SearchResultItem extends StatelessWidget {
                     const SizedBox(height: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
                       decoration: BoxDecoration(
                         color: colorScheme.primaryContainer,
                         borderRadius: BorderRadius.circular(6),

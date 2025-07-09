@@ -116,7 +116,8 @@ class Assets {
           'farming',
           'geography',
           'plants_and_trees',
-          'weather_and_climate',
+          'the_environment',
+          'weather',
         ];
       case 'time_and_space':
         return ['history', 'space', 'time'];
@@ -125,7 +126,7 @@ class Assets {
           'holidays',
           'transport_by_air',
           'transport_by_bus_and_train',
-          'transport_by_road',
+          'transport_by_car_or_lorry',
           'transport_by_water',
         ];
       case 'work_and_business':
@@ -614,4 +615,5 @@ class Assets {
   static const String pngWordsList = 'assets/png/wordslist.png';
   static const String pngGrammar = 'assets/png/grammar.png';
   static const String pngFlashCards = 'assets/png/flashcard.png';
+  static const String pngCalander = 'assets/png/calander.png';
 }

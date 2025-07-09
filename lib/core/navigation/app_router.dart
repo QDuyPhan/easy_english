@@ -66,35 +66,17 @@ class AppRouter {
                   );
                 },
               ),
-              // GoRoute(
-              //   path: RoutePaths.vocabulary,
-              //   pageBuilder: (context, state) {
-              //     return SwipeablePage(
-              //       key: state.pageKey,
-              //       builder: (context) => VocabularyScreen(),
-              //     );
-              //   },
-              // ),
-              // GoRoute(
-              //   path: RoutePaths.grammar,
-              //   pageBuilder: (context, state) {
-              //     return SwipeablePage(
-              //       key: state.pageKey,
-              //       builder: (context) => GrammarScreen(),
-              //     );
-              //   },
-              // ),
-              // GoRoute(
-              //   path: RoutePaths.vocabularyDetails,
-              //   pageBuilder: (context, state) {
-              //     final extra = state.extra as Map<String, dynamic>?;
-              //     final word = extra?['word'] as WordEntity;
-              //     return SwipeablePage(
-              //       key: state.pageKey,
-              //       builder: (context) => VocabularyDetailScreen(word: word),
-              //     );
-              //   },
-              // ),
+              GoRoute(
+                path: RoutePaths.wordDetails,
+                pageBuilder: (context, state) {
+                  final extra = state.extra as Map<String, dynamic>?;
+                  final word = extra?['word'] as WordEntity;
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder: (context) => WordDetailScreen(word: word),
+                  );
+                },
+              ),
             ],
           ),
           StatefulShellBranch(
@@ -280,17 +262,24 @@ class AppRouter {
                 ),
           );
         },
-      ),
-      GoRoute(
-        path: '${RoutePaths.wordDetails}-external',
-        pageBuilder: (context, state) {
-          final extra = state.extra as Map<String, dynamic>?;
-          final word = extra?['word'] as WordEntity;
-          return SwipeablePage(
-            key: const ValueKey('WordDetailScreen_Outside'),
-            builder: (context) => WordDetailScreen(word: word),
-          );
-        },
+        routes: [
+          GoRoute(
+            name: RoutePaths.search + RoutePaths.wordDetails,
+            path: 'word_details',
+            pageBuilder: (context, state) {
+              final extra = state.extra as Map<String, dynamic>?;
+              final word = extra?['word'] as WordEntity;
+              return SwipeablePage(
+                key: const ValueKey('WordDetailScreen_Outside'),
+                builder:
+                    (context) => BlocProvider(
+                      create: (context) => di.getIt<TopicsBloc>(),
+                      child: WordDetailScreen(word: word),
+                    ),
+              );
+            },
+          ),
+        ],
       ),
     ],
     errorBuilder:

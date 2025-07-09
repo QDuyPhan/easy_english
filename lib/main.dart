@@ -6,7 +6,6 @@ import 'package:easy_english/domain/usecases/init_data_topics_use_case.dart';
 import 'package:easy_english/domain/usecases/init_data_use_case.dart';
 import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -19,6 +18,8 @@ void main() async {
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.setupDependencies();
   Bloc.observer = MyBlocObserver();
+  await di.getIt<InitDataUseCase>().execute();
+  await di.getIt<InitDataTopics>().execute();
   // runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
   runApp(
     MultiBlocProvider(
@@ -50,10 +51,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> initializeApp() async {
-    try {
-      await di.getIt<InitDataUseCase>().execute();
-      await di.getIt<InitDataTopics>().execute();
-    } catch (e) {
+    try {} catch (e) {
       app_config.printLog('e', 'Failed to initialize app: $e');
     } finally {
       FlutterNativeSplash.remove();

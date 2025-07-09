@@ -18,13 +18,13 @@ class HiveConfig {
 
   late Box<Word> _wordsBox;
   late Box<Word> _dailyWordsBox;
-  late Box<List<Word>> _topicsBox;
+  late Box<dynamic> _topicsBox;
 
   Box<Word> get wordsBox => _wordsBox;
 
   Box<Word> get dailyWordsBox => _dailyWordsBox;
 
-  Box<List<Word>> get topicsBox => _topicsBox;
+  Box<dynamic> get topicsBox => _topicsBox;
 
   @factoryMethod // Phương thức khởi tạo đặc biệt
   static Future<HiveConfig> create() async {
@@ -50,6 +50,6 @@ class HiveConfig {
     // Mở box
     _wordsBox = await Hive.openBox<Word>(_wordKey);
     _dailyWordsBox = await Hive.openBox<Word>(_dailyWordsKey);
-    _topicsBox = await Hive.openBox<List<Word>>(_topicsKey);
+    _topicsBox = await Hive.openBox(_topicsKey);
   }
 }

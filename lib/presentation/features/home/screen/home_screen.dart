@@ -1,4 +1,5 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
 import 'package:easy_english/presentation/features/home/bloc/daily_words_bloc.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
@@ -15,10 +16,17 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    super.initState();
+    context.read<DailyWordsBloc>().add(const GetDailyWordsEvent());
+  }
+
+  @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-
+    final size = MediaQuery.of(context).size;
+    final iconSize = size.width * 0.09;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,35 +40,58 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          BlocBuilder<DailyWordsBloc, DailyWordsState>(
-            builder: (context, state) {
-              if (state is DailyWordsLoading) {
-                return Center(child: CircularProgressIndicator());
-              } else if (state is DailyWordsLoaded) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Text(
-                        '📅 Hôm nay học gì?',
-                        style: TextStyle(fontSize: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: BlocBuilder<DailyWordsBloc, DailyWordsState>(
+              builder: (context, state) {
+                if (state is DailyWordsLoading) {
+                  return Center(child: CircularProgressIndicator());
+                } else if (state is DailyWordsLoaded) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              Assets.pngCalander,
+                              height: iconSize,
+                              width: iconSize,
+                              fit: BoxFit.contain,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              'Hôm nay học gì?',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Wrap(
-                      spacing: 8,
-                      children:
-                          state.words
-                              .map((word) => Chip(label: Text(word.word)))
-                              .toList(),
-                    ),
-                  ],
-                );
-              } else if (state is DailyWordsError) {
-                return Center(child: Text('Lỗi: ${state.message}'));
-              }
-              return SizedBox();
-            },
+                      Wrap(
+                        spacing: 8,
+                        children:
+                            state.words
+                                .map(
+                                  (word) => GestureDetector(
+                                    child: Chip(label: Text(word.word)),
+                                    onTap:
+                                        () => context.push(
+                                          RoutePaths.wordDetails,
+                                          extra: {'word': word},
+                                        ),
+                                  ),
+                                )
+                                .toList(),
+                      ),
+                    ],
+                  );
+                } else if (state is DailyWordsError) {
+                  return Center(child: Text('Lỗi: ${state.message}'));
+                }
+                return SizedBox();
+              },
+            ),
           ),
         ],
       ),

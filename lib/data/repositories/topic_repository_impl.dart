@@ -33,10 +33,12 @@ class TopicRepositoryImpl implements TopicRepository {
   Future<void> initData() async {
     try {
       final listTopic = Assets.listTopic;
-      listTopic.forEach((key, value) async {
+      for (var key in listTopic.keys) {
         final folder = key;
-        for (var topic in value) {
-          final List<Word> list = await _assetsData.readFromJsonTopic(
+        final topics = listTopic[key]!;
+
+        for (var topic in topics) {
+          final list = await _assetsData.readFromJsonTopic(
             folder.toLowerCase(),
             topic.toLowerCase(),
           );
@@ -46,7 +48,7 @@ class TopicRepositoryImpl implements TopicRepository {
             list,
           );
         }
-      });
+      }
     } catch (e) {
       app_config.printLog('e', 'Failed to init data: $e');
       throw Exception('Failed to init data: $e');
@@ -61,7 +63,7 @@ class TopicRepositoryImpl implements TopicRepository {
   ) async {
     try {
       final model = _appMappr.convert<WordEntity, Word>(word);
-      await _localData.saveVocabularyByTopic(folder, topic, model as List<Word>);
+      await _localData.saveVocabularyByTopic(folder, topic, [model]);
       return Right(null);
     } catch (e) {
       return Left(Failure.general(message: 'Failed to save word'));
