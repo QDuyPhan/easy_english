@@ -6,6 +6,7 @@ class CustomAppbar extends StatelessWidget {
   final List<Widget> leading;
   final List<Widget> actions;
   final Widget? child;
+  final TextAlign titleAlign;
 
   const CustomAppbar({
     super.key,
@@ -13,6 +14,7 @@ class CustomAppbar extends StatelessWidget {
     this.leading = const [],
     this.actions = const [],
     this.child,
+    this.titleAlign = TextAlign.center, r
   });
 
   @override
@@ -43,20 +45,34 @@ class CustomAppbar extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // Center title
-                  Center(
-                    child: Text(
-                      title.toUpperCase(),
-                      style: textTheme.labelLarge?.copyWith(
-                        color: colorScheme.onSurface,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.5,
+                  if (titleAlign == TextAlign.center)
+                    Center(
+                      child: Text(
+                        title.toUpperCase(),
+                        style: textTheme.labelLarge?.copyWith(
+                          color: colorScheme.onSurface,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      overflow: TextOverflow.ellipsis,
+                    )
+                  else
+                    Align(
+                      alignment: titleAlign == TextAlign.left
+                          ? Alignment.centerLeft
+                          : Alignment.centerRight,
+                      child: Text(
+                        title.toUpperCase(),
+                        style: textTheme.labelLarge?.copyWith(
+                          color: colorScheme.onSurface,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.5,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
 
-                  // Leading buttons (left-aligned)
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Row(
@@ -65,7 +81,6 @@ class CustomAppbar extends StatelessWidget {
                     ),
                   ),
 
-                  // Action buttons (right-aligned)
                   Align(
                     alignment: Alignment.centerRight,
                     child: Row(

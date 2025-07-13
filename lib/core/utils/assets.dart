@@ -616,4 +616,5 @@ class Assets {
   static const String pngGrammar = 'assets/png/grammar.png';
   static const String pngFlashCards = 'assets/png/flashcard.png';
   static const String pngCalander = 'assets/png/calander.png';
+  static const String pngLogo = 'assets/png/logo.png';
 }

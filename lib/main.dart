@@ -18,8 +18,7 @@ void main() async {
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await di.setupDependencies();
   Bloc.observer = MyBlocObserver();
-  await di.getIt<InitDataUseCase>().execute();
-  await di.getIt<InitDataTopics>().execute();
+
   // runApp(DevicePreview(enabled: !kReleaseMode, builder: (context) => MyApp()));
   runApp(
     MultiBlocProvider(
@@ -51,7 +50,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> initializeApp() async {
-    try {} catch (e) {
+    try {
+      await di.getIt<InitDataUseCase>().execute();
+      await di.getIt<InitDataTopics>().execute();
+    } catch (e) {
       app_config.printLog('e', 'Failed to initialize app: $e');
     } finally {
       FlutterNativeSplash.remove();

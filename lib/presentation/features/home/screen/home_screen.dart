@@ -31,66 +31,100 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomAppbar(
-            title: 'Hi, 👋',
-            actions: [
-              IconButton(
-                onPressed: _openSearch,
-                icon: const Icon(FluentIcons.search_12_regular),
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0),
+            child: Row(
+              children: [
+                Image.asset(
+                  Assets.pngLogo,
+                  height: size.height * 0.05,
+                  width: size.width * 0.06,
+                ),
+                Expanded(
+                  child: CustomAppbar(
+                    titleAlign: TextAlign.left,
+                    title: 'Easy English',
+                    actions: [
+                      IconButton(
+                        onPressed: _openSearch,
+                        icon: const Icon(FluentIcons.search_12_regular),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: BlocBuilder<DailyWordsBloc, DailyWordsState>(
-              builder: (context, state) {
-                if (state is DailyWordsLoading) {
-                  return Center(child: CircularProgressIndicator());
-                } else if (state is DailyWordsLoaded) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Row(
+            child: Column(
+              children: [
+                BlocBuilder<DailyWordsBloc, DailyWordsState>(
+                  builder: (context, state) {
+                    if (state is DailyWordsLoading) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (state is DailyWordsLoaded) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: colorScheme.primaryContainer.withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: colorScheme.outline.withOpacity(0.3),
+                            width: 1.2,
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              Assets.pngCalander,
-                              height: iconSize,
-                              width: iconSize,
-                              fit: BoxFit.contain,
+                            Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    Assets.pngCalander,
+                                    height: iconSize,
+                                    width: iconSize,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    'Hôm nay học gì?',
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                ],
+                              ),
                             ),
-                            const SizedBox(width: 10),
-                            Text(
-                              'Hôm nay học gì?',
-                              style: TextStyle(fontSize: 20),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                              ),
+                              child: Wrap(
+                                spacing: 8,
+                                children:
+                                    state.words
+                                        .map(
+                                          (word) => GestureDetector(
+                                            child: Chip(label: Text(word.word)),
+                                            onTap:
+                                                () => context.push(
+                                                  RoutePaths.wordDetails,
+                                                  extra: {'word': word},
+                                                ),
+                                          ),
+                                        )
+                                        .toList(),
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                      Wrap(
-                        spacing: 8,
-                        children:
-                            state.words
-                                .map(
-                                  (word) => GestureDetector(
-                                    child: Chip(label: Text(word.word)),
-                                    onTap:
-                                        () => context.push(
-                                          RoutePaths.wordDetails,
-                                          extra: {'word': word},
-                                        ),
-                                  ),
-                                )
-                                .toList(),
-                      ),
-                    ],
-                  );
-                } else if (state is DailyWordsError) {
-                  return Center(child: Text('Lỗi: ${state.message}'));
-                }
-                return SizedBox();
-              },
+                      );
+                    } else if (state is DailyWordsError) {
+                      return Center(child: Text('Lỗi: ${state.message}'));
+                    }
+                    return SizedBox();
+                  },
+                ),
+              ],
             ),
           ),
         ],
