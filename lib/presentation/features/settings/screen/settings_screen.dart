@@ -76,6 +76,42 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    side: BorderSide(color: colorScheme.outlineVariant),
+                  ),
+                  tileColor: colorScheme.surface,
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  title: Text(
+                    'Thông báo',
+                    style: textTheme.titleMedium?.copyWith(
+                      color: colorScheme.onSurface,
+                    ),
+                  ),
+                  // subtitle: Text(
+                  //   isDarkMode ? 'Dark Mode' : 'Light Mode',
+                  //   style: textTheme.bodySmall?.copyWith(
+                  //     color: colorScheme.onSurfaceVariant,
+                  //   ),
+                  // ),
+                  trailing: Switch.adaptive(
+                    value: isDarkMode,
+                    onChanged: (_) {
+                      context.read<ThemeBloc>().add(
+                        const ThemeEvent.toggleTheme(),
+                      );
+                    },
+                    activeColor: colorScheme.primary,
+                  ),
+                ),
+              ),
             ],
           ),
         );

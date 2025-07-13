@@ -19,14 +19,19 @@ import '../core/register_module/audio_player_provider.dart' as _i526;
 import '../data/datasources/local/assets_data.dart' as _i481;
 import '../data/datasources/local/local_data.dart' as _i614;
 import '../data/datasources/local/them_local.dart' as _i110;
+import '../data/datasources/notification/notification_data_source.dart'
+    as _i179;
+import '../data/repositories/notification_repository_impl.dart' as _i888;
 import '../data/repositories/oxford_words_repository_impl.dart' as _i319;
 import '../data/repositories/theme_repository_impl.dart' as _i792;
 import '../data/repositories/topic_repository_impl.dart' as _i867;
 import '../data/repositories/vocabulary_repository_impl.dart' as _i904;
+import '../domain/repositories/notification_repository.dart' as _i965;
 import '../domain/repositories/oxford_words_repository.dart' as _i212;
 import '../domain/repositories/theme_repository.dart' as _i443;
 import '../domain/repositories/topic_repository.dart' as _i13;
 import '../domain/repositories/vocabulary_repository.dart' as _i1063;
+import '../domain/usecases/cancel_notification_use_case.dart' as _i225;
 import '../domain/usecases/get_all_oxford_words_use_case.dart' as _i822;
 import '../domain/usecases/get_daily_words_use_case.dart' as _i246;
 import '../domain/usecases/get_theme_use_case.dart' as _i131;
@@ -35,6 +40,7 @@ import '../domain/usecases/init_data_topics_use_case.dart' as _i599;
 import '../domain/usecases/init_data_use_case.dart' as _i579;
 import '../domain/usecases/save_theme_use_case.dart' as _i883;
 import '../domain/usecases/save_word_use_case.dart' as _i528;
+import '../domain/usecases/schedule_notification_use_case.dart' as _i812;
 import '../domain/usecases/search_words_use_case.dart' as _i63;
 import '../presentation/features/home/bloc/daily_words_bloc.dart' as _i531;
 import '../presentation/features/search/blocs/search_bloc.dart' as _i529;
@@ -66,6 +72,11 @@ Future<_i174.GetIt> $initGetIt(
     preResolve: true,
   );
   gh.lazySingleton<_i501.AudioPlayer>(() => audioPlayerModule.audioPlayer());
+  gh.lazySingleton<_i179.NotificationDataSource>(
+      () => _i179.NotificationDataSourceImpl());
+  gh.lazySingleton<_i965.NotificationRepository>(() =>
+      _i888.NotificationRepositoryImpl(
+          notificationDataSource: gh<_i179.NotificationDataSource>()));
   gh.lazySingleton<_i481.AssetsData>(
       () => _i481.AssetsDataImpl(hiveConfig: gh<_i719.HiveConfig>()));
   gh.lazySingleton<_i614.LocalData>(
@@ -82,6 +93,10 @@ Future<_i174.GetIt> $initGetIt(
       () => _i822.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
   gh.factory<_i579.InitDataUseCase>(
       () => _i579.InitDataUseCase(gh<_i212.OxfordWordsRepository>()));
+  gh.factory<_i225.CancelNotificationUseCase>(
+      () => _i225.CancelNotificationUseCase(gh<_i965.NotificationRepository>()));
+  gh.factory<_i812.ScheduleNotificationUseCase>(
+      () => _i812.ScheduleNotificationUseCase(gh<_i965.NotificationRepository>()));
   gh.lazySingleton<_i443.ThemeRepository>(
       () => _i792.ThemeRepositoryImpl(themeLocal: gh<_i110.ThemeLocal>()));
   gh.lazySingleton<_i1063.VocabularyRepository>(
