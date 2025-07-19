@@ -498,7 +498,6 @@ class Assets {
       'assets/md/grammar/tenses/past/past__perfect__tense.md';
   static const String pastSimplePastTense =
       'assets/md/grammar/tenses/past/simple__past__tense.md';
-  static const String pngBook = 'assets/png/book.png';
   static const String pngFlame = 'assets/png/flame.png';
   static const String pngFlameInactive = 'assets/png/flame_inactive.png';
   static const String pngImg = 'assets/png/img.png';

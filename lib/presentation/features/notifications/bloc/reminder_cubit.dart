@@ -25,17 +25,45 @@ class ReminderCubit extends HydratedCubit<Reminder> {
         ),
       );
 
+  void toggle(bool enabled) async {
+    emit(state.copyWith(enabled: enabled));
+    if (enabled) {
+      await scheduleCurrent();
+    } else {
+      await _cancelNotificationUseCase.call(0);
+    }
+  }
 
+  void updateTime(int hour, int minute) async {
+    emit(state.copyWith(hour: hour, minute: minute));
+    if (state.enabled) {
+      await scheduleCurrent();
+    }
+  }
+
+  void updateTitle(String title) => emit(state.copyWith(title: title));
+
+  void updateBody(String body) => emit(state.copyWith(body: body));
+
+  Future<void> scheduleCurrent() async =>
+      await _scheduleNotificationUseCase.call(
+        hour: state.hour,
+        minute: state.minute,
+        title: state.title,
+        body: state.body,
+      );
 
   @override
-  Reminder? fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
-  }
+  Reminder? fromJson(Map<String, dynamic> json) => Reminder.fromJson(json);
 
   @override
   Map<String, dynamic>? toJson(Reminder state) {
-    // TODO: implement toJson
-    throw UnimplementedError();
+    return {
+      'enabled': state.enabled,
+      'hour': state.hour,
+      'minute': state.minute,
+      'title': state.title,
+      'body': state.body,
+    };
   }
 }

@@ -13,6 +13,16 @@ class Reminder {
     required this.body,
   });
 
+  factory Reminder.fromJson(Map<String, dynamic> json) {
+    return Reminder(
+      enabled: json['enabled'] as bool,
+      hour: json['hour'] as int,
+      minute: json['minute'] as int,
+      title: json['title'] as String,
+      body: json['body'] as String,
+    );
+  }
+
   Reminder copyWith({
     bool? enabled,
     int? hour,

@@ -9,9 +9,16 @@ class ScheduleNotificationUseCase {
   const ScheduleNotificationUseCase(this._notificationRepository);
 
   Future<void> call({
-    required int id,
+    required int hour,
+    required int minute,
     required String title,
     required String body,
-    required DateTime scheduledTime,
-  }) => _notificationRepository.schedule(id, title, body, scheduledTime);
+  }) async {
+    final now = DateTime.now();
+    var scheduled = DateTime(now.year, now.month, now.day, hour, minute);
+    if (scheduled.isBefore(now)) {
+      scheduled = scheduled.add(const Duration(days: 1));
+    }
+    await _notificationRepository.schedule(0, title, body, scheduled);
+  }
 }

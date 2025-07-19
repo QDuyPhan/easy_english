@@ -1,6 +1,9 @@
+import 'package:bottom_picker/bottom_picker.dart';
+import 'package:bottom_picker/resources/arrays.dart';
 import 'package:easy_english/domain/entities/theme_entity.dart';
 import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +16,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-
+    final size = MediaQuery.of(context).size;
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, state) {
         final isDarkMode = state.themeEntity?.themeType == ThemeType.dark;
@@ -112,10 +115,48 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                width: size.width * 0.9,
+                child: ElevatedButton(
+                  onPressed: () {
+                    _openTimePicker(context);
+                  },
+                  child: Text(
+                    'Arabic Range Date Picker',
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
             ],
           ),
         );
       },
     );
+  }
+  void _openTimePicker(BuildContext context) {
+    BottomPicker.time(
+      pickerTitle: Text(
+        'Set your next meeting time',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+          color: Colors.orange,
+        ),
+      ),
+      use24hFormat: false,
+      onSubmit: (index) {
+        print(index);
+      },
+      onCloseButtonPressed: () {
+        print('Picker closed');
+      },
+      bottomPickerTheme: BottomPickerTheme.orange,
+      initialTime: Time(
+        minutes: 23,
+      ),
+      maxTime: Time(
+        hours: 17,
+      ),
+    ).show(context);
   }
 }
