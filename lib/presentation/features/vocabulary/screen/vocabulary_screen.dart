@@ -46,15 +46,15 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
             if (state is VocabularyLoaded) {
               return Column(
                 children: [
-                  CustomAppbar(
-                    title: 'Vocabulary',
-                    actions: [
-                      SvgButton(
-                        svg: _showSearch ? Assets.svgClose : Assets.svgSearch,
-                        onPressed: _isOpenSearch,
-                      ),
-                    ],
-                  ),
+                  // CustomAppbar(
+                  //   title: 'Vocabulary',
+                  //   actions: [
+                  //     SvgButton(
+                  //       svg: _showSearch ? Assets.svgClose : Assets.svgSearch,
+                  //       onPressed: _isOpenSearch,
+                  //     ),
+                  //   ],
+                  // ),
                   // SearchBox(isSearch: _showSearch),
                   Expanded(
                     child: ListView.builder(

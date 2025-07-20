@@ -36,32 +36,32 @@ class WordDetailScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            CustomAppbar(
-              title: 'Detail Word',
-              leading: [
-                IconButton(
-                  onPressed: () => context.pop(),
-                  icon: Icon(
-                    FluentIcons.chevron_left_12_regular,
-                    color: colorScheme.onBackground,
-                  ),
-                ),
-              ],
-              actions: [
-                IconButton(
-                  onPressed: () => _onSave(context, currentWord),
-                  icon: Icon(
-                    currentWord.status == WordStatusEntity.star
-                        ? FluentIcons.bookmark_16_filled
-                        : FluentIcons.bookmark_16_regular,
-                    color:
-                        currentWord.status == WordStatusEntity.star
-                            ? colorScheme.secondary
-                            : colorScheme.onSurfaceVariant,
-                  ),
-                ),
-              ],
-            ),
+            // CustomAppbar(
+            //   title: 'Detail Word',
+            //   leading: [
+            //     IconButton(
+            //       onPressed: () => context.pop(),
+            //       icon: Icon(
+            //         FluentIcons.chevron_left_12_regular,
+            //         color: colorScheme.onBackground,
+            //       ),
+            //     ),
+            //   ],
+            //   actions: [
+            //     IconButton(
+            //       onPressed: () => _onSave(context, currentWord),
+            //       icon: Icon(
+            //         currentWord.status == WordStatusEntity.star
+            //             ? FluentIcons.bookmark_16_filled
+            //             : FluentIcons.bookmark_16_regular,
+            //         color:
+            //             currentWord.status == WordStatusEntity.star
+            //                 ? colorScheme.secondary
+            //                 : colorScheme.onSurfaceVariant,
+            //       ),
+            //     ),
+            //   ],
+            // ),
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(16),

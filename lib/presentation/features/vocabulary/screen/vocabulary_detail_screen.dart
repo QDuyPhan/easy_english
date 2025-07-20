@@ -22,21 +22,21 @@ class VocabularyDetailScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          CustomAppbar(
-            title: 'Vocabulary Detail',
-            leading: [
-              SvgButton(
-                svg: Assets.svgArrowLeft,
-                onPressed: () => context.pop(),
-              ),
-            ],
-            actions: [
-              SvgButton(
-                svg: Assets.svgBookmarks,
-                onPressed: () {},
-              ),
-            ],
-          ),
+          // CustomAppbar(
+          //   title: 'Vocabulary Detail',
+          //   leading: [
+          //     SvgButton(
+          //       svg: Assets.svgArrowLeft,
+          //       onPressed: () => context.pop(),
+          //     ),
+          //   ],
+          //   actions: [
+          //     SvgButton(
+          //       svg: Assets.svgBookmarks,
+          //       onPressed: () {},
+          //     ),
+          //   ],
+          // ),
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),

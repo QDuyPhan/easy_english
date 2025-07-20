@@ -22,7 +22,7 @@ class BasePage extends StatelessWidget {
       decoration: BoxDecoration(color: backgroundColor),
       child: Column(
         children: [
-          CustomAppbar(title: title, actions: actions),
+          // CustomAppbar(title: title, actions: actions),
           Expanded(child: Padding(padding: padding, child: child)),
         ],
       ),

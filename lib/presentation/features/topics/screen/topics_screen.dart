@@ -1,11 +1,11 @@
-import 'package:easy_english/core/utils/widgets/base_screen.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/search_box.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/word_card.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/utils/widgets/custom_appbar.dart';
 import '../../flashcard/widgets/flash_cards_button.dart';
 import '../blocs/topics_bloc.dart';
 
@@ -37,24 +37,21 @@ class _TopicsScreenState extends State<TopicsScreen> {
     return BlocBuilder<TopicsBloc, TopicsState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: colorScheme.background,
-          body: BaseScreen(
-            title: widget.topic.replaceAll('_', ' ').toUpperCase(),
-            showSearch: _showSearch,
-            onSearchToggle: () {
-              setState(() {
-                _showSearch = !_showSearch;
-              });
-            },
-            searchBox: _showSearch ? SearchBox(showSearch: _showSearch) : null,
-            tabViews: [_buildWordListTab(context, state)],
+          appBar: CustomAppbar(
+            text: Text(widget.topic.replaceAll('_', ' ').toUpperCase()),
+            centerTitle: true,
+            leading: [
+              IconButton(
+                onPressed: () => context.pop(),
+                icon: Icon(FluentIcons.chevron_left_12_regular),
+              ),
+            ],
           ),
+          backgroundColor: colorScheme.background,
+          body: _buildWordListTab(context, state),
           floatingActionButton: FlashCardsButton(
             onPressed: () {
-              context.push(
-                RoutePaths.flashcards,
-                extra: {'word': state.words},
-              );
+              context.push(RoutePaths.flashcards, extra: {'word': state.words});
             },
           ),
         );

@@ -502,7 +502,8 @@ class Assets {
   static const String pngFlameInactive = 'assets/png/flame_inactive.png';
   static const String pngImg = 'assets/png/img.png';
   static const String pngImg1 = 'assets/png/img_1.png';
-  static const String pngLauncher = 'assets/png/launcher.png';
+
+  // static const String pngLauncher = 'assets/png/launcher.png';
   static const String pngLauncherPlaystore =
       'assets/png/launcher-playstore.png';
   static const String pngSample = 'assets/png/sample.png';
@@ -615,5 +616,5 @@ class Assets {
   static const String pngGrammar = 'assets/png/grammar.png';
   static const String pngFlashCards = 'assets/png/flashcard.png';
   static const String pngCalander = 'assets/png/calander.png';
-  static const String pngLogo = 'assets/png/logo.png';
+  static const String pngLauncher = 'assets/png/launcher.png';
 }

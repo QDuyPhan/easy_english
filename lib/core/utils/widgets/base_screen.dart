@@ -1,7 +1,4 @@
-import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class BaseScreen extends StatelessWidget {
   final String title;
@@ -40,35 +37,35 @@ class BaseScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            CustomAppbar(
-              title: title,
-              leading:
-                  leading.isEmpty && showBackButton
-                      ? [
-                        IconButton(
-                          onPressed: onBackPressed ?? () => context.pop(),
-                          icon: Icon(
-                            FluentIcons.chevron_left_12_regular,
-                            color: colorScheme.onSurface,
-                          ),
-                        ),
-                      ]
-                      : leading,
-              actions:
-                  actions.isEmpty && onSearchToggle != null
-                      ? [
-                        IconButton(
-                          onPressed: onSearchToggle,
-                          icon: Icon(
-                            showSearch!
-                                ? FluentIcons.dismiss_12_regular
-                                : FluentIcons.search_12_regular,
-                            color: colorScheme.onSurface,
-                          ),
-                        ),
-                      ]
-                      : actions,
-            ),
+            // CustomAppbar(
+            //   title: title,
+            //   leading:
+            //       leading.isEmpty && showBackButton
+            //           ? [
+            //             IconButton(
+            //               onPressed: onBackPressed ?? () => context.pop(),
+            //               icon: Icon(
+            //                 FluentIcons.chevron_left_12_regular,
+            //                 color: colorScheme.onSurface,
+            //               ),
+            //             ),
+            //           ]
+            //           : leading,
+            //   actions:
+            //       actions.isEmpty && onSearchToggle != null
+            //           ? [
+            //             IconButton(
+            //               onPressed: onSearchToggle,
+            //               icon: Icon(
+            //                 showSearch!
+            //                     ? FluentIcons.dismiss_12_regular
+            //                     : FluentIcons.search_12_regular,
+            //                 color: colorScheme.onSurface,
+            //               ),
+            //             ),
+            //           ]
+            //           : actions,
+            // ),
 
             /// TabBar
             if (tabTitles != null && tabTitles!.isNotEmpty)

@@ -20,16 +20,17 @@ class StudyingScreen extends StatelessWidget {
 
     return BlocBuilder<TopicsBloc, TopicsState>(
       builder: (context, state) {
-        final newWords = state.words
-            .where((e) => e.status == WordStatusEntity.star)
-            .toList();
+        final newWords =
+            state.words
+                .where((e) => e.status == WordStatusEntity.star)
+                .toList();
 
         return Scaffold(
+          appBar: CustomAppbar(text: Text('My Words'), centerTitle: true),
           backgroundColor: colorScheme.background,
           body: SafeArea(
             child: Column(
               children: [
-                const CustomAppbar(title: 'My Words'),
                 const SizedBox(height: 8),
                 if (newWords.isEmpty)
                   Expanded(
@@ -56,16 +57,17 @@ class StudyingScreen extends StatelessWidget {
               ],
             ),
           ),
-          floatingActionButton: newWords.isEmpty
-              ? null
-              : FlashCardsButton(
-            onPressed: () {
-              context.push(
-                RoutePaths.flashcards,
-                extra: {'word': newWords},
-              );
-            },
-          ),
+          floatingActionButton:
+              newWords.isEmpty
+                  ? null
+                  : FlashCardsButton(
+                    onPressed: () {
+                      context.push(
+                        RoutePaths.flashcards,
+                        extra: {'word': newWords},
+                      );
+                    },
+                  ),
         );
       },
     );
