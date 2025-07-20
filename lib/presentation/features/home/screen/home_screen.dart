@@ -28,33 +28,26 @@ class _HomeScreenState extends State<HomeScreen> {
     final size = MediaQuery.of(context).size;
     final iconSize = size.width * 0.09;
     return Scaffold(
+      appBar: CustomAppbar(
+        text: Text('Easy English'),
+        centerTitle: true,
+        leading: [
+          Image.asset(
+            Assets.pngLauncher,
+            height: size.height * 0.05,
+            width: size.width * 0.06,
+          ),
+        ],
+        actions: [
+          IconButton(
+            onPressed: _openSearch,
+            icon: const Icon(FluentIcons.search_12_regular),
+          ),
+        ],
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10.0),
-            child: Row(
-              children: [
-                Image.asset(
-                  Assets.pngLogo,
-                  height: size.height * 0.05,
-                  width: size.width * 0.06,
-                ),
-                Expanded(
-                  child: CustomAppbar(
-                    titleAlign: TextAlign.left,
-                    title: 'Easy English',
-                    actions: [
-                      IconButton(
-                        onPressed: _openSearch,
-                        icon: const Icon(FluentIcons.search_12_regular),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(

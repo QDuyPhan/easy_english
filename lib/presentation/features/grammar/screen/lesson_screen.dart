@@ -39,52 +39,47 @@ class _LessonScreenState extends State<LessonScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: colorScheme.background,
-      body: Column(
-        children: [
-          CustomAppbar(
-            title: widget.lesson.title,
-            leading: [
-              IconButton(
-                onPressed: () => context.pop(),
-                icon: Icon(
-                  FluentIcons.chevron_left_12_regular,
-                  color: colorScheme.onSurface,
-                ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child:
-                  markdownContent.isEmpty
-                      ? const Center(child: CircularProgressIndicator())
-                      : Markdown(
-                        data: markdownContent,
-                        styleSheet: MarkdownStyleSheet.fromTheme(
-                          Theme.of(context),
-                        ).copyWith(
-                          p: textTheme.bodyLarge?.copyWith(
-                            color: colorScheme.onBackground,
-                            height: 1.5,
-                          ),
-                          h1: textTheme.headlineSmall?.copyWith(
-                            color: colorScheme.primary,
-                          ),
-                          h2: textTheme.titleLarge?.copyWith(
-                            color: colorScheme.primary,
-                          ),
-                          h3: textTheme.titleMedium?.copyWith(
-                            color: colorScheme.primary,
-                          ),
-                          strong: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        selectable: true,
-                      ),
+      appBar: CustomAppbar(
+        text: Text(widget.lesson.title),
+        centerTitle: true,
+        leading: [
+          IconButton(
+            onPressed: () => context.pop(),
+            icon: Icon(
+              FluentIcons.chevron_left_12_regular,
+              color: colorScheme.onSurface,
             ),
           ),
         ],
+      ),
+      backgroundColor: colorScheme.background,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child:
+            markdownContent.isEmpty
+                ? const Center(child: CircularProgressIndicator())
+                : Markdown(
+                  data: markdownContent,
+                  styleSheet: MarkdownStyleSheet.fromTheme(
+                    Theme.of(context),
+                  ).copyWith(
+                    p: textTheme.bodyLarge?.copyWith(
+                      color: colorScheme.onBackground,
+                      height: 1.5,
+                    ),
+                    h1: textTheme.headlineSmall?.copyWith(
+                      color: colorScheme.primary,
+                    ),
+                    h2: textTheme.titleLarge?.copyWith(
+                      color: colorScheme.primary,
+                    ),
+                    h3: textTheme.titleMedium?.copyWith(
+                      color: colorScheme.primary,
+                    ),
+                    strong: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  selectable: true,
+                ),
       ),
     );
   }
