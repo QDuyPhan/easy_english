@@ -53,20 +53,21 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
+      appBar: CustomAppbar(
+        text: Text('Flashcards'),
+        centerTitle: true,
+        leading: [
+          IconButton(
+            icon: const Icon(FluentIcons.chevron_left_12_regular),
+            onPressed: () => context.pop(),
+          ),
+        ],
+      ),
       body:
           widget.words.isEmpty
               ? const Center(child: CircularProgressIndicator())
               : Column(
                 children: [
-                  CustomAppbar(
-                    title: 'Flashcards',
-                    leading: [
-                      IconButton(
-                        icon: const Icon(FluentIcons.chevron_left_12_regular),
-                        onPressed: () => context.pop(),
-                      ),
-                    ],
-                  ),
                   Expanded(
                     child: Center(
                       child: SizedBox(

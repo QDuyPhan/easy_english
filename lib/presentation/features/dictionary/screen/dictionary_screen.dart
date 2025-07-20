@@ -20,36 +20,33 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
-      body: Column(
-        children: [
-          CustomAppbar(
-            title: 'Mini Dictionary',
-            actions: [
-              IconButton(
-                onPressed: _openSearch,
-                icon: Icon(
-                  FluentIcons.search_12_regular,
-                  color: colorScheme.onSurface,
-                ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: MasonryGridView.count(
-              crossAxisCount: 2,
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 12,
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-              physics: const BouncingScrollPhysics(),
-              itemCount: Assets.listTopic.length,
-              itemBuilder: (context, index) {
-                final entry = Assets.listTopic.entries.elementAt(index);
-                return TopicBox(topicEntry: entry, index: index);
-              },
+      appBar: CustomAppbar(
+        text: Text('Mini Dictionary'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: _openSearch,
+            icon: Icon(
+              FluentIcons.search_12_regular,
+              color: colorScheme.onSurface,
             ),
           ),
         ],
+      ),
+      backgroundColor: colorScheme.surface,
+      body: Expanded(
+        child: MasonryGridView.count(
+          crossAxisCount: 2,
+          mainAxisSpacing: 12,
+          crossAxisSpacing: 12,
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          physics: const BouncingScrollPhysics(),
+          itemCount: Assets.listTopic.length,
+          itemBuilder: (context, index) {
+            final entry = Assets.listTopic.entries.elementAt(index);
+            return TopicBox(topicEntry: entry, index: index);
+          },
+        ),
       ),
     );
   }

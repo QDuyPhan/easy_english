@@ -1,100 +1,85 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class CustomAppbar extends StatelessWidget {
-  final String title;
-  final List<Widget> leading;
+class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
+  final Text text;
+  final Color? backgroundColor;
   final List<Widget> actions;
-  final Widget? child;
-  final TextAlign titleAlign;
+  final bool centerTitle;
+  final List<Widget> leading;
+  final Color? indicatorColor;
+  final Color? labelColor;
+  final Color? unselectedLabelColor;
+  final TextStyle? titleStyle;
+
+  final List<Tab>? tabs;
+  final TabController? tabController;
+  final bool? isTabScrollable;
+  final TabAlignment? tabAlignment;
 
   const CustomAppbar({
     super.key,
-    required this.title,
-    this.leading = const [],
+    required this.text,
+    this.backgroundColor,
     this.actions = const [],
-    this.child,
-    this.titleAlign = TextAlign.center, r
+    this.centerTitle = true,
+    this.leading = const [],
+    this.tabs,
+    this.tabController,
+    this.isTabScrollable,
+    this.tabAlignment,
+    this.indicatorColor = Colors.redAccent,
+    this.labelColor = Colors.white,
+    this.unselectedLabelColor = Colors.white70,
+    this.titleStyle,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-    final textTheme = theme.textTheme;
-    final isDark = theme.brightness == Brightness.dark;
+    final hasTabs = tabs != null && tabs!.isNotEmpty && tabController != null;
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
-          statusBarBrightness: isDark ? Brightness.dark : Brightness.light,
-        ),
-      );
-    });
+    return AppBar(
+      title: text,
+      // backgroundColor: backgroundColor,
+      actions: actions,
+      centerTitle: centerTitle,
+      leading:
+          leading.isNotEmpty
+              ? Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Row(mainAxisSize: MainAxisSize.min, children: leading),
+              )
+              : null,
+      bottom:
+          hasTabs
+              ? TabBar(
+                controller: tabController,
+                tabs: tabs!,
+                indicatorColor: indicatorColor,
+                labelColor: labelColor,
+                unselectedLabelColor: unselectedLabelColor,
+                isScrollable:
+                    tabAlignment != null ? true : (isTabScrollable ?? false),
+                indicatorSize: TabBarIndicatorSize.tab,
+                tabAlignment: tabAlignment,
+                dividerColor: Colors.transparent,
 
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: 40,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  if (titleAlign == TextAlign.center)
-                    Center(
-                      child: Text(
-                        title.toUpperCase(),
-                        style: textTheme.labelLarge?.copyWith(
-                          color: colorScheme.onSurface,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0.5,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    )
-                  else
-                    Align(
-                      alignment: titleAlign == TextAlign.left
-                          ? Alignment.centerLeft
-                          : Alignment.centerRight,
-                      child: Text(
-                        title.toUpperCase(),
-                        style: textTheme.labelLarge?.copyWith(
-                          color: colorScheme.onSurface,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 0.5,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: leading,
-                    ),
-                  ),
-
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: actions,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            if (child != null) ...[const SizedBox(height: 8), child!],
-          ],
-        ),
-      ),
+                // indicator: BoxDecoration(
+                //   borderRadius: BorderRadius.circular(8.0),
+                //   color: Colors.redAccent,
+                // ),
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+              : null,
     );
+  }
+
+  @override
+  Size get preferredSize {
+    final hasTabs = tabs != null && tabs!.isNotEmpty && tabController != null;
+    return Size.fromHeight(kToolbarHeight + (hasTabs ? kTextTabBarHeight : 0));
   }
 }

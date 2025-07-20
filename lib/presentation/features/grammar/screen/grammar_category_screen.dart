@@ -35,48 +35,45 @@ class _GrammarCategoryScreenState extends State<GrammarCategoryScreen> {
             : widget.category.lessons;
 
     return Scaffold(
+      appBar: CustomAppbar(
+        text: Text(widget.category.title),
+        centerTitle: true,
+        leading: [
+          IconButton(
+            onPressed: () => context.pop(),
+            icon: Icon(
+              FluentIcons.chevron_left_12_regular,
+              color: colorScheme.onSurface,
+            ),
+          ),
+        ],
+      ),
       backgroundColor: colorScheme.surface,
-      body: Column(
-        children: [
-          CustomAppbar(
-            title: widget.category.title,
-            leading: [
-              IconButton(
-                onPressed: () => context.pop(),
-                icon: Icon(
-                  FluentIcons.chevron_left_12_regular,
-                  color: colorScheme.onSurface,
+      body: Expanded(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            children: [
+              AppTextField(
+                hint: 'Search',
+                prefixIcon: const Icon(Icons.search_rounded),
+                onChanged: (val) {
+                  setState(() => query = val);
+                },
+              ),
+              const SizedBox(height: 10),
+              Expanded(
+                child: ListView.separated(
+                  itemCount: result.length,
+                  separatorBuilder: (_, __) => const SizedBox(height: 10),
+                  itemBuilder: (context, index) {
+                    return GrammarCategoryItem(lesson: result[index]);
+                  },
                 ),
               ),
             ],
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                children: [
-                  AppTextField(
-                    hint: 'Search',
-                    prefixIcon: const Icon(Icons.search_rounded),
-                    onChanged: (val) {
-                      setState(() => query = val);
-                    },
-                  ),
-                  const SizedBox(height: 10),
-                  Expanded(
-                    child: ListView.separated(
-                      itemCount: result.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 10),
-                      itemBuilder: (context, index) {
-                        return GrammarCategoryItem(lesson: result[index]);
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

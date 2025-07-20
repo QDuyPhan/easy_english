@@ -11,7 +11,6 @@ import 'package:easy_english/presentation/features/grammar/screen/lesson_screen.
 import 'package:easy_english/presentation/features/home/bloc/daily_words_bloc.dart';
 import 'package:easy_english/presentation/features/home/screen/home_screen.dart';
 import 'package:easy_english/presentation/features/home/widgets/home_navigation.dart';
-import 'package:easy_english/presentation/features/profile/screen/profile_screen.dart';
 import 'package:easy_english/presentation/features/search/blocs/search_bloc.dart';
 import 'package:easy_english/presentation/features/search/screen/search_screen.dart';
 import 'package:easy_english/presentation/features/settings/screen/settings_screen.dart';
@@ -228,23 +227,6 @@ class AppRouter {
                     child: SettingsScreen(),
                   );
                 },
-              ),
-              GoRoute(
-                path: RoutePaths.profile,
-                pageBuilder:
-                    (context, state) => CustomTransitionPage(
-                      key: state.pageKey,
-                      child: ProfileScreen(),
-                      transitionsBuilder: (
-                        context,
-                        animation,
-                        secondaryAnimation,
-                        child,
-                      ) {
-                        return FadeTransition(opacity: animation, child: child);
-                      },
-                      transitionDuration: Duration(milliseconds: 500),
-                    ),
               ),
             ],
           ),
