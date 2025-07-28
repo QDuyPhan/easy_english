@@ -21,6 +21,8 @@ abstract interface class LocalData {
 
   // Get Daily Words
   Future<List<Word>> getDailyWords(List<Word> words);
+
+  List<Word> getAllTopicWords();
 }
 
 @LazySingleton(as: LocalData)
@@ -77,12 +79,73 @@ class LocalDataImpl implements LocalData {
       final raw = _hiveConfig.topicsBox.get('$folder/$topic');
       if (raw == null) return null;
 
-      return (raw as List<dynamic>)
-          .map((e) => Word.fromJson(Map<String, dynamic>.from(e)))
+      if (raw is! List) {
+        app_config.printLog(
+          'e',
+          "❌ Invalid data format for topic $folder/$topic: expected List, got ${raw.runtimeType}",
+        );
+        return null;
+      }
+
+      return raw
+          .map((e) {
+            if (e is Map) {
+              // Convert Map<dynamic, dynamic> to Map<String, dynamic> safely
+              final Map<String, dynamic> jsonMap = {};
+              e.forEach((key, value) {
+                jsonMap[key.toString()] = value;
+              });
+              return Word.fromJson(jsonMap);
+            } else {
+              app_config.printLog(
+                'e',
+                "❌ Invalid item format in topic $folder/$topic: expected Map, got ${e.runtimeType}",
+              );
+              return null;
+            }
+          })
+          .where((word) => word != null)
+          .cast<Word>()
           .toList();
     } catch (e) {
       app_config.printLog('e', "❌ Error get topic $folder/$topic: $e");
-      throw Exception("Error get topic $folder/$topic: $e");
+      return null; // Return null instead of throwing exception
+    }
+  }
+
+  @override
+  List<Word> getAllTopicWords() {
+    try {
+      final List<Word> allWords = [];
+
+      for (var entry in _hiveConfig.topicsBox.toMap().entries) {
+        final value = entry.value;
+        if (value is List) {
+          for (var item in value) {
+            try {
+              if (item is Map) {
+                final word = Word.fromJson(Map<String, dynamic>.from(item));
+                allWords.add(word);
+              } else {
+                app_config.printLog(
+                  'e',
+                  '⚠️ Item trong topic ${entry.key} không phải là Map: $item',
+                );
+              }
+            } catch (e) {
+              app_config.printLog(
+                'e',
+                '❌ Lỗi parse item trong topic ${entry.key}: $e',
+              );
+            }
+          }
+        }
+      }
+
+      return allWords;
+    } catch (e) {
+      app_config.printLog('e', "❌ Error get all topic words: $e");
+      throw Exception("Error get all topic words: $e");
     }
   }
 

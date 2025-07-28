@@ -44,8 +44,15 @@ class _SearchScreenState extends State<SearchScreen> {
                       hint: 'Search words...',
                       prefixIcon: const Icon(Icons.search_rounded),
                       onChanged: (value) {
+                        if (value.trim().isEmpty) {
+                          context.read<SearchBloc>().add(
+                            const SearchEvent.clearSearch(),
+                          );
+                          return;
+                        }
+
                         _debouncer.debounce(
-                          duration: const Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 300),
                           onDebounce: () {
                             context.read<SearchBloc>().add(
                               SearchEvent.searchWords(query: value),
@@ -79,10 +86,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   builder: (context, state) {
                     return state.when(
                       initial: () => _buildInitialState(textTheme, colorScheme),
-                      loading:
-                          () => const Center(
-                            child: CircularProgressIndicator.adaptive(),
-                          ),
+                      loading: () => _buildLoadingState(textTheme, colorScheme),
                       success:
                           (results) => _buildSuccessState(context, results),
                       noResults:
@@ -105,7 +109,8 @@ class _SearchScreenState extends State<SearchScreen> {
     return _buildPlaceholder(
       icon: Icons.search_rounded,
       title: 'Search for words',
-      subtitle: 'Search in Oxford dictionary and topics',
+      subtitle:
+          'Search in Oxford dictionary and topics\nTry typing a word to get started',
       textTheme: textTheme,
       colorScheme: colorScheme,
     );
@@ -115,9 +120,28 @@ class _SearchScreenState extends State<SearchScreen> {
     return _buildPlaceholder(
       icon: Icons.search_off_rounded,
       title: 'No results found',
-      subtitle: 'Try searching with different keywords',
+      subtitle:
+          'Try searching with different keywords or check your spelling.\nYou can also try searching for part of a word.',
       textTheme: textTheme,
       colorScheme: colorScheme,
+    );
+  }
+
+  Widget _buildLoadingState(TextTheme textTheme, ColorScheme colorScheme) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const CircularProgressIndicator.adaptive(),
+          const SizedBox(height: 16),
+          Text(
+            'Searching...',
+            style: textTheme.titleMedium?.copyWith(
+              color: colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -128,8 +152,8 @@ class _SearchScreenState extends State<SearchScreen> {
   ) {
     return _buildPlaceholder(
       icon: Icons.error_outline_rounded,
-      title: 'Error occurred',
-      subtitle: message,
+      title: 'Search error',
+      subtitle: 'Something went wrong while searching.\nPlease try again.',
       iconColor: colorScheme.error,
       titleColor: colorScheme.error,
       textTheme: textTheme,
@@ -170,6 +194,8 @@ class _SearchScreenState extends State<SearchScreen> {
               color: colorScheme.onSurfaceVariant,
             ),
             textAlign: TextAlign.center,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),
@@ -178,23 +204,32 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget _buildSuccessState(BuildContext context, List<WordEntity> results) {
     final textTheme = Theme.of(context).textTheme;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-          child: Text(
-            'Found ${results.length} result${results.length > 1 ? 's' : ''}',
-            style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+          child: Row(
+            children: [
+              Icon(Icons.search_rounded, size: 20, color: colorScheme.primary),
+              const SizedBox(width: 8),
+              Text(
+                'Found ${results.length} result${results.length > 1 ? 's' : ''}',
+                style: textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: colorScheme.primary,
+                ),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 8),
         Expanded(
-          child: ListView.separated(
+          child: ListView.builder(
             padding: const EdgeInsets.only(bottom: 12),
             itemCount: results.length,
-            separatorBuilder: (_, __) => const Divider(height: 1),
             itemBuilder: (context, index) {
               return SearchResultItem(word: results[index]);
             },

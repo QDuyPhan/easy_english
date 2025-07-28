@@ -4,6 +4,7 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
+import '../../my_app.dart';
 import '../../presentation/features/settings/screen/stats_page.dart';
 import '../config/app_string.dart';
 import '../theme/app_color.dart';
@@ -22,16 +23,21 @@ class NotificationUtil {
     String bigPicture = AppStrings.DEFAULT_ICON,
     NotificationLayout layout = NotificationLayout.BigPicture,
   }) async {
-    awesomeNotifications.createNotification(
-      content: NotificationContent(
-        id: id,
-        channelKey: channelKey,
-        title: title,
-        body: body,
-        bigPicture: bigPicture,
-        notificationLayout: layout,
-      ),
-    );
+    try {
+      await awesomeNotifications.createNotification(
+        content: NotificationContent(
+          id: id,
+          channelKey: channelKey,
+          title: title,
+          body: body,
+          bigPicture: bigPicture,
+          notificationLayout: layout,
+        ),
+      );
+    } catch (e) {
+      print('Error creating basic notification: $e');
+      rethrow;
+    }
   }
 
   /// Creates a scheduled notification that will appear at a specific time and can repeat.
@@ -44,33 +50,71 @@ class NotificationUtil {
     NotificationLayout layout = NotificationLayout.BigPicture,
     required NotificationCalendar notificationCalendar,
   }) async {
-    awesomeNotifications.createNotification(
-      content: NotificationContent(
-        id: id,
-        channelKey: channelKey,
-        title: title,
-        body: body,
-        bigPicture: bigPicture,
-        notificationLayout: layout,
-      ),
-      actionButtons: [
-        NotificationActionButton(
-          key: AppStrings.SCHEDULED_NOTIFICATION_BUTTON1_KEY,
-          label: 'Mark Done',
+    try {
+      await awesomeNotifications.createNotification(
+        content: NotificationContent(
+          id: id,
+          channelKey: channelKey,
+          title: title,
+          body: body,
+          bigPicture: bigPicture,
+          notificationLayout: layout,
         ),
-        NotificationActionButton(
-          key: AppStrings.SCHEDULED_NOTIFICATION_BUTTON2_KEY,
-          label: 'Clear',
+        actionButtons: [
+          NotificationActionButton(
+            key: AppStrings.SCHEDULED_NOTIFICATION_BUTTON1_KEY,
+            label: 'Mark Done',
+          ),
+          NotificationActionButton(
+            key: AppStrings.SCHEDULED_NOTIFICATION_BUTTON2_KEY,
+            label: 'Clear',
+          ),
+        ],
+        schedule: NotificationCalendar(
+          weekday: notificationCalendar.weekday,
+          hour: notificationCalendar.hour,
+          minute: notificationCalendar.minute,
+          repeats:
+              true, // This notification will repeat every week on the specified day and time.
         ),
-      ],
-      schedule: NotificationCalendar(
-        weekday: notificationCalendar.weekday,
-        hour: notificationCalendar.hour,
-        minute: notificationCalendar.minute,
-        repeats:
-            true, // This notification will repeat every week on the specified day and time.
-      ),
-    );
+      );
+    } catch (e) {
+      print('Error creating scheduled notification: $e');
+      rethrow;
+    }
+  }
+
+  /// Creates a daily reminder notification
+  Future<void> createDailyReminder({
+    required int id,
+    required String title,
+    required String body,
+    required int hour,
+    required int minute,
+  }) async {
+    try {
+      await awesomeNotifications.createNotification(
+        content: NotificationContent(
+          id: id,
+          channelKey: AppStrings.SCHEDULE_CHANNEL_KEY,
+          title: title,
+          body: body,
+          notificationLayout: NotificationLayout.Default,
+        ),
+        actionButtons: [
+          NotificationActionButton(key: 'OPEN_APP', label: 'Mở App'),
+          NotificationActionButton(key: 'SNOOZE', label: 'Nhắc lại sau'),
+        ],
+        schedule: NotificationCalendar(
+          hour: hour,
+          minute: minute,
+          repeats: true, // Repeat daily
+        ),
+      );
+    } catch (e) {
+      print('Error creating daily reminder: $e');
+      rethrow;
+    }
   }
 
   /// Cancels all currently scheduled notifications.
@@ -148,11 +192,42 @@ class NotificationUtil {
       });
     }
 
-    // Navigating to the StatsPage when any notification action is received.
-    // The `navigatorKey` from `MyApp` is used to navigate from anywhere in the app.
-    MyApp.navigatorKey.currentState?.pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => const StatsPage()),
-      (route) => route.isFirst,
-    );
+    // Handle different action buttons
+    switch (receivedAction.buttonKeyPressed) {
+      case 'OPEN_APP':
+        // Navigate to the main app
+        MyApp.navigatorKey.currentState?.pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const StatsPage()),
+          (route) => route.isFirst,
+        );
+        break;
+      case 'SNOOZE':
+        // Snooze the notification for 15 minutes
+        AwesomeNotifications().createNotification(
+          content: NotificationContent(
+            id:
+                receivedAction.id! +
+                1000, // Different ID for snoozed notification
+            channelKey: AppStrings.SCHEDULE_CHANNEL_KEY,
+            title: receivedAction.title ?? 'Nhắc nhở học từ',
+            body: receivedAction.body ?? 'Đừng quên ôn từ mới hôm nay nhé!',
+            notificationLayout: NotificationLayout.Default,
+          ),
+          schedule: NotificationCalendar(
+            minute: DateTime.now().minute + 15,
+            second: 0,
+            millisecond: 0,
+            repeats: false,
+          ),
+        );
+        break;
+      default:
+        // Navigate to the StatsPage when any notification action is received.
+        // The `navigatorKey` from `MyApp` is used to navigate from anywhere in the app.
+        MyApp.navigatorKey.currentState?.pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const StatsPage()),
+          (route) => route.isFirst,
+        );
+    }
   }
 }

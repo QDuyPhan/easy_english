@@ -36,6 +36,7 @@ class OxfordWordsRepositoryImpl implements OxfordWordsRepository {
   Future<void> initData() async {
     try {
       final currentWords = _localData.getWords();
+      app_config.printLog('i', 'currentWords: ${currentWords.length}');
       if (currentWords.isNotEmpty) return;
       final words =
           (await _assetsData.getAllOxfordWords())

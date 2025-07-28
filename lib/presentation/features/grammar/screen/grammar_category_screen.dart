@@ -49,30 +49,28 @@ class _GrammarCategoryScreenState extends State<GrammarCategoryScreen> {
         ],
       ),
       backgroundColor: colorScheme.surface,
-      body: Expanded(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            children: [
-              AppTextField(
-                hint: 'Search',
-                prefixIcon: const Icon(Icons.search_rounded),
-                onChanged: (val) {
-                  setState(() => query = val);
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Column(
+          children: [
+            AppTextField(
+              hint: 'Search',
+              prefixIcon: const Icon(Icons.search_rounded),
+              onChanged: (val) {
+                setState(() => query = val);
+              },
+            ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: ListView.separated(
+                itemCount: result.length,
+                separatorBuilder: (_, __) => const SizedBox(height: 10),
+                itemBuilder: (context, index) {
+                  return GrammarCategoryItem(lesson: result[index]);
                 },
               ),
-              const SizedBox(height: 10),
-              Expanded(
-                child: ListView.separated(
-                  itemCount: result.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
-                  itemBuilder: (context, index) {
-                    return GrammarCategoryItem(lesson: result[index]);
-                  },
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

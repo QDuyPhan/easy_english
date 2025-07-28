@@ -20,6 +20,7 @@ import 'package:easy_english/presentation/features/topics/screen/topic_category_
 import 'package:easy_english/presentation/features/topics/screen/topics_screen.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_detail_screen.dart';
+import 'package:easy_english/presentation/features/vocabulary/screen/vocabulary_screen.dart';
 import 'package:easy_english/presentation/features/vocabulary/screen/word_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +39,7 @@ class AppRouter {
         builder: (context, state, navigationShell) {
           return MultiBlocProvider(
             providers: [
-              BlocProvider(create: (context) => di.getIt<VocabularyBloc>()),
+              // BlocProvider(create: (context) => di.getIt<VocabularyBloc>()),
               BlocProvider(create: (context) => di.getIt<TopicsBloc>()),
               BlocProvider(
                 create:
@@ -61,7 +62,33 @@ class AppRouter {
                 pageBuilder: (context, state) {
                   return NoTransitionPage(
                     key: state.pageKey,
-                    child: HomeScreen(),
+                    child: MultiBlocProvider(
+                      providers: [
+                        BlocProvider(
+                          create: (context) => di.getIt<VocabularyBloc>(),
+                        ),
+                        BlocProvider(
+                          create: (context) => di.getIt<TopicsBloc>(),
+                        ),
+                        BlocProvider(
+                          create: (context) => di.getIt<SearchBloc>(),
+                        ),
+                      ],
+                      child: HomeScreen(),
+                    ),
+                  );
+                },
+              ),
+              GoRoute(
+                path: RoutePaths.vocabulary,
+                pageBuilder: (context, state) {
+                  return SwipeablePage(
+                    key: state.pageKey,
+                    builder:
+                        (context) => BlocProvider(
+                          create: (context) => di.getIt<VocabularyBloc>(),
+                          child: VocabularyScreen(),
+                        ),
                   );
                 },
               ),
@@ -228,6 +255,15 @@ class AppRouter {
                   );
                 },
               ),
+              // GoRoute(
+              //   path: RoutePaths.stats,
+              //   pageBuilder: (context, state) {
+              //     return NoTransitionPage(
+              //       key: state.pageKey,
+              //       child: StatsPage(),
+              //     );
+              //   },
+              // ),
             ],
           ),
         ],

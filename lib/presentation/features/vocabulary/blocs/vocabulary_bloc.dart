@@ -11,18 +11,18 @@ class VocabularyBloc extends Bloc<VocabularyEvent, VocabularyState> {
 
   VocabularyBloc({required GetAllOxfordWordsUseCase getAllOxfordWordsUseCase})
     : _getAllOxfordWordsUseCase = getAllOxfordWordsUseCase,
-      super(VocabularyInitial()) {
+      super(const VocabularyInitial()) {
     on<GetAllOxfordWords>(_handleGetAllOxfordWords);
   }
 
-  _handleGetAllOxfordWords(
+  Future<void> _handleGetAllOxfordWords(
     GetAllOxfordWords event,
     Emitter<VocabularyState> emit,
-  ) {
+  ) async {
     try {
       emit(const VocabularyLoading());
-      final words = _getAllOxfordWordsUseCase.execute();
-      // app_config.printLog('i', "${words.map((e) => e.word).toList()}");
+      final words = await _getAllOxfordWordsUseCase.execute();
+      app_config.printLog('i', "Oxford words loaded: ${words.length}");
       emit(VocabularyLoaded(words));
     } catch (e) {
       app_config.printLog('e', e.toString());

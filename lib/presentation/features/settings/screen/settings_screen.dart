@@ -1,7 +1,9 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:bottom_picker/resources/arrays.dart';
+import 'package:easy_english/domain/entities/reminder.dart';
 import 'package:easy_english/domain/entities/theme_entity.dart';
+import 'package:easy_english/presentation/features/notifications/bloc/reminder_cubit.dart';
 import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
@@ -153,7 +155,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         customAlertDialog(
           title: 'Allow notifications',
           content:
-              'Rocket App needs access to notifications to send you timely updates and reminders.',
+              'Easy English needs access to notifications to send you daily reminders for learning new words.',
           context: context,
           action: requestPermission,
           button1Title: 'Allow',
@@ -259,91 +261,237 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    side: BorderSide(color: colorScheme.outlineVariant),
-                  ),
-                  tileColor: colorScheme.surface,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
-                  ),
-                  title: Text(
-                    'Thông báo',
-                    style: textTheme.titleMedium?.copyWith(
-                      color: colorScheme.onSurface,
+              BlocBuilder<ReminderCubit, Reminder>(
+                builder: (context, reminderState) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            side: BorderSide(color: colorScheme.outlineVariant),
+                          ),
+                          tileColor: colorScheme.surface,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 12,
+                          ),
+                          title: Text(
+                            'Nhắc nhở học từ',
+                            style: textTheme.titleMedium?.copyWith(
+                              color: colorScheme.onSurface,
+                            ),
+                          ),
+                          subtitle: Text(
+                            reminderState.enabled
+                                ? 'Nhắc nhở hàng ngày lúc ${reminderState.hour.toString().padLeft(2, '0')}:${reminderState.minute.toString().padLeft(2, '0')}'
+                                : 'Tắt nhắc nhở',
+                            style: textTheme.bodySmall?.copyWith(
+                              color: colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                          trailing: Switch.adaptive(
+                            value: reminderState.enabled,
+                            onChanged: (value) async {
+                              try {
+                                context.read<ReminderCubit>().toggle(value);
+                                if (value) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Đã bật nhắc nhở học từ hàng ngày',
+                                      ),
+                                      backgroundColor: colorScheme.primary,
+                                    ),
+                                  );
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text('Đã tắt nhắc nhở học từ'),
+                                      backgroundColor: colorScheme.outline,
+                                    ),
+                                  );
+                                }
+                              } catch (e) {
+                                String errorMessage =
+                                    'Không thể ${value ? 'bật' : 'tắt'} nhắc nhở';
+                                if (e.toString().contains('permission')) {
+                                  errorMessage =
+                                      'Cần cấp quyền thông báo để sử dụng tính năng này';
+                                } else if (e.toString().contains(
+                                  'invalid_led_details',
+                                )) {
+                                  errorMessage =
+                                      'Lỗi cấu hình thông báo. Vui lòng thử lại.';
+                                }
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(errorMessage),
+                                    backgroundColor: colorScheme.error,
+                                    duration: const Duration(seconds: 3),
+                                  ),
+                                );
+                              }
+                            },
+                            activeColor: colorScheme.primary,
+                          ),
+                        ),
+                        if (reminderState.enabled) ...[
+                          const SizedBox(height: 12),
+                          ListTile(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              side: BorderSide(
+                                color: colorScheme.outlineVariant,
+                              ),
+                            ),
+                            tileColor: colorScheme.surface,
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                            title: Text(
+                              'Thời gian nhắc nhở',
+                              style: textTheme.titleMedium?.copyWith(
+                                color: colorScheme.onSurface,
+                              ),
+                            ),
+                            subtitle: Text(
+                              '${reminderState.hour.toString().padLeft(2, '0')}:${reminderState.minute.toString().padLeft(2, '0')}',
+                              style: textTheme.bodySmall?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                            trailing: Icon(
+                              Icons.access_time_rounded,
+                              color: colorScheme.primary,
+                            ),
+                            onTap: () async {
+                              try {
+                                _showTimePickerDialog(context, reminderState);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Đã cập nhật thời gian nhắc nhở',
+                                    ),
+                                    backgroundColor: colorScheme.primary,
+                                  ),
+                                );
+                              } catch (e) {
+                                String errorMessage =
+                                    'Không thể cập nhật thời gian';
+                                if (e.toString().contains('permission')) {
+                                  errorMessage =
+                                      'Cần cấp quyền thông báo để sử dụng tính năng này';
+                                } else if (e.toString().contains(
+                                  'invalid_led_details',
+                                )) {
+                                  errorMessage =
+                                      'Lỗi cấu hình thông báo. Vui lòng thử lại.';
+                                }
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(errorMessage),
+                                    backgroundColor: colorScheme.error,
+                                    duration: const Duration(seconds: 3),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                          ListTile(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              side: BorderSide(
+                                color: colorScheme.outlineVariant,
+                              ),
+                            ),
+                            tileColor: colorScheme.surface,
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                            title: Text(
+                              'Test thông báo',
+                              style: textTheme.titleMedium?.copyWith(
+                                color: colorScheme.onSurface,
+                              ),
+                            ),
+                            subtitle: Text(
+                              'Gửi thông báo test ngay lập tức',
+                              style: textTheme.bodySmall?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                            trailing: Icon(
+                              Icons.notifications_active_rounded,
+                              color: colorScheme.primary,
+                            ),
+                            onTap: () async {
+                              try {
+                                notificationUtil.createBasicNotification(
+                                  id: createUniqueId(),
+                                  channelKey: AppStrings.BASIC_CHANNEL_KEY,
+                                  title: 'Test thông báo',
+                                  body: 'Thông báo test từ Easy English',
+                                );
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('Đã gửi thông báo test'),
+                                    backgroundColor: colorScheme.primary,
+                                  ),
+                                );
+                              } catch (e) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Không thể gửi thông báo test: ${e.toString()}',
+                                    ),
+                                    backgroundColor: colorScheme.error,
+                                    duration: const Duration(seconds: 3),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                          ListTile(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              side: BorderSide(
+                                color: colorScheme.outlineVariant,
+                              ),
+                            ),
+                            tileColor: colorScheme.surface,
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                            title: Text(
+                              'Kiểm tra trạng thái',
+                              style: textTheme.titleMedium?.copyWith(
+                                color: colorScheme.onSurface,
+                              ),
+                            ),
+                            subtitle: Text(
+                              'Xem thông tin thông báo đã lên lịch',
+                              style: textTheme.bodySmall?.copyWith(
+                                color: colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                            trailing: Icon(
+                              Icons.info_outline_rounded,
+                              color: colorScheme.primary,
+                            ),
+                            onTap: () => _checkNotificationStatus(context),
+                          ),
+                        ],
+                      ],
                     ),
-                  ),
-                  // subtitle: Text(
-                  //   isDarkMode ? 'Dark Mode' : 'Light Mode',
-                  //   style: textTheme.bodySmall?.copyWith(
-                  //     color: colorScheme.onSurfaceVariant,
-                  //   ),
-                  // ),
-                  trailing: Switch.adaptive(
-                    value: isDarkMode,
-                    onChanged: (_) {
-                      context.read<ThemeBloc>().add(
-                        const ThemeEvent.toggleTheme(),
-                      );
-                    },
-                    activeColor: colorScheme.primary,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: size.width * 0.9,
-                child: ElevatedButton(
-                  onPressed: () {
-                    _openTimePicker(context);
-                  },
-                  child: Text(
-                    'Arabic Range Date Picker',
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Display selected day and time if a schedule is picked
-                  if (isTimeSelected) ...[
-                    CustomRichText(
-                      title: 'Selected Day: ',
-                      content: selectedNotificationDay,
-                    ),
-                    const SizedBox(height: 10),
-                    CustomRichText(
-                      title: 'Selected Time: ',
-                      content: selectedTime.format(context),
-                    ),
-                    const SizedBox(height: 10),
-                  ],
-                  // Image.asset('assets/png/launcher.png'),
-                  const SizedBox(height: 20),
-                  // Buttons for various notification actions
-                  CustomElevatedButton(
-                    function: createBasicNotification,
-                    title: 'Show Basic Notification',
-                    icon: Icons.notifications,
-                  ),
-                  const SizedBox(height: 20),
-                  CustomElevatedButton(
-                    function: triggerScheduleNotification,
-                    title: 'Schedule Notification',
-                    icon: Icons.schedule,
-                  ),
-                  const SizedBox(height: 20),
-                  CustomElevatedButton(
-                    function: triggerCancelNotification,
-                    title: 'Cancel All Scheduled Notifications',
-                    icon: Icons.cancel,
-                  ),
-                ],
+                  );
+                },
               ),
             ],
           ),
@@ -373,5 +521,79 @@ class _SettingsScreenState extends State<SettingsScreen> {
       initialTime: Time(minutes: 23),
       maxTime: Time(hours: 17),
     ).show(context);
+  }
+
+  void _showTimePickerDialog(
+    BuildContext context,
+    Reminder reminderState,
+  ) async {
+    final TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(
+        hour: reminderState.hour,
+        minute: reminderState.minute,
+      ),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            timePickerTheme: TimePickerThemeData(
+              backgroundColor: Theme.of(context).colorScheme.surface,
+              hourMinuteTextColor: Theme.of(context).colorScheme.onSurface,
+              hourMinuteColor: Theme.of(context).colorScheme.primaryContainer,
+              dialHandColor: Theme.of(context).colorScheme.primary,
+              dialBackgroundColor: Theme.of(context).colorScheme.surfaceVariant,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (pickedTime != null) {
+      context.read<ReminderCubit>().updateTime(
+        pickedTime.hour,
+        pickedTime.minute,
+      );
+    }
+  }
+
+  void _checkNotificationStatus(BuildContext context) async {
+    try {
+      final notificationsEnabled =
+          await notificationUtil.awesomeNotifications.isNotificationAllowed();
+      final pendingNotifications =
+          await notificationUtil.awesomeNotifications
+              .listScheduledNotifications();
+
+      String statusMessage = 'Trạng thái thông báo:\n';
+      statusMessage +=
+          '• Quyền thông báo: ${notificationsEnabled ? 'Đã cấp' : 'Chưa cấp'}\n';
+      statusMessage +=
+          '• Số thông báo đã lên lịch: ${pendingNotifications.length}\n';
+
+      if (pendingNotifications.isNotEmpty) {
+        statusMessage += '\nThông báo đã lên lịch:\n';
+        for (var notification in pendingNotifications) {
+          statusMessage +=
+              '• ID: ${notification.content?.id}, Title: ${notification.content?.title}\n';
+        }
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(statusMessage),
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          duration: const Duration(seconds: 5),
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Không thể kiểm tra trạng thái: ${e.toString()}'),
+          backgroundColor: Theme.of(context).colorScheme.error,
+          duration: const Duration(seconds: 3),
+        ),
+      );
+    }
   }
 }

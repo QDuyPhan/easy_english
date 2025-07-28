@@ -36,10 +36,11 @@ import '../domain/usecases/get_all_oxford_words_use_case.dart' as _i822;
 import '../domain/usecases/get_daily_words_use_case.dart' as _i246;
 import '../domain/usecases/get_theme_use_case.dart' as _i131;
 import '../domain/usecases/get_topics_use_case.dart' as _i280;
+import '../domain/usecases/init_data_oxford_words_use_case.dart' as _i308;
 import '../domain/usecases/init_data_topics_use_case.dart' as _i599;
-import '../domain/usecases/init_data_use_case.dart' as _i579;
+import '../domain/usecases/save_oxford_word_use_case.dart' as _i259;
 import '../domain/usecases/save_theme_use_case.dart' as _i883;
-import '../domain/usecases/save_word_use_case.dart' as _i528;
+import '../domain/usecases/save_topic_word_use_case.dart' as _i902;
 import '../domain/usecases/schedule_notification_use_case.dart' as _i144;
 import '../domain/usecases/search_words_use_case.dart' as _i63;
 import '../presentation/features/home/bloc/daily_words_bloc.dart' as _i531;
@@ -89,12 +90,14 @@ Future<_i174.GetIt> $initGetIt(
             localData: gh<_i614.LocalData>(),
             appMappr: gh<_i556.AppMappr>(),
           ));
+  gh.factory<_i259.SaveOxfordWordUseCase>(
+      () => _i259.SaveOxfordWordUseCase(gh<_i212.OxfordWordsRepository>()));
   gh.lazySingleton<_i110.ThemeLocal>(() =>
       _i110.ThemeLocalImpl(sharedPreferences: gh<_i460.SharedPreferences>()));
   gh.factory<_i822.GetAllOxfordWordsUseCase>(
       () => _i822.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
-  gh.factory<_i579.InitDataUseCase>(
-      () => _i579.InitDataUseCase(gh<_i212.OxfordWordsRepository>()));
+  gh.factory<_i308.InitDataOxfordWordsUseCase>(() =>
+      _i308.InitDataOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
   gh.factory<_i787.CancelNotificationUseCase>(() =>
       _i787.CancelNotificationUseCase(gh<_i965.NotificationRepository>()));
   gh.factory<_i144.ScheduleNotificationUseCase>(() =>
@@ -129,13 +132,13 @@ Future<_i174.GetIt> $initGetIt(
       ));
   gh.factory<_i280.GetTopicsUseCase>(
       () => _i280.GetTopicsUseCase(gh<_i13.TopicRepository>()));
-  gh.factory<_i599.InitDataTopics>(
-      () => _i599.InitDataTopics(gh<_i13.TopicRepository>()));
-  gh.factory<_i528.SaveWordUseCase>(
-      () => _i528.SaveWordUseCase(gh<_i13.TopicRepository>()));
+  gh.factory<_i599.InitDataTopicsUseCase>(
+      () => _i599.InitDataTopicsUseCase(gh<_i13.TopicRepository>()));
+  gh.factory<_i902.SaveTopicWordUseCase>(
+      () => _i902.SaveTopicWordUseCase(gh<_i13.TopicRepository>()));
   gh.factory<_i282.TopicsBloc>(() => _i282.TopicsBloc(
-        saveWordUseCase: gh<_i528.SaveWordUseCase>(),
-        getAllTopics: gh<_i280.GetTopicsUseCase>(),
+        saveTopicWordUseCase: gh<_i902.SaveTopicWordUseCase>(),
+        getTopicsUseCase: gh<_i280.GetTopicsUseCase>(),
       ));
   gh.factory<_i531.DailyWordsBloc>(() => _i531.DailyWordsBloc(
       getDailyWordsUseCase: gh<_i246.GetDailyWordsUseCase>()));

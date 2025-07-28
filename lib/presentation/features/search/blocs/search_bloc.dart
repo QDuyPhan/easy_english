@@ -23,7 +23,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     });
   }
 
-  _handleSearchWords(_SearchWords event, Emitter<SearchState> emit) {
+  Future<void> _handleSearchWords(
+    _SearchWords event,
+    Emitter<SearchState> emit,
+  ) async {
     try {
       if (event.query.trim().isEmpty) {
         emit(const SearchState.initial());
@@ -31,6 +34,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       }
 
       emit(const SearchState.loading());
+
+      // Thêm delay nhỏ để tránh search quá nhanh
+      await Future.delayed(const Duration(milliseconds: 100));
 
       final results = _searchWordsUseCase.execute(event.query);
 

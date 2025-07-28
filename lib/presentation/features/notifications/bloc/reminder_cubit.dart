@@ -20,24 +20,37 @@ class ReminderCubit extends HydratedCubit<Reminder> {
           enabled: false,
           hour: 20,
           minute: 0,
-          title: "Nhắc nhở học tập",
-          body: "Đừng quên ôn từ mới hôm nay nhé!",
+          title: "Nhắc nhở học từ",
+          body:
+              "Đừng quên ôn từ mới hôm nay nhé! Hãy mở app để học thêm từ vựng.",
         ),
       );
 
   void toggle(bool enabled) async {
-    emit(state.copyWith(enabled: enabled));
-    if (enabled) {
-      await scheduleCurrent();
-    } else {
-      await _cancelNotificationUseCase.call(0);
+    try {
+      emit(state.copyWith(enabled: enabled));
+      if (enabled) {
+        await scheduleCurrent();
+      } else {
+        await _cancelNotificationUseCase.call(0);
+      }
+    } catch (e) {
+      // If scheduling fails, disable the reminder and emit error state
+      emit(state.copyWith(enabled: false));
+      print('Error toggling reminder: $e');
+      rethrow;
     }
   }
 
   void updateTime(int hour, int minute) async {
-    emit(state.copyWith(hour: hour, minute: minute));
-    if (state.enabled) {
-      await scheduleCurrent();
+    try {
+      emit(state.copyWith(hour: hour, minute: minute));
+      if (state.enabled) {
+        await scheduleCurrent();
+      }
+    } catch (e) {
+      print('Error updating reminder time: $e');
+      rethrow;
     }
   }
 
@@ -45,13 +58,21 @@ class ReminderCubit extends HydratedCubit<Reminder> {
 
   void updateBody(String body) => emit(state.copyWith(body: body));
 
-  Future<void> scheduleCurrent() async =>
+  Future<void> scheduleCurrent() async {
+    try {
       await _scheduleNotificationUseCase.call(
         hour: state.hour,
         minute: state.minute,
         title: state.title,
         body: state.body,
       );
+    } catch (e) {
+      // If scheduling fails, disable the reminder
+      emit(state.copyWith(enabled: false));
+      print('Error scheduling reminder: $e');
+      rethrow;
+    }
+  }
 
   @override
   Reminder? fromJson(Map<String, dynamic> json) => Reminder.fromJson(json);

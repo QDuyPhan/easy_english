@@ -27,13 +27,16 @@ class WordAdapter extends TypeAdapter<Word> {
       status: fields[7] as WordStatus,
       index: fields[8] as int,
       userDefinition: fields[9] as String?,
+      folder: fields[10] as String,
+      topic: fields[11] as String,
+      origin: fields[12] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Word obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.word)
       ..writeByte(1)
@@ -53,7 +56,13 @@ class WordAdapter extends TypeAdapter<Word> {
       ..writeByte(8)
       ..write(obj.index)
       ..writeByte(9)
-      ..write(obj.userDefinition);
+      ..write(obj.userDefinition)
+      ..writeByte(10)
+      ..write(obj.folder)
+      ..writeByte(11)
+      ..write(obj.topic)
+      ..writeByte(12)
+      ..write(obj.origin);
   }
 
   @override
@@ -86,6 +95,9 @@ _$WordImpl _$$WordImplFromJson(Map<String, dynamic> json) => _$WordImpl(
           WordStatus.unknown,
       index: (json['index'] as num?)?.toInt() ?? 0,
       userDefinition: json['user_definition'] as String? ?? null,
+      folder: json['folder'] as String? ?? "",
+      topic: json['topic'] as String? ?? "",
+      origin: json['origin'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$WordImplToJson(_$WordImpl instance) =>
@@ -100,6 +112,9 @@ Map<String, dynamic> _$$WordImplToJson(_$WordImpl instance) =>
       'status': _$WordStatusEnumMap[instance.status]!,
       'index': instance.index,
       'user_definition': instance.userDefinition,
+      'folder': instance.folder,
+      'topic': instance.topic,
+      'origin': instance.origin,
     };
 
 const _$WordStatusEnumMap = {

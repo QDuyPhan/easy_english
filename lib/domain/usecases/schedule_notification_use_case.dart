@@ -14,11 +14,16 @@ class ScheduleNotificationUseCase {
     required String title,
     required String body,
   }) async {
-    final now = DateTime.now();
-    var scheduled = DateTime(now.year, now.month, now.day, hour, minute);
-    if (scheduled.isBefore(now)) {
-      scheduled = scheduled.add(const Duration(days: 1));
-    }
-    await _notificationRepository.schedule(0, title, body, scheduled);
+    // Cancel any existing daily reminder first
+    await _notificationRepository.cancel(0);
+
+    // Schedule new daily reminder
+    await _notificationRepository.scheduleDailyReminder(
+      0, // Use ID 0 for daily reminder
+      title,
+      body,
+      hour,
+      minute,
+    );
   }
 }

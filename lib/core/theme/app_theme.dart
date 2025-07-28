@@ -11,7 +11,7 @@ class AppTheme {
       textTheme: _textTheme(colorScheme),
     ).copyWith(
       useMaterial3: true,
-      scaffoldBackgroundColor: colorScheme.surface,
+      // scaffoldBackgroundColor: colorScheme.surface,
       appBarTheme: AppBarTheme(
         backgroundColor: colorScheme.surface,
         iconTheme: IconThemeData(color: colorScheme.onSurface),
@@ -26,6 +26,9 @@ class AppTheme {
         color: colorScheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 2,
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: colorScheme.primary),
       ),
     );
   }

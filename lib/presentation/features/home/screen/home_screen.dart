@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
@@ -5,7 +7,17 @@ import 'package:easy_english/presentation/features/home/bloc/daily_words_bloc.da
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_debouncer/flutter_debouncer.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../domain/entities/word_entity.dart';
+import '../../search/blocs/search_bloc.dart';
+import '../../vocabulary/blocs/vocabulary_bloc.dart';
+import '../../vocabulary/blocs/vocabulary_event.dart';
+import '../../vocabulary/blocs/vocabulary_state.dart';
+import '../../vocabulary/widgets/word_card.dart';
+import '../widgets/daily_word_section.dart';
+import '../widgets/search_box.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,22 +27,34 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController _searchController = TextEditingController();
+  final Debouncer _debouncer = Debouncer();
+
   @override
   void initState() {
     super.initState();
-    context.read<DailyWordsBloc>().add(const GetDailyWordsEvent());
+    Future.microtask(() {
+      if (!mounted) return;
+      context.read<DailyWordsBloc>().add(const GetDailyWordsEvent());
+      context.read<VocabularyBloc>().add(const GetAllOxfordWords());
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
     final size = MediaQuery.of(context).size;
-    final iconSize = size.width * 0.09;
+
     return Scaffold(
       appBar: CustomAppbar(
-        text: Text('Easy English'),
+        text: const Text('Easy English'),
         centerTitle: true,
+        backgroundColor: Colors.redAccent,
         leading: [
           Image.asset(
             Assets.pngLauncher,
@@ -40,139 +64,136 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         actions: [
           IconButton(
-            onPressed: _openSearch,
+            onPressed: () => context.push(RoutePaths.search),
             icon: const Icon(FluentIcons.search_12_regular),
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Column(
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: Stack(
+          children: [
+            Column(
               children: [
-                BlocBuilder<DailyWordsBloc, DailyWordsState>(
-                  builder: (context, state) {
-                    if (state is DailyWordsLoading) {
-                      return Center(child: CircularProgressIndicator());
-                    } else if (state is DailyWordsLoaded) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: colorScheme.primaryContainer.withOpacity(0.15),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: colorScheme.outline.withOpacity(0.3),
-                            width: 1.2,
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    Assets.pngCalander,
-                                    height: iconSize,
-                                    width: iconSize,
-                                    fit: BoxFit.contain,
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Text(
-                                    'Hôm nay học gì?',
-                                    style: TextStyle(fontSize: 20),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                              ),
-                              child: Wrap(
-                                spacing: 8,
-                                children:
-                                    state.words
-                                        .map(
-                                          (word) => GestureDetector(
-                                            child: Chip(label: Text(word.word)),
-                                            onTap:
-                                                () => context.push(
-                                                  RoutePaths.wordDetails,
-                                                  extra: {'word': word},
-                                                ),
-                                          ),
-                                        )
-                                        .toList(),
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    } else if (state is DailyWordsError) {
-                      return Center(child: Text('Lỗi: ${state.message}'));
-                    }
-                    return SizedBox();
-                  },
+                SearchBox(controller: _searchController, debouncer: _debouncer),
+                const SizedBox(height: 16),
+                const DailyWordsSection(),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    const Text(
+                      'Discover New Words 🔥',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: () => context.push(RoutePaths.vocabulary),
+                      child: const Text(
+                        'See all',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                Expanded(
+                  child: BlocBuilder<VocabularyBloc, VocabularyState>(
+                    builder: (context, state) {
+                      if (state is VocabularyLoading) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (state is VocabularyError) {
+                        return Center(child: Text(state.message));
+                      } else if (state is VocabularyLoaded) {
+                        final words = state.words;
+                        final random = Random();
+
+                        final shuffled = List<WordEntity>.from(words)
+                          ..shuffle(random);
+
+                        final randomItems = shuffled.take(10).toList();
+                        return ListView.builder(
+                          itemCount: randomItems.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            return WordCard(word: randomItems[index]);
+                          },
+                        );
+                      }
+                      return const SizedBox();
+                    },
+                  ),
                 ),
               ],
             ),
-          ),
-        ],
+
+            Positioned.fill(
+              child: BlocBuilder<SearchBloc, SearchState>(
+                builder: (context, state) {
+                  return state.when(
+                    initial: () => const SizedBox.shrink(),
+                    loading:
+                        () => const Center(child: CircularProgressIndicator()),
+                    success:
+                        (final results) =>
+                            results.isEmpty
+                                ? const SizedBox.shrink()
+                                : _buildSearchResultsOverlay(results),
+                    noResults: () => const SizedBox.shrink(),
+                    error: (message) => const SizedBox.shrink(),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  void _openSearch() {
-    context.push(RoutePaths.search);
-  }
-
-  Widget _buildDiscoverCard({
-    required String title,
-    required String image,
-    VoidCallback? onTap,
-  }) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
-      child: Ink(
-        decoration: BoxDecoration(
-          color: colorScheme.primaryContainer.withOpacity(0.15),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: colorScheme.outline.withOpacity(0.3),
-            width: 1.2,
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  image,
-                  height: screenHeight * 0.15,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                title,
-                style: textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: colorScheme.onSurface,
-                ),
+  Widget _buildSearchResultsOverlay(List<WordEntity> results) {
+    return Material(
+      color: Colors.transparent,
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Container(
+          margin: const EdgeInsets.only(top: 56 + 16),
+          // 56 là height search box
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 8,
+                offset: const Offset(0, 4),
               ),
             ],
+          ),
+          constraints: const BoxConstraints(maxHeight: 300),
+          child: ListView.separated(
+            shrinkWrap: true,
+            itemCount: results.length,
+            separatorBuilder: (_, __) => const Divider(height: 1),
+            itemBuilder: (context, index) {
+              final word = results[index];
+              final def =
+                  word.senses.isNotEmpty ? word.senses.first.definition : '';
+              return ListTile(
+                title: Text(word.word),
+                subtitle: Text(
+                  def,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
+                onTap:
+                    () => context.push(
+                      RoutePaths.wordDetails,
+                      extra: {'word': word},
+                    ),
+              );
+            },
           ),
         ),
       ),

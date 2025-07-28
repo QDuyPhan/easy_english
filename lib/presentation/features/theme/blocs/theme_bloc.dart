@@ -23,7 +23,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
        _saveTheme = saveTheme,
        super(const ThemeState.initial()) {
     on<ThemeEvent>((event, emit) async {
-      event.map(
+      await event.map(
         getTheme: (event) => _handleGetTheme(event, emit),
         toggleTheme: (event) => _handleToggleTheme(event, emit),
       );
@@ -40,14 +40,19 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     }
   }
 
-  _handleToggleTheme(_ToggleTheme event, Emitter<ThemeState> emit) async {
+  Future<void> _handleToggleTheme(
+    _ToggleTheme event,
+    Emitter<ThemeState> emit,
+  ) async {
     try {
       if (state.themeEntity != null) {
-        var newThemeType =
+        final newThemeType =
             state.themeEntity!.themeType == ThemeType.dark
                 ? ThemeType.light
                 : ThemeType.dark;
-        var newThemeEntity = ThemeEntity(themeType: newThemeType);
+
+        final newThemeEntity = ThemeEntity(themeType: newThemeType);
+        await _saveTheme(newThemeEntity);
         emit(state.copyWith(themeEntity: newThemeEntity));
       }
     } catch (e) {

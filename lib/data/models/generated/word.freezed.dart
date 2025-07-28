@@ -40,6 +40,12 @@ mixin _$Word {
   int get index => throw _privateConstructorUsedError;
   @HiveField(9)
   String? get userDefinition => throw _privateConstructorUsedError;
+  @HiveField(10)
+  String get folder => throw _privateConstructorUsedError;
+  @HiveField(11)
+  String get topic => throw _privateConstructorUsedError;
+  @HiveField(12)
+  String get origin => throw _privateConstructorUsedError;
 
   /// Serializes this Word to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -65,7 +71,10 @@ abstract class $WordCopyWith<$Res> {
       @HiveField(6) List<Sense> senses,
       @HiveField(7) WordStatus status,
       @HiveField(8) int index,
-      @HiveField(9) String? userDefinition});
+      @HiveField(9) String? userDefinition,
+      @HiveField(10) String folder,
+      @HiveField(11) String topic,
+      @HiveField(12) String origin});
 }
 
 /// @nodoc
@@ -93,6 +102,9 @@ class _$WordCopyWithImpl<$Res, $Val extends Word>
     Object? status = null,
     Object? index = null,
     Object? userDefinition = freezed,
+    Object? folder = null,
+    Object? topic = null,
+    Object? origin = null,
   }) {
     return _then(_value.copyWith(
       word: null == word
@@ -135,6 +147,18 @@ class _$WordCopyWithImpl<$Res, $Val extends Word>
           ? _value.userDefinition
           : userDefinition // ignore: cast_nullable_to_non_nullable
               as String?,
+      folder: null == folder
+          ? _value.folder
+          : folder // ignore: cast_nullable_to_non_nullable
+              as String,
+      topic: null == topic
+          ? _value.topic
+          : topic // ignore: cast_nullable_to_non_nullable
+              as String,
+      origin: null == origin
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -156,7 +180,10 @@ abstract class _$$WordImplCopyWith<$Res> implements $WordCopyWith<$Res> {
       @HiveField(6) List<Sense> senses,
       @HiveField(7) WordStatus status,
       @HiveField(8) int index,
-      @HiveField(9) String? userDefinition});
+      @HiveField(9) String? userDefinition,
+      @HiveField(10) String folder,
+      @HiveField(11) String topic,
+      @HiveField(12) String origin});
 }
 
 /// @nodoc
@@ -181,6 +208,9 @@ class __$$WordImplCopyWithImpl<$Res>
     Object? status = null,
     Object? index = null,
     Object? userDefinition = freezed,
+    Object? folder = null,
+    Object? topic = null,
+    Object? origin = null,
   }) {
     return _then(_$WordImpl(
       word: null == word
@@ -223,6 +253,18 @@ class __$$WordImplCopyWithImpl<$Res>
           ? _value.userDefinition
           : userDefinition // ignore: cast_nullable_to_non_nullable
               as String?,
+      folder: null == folder
+          ? _value.folder
+          : folder // ignore: cast_nullable_to_non_nullable
+              as String,
+      topic: null == topic
+          ? _value.topic
+          : topic // ignore: cast_nullable_to_non_nullable
+              as String,
+      origin: null == origin
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -240,7 +282,10 @@ class _$WordImpl implements _Word {
       @HiveField(6) final List<Sense> senses = const [],
       @HiveField(7) this.status = WordStatus.unknown,
       @HiveField(8) this.index = 0,
-      @HiveField(9) this.userDefinition = null})
+      @HiveField(9) this.userDefinition = null,
+      @HiveField(10) this.folder = "",
+      @HiveField(11) this.topic = "",
+      @HiveField(12) this.origin = ""})
       : _senses = senses;
 
   factory _$WordImpl.fromJson(Map<String, dynamic> json) =>
@@ -292,10 +337,22 @@ class _$WordImpl implements _Word {
   @JsonKey()
   @HiveField(9)
   final String? userDefinition;
+  @override
+  @JsonKey()
+  @HiveField(10)
+  final String folder;
+  @override
+  @JsonKey()
+  @HiveField(11)
+  final String topic;
+  @override
+  @JsonKey()
+  @HiveField(12)
+  final String origin;
 
   @override
   String toString() {
-    return 'Word(word: $word, pos: $pos, phonetic: $phonetic, phoneticText: $phoneticText, phoneticAm: $phoneticAm, phoneticAmText: $phoneticAmText, senses: $senses, status: $status, index: $index, userDefinition: $userDefinition)';
+    return 'Word(word: $word, pos: $pos, phonetic: $phonetic, phoneticText: $phoneticText, phoneticAm: $phoneticAm, phoneticAmText: $phoneticAmText, senses: $senses, status: $status, index: $index, userDefinition: $userDefinition, folder: $folder, topic: $topic, origin: $origin)';
   }
 
   @override
@@ -317,7 +374,10 @@ class _$WordImpl implements _Word {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.userDefinition, userDefinition) ||
-                other.userDefinition == userDefinition));
+                other.userDefinition == userDefinition) &&
+            (identical(other.folder, folder) || other.folder == folder) &&
+            (identical(other.topic, topic) || other.topic == topic) &&
+            (identical(other.origin, origin) || other.origin == origin));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -333,7 +393,10 @@ class _$WordImpl implements _Word {
       const DeepCollectionEquality().hash(_senses),
       status,
       index,
-      userDefinition);
+      userDefinition,
+      folder,
+      topic,
+      origin);
 
   /// Create a copy of Word
   /// with the given fields replaced by the non-null parameter values.
@@ -362,7 +425,10 @@ abstract class _Word implements Word {
       @HiveField(6) final List<Sense> senses,
       @HiveField(7) final WordStatus status,
       @HiveField(8) final int index,
-      @HiveField(9) final String? userDefinition}) = _$WordImpl;
+      @HiveField(9) final String? userDefinition,
+      @HiveField(10) final String folder,
+      @HiveField(11) final String topic,
+      @HiveField(12) final String origin}) = _$WordImpl;
 
   factory _Word.fromJson(Map<String, dynamic> json) = _$WordImpl.fromJson;
 
@@ -396,6 +462,15 @@ abstract class _Word implements Word {
   @override
   @HiveField(9)
   String? get userDefinition;
+  @override
+  @HiveField(10)
+  String get folder;
+  @override
+  @HiveField(11)
+  String get topic;
+  @override
+  @HiveField(12)
+  String get origin;
 
   /// Create a copy of Word
   /// with the given fields replaced by the non-null parameter values.

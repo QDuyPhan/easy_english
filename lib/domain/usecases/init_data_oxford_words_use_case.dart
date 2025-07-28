@@ -1,11 +1,12 @@
-import 'package:easy_english/domain/repositories/oxford_words_repository.dart';
 import 'package:injectable/injectable.dart';
 
+import '../repositories/oxford_words_repository.dart';
+
 @injectable
-class InitDataUseCase {
+class InitDataOxfordWordsUseCase {
   final OxfordWordsRepository _oxfordWordsRepository;
 
-  const InitDataUseCase(this._oxfordWordsRepository);
+  const InitDataOxfordWordsUseCase(this._oxfordWordsRepository);
 
   Future<void> execute() async {
     await _oxfordWordsRepository.initData();

@@ -1,6 +1,7 @@
 import 'package:easy_english/domain/entities/word_entity.dart';
-import 'package:easy_english/domain/repositories/oxford_words_repository.dart';
 import 'package:injectable/injectable.dart';
+
+import '../repositories/oxford_words_repository.dart';
 
 @injectable
 class GetAllOxfordWordsUseCase {

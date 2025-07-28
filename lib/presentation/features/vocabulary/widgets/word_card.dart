@@ -47,7 +47,7 @@ class WordCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 /// Word + POS badges
-                Expanded(
+                Flexible(
                   child: Row(
                     children: [
                       /// Word

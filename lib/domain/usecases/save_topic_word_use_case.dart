@@ -6,10 +6,10 @@ import '../entities/word_entity.dart';
 import '../repositories/topic_repository.dart';
 
 @injectable
-class SaveWordUseCase {
+class SaveTopicWordUseCase {
   final TopicRepository _topicRepository;
 
-  const SaveWordUseCase(this._topicRepository);
+  const SaveTopicWordUseCase(this._topicRepository);
 
   Future<Either<Failure, void>> execute(WordEntity word) async {
     return await _topicRepository.saveWord(word);

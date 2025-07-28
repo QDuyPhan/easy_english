@@ -76,62 +76,60 @@ class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
         ],
       ),
       backgroundColor: colorScheme.background,
-      body: Expanded(
-        child: ListView.builder(
-          padding: const EdgeInsets.all(16),
-          itemCount: widget.topicEntry.value.length,
-          itemBuilder: (context, index) {
-            final color = _colors[index];
-            final category = widget.topicEntry.value[index];
-            return InkWell(
-              onTap: () {
-                context.push(
-                  RoutePaths.topics,
-                  extra: {'folder': widget.topicEntry.key, 'topic': category},
-                );
-              },
-              borderRadius: BorderRadius.circular(12),
-              child: Container(
-                margin: const EdgeInsets.only(bottom: 12),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 16,
-                ),
-                decoration: BoxDecoration(
-                  color: color,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: colorScheme.shadow.withOpacity(0.1),
-                      blurRadius: 6,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        category.replaceAll('_', ' ').toUpperCase(),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: textTheme.titleMedium?.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: widget.topicEntry.value.length,
+        itemBuilder: (context, index) {
+          final color = _colors[index];
+          final category = widget.topicEntry.value[index];
+          return InkWell(
+            onTap: () {
+              context.push(
+                RoutePaths.topics,
+                extra: {'folder': widget.topicEntry.key, 'topic': category},
+              );
+            },
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.symmetric(
+                vertical: 12,
+                horizontal: 16,
+              ),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: colorScheme.shadow.withOpacity(0.1),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      category.replaceAll('_', ' ').toUpperCase(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const Icon(
-                      FluentIcons.chevron_right_12_regular,
-                      color: Colors.white,
-                      size: 16,
-                    ),
-                  ],
-                ),
+                  ),
+                  const Icon(
+                    FluentIcons.chevron_right_12_regular,
+                    color: Colors.white,
+                    size: 16,
+                  ),
+                ],
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

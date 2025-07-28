@@ -1,14 +1,14 @@
-import 'package:easy_english/core/utils/assets.dart';
-import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
-import 'package:easy_english/core/utils/widgets/svg_button.dart';
-import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_event.dart';
 import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_state.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/search_box.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/word_card.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/utils/widgets/custom_appbar.dart';
 
 class VocabularyScreen extends StatefulWidget {
   const VocabularyScreen({super.key});
@@ -18,66 +18,58 @@ class VocabularyScreen extends StatefulWidget {
 }
 
 class _VocabularyScreenState extends State<VocabularyScreen> {
-  bool _showSearch = false;
-
   @override
   void initState() {
     super.initState();
-    final bloc = di.getIt<VocabularyBloc>();
-    if (bloc.state is VocabularyInitial) {
-      bloc.add(const GetAllOxfordWords());
-    }
+    Future.microtask(() {
+      if (!mounted) return;
+      context.read<VocabularyBloc>().add(const GetAllOxfordWords());
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    return BlocProvider.value(
-      value: di.getIt<VocabularyBloc>(),
-      child: Scaffold(
-        body: BlocBuilder<VocabularyBloc, VocabularyState>(
-          builder: (context, state) {
-            if (state is VocabularyLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is VocabularyError) {
-              return Center(child: Text(state.message));
-            }
-            if (state is VocabularyLoaded) {
-              return Column(
-                children: [
-                  // CustomAppbar(
-                  //   title: 'Vocabulary',
-                  //   actions: [
-                  //     SvgButton(
-                  //       svg: _showSearch ? Assets.svgClose : Assets.svgSearch,
-                  //       onPressed: _isOpenSearch,
-                  //     ),
-                  //   ],
-                  // ),
-                  // SearchBox(isSearch: _showSearch),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: state.words.length,
-                      itemBuilder: (context, index) {
-                        final word = state.words[index];
-                        return WordCard(word: word);
-                      },
-                    ),
-                  ),
-                ],
-              );
-            }
+    final size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: CustomAppbar(
+        text: const Text('Vocabulary'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+        leading: [
+          IconButton(
+            onPressed: () => context.pop(),
+            icon: const Icon(FluentIcons.chevron_left_12_regular),
+          ),
+        ],
+        actions: [
+          IconButton(
+            onPressed: () => context.push(RoutePaths.search),
+            icon: const Icon(FluentIcons.search_12_regular),
+          ),
+        ],
+      ),
+      body: BlocBuilder<VocabularyBloc, VocabularyState>(
+        builder: (context, state) {
+          if (state is VocabularyLoading) {
             return const Center(child: CircularProgressIndicator());
-          },
-        ),
+          } else if (state is VocabularyError) {
+            return Center(child: Text(state.message));
+          }
+          if (state is VocabularyLoaded) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView.builder(
+                itemCount: state.words.length,
+                itemBuilder: (context, index) {
+                  final word = state.words[index];
+                  return WordCard(word: word);
+                },
+              ),
+            );
+          }
+          return const Center(child: CircularProgressIndicator());
+        },
       ),
     );
-  }
-
-  void _isOpenSearch() {
-    setState(() {
-      _showSearch = !_showSearch;
-    });
   }
 }

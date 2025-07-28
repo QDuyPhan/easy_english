@@ -21,16 +21,14 @@ class _GrammarScreenState extends State<GrammarScreen> {
     return Scaffold(
       appBar: CustomAppbar(text: Text('Grammar'), centerTitle: true),
       backgroundColor: colorScheme.background,
-      body: Expanded(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: ListView.separated(
-            itemCount: categories.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 12),
-            itemBuilder: (context, index) {
-              return GrammarItem(category: categories[index]);
-            },
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: ListView.separated(
+          itemCount: categories.length,
+          separatorBuilder: (_, __) => const SizedBox(height: 12),
+          itemBuilder: (context, index) {
+            return GrammarItem(category: categories[index]);
+          },
         ),
       ),
     );

@@ -22,7 +22,7 @@ class AssetsDataImpl implements AssetsData {
   final HiveConfig _hiveConfig;
 
   const AssetsDataImpl({required HiveConfig hiveConfig})
-  : _hiveConfig = hiveConfig;
+    : _hiveConfig = hiveConfig;
 
   static Future<List<Word>> _loadWordsInIsolate(String path) async {
     try {
@@ -59,22 +59,24 @@ class AssetsDataImpl implements AssetsData {
 
   @override
   Future<List<Word>> getOxfordWordsByLetter(String letter) async {
-    try {
-      return await Isolate.run(
-        () => _loadWordsInIsolate('assets/json/oxford_words/$letter.json'),
-      );
-    } catch (e) {
-      app_config.printLog("e", 'Failed to load words: $e');
-      throw Exception('Failed to load words: $e');
-    }
+    final words = await _loadWordsInIsolate(
+      'assets/json/oxford_words/$letter.json',
+    );
+    return words
+        .map((w) => w.copyWith(folder: '', topic: '', origin: 'oxford_words'))
+        .toList();
   }
 
   @override
   Future<List<Word>> getWordsByTopic(String folder, String topic) async {
     try {
-      return await Isolate.run(
-        () => _loadWordsInIsolate('assets/json/topics/$folder/$topic.json'),
+      final jsonString = await rootBundle.loadString(
+        'assets/json/topics/$folder/$topic.json',
       );
+      return await Isolate.run(() {
+        final List<dynamic> jsonData = jsonDecode(jsonString);
+        return jsonData.map((e) => Word.fromJson(e)).toList();
+      });
     } catch (e) {
       app_config.printLog("e", 'Failed to load words: $e');
       throw Exception('Failed to load words: $e');
@@ -83,20 +85,22 @@ class AssetsDataImpl implements AssetsData {
 
   @override
   Future<List<Word>> readFromJsonTopic(String folder, String topic) async {
-    try {
-      final path = 'assets/json/topics/$folder/$topic.json';
-      final jsonString = await rootBundle.loadString(path);
-      if (jsonString.isEmpty) {
-        app_config.printLog('e', 'Empty JSON file at $path');
-        return [];
-      }
-      return await Isolate.run(() async {
-        final List<dynamic> jsonData = jsonDecode(jsonString);
-        return jsonData.map((e) => Word.fromJson(e)).toList();
-      });
-    } catch (e) {
-      app_config.printLog("e", 'Failed to load topic $folder/$topic: $e');
-      throw Exception('Failed to load topic $folder/$topic: $e');
-    }
+    final path = 'assets/json/topics/$folder/$topic.json';
+    final jsonString = await rootBundle.loadString(path);
+    final List<dynamic> jsonData = jsonDecode(jsonString);
+    return jsonData
+        .map(
+          (e) => Word.fromJson(
+            e,
+          ).copyWith(folder: folder, topic: topic, origin: 'topics'),
+        )
+        .toList();
   }
+
+  // Future<void> saveAllToHive(List<Word> words) async {
+  //   for (final word in words) {
+  //     final key = '${word.origin}_${word.folder}_${word.topic}_${word.word}';
+  //     _hiveConfig.wordsBox.put(key, word);
+  //   }
+  // }
 }

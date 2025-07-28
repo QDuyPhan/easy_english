@@ -17,6 +17,8 @@ class SearchResultItem extends StatelessWidget {
 
     final definition =
         word.senses.isNotEmpty ? word.senses.first.definition : '';
+    final phoneticText =
+        word.phoneticText.isNotEmpty ? word.phoneticText : word.phoneticAmText;
 
     return InkWell(
       borderRadius: BorderRadius.circular(12),
@@ -31,66 +33,77 @@ class SearchResultItem extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: colorScheme.surface,
-          border: Border.all(color: colorScheme.outlineVariant),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: colorScheme.shadow.withOpacity(0.05),
-              blurRadius: 4,
-              offset: Offset(0, 2),
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
             ),
           ],
         ),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Text(
                     word.word,
-                    style: textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
+                    style: textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
                       color: colorScheme.primary,
                     ),
                   ),
-                  const SizedBox(height: 6),
+                ),
+                if (phoneticText.isNotEmpty)
                   Text(
-                    definition,
+                    phoneticText,
                     style: textTheme.bodyMedium?.copyWith(
-                      color: colorScheme.onSurfaceVariant,
+                      color: colorScheme.outline,
+                      fontStyle: FontStyle.italic,
                     ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                   ),
-                  if (word.pos.isNotEmpty) ...[
-                    const SizedBox(height: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: colorScheme.primaryContainer,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Text(
-                        word.pos,
-                        style: textTheme.labelSmall?.copyWith(
-                          color: colorScheme.onPrimaryContainer,
-                          fontWeight: FontWeight.w500,
-                        ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              definition,
+              style: textTheme.bodyLarge?.copyWith(
+                color: colorScheme.onSurfaceVariant,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (word.pos.isNotEmpty)
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: colorScheme.primaryContainer,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      word.pos,
+                      style: textTheme.labelMedium?.copyWith(
+                        color: colorScheme.onPrimaryContainer,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
-                  ],
-                ],
-              ),
-            ),
-            const SizedBox(width: 8),
-            Icon(
-              Icons.arrow_forward_ios_rounded,
-              size: 16,
-              color: colorScheme.onSurfaceVariant,
+                  ),
+                Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 16,
+                  color: colorScheme.outline,
+                ),
+              ],
             ),
           ],
         ),
