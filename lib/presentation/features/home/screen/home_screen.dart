@@ -151,6 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildSearchResultsOverlay(List<WordEntity> results) {
+    final theme = Theme.of(context);
     return Material(
       color: Colors.transparent,
       child: Align(
@@ -160,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // 56 là height search box
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: theme.colorScheme.background,
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
@@ -180,11 +181,12 @@ class _HomeScreenState extends State<HomeScreen> {
               final def =
                   word.senses.isNotEmpty ? word.senses.first.definition : '';
               return ListTile(
-                title: Text(word.word),
+                title: Text(word.word, style: theme.textTheme.titleMedium),
                 subtitle: Text(
                   def,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.titleMedium,
                 ),
                 trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
                 onTap:
