@@ -11,11 +11,11 @@ class AppTheme {
       textTheme: _textTheme(colorScheme),
     ).copyWith(
       useMaterial3: true,
-      // scaffoldBackgroundColor: colorScheme.surface,
       appBarTheme: AppBarTheme(
         backgroundColor: colorScheme.surface,
-        iconTheme: IconThemeData(color: colorScheme.onSurface),
+        foregroundColor: colorScheme.onSurface,
         elevation: 0,
+        iconTheme: IconThemeData(color: colorScheme.onSurface),
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
           statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
@@ -25,10 +25,35 @@ class AppTheme {
       cardTheme: CardTheme(
         color: colorScheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        elevation: 2,
+        elevation: 3,
+        shadowColor: colorScheme.shadow.withOpacity(0.2),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(foregroundColor: colorScheme.primary),
+        style: TextButton.styleFrom(
+          foregroundColor: colorScheme.primary,
+          textStyle: const TextStyle(fontWeight: FontWeight.w600),
+        ),
+      ),
+
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: colorScheme.surface,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: colorScheme.outlineVariant),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(color: colorScheme.primary, width: 1.5),
+        ),
       ),
     );
   }
@@ -66,27 +91,32 @@ class AppTheme {
   );
 
   static TextTheme _textTheme(ColorScheme colorScheme) {
-    return ThemeData.light().textTheme.copyWith(
+    return TextTheme(
       displayLarge: TextStyle(
         fontSize: 32,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w700,
         color: colorScheme.onBackground,
       ),
       titleLarge: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
         color: colorScheme.onSurface,
       ),
       titleMedium: TextStyle(
         fontSize: 18,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         color: colorScheme.onSurface,
       ),
-      bodyLarge: TextStyle(fontSize: 16, color: colorScheme.onSurface),
+      bodyLarge: TextStyle(
+        fontSize: 16,
+        color: colorScheme.onSurface,
+        height: 1.5,
+      ),
       bodyMedium: TextStyle(fontSize: 14, color: colorScheme.onSurface),
       labelSmall: TextStyle(
         fontSize: 12,
         color: colorScheme.onSurface.withOpacity(0.6),
+        fontWeight: FontWeight.w500,
       ),
     );
   }

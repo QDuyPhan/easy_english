@@ -48,7 +48,7 @@ class _GrammarCategoryScreenState extends State<GrammarCategoryScreen> {
           ),
         ],
       ),
-      backgroundColor: colorScheme.surface,
+      backgroundColor: colorScheme.background,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(

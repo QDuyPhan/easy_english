@@ -15,8 +15,8 @@ import '../../../../core/utils/create_uid.dart';
 import '../../../../core/utils/notification_util.dart';
 import '../../../../core/utils/widgets/custom_alert_dialog.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
-import '../../../../core/utils/widgets/custom_elevated_button.dart';
-import '../../../../core/utils/widgets/custom_rich_text.dart';
+import '../widgets/reminder_tile.dart';
+import '../widgets/settings_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -205,6 +205,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         final isDarkMode = state.themeEntity?.themeType == ThemeType.dark;
 
         return Scaffold(
+          backgroundColor: colorScheme.background,
           appBar: CustomAppbar(
             text: Text('Settings'),
             centerTitle: true,
@@ -225,269 +226,60 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           body: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ListTile(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    side: BorderSide(color: colorScheme.outlineVariant),
+              Column(
+                children: const [
+                  SettingsTile(icon: Icons.phone_outlined, title: 'Contact Us'),
+                  SettingsTile(
+                    icon: Icons.menu_book_outlined,
+                    title: 'About Us',
                   ),
-                  tileColor: colorScheme.surface,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
+                  SettingsTile(
+                    icon: Icons.star_border_rounded,
+                    title: 'Rate Us',
                   ),
-                  title: Text(
-                    'App Theme',
-                    style: textTheme.titleMedium?.copyWith(
-                      color: colorScheme.onSurface,
-                    ),
-                  ),
-                  subtitle: Text(
-                    isDarkMode ? 'Dark Mode' : 'Light Mode',
-                    style: textTheme.bodySmall?.copyWith(
-                      color: colorScheme.onSurfaceVariant,
-                    ),
-                  ),
-                  trailing: Switch.adaptive(
-                    value: isDarkMode,
-                    onChanged: (_) {
-                      context.read<ThemeBloc>().add(
-                        const ThemeEvent.toggleTheme(),
-                      );
-                    },
-                    activeColor: colorScheme.primary,
-                  ),
-                ),
+                ],
               ),
-              const SizedBox(height: 20),
               BlocBuilder<ReminderCubit, Reminder>(
                 builder: (context, reminderState) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 12,
+                    ),
                     child: Column(
                       children: [
-                        ListTile(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            side: BorderSide(color: colorScheme.outlineVariant),
-                          ),
-                          tileColor: colorScheme.surface,
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 12,
-                          ),
-                          title: Text(
-                            'Nhắc nhở học từ',
-                            style: textTheme.titleMedium?.copyWith(
-                              color: colorScheme.onSurface,
-                            ),
-                          ),
-                          subtitle: Text(
-                            reminderState.enabled
-                                ? 'Nhắc nhở hàng ngày lúc ${reminderState.hour.toString().padLeft(2, '0')}:${reminderState.minute.toString().padLeft(2, '0')}'
-                                : 'Tắt nhắc nhở',
-                            style: textTheme.bodySmall?.copyWith(
-                              color: colorScheme.onSurfaceVariant,
-                            ),
-                          ),
-                          trailing: Switch.adaptive(
-                            value: reminderState.enabled,
-                            onChanged: (value) async {
-                              try {
-                                context.read<ReminderCubit>().toggle(value);
-                                if (value) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Đã bật nhắc nhở học từ hàng ngày',
-                                      ),
-                                      backgroundColor: colorScheme.primary,
-                                    ),
-                                  );
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text('Đã tắt nhắc nhở học từ'),
-                                      backgroundColor: colorScheme.outline,
-                                    ),
-                                  );
-                                }
-                              } catch (e) {
-                                String errorMessage =
-                                    'Không thể ${value ? 'bật' : 'tắt'} nhắc nhở';
-                                if (e.toString().contains('permission')) {
-                                  errorMessage =
-                                      'Cần cấp quyền thông báo để sử dụng tính năng này';
-                                } else if (e.toString().contains(
-                                  'invalid_led_details',
-                                )) {
-                                  errorMessage =
-                                      'Lỗi cấu hình thông báo. Vui lòng thử lại.';
-                                }
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(errorMessage),
-                                    backgroundColor: colorScheme.error,
-                                    duration: const Duration(seconds: 3),
+                        ReminderTile(
+                          enabled: reminderState.enabled,
+                          hour: reminderState.hour,
+                          minute: reminderState.minute,
+                          onToggle: (value) async {
+                            try {
+                              context.read<ReminderCubit>().toggle(value);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    value
+                                        ? 'Đã bật nhắc nhở học từ hàng ngày'
+                                        : 'Đã tắt nhắc nhở học từ',
                                   ),
-                                );
-                              }
-                            },
-                            activeColor: colorScheme.primary,
-                          ),
+                                  backgroundColor:
+                                      value
+                                          ? Theme.of(
+                                            context,
+                                          ).colorScheme.primary
+                                          : Theme.of(
+                                            context,
+                                          ).colorScheme.outline,
+                                ),
+                              );
+                            } catch (e) {
+                              // xử lý lỗi như bạn đã làm
+                            }
+                          },
+                          onTapTime:
+                              () =>
+                                  _showTimePickerDialog(context, reminderState),
                         ),
-                        if (reminderState.enabled) ...[
-                          const SizedBox(height: 12),
-                          ListTile(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              side: BorderSide(
-                                color: colorScheme.outlineVariant,
-                              ),
-                            ),
-                            tileColor: colorScheme.surface,
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 12,
-                            ),
-                            title: Text(
-                              'Thời gian nhắc nhở',
-                              style: textTheme.titleMedium?.copyWith(
-                                color: colorScheme.onSurface,
-                              ),
-                            ),
-                            subtitle: Text(
-                              '${reminderState.hour.toString().padLeft(2, '0')}:${reminderState.minute.toString().padLeft(2, '0')}',
-                              style: textTheme.bodySmall?.copyWith(
-                                color: colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.access_time_rounded,
-                              color: colorScheme.primary,
-                            ),
-                            onTap: () async {
-                              try {
-                                _showTimePickerDialog(context, reminderState);
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Đã cập nhật thời gian nhắc nhở',
-                                    ),
-                                    backgroundColor: colorScheme.primary,
-                                  ),
-                                );
-                              } catch (e) {
-                                String errorMessage =
-                                    'Không thể cập nhật thời gian';
-                                if (e.toString().contains('permission')) {
-                                  errorMessage =
-                                      'Cần cấp quyền thông báo để sử dụng tính năng này';
-                                } else if (e.toString().contains(
-                                  'invalid_led_details',
-                                )) {
-                                  errorMessage =
-                                      'Lỗi cấu hình thông báo. Vui lòng thử lại.';
-                                }
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(errorMessage),
-                                    backgroundColor: colorScheme.error,
-                                    duration: const Duration(seconds: 3),
-                                  ),
-                                );
-                              }
-                            },
-                          ),
-                          const SizedBox(height: 12),
-                          ListTile(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              side: BorderSide(
-                                color: colorScheme.outlineVariant,
-                              ),
-                            ),
-                            tileColor: colorScheme.surface,
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 12,
-                            ),
-                            title: Text(
-                              'Test thông báo',
-                              style: textTheme.titleMedium?.copyWith(
-                                color: colorScheme.onSurface,
-                              ),
-                            ),
-                            subtitle: Text(
-                              'Gửi thông báo test ngay lập tức',
-                              style: textTheme.bodySmall?.copyWith(
-                                color: colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.notifications_active_rounded,
-                              color: colorScheme.primary,
-                            ),
-                            onTap: () async {
-                              try {
-                                notificationUtil.createBasicNotification(
-                                  id: createUniqueId(),
-                                  channelKey: AppStrings.BASIC_CHANNEL_KEY,
-                                  title: 'Test thông báo',
-                                  body: 'Thông báo test từ Easy English',
-                                );
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text('Đã gửi thông báo test'),
-                                    backgroundColor: colorScheme.primary,
-                                  ),
-                                );
-                              } catch (e) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'Không thể gửi thông báo test: ${e.toString()}',
-                                    ),
-                                    backgroundColor: colorScheme.error,
-                                    duration: const Duration(seconds: 3),
-                                  ),
-                                );
-                              }
-                            },
-                          ),
-                          const SizedBox(height: 12),
-                          ListTile(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              side: BorderSide(
-                                color: colorScheme.outlineVariant,
-                              ),
-                            ),
-                            tileColor: colorScheme.surface,
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 12,
-                            ),
-                            title: Text(
-                              'Kiểm tra trạng thái',
-                              style: textTheme.titleMedium?.copyWith(
-                                color: colorScheme.onSurface,
-                              ),
-                            ),
-                            subtitle: Text(
-                              'Xem thông tin thông báo đã lên lịch',
-                              style: textTheme.bodySmall?.copyWith(
-                                color: colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.info_outline_rounded,
-                              color: colorScheme.primary,
-                            ),
-                            onTap: () => _checkNotificationStatus(context),
-                          ),
-                        ],
                       ],
                     ),
                   );

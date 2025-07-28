@@ -4,7 +4,6 @@ import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
 import 'package:easy_english/presentation/features/home/bloc/daily_words_bloc.dart';
-import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_debouncer/flutter_debouncer.dart';
@@ -49,8 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
+      backgroundColor: colorScheme.background,
       appBar: CustomAppbar(
         text: const Text('Easy English'),
         centerTitle: true,
@@ -62,12 +62,12 @@ class _HomeScreenState extends State<HomeScreen> {
             width: size.width * 0.06,
           ),
         ],
-        actions: [
-          IconButton(
-            onPressed: () => context.push(RoutePaths.search),
-            icon: const Icon(FluentIcons.search_12_regular),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     onPressed: () => context.push(RoutePaths.search),
+        //     icon: const Icon(FluentIcons.search_12_regular),
+        //   ),
+        // ],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),

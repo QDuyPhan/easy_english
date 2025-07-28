@@ -22,7 +22,7 @@ class _GrammarScreenState extends State<GrammarScreen> {
       appBar: CustomAppbar(text: Text('Grammar'), centerTitle: true),
       backgroundColor: colorScheme.background,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
         child: ListView.separated(
           itemCount: categories.length,
           separatorBuilder: (_, __) => const SizedBox(height: 12),

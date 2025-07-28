@@ -34,6 +34,7 @@ class WordDetailScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: colorScheme.background,
         appBar: CustomAppbar(
           text: Text('Word Detail'),
           centerTitle: true,

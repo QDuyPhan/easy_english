@@ -3,6 +3,7 @@ import 'package:easy_english/domain/usecases/init_data_oxford_words_use_case.dar
 import 'package:easy_english/presentation/features/notifications/bloc/reminder_cubit.dart';
 import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
@@ -38,6 +39,15 @@ void main() async {
     di.getIt<InitDataOxfordWordsUseCase>().execute(),
     di.getIt<InitDataTopicsUseCase>().execute(),
   ]);
+
+  // Thiết lập style cho status bar 1 lần
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // hoặc màu cụ thể
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.dark, // cho iOS
+    ),
+  );
 
   runApp(
     MultiBlocProvider(

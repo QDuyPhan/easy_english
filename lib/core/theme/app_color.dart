@@ -52,27 +52,34 @@ class AppColor {
     darkCantaloupe,
   ];
 
-  // Light Theme
-  static const Color lightPrimary = Color(0xFF2979FF);
-  static const Color lightOnPrimary = Colors.white;
-  static const Color lightPrimaryContainer = Color(0xFFE3F2FD);
-  static const Color lightOnPrimaryContainer = Color(0xFF0D47A1);
-  static const Color lightSecondary = Color(0xFFFFA000);
-  static const Color lightOnSecondary = Color(0xFF212121);
-  static const Color lightBackground = Colors.white;
-  static const Color lightOnBackground = Color(0xFF212121);
-  static const Color lightSurface = Color(0xFFFAFAFA);
-  static const Color lightOnSurface = Color(0xFF212121);
+  // Primary theme: Blue + Emerald + Warm Orange
 
-  // Dark Theme
-  static const Color darkPrimary = Color(0xFF82B1FF);
+  static const Color lightPrimary = Color(0xFF1E88E5); // Blue 600
+  static const Color lightOnPrimary = Colors.white;
+  static const Color lightPrimaryContainer = Color(0xFFBBDEFB); // Blue 100
+  static const Color lightOnPrimaryContainer = Color(0xFF0D47A1);
+
+  static const Color lightSecondary = Color(0xFF00C853); // Green A700
+  static const Color lightOnSecondary = Colors.white;
+
+  static const Color lightBackground = Color(0xFFFDFDFD);
+  static const Color lightOnBackground = Color(0xFF202124);
+
+  static const Color lightSurface = Color(0xFFFFFFFF);
+  static const Color lightOnSurface = Color(0xFF333333);
+
+  // Dark Theme (Deep Blue + Emerald accent)
+  static const Color darkPrimary = Color(0xFF90CAF9); // Blue 200
   static const Color darkOnPrimary = Colors.black;
-  static const Color darkPrimaryContainer = Color(0xFF263238);
-  static const Color darkOnPrimaryContainer = Color(0xFFE3F2FD);
-  static const Color darkSecondary = Color(0xFFFFB74D);
+  static const Color darkPrimaryContainer = Color(0xFF0D47A1);
+  static const Color darkOnPrimaryContainer = Colors.white;
+
+  static const Color darkSecondary = Color(0xFF69F0AE); // Green A200
   static const Color darkOnSecondary = Colors.black;
+
   static const Color darkBackground = Color(0xFF121212);
-  static const Color darkOnBackground = Colors.white;
+  static const Color darkOnBackground = Color(0xFFE0E0E0);
+
   static const Color darkSurface = Color(0xFF1E1E1E);
   static const Color darkOnSurface = Colors.white;
 

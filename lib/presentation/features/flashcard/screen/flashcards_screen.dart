@@ -53,6 +53,7 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
     final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
+      backgroundColor: colorScheme.background,
       appBar: CustomAppbar(
         text: Text('Flashcards'),
         centerTitle: true,

@@ -33,7 +33,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
           ),
         ],
       ),
-      backgroundColor: colorScheme.surface,
+      backgroundColor: colorScheme.background,
       body: Expanded(
         child: MasonryGridView.count(
           crossAxisCount: 2,
