@@ -72,36 +72,45 @@ lib/
    - Displays a new set of English words every day to help users expand their vocabulary.
    - Users can save, bookmark, or review learned words.
    - Flexible reminder settings allow users to customize study times.
+   
 🧩 **Thematic Word Lists**
    - Vocabulary is categorized into popular themes: Family, Travel, Work, etc.
    - Users can easily select topics relevant to their learning goals.
+
 🔍 **Vocabulary Discovery**
    - Offers curated or randomized word lists for exploration.
    - Each word includes definitions, examples, pronunciations, and related terms.
    - One-tap access to detailed word information.
+
 📘 **Grammar Learning by Topic**
    - Grammar is divided into four main categories:
    - Tenses – Covers all 13 English tenses.
    - Sentences – Sentence structures and usage.
    - Words – Nouns, verbs, adjectives, adverbs, etc.
    - Others – Additional grammar topics.
+
 🧠 **Interactive Flashcards**
    - Learn vocabulary and grammar using flip cards.
    - Cards display meanings, pronunciations, examples, and illustrations.
    - Includes a review mode for reinforcing learned content.
+
 🔎 **Powerful Word Search**
    - Smart search box for quickly finding English words.
    - Instant results with definitions, examples, and usage details.
    - Easy navigation to detailed word pages.
+
 ⏰ **Custom Study Schedule & Reminders**
    - Users can define how many words to learn per day and set a preferred study time.
    - App sends notifications based on the custom schedule.
+
 💡 **User-Friendly Interface**
    - Clean, modern design with intuitive navigation.
    - Supports both light and dark modes.
    - Optimized for various screen sizes.
+
 📴 **Offline Support**
    - Core features and vocabulary data are available without an internet connection.
+   
 ⚙️ **Technology & Performance**
    - Built with Flutter, ensuring smooth performance on both Android and iOS.
    - Efficient state management (e.g., Bloc) for a seamless experience.
