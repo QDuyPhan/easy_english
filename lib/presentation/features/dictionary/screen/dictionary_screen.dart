@@ -34,19 +34,17 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
         ],
       ),
       backgroundColor: colorScheme.background,
-      body: Expanded(
-        child: MasonryGridView.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: 12,
-          crossAxisSpacing: 12,
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-          physics: const BouncingScrollPhysics(),
-          itemCount: Assets.listTopic.length,
-          itemBuilder: (context, index) {
-            final entry = Assets.listTopic.entries.elementAt(index);
-            return TopicBox(topicEntry: entry, index: index);
-          },
-        ),
+      body: MasonryGridView.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        physics: const BouncingScrollPhysics(),
+        itemCount: Assets.listTopic.length,
+        itemBuilder: (context, index) {
+          final entry = Assets.listTopic.entries.elementAt(index);
+          return TopicBox(topicEntry: entry, index: index);
+        },
       ),
     );
   }
