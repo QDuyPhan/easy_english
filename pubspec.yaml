@@ -92,6 +92,7 @@ dependencies:
   awesome_notifications: ^0.10.1
   cool_alert: ^2.0.0
   awesome_notifications_core: ^0.10.1
+  flutter_screenutil: ^5.9.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
