@@ -88,13 +88,15 @@ class AssetsDataImpl implements AssetsData {
     final path = 'assets/json/topics/$folder/$topic.json';
     final jsonString = await rootBundle.loadString(path);
     final List<dynamic> jsonData = jsonDecode(jsonString);
-    return jsonData
-        .map(
-          (e) => Word.fromJson(
-            e,
-          ).copyWith(folder: folder, topic: topic, origin: 'topics'),
-        )
-        .toList();
+    return await Isolate.run(() {
+      return jsonData
+          .map(
+            (e) => Word.fromJson(
+              e,
+            ).copyWith(folder: folder, topic: topic, origin: 'topics'),
+          )
+          .toList();
+    });
   }
 
   // Future<void> saveAllToHive(List<Word> words) async {

@@ -23,7 +23,6 @@ import 'presentation/observers/my_bloc_observer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize HydratedBloc storage first - this must be done before any HydratedBloc is created
   final storage = await HydratedStorage.build(
     storageDirectory: HydratedStorageDirectory(
       (await getTemporaryDirectory()).path,
@@ -31,21 +30,18 @@ void main() async {
   );
   HydratedBloc.storage = storage;
 
-  // Init Hive, DI, TimeZone, Notification, etc.
   await setupCoreDependencies();
 
-  // Init dữ liệu words trước khi runApp
   await Future.wait([
     di.getIt<InitDataOxfordWordsUseCase>().execute(),
     di.getIt<InitDataTopicsUseCase>().execute(),
   ]);
 
-  // Thiết lập style cho status bar 1 lần
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent, // hoặc màu cụ thể
+      statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
-      statusBarBrightness: Brightness.dark, // cho iOS
+      statusBarBrightness: Brightness.dark,
     ),
   );
 
@@ -61,18 +57,14 @@ void main() async {
 }
 
 Future<void> setupCoreDependencies() async {
-  // Set up Bloc observer
   Bloc.observer = MyBlocObserver();
 
-  // Initialize timezone
   final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
   tz.initializeTimeZones();
   tz.setLocalLocation(tz.getLocation(currentTimeZone));
 
-  // Setup DI after storage is initialized
   await di.setupDependencies();
 
-  // Initialize notification data source
   try {
     await di.getIt<NotificationDataSource>().initialize();
   } catch (e) {

@@ -18,15 +18,15 @@ class HiveConfig {
 
   late Box<Word> _wordsBox;
   late Box<Word> _dailyWordsBox;
-  late Box<dynamic> _topicsBox;
+  late Box<Word> _topicsBox;
 
   Box<Word> get wordsBox => _wordsBox;
 
   Box<Word> get dailyWordsBox => _dailyWordsBox;
 
-  Box<dynamic> get topicsBox => _topicsBox;
+  Box<Word> get topicsBox => _topicsBox;
 
-  @factoryMethod // Phương thức khởi tạo đặc biệt
+  @factoryMethod
   static Future<HiveConfig> create() async {
     final manager = HiveConfig();
     await manager._init();
@@ -35,19 +35,17 @@ class HiveConfig {
 
   Future<void> _init() async {
     if (kIsWeb) {
-      await Hive.initFlutter(); // Web không cần `dir.path`
+      await Hive.initFlutter();
     } else {
       final dir = await getApplicationDocumentsDirectory();
       await Hive.initFlutter(dir.path);
     }
-    // Đăng ký adapter cho WordModel
     Hive.registerAdapter(ExampleAdapter());
     Hive.registerAdapter(SenseAdapter());
     Hive.registerAdapter(WordStatusAdapter());
     Hive.registerAdapter(WordAdapter());
     Hive.registerAdapter(SettingsSnapshotAdapter());
     Hive.registerAdapter(ScheduledNotificationAdapter());
-    // Mở box
     _wordsBox = await Hive.openBox<Word>(_wordKey);
     _dailyWordsBox = await Hive.openBox<Word>(_dailyWordsKey);
     _topicsBox = await Hive.openBox(_topicsKey);
