@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,7 +34,7 @@ class _TopicBoxState extends State<TopicBox> {
       usedColors.clear();
     }
     final available =
-    availableColors.where((color) => !usedColors.contains(color)).toList();
+        availableColors.where((color) => !usedColors.contains(color)).toList();
     if (available.isNotEmpty) {
       _color = available[random.nextInt(available.length)];
       usedColors.add(_color);
@@ -44,8 +45,8 @@ class _TopicBoxState extends State<TopicBox> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final image = app_config.listImageTopic[widget.index];
@@ -88,7 +89,8 @@ class _TopicBoxState extends State<TopicBox> {
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: textTheme.titleMedium?.copyWith(
-                color: colorScheme.onPrimary, // dùng theme thay vì AppColor.black100
+                color: colorScheme.onPrimary,
+                // dùng theme thay vì AppColor.black100
                 fontWeight: FontWeight.bold,
               ),
             ),

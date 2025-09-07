@@ -3,6 +3,8 @@ import 'package:easy_english/core/config/hive_config.dart';
 import 'package:easy_english/data/models/word.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../models/scheduled_notification.dart';
+
 abstract interface class LocalData {
   Future<void> saveWords(List<Word> words);
 
@@ -19,6 +21,12 @@ abstract interface class LocalData {
   Future<List<Word>> getDailyWords(List<Word> words);
 
   List<Word> getAllTopicWords();
+
+  Future<void> saveScheduledNotification(ScheduledNotification scheduledNotification);
+
+  Future<void> removeScheduledNotification(int id);
+
+  List<ScheduledNotification> getScheduledNotifications();
 }
 
 @LazySingleton(as: LocalData)
@@ -108,5 +116,20 @@ class LocalDataImpl implements LocalData {
     }
 
     return selected;
+  }
+
+  @override
+  List<ScheduledNotification> getScheduledNotifications() {
+    return _hiveConfig.scheduledNotificationBox.values.toList();
+  }
+
+  @override
+  Future<void> saveScheduledNotification(ScheduledNotification scheduledNotification) {
+    return _hiveConfig.scheduledNotificationBox.put(scheduledNotification.id, scheduledNotification);
+  }
+
+  @override
+  Future<void> removeScheduledNotification(int id) {
+    return _hiveConfig.scheduledNotificationBox.delete(id);
   }
 }

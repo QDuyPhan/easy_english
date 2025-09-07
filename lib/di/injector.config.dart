@@ -16,22 +16,22 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 import '../core/config/hive_config.dart' as _i719;
 import '../core/mapper/app_mappr.dart' as _i556;
 import '../core/register_module/audio_player_provider.dart' as _i526;
+import '../core/utils/local_notifications_tools.dart' as _i863;
 import '../data/datasources/local/assets_data.dart' as _i481;
 import '../data/datasources/local/local_data.dart' as _i614;
 import '../data/datasources/local/them_local.dart' as _i110;
 import '../data/datasources/notification/notification_data_source.dart'
     as _i179;
-import '../data/repositories/notification_repository_impl.dart' as _i888;
+import '../data/repositories/notifications_repository_impl.dart' as _i935;
 import '../data/repositories/oxford_words_repository_impl.dart' as _i319;
 import '../data/repositories/theme_repository_impl.dart' as _i792;
 import '../data/repositories/topic_repository_impl.dart' as _i867;
 import '../data/repositories/vocabulary_repository_impl.dart' as _i904;
-import '../domain/repositories/notification_repository.dart' as _i965;
+import '../domain/repositories/notifications_repository.dart' as _i246;
 import '../domain/repositories/oxford_words_repository.dart' as _i212;
 import '../domain/repositories/theme_repository.dart' as _i443;
 import '../domain/repositories/topic_repository.dart' as _i13;
 import '../domain/repositories/vocabulary_repository.dart' as _i1063;
-import '../domain/usecases/cancel_notification_use_case.dart' as _i787;
 import '../domain/usecases/get_all_oxford_words_use_case.dart' as _i822;
 import '../domain/usecases/get_daily_words_use_case.dart' as _i246;
 import '../domain/usecases/get_theme_use_case.dart' as _i131;
@@ -41,11 +41,8 @@ import '../domain/usecases/init_data_topics_use_case.dart' as _i599;
 import '../domain/usecases/save_oxford_word_use_case.dart' as _i259;
 import '../domain/usecases/save_theme_use_case.dart' as _i883;
 import '../domain/usecases/save_topic_word_use_case.dart' as _i902;
-import '../domain/usecases/schedule_notification_use_case.dart' as _i144;
 import '../domain/usecases/search_words_use_case.dart' as _i63;
 import '../presentation/features/home/bloc/daily_words_bloc.dart' as _i531;
-import '../presentation/features/notifications/bloc/reminder_cubit.dart'
-    as _i92;
 import '../presentation/features/search/blocs/search_bloc.dart' as _i529;
 import '../presentation/features/theme/blocs/theme_bloc.dart' as _i1032;
 import '../presentation/features/topics/blocs/topics_bloc.dart' as _i282;
@@ -70,6 +67,8 @@ Future<_i174.GetIt> $initGetIt(
     () => sharedPreferencesModule.prefs,
     preResolve: true,
   );
+  gh.factory<_i863.LocalNotificationsTools>(
+      () => _i863.LocalNotificationsTools());
   await gh.singletonAsync<_i719.HiveConfig>(
     () => _i719.HiveConfig.create(),
     preResolve: true,
@@ -77,9 +76,6 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i501.AudioPlayer>(() => audioPlayerModule.audioPlayer());
   gh.lazySingleton<_i179.NotificationDataSource>(
       () => _i179.NotificationDataSourceImpl());
-  gh.lazySingleton<_i965.NotificationRepository>(() =>
-      _i888.NotificationRepositoryImpl(
-          notificationDataSource: gh<_i179.NotificationDataSource>()));
   gh.lazySingleton<_i481.AssetsData>(
       () => _i481.AssetsDataImpl(hiveConfig: gh<_i719.HiveConfig>()));
   gh.lazySingleton<_i614.LocalData>(
@@ -98,14 +94,15 @@ Future<_i174.GetIt> $initGetIt(
       () => _i822.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
   gh.factory<_i308.InitDataOxfordWordsUseCase>(() =>
       _i308.InitDataOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()));
-  gh.factory<_i787.CancelNotificationUseCase>(() =>
-      _i787.CancelNotificationUseCase(gh<_i965.NotificationRepository>()));
-  gh.factory<_i144.ScheduleNotificationUseCase>(() =>
-      _i144.ScheduleNotificationUseCase(gh<_i965.NotificationRepository>()));
   gh.lazySingleton<_i443.ThemeRepository>(
       () => _i792.ThemeRepositoryImpl(themeLocal: gh<_i110.ThemeLocal>()));
   gh.lazySingleton<_i1063.VocabularyRepository>(
       () => _i904.VocabularyRepositoryImpl(
+            localData: gh<_i614.LocalData>(),
+            appMappr: gh<_i556.AppMappr>(),
+          ));
+  gh.lazySingleton<_i246.NotificationsRepository>(
+      () => _i935.NotificationsRepositoryImpl(
             localData: gh<_i614.LocalData>(),
             appMappr: gh<_i556.AppMappr>(),
           ));
@@ -120,10 +117,6 @@ Future<_i174.GetIt> $initGetIt(
         hiveConfig: gh<_i719.HiveConfig>(),
         localData: gh<_i614.LocalData>(),
         appMappr: gh<_i556.AppMappr>(),
-      ));
-  gh.factory<_i92.ReminderCubit>(() => _i92.ReminderCubit(
-        gh<_i144.ScheduleNotificationUseCase>(),
-        gh<_i787.CancelNotificationUseCase>(),
       ));
   gh.factory<_i246.GetDailyWordsUseCase>(() => _i246.GetDailyWordsUseCase(
         vocabularyRepository: gh<_i1063.VocabularyRepository>(),

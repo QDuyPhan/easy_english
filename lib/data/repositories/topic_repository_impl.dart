@@ -32,9 +32,9 @@ class TopicRepositoryImpl implements TopicRepository {
   @override
   Future<void> initData() async {
     try {
-      final allWords = _localData.getAllTopicWords();
-      app_config.printLog('i', 'allWords before ${allWords.length}');
-      if (allWords.isNotEmpty) {
+      final currentTopics = _localData.getAllTopicWords();
+      app_config.printLog('i', 'currentTopics  ${currentTopics.length}');
+      if (currentTopics.isNotEmpty) {
         app_config.printLog(
           'i',
           'Topics data already initialized, skipping...',

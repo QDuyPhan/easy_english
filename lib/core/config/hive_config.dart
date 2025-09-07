@@ -15,16 +15,21 @@ class HiveConfig {
   static const String _wordKey = 'word';
   static const String _topicsKey = 'topics';
   static const String _dailyWordsKey = 'daily_words';
+  static const String _scheduledNotificationKey = 'scheduledNotification';
 
   late Box<Word> _wordsBox;
   late Box<Word> _dailyWordsBox;
   late Box<Word> _topicsBox;
+  late Box<ScheduledNotification> _scheduledNotificationBox;
 
   Box<Word> get wordsBox => _wordsBox;
 
   Box<Word> get dailyWordsBox => _dailyWordsBox;
 
   Box<Word> get topicsBox => _topicsBox;
+
+  Box<ScheduledNotification> get scheduledNotificationBox =>
+      _scheduledNotificationBox;
 
   @factoryMethod
   static Future<HiveConfig> create() async {
@@ -49,5 +54,8 @@ class HiveConfig {
     _wordsBox = await Hive.openBox<Word>(_wordKey);
     _dailyWordsBox = await Hive.openBox<Word>(_dailyWordsKey);
     _topicsBox = await Hive.openBox(_topicsKey);
+    _scheduledNotificationBox = await Hive.openBox<ScheduledNotification>(
+      _scheduledNotificationKey,
+    );
   }
 }

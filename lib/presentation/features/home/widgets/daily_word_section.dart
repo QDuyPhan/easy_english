@@ -12,7 +12,7 @@ class DailyWordsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final iconSize = MediaQuery.of(context).size.width * 0.09;
+    final iconSize = MediaQuery.sizeOf(context).width * 0.09;
 
     return BlocBuilder<DailyWordsBloc, DailyWordsState>(
       builder: (context, state) {

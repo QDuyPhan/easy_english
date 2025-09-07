@@ -46,6 +46,15 @@
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
 		<key>UIStatusBarHidden</key>
+		<key>UIBackgroundModes</key>
+        <array>
+          <string>fetch</string>
+          <string>remote-notification</string>
+        </array>
+
+        <key>NSUserNotificationUsageDescription</key>
+        <string>We use notifications to alert you about new events.</string>
+
 		<false/>
 	</dict>
 </plist>

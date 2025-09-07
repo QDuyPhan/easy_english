@@ -9,7 +9,8 @@ class FlashCardsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
+
     final iconSize = size.width * 0.09;
 
     return Material(

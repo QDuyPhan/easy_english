@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
     final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       backgroundColor: colorScheme.background,
@@ -69,82 +69,93 @@ class _HomeScreenState extends State<HomeScreen> {
         //   ),
         // ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                SearchBox(controller: _searchController, debouncer: _debouncer),
-                const SizedBox(height: 16),
-                const DailyWordsSection(),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    const Text(
-                      'Discover New Words 🔥',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () => context.push(RoutePaths.vocabulary),
-                      child: const Text(
-                        'See all',
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  SearchBox(
+                    controller: _searchController,
+                    debouncer: _debouncer,
+                  ),
+                  const SizedBox(height: 16),
+                  const DailyWordsSection(),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      const Text(
+                        'Discover New Words 🔥',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                Expanded(
-                  child: BlocBuilder<VocabularyBloc, VocabularyState>(
-                    builder: (context, state) {
-                      if (state is VocabularyLoading) {
-                        return const Center(child: CircularProgressIndicator());
-                      } else if (state is VocabularyError) {
-                        return Center(child: Text(state.message));
-                      } else if (state is VocabularyLoaded) {
-                        final words = state.words;
-                        final random = Random();
-
-                        final shuffled = List<WordEntity>.from(words)
-                          ..shuffle(random);
-
-                        final randomItems = shuffled.take(10).toList();
-                        return ListView.builder(
-                          itemCount: randomItems.length,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return WordCard(word: randomItems[index]);
-                          },
-                        );
-                      }
-                      return const SizedBox();
-                    },
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () => context.push(RoutePaths.vocabulary),
+                        child: const Text(
+                          'See all',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: BlocBuilder<VocabularyBloc, VocabularyState>(
+                      builder: (context, state) {
+                        if (state is VocabularyLoading) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else if (state is VocabularyError) {
+                          return Center(child: Text(state.message));
+                        } else if (state is VocabularyLoaded) {
+                          final words = state.words;
+                          final random = Random();
 
-            Positioned.fill(
-              child: BlocBuilder<SearchBloc, SearchState>(
-                builder: (context, state) {
-                  return state.when(
-                    initial: () => const SizedBox.shrink(),
-                    loading:
-                        () => const Center(child: CircularProgressIndicator()),
-                    success:
-                        (final results) =>
-                            results.isEmpty
-                                ? const SizedBox.shrink()
-                                : _buildSearchResultsOverlay(results),
-                    noResults: () => const SizedBox.shrink(),
-                    error: (message) => const SizedBox.shrink(),
-                  );
-                },
+                          final shuffled = List<WordEntity>.from(words)
+                            ..shuffle(random);
+
+                          final randomItems = shuffled.take(10).toList();
+                          return ListView.builder(
+                            itemCount: randomItems.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return WordCard(word: randomItems[index]);
+                            },
+                          );
+                        }
+                        return const SizedBox();
+                      },
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
+
+              Positioned.fill(
+                child: BlocBuilder<SearchBloc, SearchState>(
+                  builder: (context, state) {
+                    return state.when(
+                      initial: () => const SizedBox.shrink(),
+                      loading:
+                          () =>
+                              const Center(child: CircularProgressIndicator()),
+                      success:
+                          (final results) =>
+                              results.isEmpty
+                                  ? const SizedBox.shrink()
+                                  : _buildSearchResultsOverlay(results),
+                      noResults: () => const SizedBox.shrink(),
+                      error: (message) => const SizedBox.shrink(),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

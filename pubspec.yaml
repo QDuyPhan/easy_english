@@ -50,7 +50,6 @@ dependencies:
   hive_flutter: ^1.1.0
   intl: ^0.20.2
   path_provider: ^2.1.5
-  #  flutter_local_notifications: ^19.0.0
   timezone: ^0.10.0
   #  flutter_native_timezone: ^2.0.0
   flutter_timezone: ^4.1.0
@@ -89,9 +88,7 @@ dependencies:
   hydrated_bloc: ^10.0.0
   bottom_picker: ^3.2.1
   flutter_launcher_icons: ^0.14.4
-  awesome_notifications: ^0.10.1
   cool_alert: ^2.0.0
-  awesome_notifications_core: ^0.10.1
   flutter_screenutil: ^5.9.3
 dev_dependencies:
   flutter_test:

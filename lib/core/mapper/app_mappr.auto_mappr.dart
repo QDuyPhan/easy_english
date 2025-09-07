@@ -10,11 +10,13 @@
 import 'package:auto_mappr_annotation/auto_mappr_annotation.dart' as _i3;
 
 import '../../data/models/example.dart' as _i8;
+import '../../data/models/scheduled_notification.dart' as _i13;
 import '../../data/models/sense.dart' as _i6;
 import '../../data/models/theme.dart' as _i10;
 import '../../data/models/word.dart' as _i4;
 import '../../data/models/word_status.dart' as _i2;
 import '../../domain/entities/example_entity.dart' as _i9;
+import '../../domain/entities/scheduled_notification_entity.dart' as _i12;
 import '../../domain/entities/sense_entity.dart' as _i7;
 import '../../domain/entities/theme_entity.dart' as _i11;
 import '../../domain/entities/word_entity.dart' as _i5;
@@ -33,6 +35,7 @@ import '../../domain/entities/word_status_entity.dart' as _i1;
 /// - `Theme` → `ThemeEntity`.
 /// - `ThemeEntity` → `Theme`.
 /// - `ThemeType` → `ThemeType`.
+/// - `ScheduledNotificationEntity` → `ScheduledNotification`.
 /// {@endtemplate}
 class $AppMappr implements _i3.AutoMapprInterface {
   const $AppMappr();
@@ -111,6 +114,12 @@ class $AppMappr implements _i3.AutoMapprInterface {
             sourceTypeOf == _typeOf<_i11.ThemeType?>()) &&
         (targetTypeOf == _typeOf<_i11.ThemeType>() ||
             targetTypeOf == _typeOf<_i11.ThemeType?>())) {
+      return true;
+    }
+    if ((sourceTypeOf == _typeOf<_i12.ScheduledNotificationEntity>() ||
+            sourceTypeOf == _typeOf<_i12.ScheduledNotificationEntity?>()) &&
+        (targetTypeOf == _typeOf<_i13.ScheduledNotification>() ||
+            targetTypeOf == _typeOf<_i13.ScheduledNotification?>())) {
       return true;
     }
     if (recursive) {
@@ -413,6 +422,16 @@ class $AppMappr implements _i3.AutoMapprInterface {
       return (_map__i11$ThemeType_To__i11$ThemeType((model as _i11.ThemeType?))
           as TARGET);
     }
+    if ((sourceTypeOf == _typeOf<_i12.ScheduledNotificationEntity>() ||
+            sourceTypeOf == _typeOf<_i12.ScheduledNotificationEntity?>()) &&
+        (targetTypeOf == _typeOf<_i13.ScheduledNotification>() ||
+            targetTypeOf == _typeOf<_i13.ScheduledNotification?>())) {
+      if (canReturnNull && model == null) {
+        return null;
+      }
+      return (_map__i12$ScheduledNotificationEntity_To__i13$ScheduledNotification(
+          (model as _i12.ScheduledNotificationEntity?)) as TARGET);
+    }
     throw Exception('No ${model.runtimeType} -> $targetTypeOf mapping.');
   }
 
@@ -600,5 +619,22 @@ class $AppMappr implements _i3.AutoMapprInterface {
           r'Consider setting the whenSourceIsNull parameter on the MapType<ThemeType, ThemeType> to handle null values during mapping.');
     }
     return _i11.ThemeType.values.firstWhere((x) => x.name == model.name);
+  }
+
+  _i13.ScheduledNotification
+      _map__i12$ScheduledNotificationEntity_To__i13$ScheduledNotification(
+          _i12.ScheduledNotificationEntity? input) {
+    final model = input;
+    if (model == null) {
+      throw Exception(
+          r'Mapping ScheduledNotificationEntity → ScheduledNotification failed because ScheduledNotificationEntity was null, and no default value was provided. '
+          r'Consider setting the whenSourceIsNull parameter on the MapType<ScheduledNotificationEntity, ScheduledNotification> to handle null values during mapping.');
+    }
+    return _i13.ScheduledNotification(
+      id: model.id,
+      title: model.title,
+      body: model.body,
+      scheduledDate: model.scheduledDate,
+    );
   }
 }

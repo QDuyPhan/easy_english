@@ -24,7 +24,7 @@ class _SearchBoxState extends State<SearchBox> {
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: AnimatedContainer(
         height: widget.showSearch ? 250 : 0,
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(color: colorScheme.onPrimary),
         duration: const Duration(milliseconds: 300),
         child: SingleChildScrollView(

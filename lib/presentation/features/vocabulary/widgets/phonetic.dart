@@ -2,6 +2,8 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
+import '../../../../core/config/app_config.dart';
+
 class Phonetic extends StatefulWidget {
   final String phonetic;
   final String phoneticText;
@@ -28,20 +30,30 @@ class _PhoneticState extends State<Phonetic> {
     super.dispose();
   }
 
-  Future<void> _playSound() async {
-    if (widget.phonetic.isEmpty) return;
+  // Future<void> _playSound() async {
+  //   if (widget.phonetic.isEmpty) return;
+  //   try {
+  //     await _player.setAudioSource(
+  //       AudioSource.uri(
+  //         Uri.parse(widget.phonetic),
+  //         headers: {
+  //           'User-Agent': 'Mozilla/5.0',
+  //         },
+  //       ),
+  //     );
+  //     await _player.play();
+  //   } catch (e) {
+  //     debugPrint('❌ Error playing sound: $e');
+  //   }
+  // }
+
+  void _playSound() async {
     try {
-      await _player.setAudioSource(
-        AudioSource.uri(
-          Uri.parse(widget.phonetic),
-          headers: {
-            'User-Agent': 'Mozilla/5.0',
-          },
-        ),
-      );
+      app_config.printLog('i', 'play sound: ${widget.phonetic}');
+      await _player.setUrl(widget.phonetic);
       await _player.play();
     } catch (e) {
-      debugPrint('❌ Error playing sound: $e');
+      debugPrint('skip');
     }
   }
 
