@@ -1,5 +1,6 @@
 import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/navigation/app_router.dart';
@@ -30,9 +31,17 @@ class _MyAppState extends State<MyApp> {
             state.themeEntity?.themeType == ThemeType.dark
                 ? ThemeMode.dark
                 : ThemeMode.light;
-
+        final isDarkMode = themeMode == ThemeMode.dark;
+        SystemChrome.setSystemUIOverlayStyle(
+          SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness:
+                isDarkMode ? Brightness.light : Brightness.dark,
+            statusBarBrightness:
+                isDarkMode ? Brightness.light : Brightness.dark,
+          ),
+        );
         return MaterialApp.router(
-          key: ValueKey(themeMode),
           routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,
           themeMode: themeMode,

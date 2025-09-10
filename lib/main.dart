@@ -1,7 +1,9 @@
+import 'package:easy_english/core/config/app_config.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/usecases/init_data_oxford_words_use_case.dart';
 import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -31,14 +33,6 @@ void main() async {
     di.getIt<InitDataOxfordWordsUseCase>().execute(),
     di.getIt<InitDataTopicsUseCase>().execute(),
   ]);
-
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.light,
-      statusBarBrightness: Brightness.dark,
-    ),
-  );
 
   runApp(
     MultiBlocProvider(
