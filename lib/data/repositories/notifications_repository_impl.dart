@@ -13,11 +13,9 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
   final LocalData _localData;
   final AppMappr _appMappr;
 
-  NotificationsRepositoryImpl({
-    required LocalData localData,
-    required AppMappr appMappr,
-  }) : _localData = localData,
-       _appMappr = appMappr;
+  NotificationsRepositoryImpl({required LocalData localData, required AppMappr appMappr})
+    : _localData = localData,
+      _appMappr = appMappr;
 
   @override
   List<ScheduledNotificationEntity> getScheduledNotifications() {
@@ -29,10 +27,9 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
             .where(
               (notification) => DateTime.parse(
                 _appMappr
-                    .convert<
-                      ScheduledNotification,
-                      ScheduledNotificationEntity
-                    >(notification)
+                    .convert<ScheduledNotification, ScheduledNotificationEntity>(
+                      notification,
+                    )
                     .scheduledDate,
               ).isBefore(now),
             )
@@ -47,10 +44,9 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
             .where(
               (notification) => DateTime.parse(
                 _appMappr
-                    .convert<
-                      ScheduledNotification,
-                      ScheduledNotificationEntity
-                    >(notification)
+                    .convert<ScheduledNotification, ScheduledNotificationEntity>(
+                      notification,
+                    )
                     .scheduledDate,
               ).isAfter(now),
             )
@@ -59,8 +55,8 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
     final validNotificationsEntities =
         validNotifications
             .map(
-              (notification) => _appMappr
-                  .convert<ScheduledNotification, ScheduledNotificationEntity>(
+              (notification) =>
+                  _appMappr.convert<ScheduledNotification, ScheduledNotificationEntity>(
                     notification,
                   ),
             )
@@ -81,14 +77,12 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
   }
 
   @override
-  Future<Either<Failure, void>> removeScheduledNotification(int id) async {
+  Future<Either<Failure, void>> removeScheduledNotification({required int id}) async {
     try {
       await _localData.removeScheduledNotification(id);
       return const Right(null);
     } catch (e) {
-      return Left(
-        Failure.general(message: 'There is no notification with this id'),
-      );
+      return Left(Failure.general(message: 'There is no notification with this id'));
     }
   }
 }

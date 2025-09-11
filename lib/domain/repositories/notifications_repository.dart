@@ -10,5 +10,5 @@ abstract interface class NotificationsRepository {
 
   List<ScheduledNotificationEntity> getScheduledNotifications();
 
-  Future<Either<Failure, void>> removeScheduledNotification(int id);
+  Future<Either<Failure, void>> removeScheduledNotification({required int id});
 }

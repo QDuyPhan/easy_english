@@ -44,6 +44,11 @@ class HomeNavigation extends StatefulWidget {
 
 class _HomeNavigationState extends State<HomeNavigation> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     final currentRoute = GoRouter.of(context).currentRoute;
     final colorScheme = Theme.of(context).colorScheme;

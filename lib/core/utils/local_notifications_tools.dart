@@ -25,15 +25,11 @@ class LocalNotificationsTools {
     switch (Platform.operatingSystem) {
       case 'ios':
         return await flutterLocalNotificationsPlugin
-            .resolvePlatformSpecificImplementation<
-              IOSFlutterLocalNotificationsPlugin
-            >()
+            .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
             ?.requestPermissions(alert: true, badge: true, sound: true);
       case 'macos':
         return await flutterLocalNotificationsPlugin
-            .resolvePlatformSpecificImplementation<
-              MacOSFlutterLocalNotificationsPlugin
-            >()
+            .resolvePlatformSpecificImplementation<MacOSFlutterLocalNotificationsPlugin>()
             ?.requestPermissions(alert: true, badge: true, sound: true);
       case 'android':
         final AndroidFlutterLocalNotificationsPlugin? androidImplementation =
@@ -93,11 +89,10 @@ class LocalNotificationsTools {
           priority: Priority.defaultPriority,
         );
 
-    final DarwinNotificationDetails iosNotificationDetails =
-        DarwinNotificationDetails(
-          categoryIdentifier: category.id,
-          threadIdentifier: threadIdentifier,
-        );
+    final DarwinNotificationDetails iosNotificationDetails = DarwinNotificationDetails(
+      categoryIdentifier: category.id,
+      threadIdentifier: threadIdentifier,
+    );
 
     final NotificationDetails notificationDetails = NotificationDetails(
       android: androidNotificationDetails,
@@ -131,11 +126,10 @@ class LocalNotificationsTools {
           priority: Priority.defaultPriority,
         );
 
-    final DarwinNotificationDetails iosNotificationDetails =
-        DarwinNotificationDetails(
-          categoryIdentifier: category.id,
-          threadIdentifier: threadIdentifier,
-        );
+    final DarwinNotificationDetails iosNotificationDetails = DarwinNotificationDetails(
+      categoryIdentifier: category.id,
+      threadIdentifier: threadIdentifier,
+    );
 
     final NotificationDetails notificationDetails = NotificationDetails(
       android: androidNotificationDetails,
@@ -152,5 +146,23 @@ class LocalNotificationsTools {
       androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       matchDateTimeComponents: DateTimeComponents.time,
     );
+  }
+
+  Future<List<PendingNotificationRequest>> pendingNotifications() async {
+    return await flutterLocalNotificationsPlugin.pendingNotificationRequests();
+  }
+
+  Future<void> cancelNotification(int id) async {
+    await flutterLocalNotificationsPlugin.cancel(id);
+  }
+
+  Future<void> cancelAllNotifications() async {
+    await flutterLocalNotificationsPlugin.cancelAll();
+  }
+
+  Future<NotificationAppLaunchDetails?>
+  getNotificationAppLaunchDetails() async {
+    return await flutterLocalNotificationsPlugin
+        .getNotificationAppLaunchDetails();
   }
 }

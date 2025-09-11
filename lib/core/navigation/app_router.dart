@@ -39,7 +39,7 @@ class AppRouter {
         builder: (context, state, navigationShell) {
           return MultiBlocProvider(
             providers: [
-              // BlocProvider(create: (context) => di.getIt<VocabularyBloc>()),
+              // BlocProvider(create: (context) => di.getIt<NotificationsBloc>()),
               BlocProvider(create: (context) => di.getIt<TopicsBloc>()),
               BlocProvider(
                 create:

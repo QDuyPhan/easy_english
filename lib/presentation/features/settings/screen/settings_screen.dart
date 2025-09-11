@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/notification_util.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
-import '../widgets/reminder_tile.dart';
 import '../widgets/settings_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -97,14 +96,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Column(
                 children: const [
                   SettingsTile(icon: Icons.phone_outlined, title: 'Contact Us'),
-                  SettingsTile(
-                    icon: Icons.menu_book_outlined,
-                    title: 'About Us',
-                  ),
-                  SettingsTile(
-                    icon: Icons.star_border_rounded,
-                    title: 'Rate Us',
-                  ),
+                  SettingsTile(icon: Icons.menu_book_outlined, title: 'About Us'),
+                  SettingsTile(icon: Icons.star_border_rounded, title: 'Rate Us'),
                 ],
               ),
               // BlocBuilder<ReminderCubit, Reminder>(
@@ -164,11 +157,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     BottomPicker.time(
       pickerTitle: Text(
         'Set your next meeting time',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 15,
-          color: Colors.orange,
-        ),
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.orange),
       ),
       use24hFormat: false,
       onSubmit: (index) {
