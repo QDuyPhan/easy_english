@@ -4,6 +4,7 @@ import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/usecases/notifications/get_scheduled_notifications_use_case.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../../core/constants/notification_category.dart';
 import '../../../../core/constants/thread_identifiers.dart';
@@ -16,6 +17,7 @@ part 'generated/notifications_bloc.freezed.dart';
 part 'notifications_event.dart';
 part 'notifications_state.dart';
 
+@injectable
 class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   final LocalNotificationsTools _localNotificationsTools;
   final GetScheduledNotificationsUseCase _getScheduledNotificationsUseCase;

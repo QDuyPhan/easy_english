@@ -47,6 +47,8 @@ import '../domain/usecases/save_theme_use_case.dart' as _i883;
 import '../domain/usecases/save_topic_word_use_case.dart' as _i902;
 import '../domain/usecases/search_words_use_case.dart' as _i63;
 import '../presentation/features/home/bloc/daily_words_bloc.dart' as _i531;
+import '../presentation/features/notifications/bloc/notifications_bloc.dart'
+    as _i382;
 import '../presentation/features/search/blocs/search_bloc.dart' as _i529;
 import '../presentation/features/theme/blocs/theme_bloc.dart' as _i1032;
 import '../presentation/features/topics/blocs/topics_bloc.dart' as _i282;
@@ -143,6 +145,15 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i282.TopicsBloc>(() => _i282.TopicsBloc(
         saveTopicWordUseCase: gh<_i902.SaveTopicWordUseCase>(),
         getTopicsUseCase: gh<_i280.GetTopicsUseCase>(),
+      ));
+  gh.factory<_i382.NotificationsBloc>(() => _i382.NotificationsBloc(
+        localNotificationsTools: gh<_i863.LocalNotificationsTools>(),
+        getScheduledNotificationsUseCase:
+            gh<_i433.GetScheduledNotificationsUseCase>(),
+        removeScheduledNotificationsUseCase:
+            gh<_i701.RemoveScheduledNotificationUseCase>(),
+        saveScheduledNotificationUseCase:
+            gh<_i388.SaveScheduledNotificationUseCase>(),
       ));
   gh.factory<_i531.DailyWordsBloc>(() => _i531.DailyWordsBloc(
       getDailyWordsUseCase: gh<_i246.GetDailyWordsUseCase>()));

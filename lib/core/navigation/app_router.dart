@@ -27,6 +27,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
+import '../../presentation/features/notifications/bloc/notifications_bloc.dart';
+
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -39,7 +41,7 @@ class AppRouter {
         builder: (context, state, navigationShell) {
           return MultiBlocProvider(
             providers: [
-              // BlocProvider(create: (context) => di.getIt<NotificationsBloc>()),
+              BlocProvider(create: (context) => di.getIt<NotificationsBloc>()),
               BlocProvider(create: (context) => di.getIt<TopicsBloc>()),
               BlocProvider(
                 create:

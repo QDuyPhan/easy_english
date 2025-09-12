@@ -1,3 +1,4 @@
+import 'package:app_settings/app_settings.dart';
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:bottom_picker/resources/arrays.dart';
 import 'package:easy_english/domain/entities/theme_entity.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/notification_util.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
+import '../../notifications/bloc/notifications_bloc.dart';
 import '../widgets/settings_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -67,6 +69,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final size = MediaQuery.sizeOf(context);
+    final isGrantedNotificationsPermission =
+        context.watch<NotificationsBloc>().state.isNotificationsGranted;
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, state) {
         final isDarkMode = state.themeEntity?.themeType == ThemeType.dark;
@@ -94,10 +98,37 @@ class _SettingsScreenState extends State<SettingsScreen> {
           body: Column(
             children: [
               Column(
-                children: const [
+                children: [
                   SettingsTile(icon: Icons.phone_outlined, title: 'Contact Us'),
                   SettingsTile(icon: Icons.menu_book_outlined, title: 'About Us'),
                   SettingsTile(icon: Icons.star_border_rounded, title: 'Rate Us'),
+
+                  if (!isGrantedNotificationsPermission)
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: InkWell(
+                        onTap: _openNotificationsSettings,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: colorScheme.primary.withOpacity(0.08),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 18,
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.notifications,
+                                color: colorScheme.primary.withOpacity(0.8),
+                              ),
+                              Text('Enable Notifications'),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                 ],
               ),
               // BlocBuilder<ReminderCubit, Reminder>(
@@ -151,6 +182,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         );
       },
     );
+  }
+
+  void _openNotificationsSettings() {
+    AppSettings.openAppSettings(type: AppSettingsType.notification);
   }
 
   void _openTimePicker(BuildContext context) {
