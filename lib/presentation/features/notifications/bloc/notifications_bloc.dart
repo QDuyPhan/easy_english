@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:easy_english/core/config/app_config.dart';
 import 'package:easy_english/domain/entities/scheduled_notification_entity.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/usecases/notifications/get_scheduled_notifications_use_case.dart';
@@ -67,9 +68,12 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     _ScheduleNextDayReminder event,
     Emitter<NotificationsState> emit,
   ) async {
-    debugPrint('NotificationsBloc: scheduleNextDayReminder');
+    app_config.printLog('i', 'NotificationsBloc: scheduleNextDayReminder');
     final isGranted = state.isNotificationsGranted;
-    debugPrint('NotificationsBloc: scheduleNextDayReminder isGranted: $isGranted');
+    app_config.printLog(
+      'i',
+      'NotificationsBloc: scheduleNextDayReminder isGranted: $isGranted',
+    );
     if (isGranted) {
       final now = DateTime.now();
       const nextDayReminderId = 0;
@@ -99,7 +103,8 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
           scheduledDate: scheduledDate.toIso8601String(),
         ),
       );
-      debugPrint(
+      app_config.printLog(
+        'i',
         'NotificationsBloc: scheduleNextDayReminder scheduledDate: $scheduledDate',
       );
     }

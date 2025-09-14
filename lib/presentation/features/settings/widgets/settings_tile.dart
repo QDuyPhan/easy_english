@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 
-class SettingsTile extends StatelessWidget {
-  final IconData icon;
+class SettingsTile extends StatefulWidget {
+  final IconData? icon;
   final String title;
   final VoidCallback? onTap;
+  final Widget? widget;
 
   const SettingsTile({
     super.key,
-    required this.icon,
+    this.icon,
     required this.title,
     this.onTap,
+    this.widget,
   });
 
+  @override
+  State<SettingsTile> createState() => _SettingsTileState();
+}
+
+class _SettingsTileState extends State<SettingsTile> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -23,13 +30,12 @@ class SettingsTile extends StatelessWidget {
         color: colorScheme.surfaceVariant.withOpacity(0.3),
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(12),
+          onTap: widget.onTap,
+          // borderRadius: BorderRadius.circular(12),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
             child: Row(
               children: [
-                // Icon container
                 Container(
                   width: 40,
                   height: 40,
@@ -38,27 +44,23 @@ class SettingsTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(
-                    icon,
+                    widget.icon,
                     color: colorScheme.primary.withOpacity(0.8),
                     size: 20,
                   ),
                 ),
                 const SizedBox(width: 16),
-                // Title text
                 Expanded(
                   child: Text(
-                    title,
+                    widget.title,
                     style: textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.w500,
                       color: colorScheme.onSurface,
                     ),
                   ),
                 ),
-                const Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: 16,
-                  color: Colors.grey,
-                ),
+                widget.widget ??
+                    Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey),
               ],
             ),
           ),

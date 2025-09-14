@@ -90,6 +90,19 @@ dependencies:
   flutter_launcher_icons: ^0.14.4
   cool_alert: ^2.0.0
   flutter_screenutil: ^5.9.3
+  wheel_picker: ^0.2.2
+  bottom_sheet: ^4.0.4
+  # test
+#  carousel_slider: ^5.0.0
+#  vector_math: ^2.1.4
+#  glassmorphism: ^3.0.0
+#  animated_text_kit: ^4.2.3
+#  flutter_staggered_animations: ^1.1.1
+#  shimmer: ^3.0.0
+#  blur: ^4.0.2
+#  cached_network_image: ^3.4.1
+#  font_awesome_flutter: ^10.8.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
