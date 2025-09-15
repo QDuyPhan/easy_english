@@ -88,29 +88,44 @@ class _HomeNavigationState extends State<HomeNavigation> {
         body: SafeArea(
           child: Column(children: [Flexible(child: widget.navigationShell)]),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: selectedIndex == -1 ? 0 : selectedIndex,
-          type: BottomNavigationBarType.fixed,
-          showUnselectedLabels: true,
-          selectedFontSize: 12,
-          unselectedFontSize: 12,
-          elevation: 0,
-          selectedItemColor: colorScheme.primary,
-          unselectedItemColor: Colors.grey[600]!,
-
-          // selectedIconTheme: IconThemeData(color: colorScheme.primary),
-          // unselectedIconTheme: IconThemeData(
-          //   color: colorScheme.onSurface.withOpacity(0.6),
-          // ),
-          onTap: (index) {
-            widget.navigationShell.goBranch(index);
-          },
-
-          items: List.generate(
-            HomeNavigation.labels.length,
-            (index) => BottomNavigationBarItem(
-              label: HomeNavigation.labels[index],
-              icon: Icon(HomeNavigation.icons[index]),
+        bottomNavigationBar: Theme(
+          data: Theme.of(
+            context,
+          ).copyWith(splashColor: Colors.transparent, highlightColor: Colors.transparent),
+          child: BottomNavigationBar(
+            currentIndex: selectedIndex == -1 ? 0 : selectedIndex,
+            type: BottomNavigationBarType.fixed,
+            showUnselectedLabels: true,
+            selectedFontSize: 12,
+            unselectedFontSize: 12,
+            elevation: 0,
+            selectedItemColor: colorScheme.primary,
+            unselectedItemColor: Colors.grey[600]!,
+            onTap: (index) {
+              widget.navigationShell.goBranch(index);
+            },
+            items: List.generate(
+              HomeNavigation.labels.length,
+              (index) => BottomNavigationBarItem(
+                label: HomeNavigation.labels[index],
+                icon: Container(
+                  padding: EdgeInsets.all(2),
+                  decoration: BoxDecoration(
+                    color:
+                        index == selectedIndex
+                            ? colorScheme.primaryContainer
+                            : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      index == selectedIndex ? colorScheme.primary : Colors.grey[600]!,
+                      BlendMode.srcIn,
+                    ),
+                    child: Icon(HomeNavigation.icons[index]),
+                  ),
+                ),
+              ),
             ),
           ),
         ),
