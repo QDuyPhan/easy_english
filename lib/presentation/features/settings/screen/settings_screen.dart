@@ -119,19 +119,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  void _scheduleNotifications() {
-    final isGrantedNotificationsPermissionb =
-        context.read<NotificationsBloc>().state.isNotificationsGranted;
-    if (isGrantedNotificationsPermissionb) {
-      showDialog(
-        context: context,
-        builder: (_) => const RequestNotificationsPermissionDialog(),
-      );
-      return;
-    }
 
-    context.read<NotificationsBloc>().add(const NotificationsEvent.scheduleNextDayReminder());
-  }
 
   void _openTimePicker() {
     Scaffold.of(context).showBottomSheet((BuildContext context) {

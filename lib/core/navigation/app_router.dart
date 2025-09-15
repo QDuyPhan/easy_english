@@ -25,13 +25,14 @@ import 'package:easy_english/presentation/features/vocabulary/screen/word_detail
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:swipeable_page_route/swipeable_page_route.dart';
 
 import '../../presentation/features/notifications/bloc/notifications_bloc.dart';
+import '../utils/widgets/swipeable.dart';
 
 class AppRouter {
-  static final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey<NavigatorState>(debugLabel: 'root');
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>(
+    debugLabel: 'root',
+  );
 
   static final router = GoRouter(
     initialLocation: RoutePaths.home,
@@ -44,16 +45,11 @@ class AppRouter {
               BlocProvider(create: (context) => di.getIt<NotificationsBloc>()),
               BlocProvider(create: (context) => di.getIt<TopicsBloc>()),
               BlocProvider(
-                create:
-                    (context) =>
-                        di.getIt<DailyWordsBloc>()
-                          ..add(const GetDailyWordsEvent()),
+                create: (context) =>
+                    di.getIt<DailyWordsBloc>()..add(const GetDailyWordsEvent()),
               ),
             ],
-            child: HomeNavigation(
-              state: state,
-              navigationShell: navigationShell,
-            ),
+            child: HomeNavigation(state: state, navigationShell: navigationShell),
           );
         },
         branches: [
@@ -66,15 +62,9 @@ class AppRouter {
                     key: state.pageKey,
                     child: MultiBlocProvider(
                       providers: [
-                        BlocProvider(
-                          create: (context) => di.getIt<VocabularyBloc>(),
-                        ),
-                        BlocProvider(
-                          create: (context) => di.getIt<TopicsBloc>(),
-                        ),
-                        BlocProvider(
-                          create: (context) => di.getIt<SearchBloc>(),
-                        ),
+                        BlocProvider(create: (context) => di.getIt<VocabularyBloc>()),
+                        BlocProvider(create: (context) => di.getIt<TopicsBloc>()),
+                        BlocProvider(create: (context) => di.getIt<SearchBloc>()),
                       ],
                       child: HomeScreen(),
                     ),
@@ -86,11 +76,10 @@ class AppRouter {
                 pageBuilder: (context, state) {
                   return SwipeablePage(
                     key: state.pageKey,
-                    builder:
-                        (context) => BlocProvider(
-                          create: (context) => di.getIt<VocabularyBloc>(),
-                          child: VocabularyScreen(),
-                        ),
+                    builder: (context) => BlocProvider(
+                      create: (context) => di.getIt<VocabularyBloc>(),
+                      child: VocabularyScreen(),
+                    ),
                   );
                 },
               ),
@@ -112,10 +101,7 @@ class AppRouter {
               GoRoute(
                 path: RoutePaths.dictionary,
                 pageBuilder: (context, state) {
-                  return NoTransitionPage(
-                    key: state.pageKey,
-                    child: DictionaryScreen(),
-                  );
+                  return NoTransitionPage(key: state.pageKey, child: DictionaryScreen());
                 },
               ),
 
@@ -123,13 +109,10 @@ class AppRouter {
                 path: RoutePaths.topicCategory,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
-                  final topicEntry =
-                      extra?['topics'] as MapEntry<String, List<String>>;
+                  final topicEntry = extra?['topics'] as MapEntry<String, List<String>>;
                   return SwipeablePage(
                     key: state.pageKey,
-                    builder:
-                        (context) =>
-                            TopicCategoryScreen(topicEntry: topicEntry),
+                    builder: (context) => TopicCategoryScreen(topicEntry: topicEntry),
                   );
                 },
               ),
@@ -141,8 +124,7 @@ class AppRouter {
                   final topic = extra?['topic'] as String? ?? '';
                   return SwipeablePage(
                     key: state.pageKey,
-                    builder:
-                        (context) => TopicsScreen(folder: folder, topic: topic),
+                    builder: (context) => TopicsScreen(folder: folder, topic: topic),
                   );
                 },
               ),
@@ -185,20 +167,14 @@ class AppRouter {
             routes: [
               GoRoute(
                 path: RoutePaths.grammar,
-                pageBuilder:
-                    (context, state) => CustomTransitionPage(
-                      key: state.pageKey,
-                      child: GrammarScreen(),
-                      transitionsBuilder: (
-                        context,
-                        animation,
-                        secondaryAnimation,
-                        child,
-                      ) {
-                        return FadeTransition(opacity: animation, child: child);
-                      },
-                      transitionDuration: Duration(milliseconds: 500),
-                    ),
+                pageBuilder: (context, state) => CustomTransitionPage(
+                  key: state.pageKey,
+                  child: GrammarScreen(),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    return FadeTransition(opacity: animation, child: child);
+                  },
+                  transitionDuration: Duration(milliseconds: 500),
+                ),
               ),
               GoRoute(
                 path: RoutePaths.grammarCategory,
@@ -207,8 +183,7 @@ class AppRouter {
                   final category = extra?['category'] as CategoryDataEntity;
                   return SwipeablePage(
                     key: state.pageKey,
-                    builder:
-                        (context) => GrammarCategoryScreen(category: category),
+                    builder: (context) => GrammarCategoryScreen(category: category),
                   );
                 },
               ),
@@ -229,20 +204,14 @@ class AppRouter {
             routes: [
               GoRoute(
                 path: RoutePaths.studying,
-                pageBuilder:
-                    (context, state) => CustomTransitionPage(
-                      key: state.pageKey,
-                      child: StudyingScreen(),
-                      transitionsBuilder: (
-                        context,
-                        animation,
-                        secondaryAnimation,
-                        child,
-                      ) {
-                        return FadeTransition(opacity: animation, child: child);
-                      },
-                      transitionDuration: Duration(milliseconds: 500),
-                    ),
+                pageBuilder: (context, state) => CustomTransitionPage(
+                  key: state.pageKey,
+                  child: StudyingScreen(),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    return FadeTransition(opacity: animation, child: child);
+                  },
+                  transitionDuration: Duration(milliseconds: 500),
+                ),
               ),
             ],
           ),
@@ -251,10 +220,7 @@ class AppRouter {
               GoRoute(
                 path: RoutePaths.settings,
                 pageBuilder: (context, state) {
-                  return NoTransitionPage(
-                    key: state.pageKey,
-                    child: SettingsScreen(),
-                  );
+                  return NoTransitionPage(key: state.pageKey, child: SettingsScreen());
                 },
               ),
               // GoRoute(
@@ -275,11 +241,10 @@ class AppRouter {
         pageBuilder: (context, state) {
           return SwipeablePage(
             key: const ValueKey('SearchScreen'),
-            builder:
-                (context) => BlocProvider(
-                  create: (_) => di.getIt<SearchBloc>(),
-                  child: SearchScreen(),
-                ),
+            builder: (context) => BlocProvider(
+              create: (_) => di.getIt<SearchBloc>(),
+              child: SearchScreen(),
+            ),
           );
         },
         routes: [
@@ -291,20 +256,17 @@ class AppRouter {
               final word = extra?['word'] as WordEntity;
               return SwipeablePage(
                 key: const ValueKey('WordDetailScreen_Outside'),
-                builder:
-                    (context) => BlocProvider(
-                      create: (context) => di.getIt<TopicsBloc>(),
-                      child: WordDetailScreen(word: word),
-                    ),
+                builder: (context) => BlocProvider(
+                  create: (context) => di.getIt<TopicsBloc>(),
+                  child: WordDetailScreen(word: word),
+                ),
               );
             },
           ),
         ],
       ),
     ],
-    errorBuilder:
-        (context, state) => Scaffold(
-          body: Center(child: Text('Page not found: ${state.error}')),
-        ),
+    errorBuilder: (context, state) =>
+        Scaffold(body: Center(child: Text('Page not found: ${state.error}'))),
   );
 }

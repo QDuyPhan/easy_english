@@ -22,7 +22,7 @@ class AppTheme {
         ),
       ),
       iconTheme: IconThemeData(color: colorScheme.onSurface),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: colorScheme.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 3,

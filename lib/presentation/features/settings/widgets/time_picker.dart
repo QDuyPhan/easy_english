@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wheel_picker/wheel_picker.dart';
+
+import '../../../../core/utils/widgets/app_snack_bar.dart';
+import '../../notifications/bloc/notifications_bloc.dart';
 
 class TimePicker extends StatefulWidget {
   final VoidCallback? onTap;
@@ -41,14 +46,61 @@ class _TimePickerState extends State<TimePicker> {
     });
   }
 
+  void _scheduleNotifications() {
+    // final isGrantedNotificationsPermissionb =
+    //     context.read<NotificationsBloc>().state.isNotificationsGranted;
+    // if (isGrantedNotificationsPermissionb) {
+    //   showDialog(
+    //     context: context,
+    //     builder: (_) => const RequestNotificationsPermissionDialog(),
+    //   );
+    //   return;
+    // }
+    final now = DateTime.now();
+    final hour = _hoursWheel.selected;
+    final minute = _minutesWheel.selected;
+    final scheduledDate = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      hour,
+      minute,
+    ).add(const Duration(days: 1));
+
+    // app_config.printLog(
+    //   'i',
+    //   'TimePicker: _scheduleNotifications scheduledDate: $scheduledDate',
+    // );
+    AppSnackBar.showSuccess(context, "Words reminder scheduled");
+    Navigator.pop(context);
+    context.read<NotificationsBloc>().add(
+      NotificationsEvent.scheduleNextDayReminder(scheduledTime: scheduledDate),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return Container(
       width: double.infinity,
-      color: Colors.grey,
       padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: colorScheme.surface,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(16.0),
+          topRight: Radius.circular(16.0),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10.0,
+            offset: const Offset(0, -5),
+          ),
+        ],
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -61,19 +113,19 @@ class _TimePickerState extends State<TimePicker> {
                 child: Padding(padding: const EdgeInsets.all(8.0), child: Text('Hủy')),
               ),
               GestureDetector(
-                onTap: null,
+                onTap: () => _scheduleNotifications(),
                 child: Padding(padding: const EdgeInsets.all(8.0), child: Text('Xong')),
               ),
             ],
           ),
           const SizedBox(height: 16),
-          _buildTimePicker(size),
+          _buildTimePicker(size, colorScheme: colorScheme),
         ],
       ),
     );
   }
 
-  Widget _buildTimePicker(Size size) {
+  Widget _buildTimePicker(Size size, {ColorScheme? colorScheme}) {
     return Center(
       child: SizedBox(
         width: size.width,
@@ -84,7 +136,12 @@ class _TimePickerState extends State<TimePicker> {
             _buildCenterBar(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Row(children: [..._buildTimeWheels(), const SizedBox(width: 6.0)]),
+              child: Row(
+                children: [
+                  ..._buildTimeWheels(colorScheme: colorScheme),
+                  const SizedBox(width: 6.0),
+                ],
+              ),
             ),
           ],
         ),
@@ -104,7 +161,7 @@ class _TimePickerState extends State<TimePicker> {
     );
   }
 
-  List<Widget> _buildTimeWheels() {
+  List<Widget> _buildTimeWheels({ColorScheme? colorScheme}) {
     const textStyle = TextStyle(fontSize: 26.0, height: 1.5);
 
     final wheelStyle = WheelPickerStyle(
@@ -125,7 +182,7 @@ class _TimePickerState extends State<TimePicker> {
           builder: itemBuilder,
           controller: _hoursWheel,
           style: wheelStyle,
-          selectedIndexColor: Colors.redAccent,
+          selectedIndexColor: colorScheme!.primary,
           onIndexChanged: widget.onIndexChanged,
         ),
       ),
@@ -136,7 +193,7 @@ class _TimePickerState extends State<TimePicker> {
           controller: _minutesWheel,
           looping: true,
           style: wheelStyle,
-          selectedIndexColor: Colors.redAccent,
+          selectedIndexColor: colorScheme.primary,
           onIndexChanged: widget.onIndexChanged,
         ),
       ),

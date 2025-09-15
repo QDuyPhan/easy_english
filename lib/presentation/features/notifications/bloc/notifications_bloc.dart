@@ -59,7 +59,15 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     final isGranted = await _localNotificationsTools.requestPermissions();
     debugPrint('NotificationsBloc: requestPermissions isGranted: $isGranted');
     if (oldGrantedState == false && isGranted == true) {
-      add(const NotificationsEvent.scheduleNextDayReminder());
+      final now = DateTime.now();
+      final scheduledDate = DateTime(
+        now.year,
+        now.month,
+        now.day,
+        8,
+        0,
+      ).add(const Duration(days: 1));
+      add(NotificationsEvent.scheduleNextDayReminder(scheduledTime: scheduledDate));
     }
     emit(state.copyWith(isNotificationsGranted: isGranted ?? false));
   }
@@ -75,15 +83,15 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
       'NotificationsBloc: scheduleNextDayReminder isGranted: $isGranted',
     );
     if (isGranted) {
-      final now = DateTime.now();
+      // final now = DateTime.now();
       const nextDayReminderId = 0;
-      final scheduledDate = DateTime(
-        now.year,
-        now.month,
-        now.day,
-        8,
-        0,
-      ).add(const Duration(days: 1));
+      // final scheduledDate = DateTime(
+      //   now.year,
+      //   now.month,
+      //   now.day,
+      //   9,
+      //   09,
+      // ).add(const Duration(days: 1));
       final title = '💪Boost your vocabulary daily!';
       final body =
           'Don\'t miss the chance to learn new words today. Small steps lead to big changes!';
@@ -91,7 +99,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         id: nextDayReminderId,
         title: title,
         body: body,
-        scheduledDate: scheduledDate,
+        scheduledDate: event.scheduledTime,
         category: NotificationCategory.dailyReminder,
         threadIdentifier: ThreadIdentifiers.dailyReminder,
       );
@@ -100,12 +108,12 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
           id: nextDayReminderId,
           title: title,
           body: body,
-          scheduledDate: scheduledDate.toIso8601String(),
+          scheduledDate: event.scheduledTime.toIso8601String(),
         ),
       );
       app_config.printLog(
         'i',
-        'NotificationsBloc: scheduleNextDayReminder scheduledDate: $scheduledDate',
+        'NotificationsBloc: scheduleNextDayReminder scheduledDate: ${event.scheduledTime}',
       );
     }
   }

@@ -21,7 +21,7 @@ mixin _$NotificationsEvent {
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -36,7 +36,7 @@ mixin _$NotificationsEvent {
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -51,7 +51,7 @@ mixin _$NotificationsEvent {
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -183,7 +183,7 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -201,7 +201,7 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -219,7 +219,7 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -355,7 +355,7 @@ class _$HandleOpenAppFromNotificationImpl
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -373,7 +373,7 @@ class _$HandleOpenAppFromNotificationImpl
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -391,7 +391,7 @@ class _$HandleOpenAppFromNotificationImpl
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -528,7 +528,7 @@ class _$ClearWordIdFromNotificationImpl
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -546,7 +546,7 @@ class _$ClearWordIdFromNotificationImpl
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -564,7 +564,7 @@ class _$ClearWordIdFromNotificationImpl
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -658,6 +658,8 @@ abstract class _$$ScheduleNextDayReminderImplCopyWith<$Res> {
           _$ScheduleNextDayReminderImpl value,
           $Res Function(_$ScheduleNextDayReminderImpl) then) =
       __$$ScheduleNextDayReminderImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime scheduledTime});
 }
 
 /// @nodoc
@@ -672,27 +674,53 @@ class __$$ScheduleNextDayReminderImplCopyWithImpl<$Res>
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? scheduledTime = null,
+  }) {
+    return _then(_$ScheduleNextDayReminderImpl(
+      scheduledTime: null == scheduledTime
+          ? _value.scheduledTime
+          : scheduledTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
-  const _$ScheduleNextDayReminderImpl();
+  const _$ScheduleNextDayReminderImpl({required this.scheduledTime});
+
+  @override
+  final DateTime scheduledTime;
 
   @override
   String toString() {
-    return 'NotificationsEvent.scheduleNextDayReminder()';
+    return 'NotificationsEvent.scheduleNextDayReminder(scheduledTime: $scheduledTime)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ScheduleNextDayReminderImpl);
+            other is _$ScheduleNextDayReminderImpl &&
+            (identical(other.scheduledTime, scheduledTime) ||
+                other.scheduledTime == scheduledTime));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, scheduledTime);
+
+  /// Create a copy of NotificationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ScheduleNextDayReminderImplCopyWith<_$ScheduleNextDayReminderImpl>
+      get copyWith => __$$ScheduleNextDayReminderImplCopyWithImpl<
+          _$ScheduleNextDayReminderImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -700,7 +728,7 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -709,7 +737,7 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     required TResult Function(int id) removeScheduledNotifications,
     required TResult Function(NotificationsState state) emitState,
   }) {
-    return scheduleNextDayReminder();
+    return scheduleNextDayReminder(scheduledTime);
   }
 
   @override
@@ -718,7 +746,7 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -727,7 +755,7 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     TResult? Function(int id)? removeScheduledNotifications,
     TResult? Function(NotificationsState state)? emitState,
   }) {
-    return scheduleNextDayReminder?.call();
+    return scheduleNextDayReminder?.call(scheduledTime);
   }
 
   @override
@@ -736,7 +764,7 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -747,7 +775,7 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     required TResult orElse(),
   }) {
     if (scheduleNextDayReminder != null) {
-      return scheduleNextDayReminder();
+      return scheduleNextDayReminder(scheduledTime);
     }
     return orElse();
   }
@@ -820,7 +848,16 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
 }
 
 abstract class _ScheduleNextDayReminder implements NotificationsEvent {
-  const factory _ScheduleNextDayReminder() = _$ScheduleNextDayReminderImpl;
+  const factory _ScheduleNextDayReminder(
+      {required final DateTime scheduledTime}) = _$ScheduleNextDayReminderImpl;
+
+  DateTime get scheduledTime;
+
+  /// Create a copy of NotificationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ScheduleNextDayReminderImplCopyWith<_$ScheduleNextDayReminderImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -926,7 +963,7 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -944,7 +981,7 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -962,7 +999,7 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -1135,7 +1172,7 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -1153,7 +1190,7 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -1171,7 +1208,7 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -1315,7 +1352,7 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -1333,7 +1370,7 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -1351,7 +1388,7 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -1515,7 +1552,7 @@ class _$RemoveScheduledNotificationsImpl
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -1533,7 +1570,7 @@ class _$RemoveScheduledNotificationsImpl
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -1551,7 +1588,7 @@ class _$RemoveScheduledNotificationsImpl
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -1731,7 +1768,7 @@ class _$EmitStateImpl implements _EmitState {
     required TResult Function() requestPermissions,
     required TResult Function() handleOpenAppFromNotification,
     required TResult Function() clearWordIdFromNotification,
-    required TResult Function() scheduleNextDayReminder,
+    required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)
         scheduleWordsReminder,
@@ -1749,7 +1786,7 @@ class _$EmitStateImpl implements _EmitState {
     TResult? Function()? requestPermissions,
     TResult? Function()? handleOpenAppFromNotification,
     TResult? Function()? clearWordIdFromNotification,
-    TResult? Function()? scheduleNextDayReminder,
+    TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,
@@ -1767,7 +1804,7 @@ class _$EmitStateImpl implements _EmitState {
     TResult Function()? requestPermissions,
     TResult Function()? handleOpenAppFromNotification,
     TResult Function()? clearWordIdFromNotification,
-    TResult Function()? scheduleNextDayReminder,
+    TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
             List<WordEntity> words, DateTime scheduledTime, Duration interval)?
         scheduleWordsReminder,

@@ -29,7 +29,7 @@ class _SettingsTileState extends State<SettingsTile> {
       child: Material(
         color: colorScheme.surfaceVariant.withOpacity(0.3),
         borderRadius: BorderRadius.circular(12),
-        child: InkWell(
+        child: GestureDetector(
           onTap: widget.onTap,
           // borderRadius: BorderRadius.circular(12),
           child: Padding(
@@ -60,7 +60,11 @@ class _SettingsTileState extends State<SettingsTile> {
                   ),
                 ),
                 widget.widget ??
-                    Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.grey),
+                    Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 16,
+                      color: Colors.grey,
+                    ),
               ],
             ),
           ),
