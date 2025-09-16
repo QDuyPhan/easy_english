@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:wheel_picker/wheel_picker.dart';
 
 import '../../../../core/utils/widgets/app_snack_bar.dart';
+import '../../../../core/utils/widgets/request_notifications_permission_dialog.dart';
 import '../../notifications/bloc/notifications_bloc.dart';
 
 class TimePicker extends StatefulWidget {
@@ -47,15 +47,17 @@ class _TimePickerState extends State<TimePicker> {
   }
 
   void _scheduleNotifications() {
-    // final isGrantedNotificationsPermissionb =
-    //     context.read<NotificationsBloc>().state.isNotificationsGranted;
-    // if (isGrantedNotificationsPermissionb) {
-    //   showDialog(
-    //     context: context,
-    //     builder: (_) => const RequestNotificationsPermissionDialog(),
-    //   );
-    //   return;
-    // }
+    final isGrantedNotificationsPermissionb = context
+        .read<NotificationsBloc>()
+        .state
+        .isNotificationsGranted;
+    if (!isGrantedNotificationsPermissionb) {
+      showDialog(
+        context: context,
+        builder: (_) => const RequestNotificationsPermissionDialog(),
+      );
+      return;
+    }
     final now = DateTime.now();
     final hour = _hoursWheel.selected;
     final minute = _minutesWheel.selected;
