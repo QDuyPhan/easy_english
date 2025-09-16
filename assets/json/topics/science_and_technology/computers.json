@@ -11,7 +11,8 @@
         "definition": "a circuit board that can be put into a small computer to increase the speed at which it processes information",
         "examples": []
       }
-    ]
+    ],
+    "id": "4ff3d6e8-b54e-4154-92f6-0d01669311ce"
   },
   {
     "word": "access",
@@ -80,7 +81,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "453bd2f0-02c7-491a-b81a-6848e9a5918d"
   },
   {
     "word": "add-in",
@@ -94,7 +96,8 @@
         "definition": "a computer program that can be added to a larger program to allow it do more things",
         "examples": []
       }
-    ]
+    ],
+    "id": "ef6b46aa-a104-49f7-a74a-0896198b4814"
   },
   {
     "word": "AI",
@@ -121,7 +124,8 @@
         "definition": "artificial insemination (= the process of making a woman or female animal pregnant by an artificial method of putting male sperm inside her, and not by sexual activity)",
         "examples": []
       }
-    ]
+    ],
+    "id": "0794658f-8f0d-4877-bf43-3320aa780d6e"
   },
   {
     "word": "alert",
@@ -166,7 +170,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c7645955-150c-4890-b102-347173b32052"
   },
   {
     "word": "Algol",
@@ -180,7 +185,8 @@
         "definition": "an early computer language used for scientific calculations language",
         "examples": []
       }
-    ]
+    ],
+    "id": "b75500e4-bce0-4efc-9029-00c16eaa4ef1"
   },
   {
     "word": "algorithm",
@@ -211,7 +217,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3085f24d-e101-47f3-b9a7-aa114ba510e0"
   },
   {
     "word": "Alt key",
@@ -225,7 +232,8 @@
         "definition": "a key on a computer keyboard that you press while pressing other keys, in order to change their function",
         "examples": []
       }
-    ]
+    ],
+    "id": "c27a8562-579f-41a2-b9cf-c1d1f625444c"
   },
   {
     "word": "analogue",
@@ -248,7 +256,8 @@
         "definition": "showing the time using hands on a dial and not with a display of numbers",
         "examples": []
       }
-    ]
+    ],
+    "id": "a2ebfa5c-e6bf-4a61-ab70-7fbc739464ed"
   },
   {
     "word": "animation",
@@ -289,7 +298,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d7b253a8-2d1d-431d-a4cf-02a17abb832c"
   },
   {
     "word": "antivirus",
@@ -308,7 +318,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "73376140-5c72-48c4-916a-e21bf7a1d4d8"
   },
   {
     "word": "app",
@@ -360,7 +371,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b88bd8a2-25f7-443a-b1ee-7d60e49e29e9"
   },
   {
     "word": "applet",
@@ -374,7 +386,8 @@
         "definition": "a program that is run from within another program, for example from within an internet browser application",
         "examples": []
       }
-    ]
+    ],
+    "id": "e1cd7825-90d5-45cb-90c9-eef92be4cee8"
   },
   {
     "word": "application",
@@ -482,7 +495,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e30d0aa9-2300-44d4-86e1-97cdb6b6e15c"
   },
   {
     "word": "AR",
@@ -505,7 +519,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a54fef88-1445-4fff-be1d-e529f32445fb"
   },
   {
     "word": "architect",
@@ -554,7 +569,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b2cee2e0-dd32-4fa7-83d1-3f997e94cccf"
   },
   {
     "word": "architect",
@@ -573,7 +589,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5cde37ba-06f5-4fb1-b023-b8d8204edd30"
   },
   {
     "word": "architecture",
@@ -621,7 +638,8 @@
         "definition": "the design and structure of a computer system",
         "examples": []
       }
-    ]
+    ],
+    "id": "d10ff504-b253-4c97-8945-97eb2ec03fa5"
   },
   {
     "word": "archive",
@@ -657,7 +675,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c5a9a46b-bc66-465a-bbf4-9830ed9a6a15"
   },
   {
     "word": "archive",
@@ -675,7 +694,8 @@
         "definition": "to move information that is not often needed to a different disk, tape or other computer to store it",
         "examples": []
       }
-    ]
+    ],
+    "id": "264db6f7-4471-4d17-9a9d-5019ed72e8d1"
   },
   {
     "word": "array",
@@ -706,7 +726,8 @@
         "definition": "a set of numbers, signs or values arranged in rows and columns",
         "examples": []
       }
-    ]
+    ],
+    "id": "19ea7223-f67d-40b7-9755-63ecac21fdee"
   },
   {
     "word": "artificial intelligence",
@@ -725,7 +746,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "63c09bef-48a2-44c2-8668-3230d69ef306"
   },
   {
     "word": "authenticate",
@@ -757,7 +779,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b617a9bc-3cb7-4e1b-87e3-ee1721f49cf7"
   },
   {
     "word": "authoring",
@@ -771,7 +794,8 @@
         "definition": "creating computer programs without using programming language, for use in multimedia products",
         "examples": []
       }
-    ]
+    ],
+    "id": "11af6eeb-f32a-41d2-8a7d-5667675cb8c6"
   },
   {
     "word": "autocorrect",
@@ -790,7 +814,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "41ab586a-ba83-4af4-ab03-336187796908"
   },
   {
     "word": "autocorrect",
@@ -809,7 +834,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e3ec56d5-30d3-4aa4-8999-81eee924f306"
   },
   {
     "word": "autoplay",
@@ -828,7 +854,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "603a0716-5e78-4db8-82aa-cb4dd30b558a"
   },
   {
     "word": "back end",
@@ -860,7 +887,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "116690da-00e0-4005-84c5-5ff0e9e37297"
   },
   {
     "word": "back-end",
@@ -878,7 +906,8 @@
         "definition": "not used directly by a user, but used by a program or computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "6b2d45b0-b6ff-4bfc-a4eb-c53774c923b1"
   },
   {
     "word": "backslash",
@@ -892,7 +921,8 @@
         "definition": "a mark ( \\ ), used in computer commands",
         "examples": []
       }
-    ]
+    ],
+    "id": "11ea0f55-fb3e-4f57-880b-673134d6c4f6"
   },
   {
     "word": "backspace",
@@ -906,7 +936,8 @@
         "definition": "the key on the keyboard of a computer or other device that removes the last letter that you typed Backspace",
         "examples": []
       }
-    ]
+    ],
+    "id": "b9b8424f-131c-423d-8fc9-b82bacbe2626"
   },
   {
     "word": "backspace",
@@ -920,7 +951,8 @@
         "definition": "to use the backspace key on the keyboard of a computer or other device",
         "examples": []
       }
-    ]
+    ],
+    "id": "18e4a001-536e-4f2c-93c7-b431fff94eff"
   },
   {
     "word": "back up",
@@ -956,7 +988,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "66885dbc-d433-45f0-8a21-978bbe323ec3"
   },
   {
     "word": "backup",
@@ -996,7 +1029,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c6c5be3a-ae18-4f12-8af1-c2bb7d16fbbe"
   },
   {
     "word": "BASIC",
@@ -1010,7 +1044,8 @@
         "definition": "a simple language, using familiar English words, for writing computer programs",
         "examples": []
       }
-    ]
+    ],
+    "id": "72d4744e-6ebd-40a0-82d0-a2c1e513a217"
   },
   {
     "word": "batch",
@@ -1075,7 +1110,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3f4030b1-178e-4daf-b3f1-0ac6da475ce3"
   },
   {
     "word": "beta version",
@@ -1089,7 +1125,8 @@
         "definition": "a version of a product, especially computer software, that is almost ready for the public to buy or use, and that is tested by people who do not work for the company that is developing it",
         "examples": []
       }
-    ]
+    ],
+    "id": "249e5769-a4af-4bae-ab99-7c42728c68b6"
   },
   {
     "word": "binary",
@@ -1121,7 +1158,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5877680f-ba8a-4ac1-b58a-408624fef759"
   },
   {
     "word": "BIOS",
@@ -1135,7 +1173,8 @@
         "definition": "Basic Input-Output System (a set of basic instructions in a computer that controls how it begins to work when you first switch it on)",
         "examples": []
       }
-    ]
+    ],
+    "id": "728072f2-af43-4dac-81a7-2aafb93ee680"
   },
   {
     "word": "bit",
@@ -1282,7 +1321,8 @@
         "definition": "a person’s sexual organs",
         "examples": []
       }
-    ]
+    ],
+    "id": "afd4b0be-e5ca-41e1-8224-516b366fd8d2"
   },
   {
     "word": "Bitcoin™",
@@ -1310,7 +1350,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9e8e97df-d06e-43e9-a901-037b79952122"
   },
   {
     "word": "BlackBerry™",
@@ -1329,7 +1370,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "add41aec-6e55-4a77-873b-5baf480a23c5"
   },
   {
     "word": "blockchain",
@@ -1352,7 +1394,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9f119675-c585-48d4-9f98-2460167a9358"
   },
   {
     "word": "Bluetooth™",
@@ -1371,7 +1414,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3b21f68f-ce4d-4dec-9d57-d0f9963dd81d"
   },
   {
     "word": "Blu-ray",
@@ -1390,7 +1434,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b4e65d4b-309b-4899-b2f9-34f4954c78fa"
   },
   {
     "word": "Boolean operator",
@@ -1404,7 +1449,8 @@
         "definition": "a symbol or word such as ‘or’ or ‘and’, used in computer programs and searches to show what is or is not included",
         "examples": []
       }
-    ]
+    ],
+    "id": "61daaaef-3828-498d-b5fa-5e44d9cff9bc"
   },
   {
     "word": "boot",
@@ -1431,7 +1477,8 @@
         "definition": "if you or your car is booted, a piece of equipment is fixed to the car’s wheel so that you cannot drive it away, usually because the car is illegally parked booted",
         "examples": []
       }
-    ]
+    ],
+    "id": "54a7532d-54f8-46ba-b4cc-c33a42349ec5"
   },
   {
     "word": "bootstrap",
@@ -1463,7 +1510,8 @@
         "definition": "a piece of cloth or leather at the back of a boot that is used to help you pull it on",
         "examples": []
       }
-    ]
+    ],
+    "id": "5a065ca1-e58c-473a-882b-54ef951ffe9e"
   },
   {
     "word": "bootstrap",
@@ -1499,7 +1547,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "869618bc-db8e-418b-a02c-915eccedcb7c"
   },
   {
     "word": "bot",
@@ -1531,7 +1580,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "323a03e1-d842-4791-9ba6-068f338a6600"
   },
   {
     "word": "botnet",
@@ -1554,7 +1604,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f53091e8-6f6c-45fe-bb66-a05de4182a88"
   },
   {
     "word": "bug",
@@ -1629,7 +1680,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3eeecd91-02b2-4653-ae2d-1fb67ee2b809"
   },
   {
     "word": "buggy",
@@ -1679,7 +1731,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5e537693-e20f-466e-813a-06fdd8fd5716"
   },
   {
     "word": "bundle",
@@ -1733,7 +1786,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3ec60766-5c4c-4a99-90ef-2ff06158372a"
   },
   {
     "word": "bundle",
@@ -1774,7 +1828,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "da39ee10-ab3e-4b65-aa15-7213b83b434b"
   },
   {
     "word": "burn",
@@ -2024,7 +2079,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3d599391-218d-4dd0-b659-1281a2f6b177"
   },
   {
     "word": "bus",
@@ -2079,7 +2135,8 @@
         "definition": "a set of wires that carries information from one part of a computer system to another",
         "examples": []
       }
-    ]
+    ],
+    "id": "754e774f-545c-4e54-bd7a-8ecd15ecb0b1"
   },
   {
     "word": "button",
@@ -2177,7 +2234,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "31278225-ad22-43ff-a3e3-1c356efc9bb2"
   },
   {
     "word": "byte",
@@ -2191,7 +2249,8 @@
         "definition": "a unit of information stored in a computer, equal to 8 bits. A computer’s memory is measured in bytes. bit",
         "examples": []
       }
-    ]
+    ],
+    "id": "00305453-c859-4d3f-a04e-caa601dcf6ee"
   },
   {
     "word": "cache",
@@ -2214,7 +2273,8 @@
         "definition": "a part of a computer’s memory that stores copies of data that is often needed while a program is running. This data can be accessed very quickly.",
         "examples": []
       }
-    ]
+    ],
+    "id": "6ff6660b-79a0-480c-9e88-5ea80a7a868e"
   },
   {
     "word": "cache",
@@ -2237,7 +2297,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "278a154b-e13f-4d4f-9bfb-63b2b878fbae"
   },
   {
     "word": "CAD",
@@ -2251,7 +2312,8 @@
         "definition": "computer-aided design (= the use of computers to design machines, buildings, vehicles, etc.)",
         "examples": []
       }
-    ]
+    ],
+    "id": "f396f032-9f76-495a-9830-7e3726ea3861"
   },
   {
     "word": "CADCAM",
@@ -2270,7 +2332,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "47956965-4ce2-4395-880e-120d7edf039c"
   },
   {
     "word": "CAM",
@@ -2284,7 +2347,8 @@
         "definition": "computer-aided manufacturing (= the use of computers to make products in factories)",
         "examples": []
       }
-    ]
+    ],
+    "id": "35b85b9c-23c0-45a2-b2ce-79d9f864535d"
   },
   {
     "word": "card",
@@ -2455,7 +2519,8 @@
         "definition": "a machine or tool used for cleaning and combing wool or cotton before it is spun",
         "examples": []
       }
-    ]
+    ],
+    "id": "ed95056b-fae2-4cce-b70c-14fa909c2bf4"
   },
   {
     "word": "CD burner",
@@ -2478,7 +2543,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e08469f6-e6de-423f-a343-1725419a3d85"
   },
   {
     "word": "CD-ROM",
@@ -2509,7 +2575,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "94ff4bb2-61c0-4666-ad97-ef40d78da951"
   },
   {
     "word": "CD writer",
@@ -2523,7 +2590,8 @@
         "definition": "a piece of software or equipment used for copying sound or information from a computer onto a CD",
         "examples": []
       }
-    ]
+    ],
+    "id": "6d9473cf-69a5-45d1-aee1-fa6441349894"
   },
   {
     "word": "central processing unit",
@@ -2537,7 +2605,8 @@
         "definition": "the part of a computer that controls all the other parts of the system",
         "examples": []
       }
-    ]
+    ],
+    "id": "03dd625d-9e79-48ff-9764-f10b4aea6b52"
   },
   {
     "word": "channel",
@@ -2671,7 +2740,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7fef2786-0614-4fa7-9132-3b3e1d513f56"
   },
   {
     "word": "chatbot",
@@ -2694,7 +2764,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "dbde8122-8222-452f-9abd-678330d9831f"
   },
   {
     "word": "ChatGPT",
@@ -2713,7 +2784,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e6d1002b-d91c-47ec-b433-53a2db95213e"
   },
   {
     "word": "chip",
@@ -2818,7 +2890,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a9628ba8-6d81-4d0d-a13a-cb2171b5463c"
   },
   {
     "word": "click",
@@ -2929,7 +3002,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "638c719c-99a0-4c1c-8b99-90cec87dfc03"
   },
   {
     "word": "click",
@@ -2986,7 +3060,8 @@
         "definition": "a kilometre",
         "examples": []
       }
-    ]
+    ],
+    "id": "044b1a0e-d329-4a4c-b777-f5baa6d88e9c"
   },
   {
     "word": "client",
@@ -3029,7 +3104,8 @@
         "definition": "a computer that is linked to a server",
         "examples": []
       }
-    ]
+    ],
+    "id": "e544e3bf-33c9-46f3-a764-a6150b3418ed"
   },
   {
     "word": "client-side",
@@ -3057,7 +3133,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "086220b1-416d-4f35-9725-ee2b4fc679ca"
   },
   {
     "word": "clip art",
@@ -3071,7 +3148,8 @@
         "definition": "pictures and symbols that are stored in computer programs or on websites for computer users to copy and add to their own documents",
         "examples": []
       }
-    ]
+    ],
+    "id": "7544dc21-8dc3-4159-b48d-d840f3f004aa"
   },
   {
     "word": "clipboard",
@@ -3094,7 +3172,8 @@
         "definition": "a place in a computer’s memory where information from a computer file is stored for a time until it is added to another file",
         "examples": []
       }
-    ]
+    ],
+    "id": "e17f0c4a-3b5a-4a15-bf91-2b325a94c599"
   },
   {
     "word": "clock speed",
@@ -3113,7 +3192,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1153319a-0dfe-48bb-8b34-c093761ebdbc"
   },
   {
     "word": "clone",
@@ -3145,7 +3225,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "577e97d8-8f48-4303-91e2-02d6564d9ab0"
   },
   {
     "word": "CMS",
@@ -3168,7 +3249,8 @@
         "definition": "an organization of the Church of England and other Anglican churches that sends missionaries all over the world to teach people about Christianity. It was started in 1799 and was known as the Church Missionary Society until 1995.",
         "examples": []
       }
-    ]
+    ],
+    "id": "d82ca014-9a85-41e1-84cd-298a1a2f97c8"
   },
   {
     "word": "COBOL",
@@ -3182,7 +3264,8 @@
         "definition": "an early computer language used in business programs",
         "examples": []
       }
-    ]
+    ],
+    "id": "368ec0bd-c1f7-43e7-ad2e-5df2912d9035"
   },
   {
     "word": "code",
@@ -3273,7 +3356,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3c575bce-e90c-416a-8aec-6d74760e6d23"
   },
   {
     "word": "code",
@@ -3300,7 +3384,8 @@
         "definition": "to write a computer program by putting one system of numbers, words and symbols into another system",
         "examples": []
       }
-    ]
+    ],
+    "id": "fb562a00-4775-4939-92e7-db49613f9496"
   },
   {
     "word": "codec",
@@ -3314,7 +3399,8 @@
         "definition": "a device or program that reduces the size of a file, etc. so that it can be sent more quickly, and returns it to its original form so that it can be used coder",
         "examples": []
       }
-    ]
+    ],
+    "id": "f12c54a1-4a0e-4d17-990f-d6dcfdc10b93"
   },
   {
     "word": "command",
@@ -3425,7 +3511,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3d688889-b290-4422-84b2-1978f7c2f3d2"
   },
   {
     "word": "command language",
@@ -3439,7 +3526,8 @@
         "definition": "the letters, symbols, etc. that you use to give instructions to a computer program",
         "examples": []
       }
-    ]
+    ],
+    "id": "201f7be1-4ed4-4ab1-93b7-5b4dd3a24607"
   },
   {
     "word": "compatibility",
@@ -3462,7 +3550,8 @@
         "definition": "the ability of machines, especially computers, and computer programs to be used together",
         "examples": []
       }
-    ]
+    ],
+    "id": "a346e8ad-100d-4ccd-8b16-218b2898a0ef"
   },
   {
     "word": "compatible",
@@ -3507,7 +3596,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "32097342-d90f-4ce0-8d9a-4cc301ab13fe"
   },
   {
     "word": "compress",
@@ -3559,7 +3649,8 @@
         "definition": "to make computer files, etc. smaller so that they use less space on a disk, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "d83fcf14-6e86-4493-aa5c-f79fc7631d51"
   },
   {
     "word": "computer",
@@ -3610,7 +3701,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1304f965-8438-4588-a043-bca324eb93f4"
   },
   {
     "word": "computer-aided",
@@ -3629,7 +3721,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "25a7fc6f-cbc9-4d8c-af75-d53c8e28c3c2"
   },
   {
     "word": "computer-generated",
@@ -3648,7 +3741,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ba0975ba-1ca2-4f2e-b9f7-53614fcc513f"
   },
   {
     "word": "computerize",
@@ -3680,7 +3774,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "131c6340-e509-4049-a5e2-d0a9e58118c2"
   },
   {
     "word": "computer-literate",
@@ -3699,7 +3794,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "202dd2ea-531c-4ed7-b5e1-94d42d5b59c5"
   },
   {
     "word": "computing",
@@ -3734,7 +3830,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ec71ac58-63d0-44f2-997c-2522117751ff"
   },
   {
     "word": "configuration",
@@ -3770,7 +3867,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8249dde6-e8fa-4dfc-8c36-33107cca6f16"
   },
   {
     "word": "configure",
@@ -3789,7 +3887,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "65a52b4c-9788-41d4-b08e-b1720be75ddd"
   },
   {
     "word": "connect",
@@ -3927,7 +4026,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e0c1dff2-5104-4b5c-a649-ff9b3a5fe370"
   },
   {
     "word": "console2",
@@ -3945,7 +4045,8 @@
         "definition": "a small electronic device for playing video games",
         "examples": []
       }
-    ]
+    ],
+    "id": "059fc4d1-bd9f-46bc-93fa-0b2d8eb2be05"
   },
   {
     "word": "content management system",
@@ -3964,7 +4065,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "bbd7eafa-a053-4ace-ba52-42d9b90473f9"
   },
   {
     "word": "control",
@@ -4132,7 +4234,8 @@
         "definition": "(on a computer keyboard) a key that you press when you want to perform a particular operation",
         "examples": []
       }
-    ]
+    ],
+    "id": "6a419058-fb14-4633-83b6-b47055b543c8"
   },
   {
     "word": "corrupt",
@@ -4181,7 +4284,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f1df60d9-15b4-4681-969c-23df10f1384e"
   },
   {
     "word": "corruption",
@@ -4235,7 +4339,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8e8a301a-71fb-4740-8dbd-e7b83e8c47a1"
   },
   {
     "word": "courseware",
@@ -4249,7 +4354,8 @@
         "definition": "computer programs that are designed to be used to teach a subject",
         "examples": []
       }
-    ]
+    ],
+    "id": "b116fa28-2fad-49e8-84c2-97a3efdcf66b"
   },
   {
     "word": "CPU",
@@ -4263,7 +4369,8 @@
         "definition": "central processing unit (the part of a computer that controls all the other parts of the system)",
         "examples": []
       }
-    ]
+    ],
+    "id": "c6a4dd09-4f49-40d6-86ba-f5a784418206"
   },
   {
     "word": "cracker",
@@ -4311,7 +4418,8 @@
         "definition": "an attractive person",
         "examples": []
       }
-    ]
+    ],
+    "id": "2bccdd87-c72d-4934-86df-7c341a3fe8c2"
   },
   {
     "word": "crash",
@@ -4409,7 +4517,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "dae4d65a-95bc-4311-9e1b-dd249bf6305a"
   },
   {
     "word": "crash",
@@ -4554,7 +4663,8 @@
         "definition": "if somebody crashes, their heart stops beating crashes",
         "examples": []
       }
-    ]
+    ],
+    "id": "d795915a-e6a4-425e-88b0-9259bfc2fd0a"
   },
   {
     "word": "cursor",
@@ -4568,7 +4678,8 @@
         "definition": "a small mark on a computer screen that can be moved and that shows the position on the screen where, for example, text will be added",
         "examples": []
       }
-    ]
+    ],
+    "id": "60e1d4b8-8378-4e35-9bd2-1948e8065fc2"
   },
   {
     "word": "cut",
@@ -4888,7 +4999,8 @@
         "definition": "to mix an illegal drug such as heroin with another substance",
         "examples": []
       }
-    ]
+    ],
+    "id": "0bee9fd7-f2fa-406a-b77c-3af233b8b63d"
   },
   {
     "word": "cybercrime",
@@ -4902,7 +5014,8 @@
         "definition": "crime that is committed using the internet, for example by stealing somebody’s personal or bank details or by infecting their computer with a virus",
         "examples": []
       }
-    ]
+    ],
+    "id": "dd77683b-59a9-48d2-9486-962219657b29"
   },
   {
     "word": "cybersecurity",
@@ -4921,7 +5034,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1ef04038-69f2-4982-a815-ca500be365fc"
   },
   {
     "word": "cyberspace",
@@ -4940,7 +5054,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "50a3c1a5-b1df-4222-95fe-7757a7042143"
   },
   {
     "word": "data",
@@ -5016,7 +5131,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "594e71a9-24ab-42c0-ab8c-77a90befa20e"
   },
   {
     "word": "databank",
@@ -5030,7 +5146,8 @@
         "definition": "a large amount of data on a particular subject that is stored in a computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "862cdfed-f5a6-4816-8e50-23ba60d69259"
   },
   {
     "word": "database",
@@ -5065,7 +5182,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b788936d-d4a1-4cca-9e93-c58af8d15473"
   },
   {
     "word": "data centre",
@@ -5084,7 +5202,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "fdac8c6b-8278-4eb8-bcd4-987272699744"
   },
   {
     "word": "data lake",
@@ -5103,7 +5222,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f8438aac-7cf6-44a0-914b-b647c4399944"
   },
   {
     "word": "data processing",
@@ -5117,7 +5237,8 @@
         "definition": "a series of actions that a computer performs on data to produce an output (= results)",
         "examples": []
       }
-    ]
+    ],
+    "id": "2dc44b62-28cf-49d4-95e9-c1408217a421"
   },
   {
     "word": "dataset",
@@ -5136,7 +5257,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f393d0c7-4b5f-4cbb-b347-ca9b0672c8b5"
   },
   {
     "word": "data terminal",
@@ -5150,7 +5272,8 @@
         "definition": "a computer that allows you to get into a system in order to get or add information",
         "examples": []
       }
-    ]
+    ],
+    "id": "9fc7ca4b-814b-489e-8d38-97846eadae98"
   },
   {
     "word": "data warehouse",
@@ -5164,7 +5287,8 @@
         "definition": "a large amount of data that comes from different parts of a business and that is stored together",
         "examples": []
       }
-    ]
+    ],
+    "id": "a40065f7-2db9-4a92-9c75-d6d994fe9c37"
   },
   {
     "word": "data warehousing",
@@ -5187,7 +5311,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d5bd0b01-d86f-4685-b6a1-579fc4a96800"
   },
   {
     "word": "debug",
@@ -5210,7 +5335,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "53f5197f-3f3f-43e4-b8f8-361d1ce50bcf"
   },
   {
     "word": "debug",
@@ -5224,7 +5350,8 @@
         "definition": "to look for and remove the faults in a computer program",
         "examples": []
       }
-    ]
+    ],
+    "id": "d3c154c0-82fd-47a4-a442-4821a6fbf2b8"
   },
   {
     "word": "debugger",
@@ -5238,7 +5365,8 @@
         "definition": "a computer program that helps to find and correct mistakes in other programs",
         "examples": []
       }
-    ]
+    ],
+    "id": "af9dac96-4fe6-4b46-b168-ebe39bae46c3"
   },
   {
     "word": "deck",
@@ -5330,7 +5458,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "bcbb2241-a067-4676-aa13-bdf3a9419293"
   },
   {
     "word": "deep learning",
@@ -5349,7 +5478,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ad6830e1-a69b-4e97-8fbf-ea3a83f0aeec"
   },
   {
     "word": "default",
@@ -5393,7 +5523,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8583e442-6d53-41f7-86af-e1786e4a9c24"
   },
   {
     "word": "delete",
@@ -5424,7 +5555,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "0ddbc3ed-aaa7-4bbc-a587-b84e868c2f14"
   },
   {
     "word": "deletion",
@@ -5443,7 +5575,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "fc05b20c-54fc-4f52-bf3d-4875052900b0"
   },
   {
     "word": "demo",
@@ -5498,7 +5631,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2feaff0d-9bf5-4bfb-bdbb-4aa3985ba88a"
   },
   {
     "word": "demo",
@@ -5521,7 +5655,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "fe09ea42-9872-45e5-a24a-eab8419054f8"
   },
   {
     "word": "deprecate",
@@ -5544,7 +5679,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "39be1a70-f29e-4d6c-9bdd-dd003e2a4c61"
   },
   {
     "word": "deselect",
@@ -5562,7 +5698,8 @@
         "definition": "to remove something from the list of possible choices on a computer menu",
         "examples": []
       }
-    ]
+    ],
+    "id": "885205fd-6a9a-417d-b359-ccb3f8cfea5e"
   },
   {
     "word": "desktop",
@@ -5589,7 +5726,8 @@
         "definition": "a computer with a keyboard, screen and main processing unit that fits on a desk",
         "examples": []
       }
-    ]
+    ],
+    "id": "f0d33c94-e967-4b85-b325-46d283ce623e"
   },
   {
     "word": "desktop publishing",
@@ -5603,7 +5741,8 @@
         "definition": "the use of a small computer and a printer to produce a small book, a magazine or other printed material Desktop publishing",
         "examples": []
       }
-    ]
+    ],
+    "id": "6f39414b-9c3f-46ae-b5b5-cd4b3321b912"
   },
   {
     "word": "diagnostic",
@@ -5630,7 +5769,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b6555f21-df6e-42f6-be20-245dd473568e"
   },
   {
     "word": "dialog box",
@@ -5653,7 +5793,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3fbea24c-b4c3-482f-8695-8a1ebeb65e66"
   },
   {
     "word": "digital",
@@ -5718,7 +5859,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c2f8e30b-56c7-4977-b55f-e0ba90286cc2"
   },
   {
     "word": "digital asset",
@@ -5737,7 +5879,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6843ca11-2322-46bb-bcb9-1808fceee12b"
   },
   {
     "word": "directory",
@@ -5773,7 +5916,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "025834a4-f5af-4dcf-95d6-a7400d49d025"
   },
   {
     "word": "disassemble",
@@ -5805,7 +5949,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6ae8bd3d-9d45-42c7-84c4-6f71ff072016"
   },
   {
     "word": "disassembler",
@@ -5819,7 +5964,8 @@
         "definition": "a program used to disassemble computer code",
         "examples": []
       }
-    ]
+    ],
+    "id": "ed255ffa-e0ea-41cd-a214-593525ba8ba5"
   },
   {
     "word": "disinfect",
@@ -5842,7 +5988,8 @@
         "definition": "to run a computer program to get rid of a computer virus",
         "examples": []
       }
-    ]
+    ],
+    "id": "893c66b8-077d-4ec5-bdea-16fe77cdf457"
   },
   {
     "word": "disk",
@@ -5878,7 +6025,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "07ce65d2-f77b-4f18-8f74-56ab58ada1f4"
   },
   {
     "word": "disk drive",
@@ -5892,7 +6040,8 @@
         "definition": "a device that passes data between a disk and the memory of a computer or from one disk or computer to another",
         "examples": []
       }
-    ]
+    ],
+    "id": "6236d82a-b8c7-4a97-8727-813d28d032de"
   },
   {
     "word": "diskette",
@@ -5911,7 +6060,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a122267d-df9a-40fe-a972-a762f62d9323"
   },
   {
     "word": "display",
@@ -6015,7 +6165,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1b3e069c-e1bf-4e57-960a-96f68e21d7f0"
   },
   {
     "word": "docking station",
@@ -6029,7 +6180,8 @@
         "definition": "a piece of equipment to which a laptop, smartphone or other mobile device can be connected, to provide access to a power supply or so that it can be used with a printer, a keyboard, speakers, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "b1902bcc-2f76-4820-9440-5d47da3b4184"
   },
   {
     "word": "document",
@@ -6113,7 +6265,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d020752d-96ef-442e-9f13-c66d2606fa64"
   },
   {
     "word": "dongle",
@@ -6127,7 +6280,8 @@
         "definition": "a small device that is used with a computer, especially to access protected software or the internet",
         "examples": []
       }
-    ]
+    ],
+    "id": "98a7d3bb-8531-4201-81dc-8bf6c2f8d2d9"
   },
   {
     "word": "double-click",
@@ -6146,7 +6300,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d721b798-a202-4888-bfe1-858d2547ab85"
   },
   {
     "word": "down",
@@ -6195,7 +6350,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f3921273-271f-41b7-99e4-f057acf58a3f"
   },
   {
     "word": "download",
@@ -6242,7 +6398,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "dc4b3ecd-6f9f-4605-8c7a-663a7293f99f"
   },
   {
     "word": "download",
@@ -6290,7 +6447,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "191e5cab-be54-4fcc-9de5-5492feb3728a"
   },
   {
     "word": "drag",
@@ -6408,7 +6566,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "879af75b-1dd5-4fb9-ade9-43c260a5b3df"
   },
   {
     "word": "drag-and-drop",
@@ -6422,7 +6581,8 @@
         "definition": "relating to the moving of icons, etc. on a screen using the mouse",
         "examples": []
       }
-    ]
+    ],
+    "id": "2bcd3d37-2066-418b-8920-f70e0916b88f"
   },
   {
     "word": "drive",
@@ -6562,7 +6722,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "91d92945-0aa3-4406-8ba4-ceba3dc1425e"
   },
   {
     "word": "drive bay",
@@ -6576,7 +6737,8 @@
         "definition": "a space inside a computer for a disk drive",
         "examples": []
       }
-    ]
+    ],
+    "id": "0fd5d4aa-9839-4827-9dba-1f6950b72f81"
   },
   {
     "word": "driver",
@@ -6673,7 +6835,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c4b3b94d-a1e8-49d4-8679-a4e324bfa67a"
   },
   {
     "word": "drop-down menu",
@@ -6687,7 +6850,8 @@
         "definition": "a menu that appears on a computer screen when you choose it, and that stays there until you choose one of the functions on it",
         "examples": []
       }
-    ]
+    ],
+    "id": "b184af2b-4bcc-4e70-ae02-1d5b192b31b3"
   },
   {
     "word": "duplex",
@@ -6737,7 +6901,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2f0302ad-e2c8-4be0-a8fc-ca6bcab27af7"
   },
   {
     "word": "DVD",
@@ -6768,7 +6933,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "188a6cc0-eea3-4298-86c3-849e82c723cf"
   },
   {
     "word": "e-book",
@@ -6791,7 +6957,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "40f36e26-e3f1-49dc-a313-a0951270d973"
   },
   {
     "word": "edit",
@@ -6866,7 +7033,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6cb102e6-1e7c-45cc-af02-2c2faf0a4a02"
   },
   {
     "word": "edutainment",
@@ -6880,7 +7048,8 @@
         "definition": "products such as books, television programmes and especially computer software that both educate and entertain education",
         "examples": []
       }
-    ]
+    ],
+    "id": "3a3cae14-d266-4584-9c64-badcddf4c4e7"
   },
   {
     "word": "encode",
@@ -6911,7 +7080,8 @@
         "definition": "to express the meaning of something in a foreign language",
         "examples": []
       }
-    ]
+    ],
+    "id": "220b590d-6104-432d-86a9-383eff2467ed"
   },
   {
     "word": "encrypt",
@@ -6930,7 +7100,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "feac9643-d2eb-43c0-bb18-34b24a68b607"
   },
   {
     "word": "end user",
@@ -6957,7 +7128,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "12dbd922-b37f-4d3d-bbcf-3eb80c47a8f9"
   },
   {
     "word": "environment",
@@ -7030,7 +7202,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "94d21988-ba6d-4c6f-8f01-1d9844577e42"
   },
   {
     "word": "e-reader",
@@ -7044,7 +7217,8 @@
         "definition": "a small device on which you can store and read texts taken from the internet; an application on a device that enables you to do this",
         "examples": []
       }
-    ]
+    ],
+    "id": "0f1ee590-d74c-474f-a35b-8c387fc0c7f7"
   },
   {
     "word": "error correction",
@@ -7058,7 +7232,8 @@
         "definition": "a process by which a computer corrects mistakes in data",
         "examples": []
       }
-    ]
+    ],
+    "id": "f5697ac7-5d69-4aca-a8b8-37e056fc2c8e"
   },
   {
     "word": "error message",
@@ -7081,7 +7256,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "874a409c-1eb1-4237-859b-47d432f8e49e"
   },
   {
     "word": "escape",
@@ -7151,7 +7327,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d5d255ea-3685-49db-a9b0-3a12f1c01af7"
   },
   {
     "word": "executable",
@@ -7165,7 +7342,8 @@
         "definition": "that can be run by a computer Executable",
         "examples": []
       }
-    ]
+    ],
+    "id": "4cda6af7-8449-4f4c-9488-99e88391594c"
   },
   {
     "word": "exit",
@@ -7214,7 +7392,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "59159d31-5285-46ac-a973-239e4799c143"
   },
   {
     "word": "export",
@@ -7258,7 +7437,8 @@
         "definition": "to send data to another program, changing its form so that the other program can read it",
         "examples": []
       }
-    ]
+    ],
+    "id": "577bd9b1-8659-474d-818d-10ce9a258f4d"
   },
   {
     "word": "extension",
@@ -7393,7 +7573,8 @@
         "definition": "an extra length of electric wire, used when the wire on an electrical device is not long enough",
         "examples": []
       }
-    ]
+    ],
+    "id": "76616025-e499-4824-91a4-1fb4ef8e95a0"
   },
   {
     "word": "face recognition",
@@ -7412,7 +7593,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "79e85eb7-9ec1-44b9-a436-11ba36ea258a"
   },
   {
     "word": "facial recognition",
@@ -7435,7 +7617,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "907b2ae0-2741-4485-a16c-ffd5a5b1e404"
   },
   {
     "word": "file",
@@ -7547,7 +7730,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "eaf4a551-80a4-423d-b147-d2f39a7ac25f"
   },
   {
     "word": "file manager",
@@ -7566,7 +7750,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5b5ac03e-28f5-418c-9d39-49870b81f25b"
   },
   {
     "word": "filename",
@@ -7580,7 +7765,8 @@
         "definition": "a name given to a computer file in order to identify it",
         "examples": []
       }
-    ]
+    ],
+    "id": "e2b0f9ae-111e-44f6-9257-b16f173be185"
   },
   {
     "word": "file sharing",
@@ -7599,7 +7785,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "84bf3e6a-ed22-4a2b-832e-b467c3301259"
   },
   {
     "word": "filter",
@@ -7666,7 +7853,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5952df80-ed67-4789-a8aa-abeee1e4a001"
   },
   {
     "word": "firewall",
@@ -7680,7 +7868,8 @@
         "definition": "a part of a computer system that prevents people from reaching information without permission, but still allows them to receive information that is sent to them receive/​get/​open",
         "examples": []
       }
-    ]
+    ],
+    "id": "61f1f11a-c72d-443e-9683-1e0b0760dc15"
   },
   {
     "word": "firmware",
@@ -7694,7 +7883,8 @@
         "definition": "a type of computer software that is stored in such a way that it cannot be changed or lost",
         "examples": []
       }
-    ]
+    ],
+    "id": "96e737c8-2b84-4165-ac07-e2cf6c269f23"
   },
   {
     "word": "flash drive",
@@ -7717,7 +7907,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4de89ee2-95d8-46d9-9476-186f6b6fa497"
   },
   {
     "word": "flash memory",
@@ -7731,7 +7922,8 @@
         "definition": "computer memory that does not lose data when the power supply is lost",
         "examples": []
       }
-    ]
+    ],
+    "id": "95efd813-6008-4cad-8043-e54661d7afff"
   },
   {
     "word": "flatbed scanner",
@@ -7745,7 +7937,8 @@
         "definition": "a scanner (= device for copying pictures and documents so that they can be stored on a computer) on which the picture or document can be laid flat for copying",
         "examples": []
       }
-    ]
+    ],
+    "id": "5a4d70ac-0505-433b-a22d-54a0c65c8d61"
   },
   {
     "word": "flat-panel",
@@ -7759,7 +7952,8 @@
         "definition": "a type of television or computer monitor that is very thin when compared with the original type",
         "examples": []
       }
-    ]
+    ],
+    "id": "bf9100fc-d77c-49c1-9e70-3b852d858c7f"
   },
   {
     "word": "flat-screen",
@@ -7773,7 +7967,8 @@
         "definition": "a type of television or computer monitor that is very thin when compared with the original type Flat-screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "7d556bce-2501-40f7-b1bf-2e2b581ee2a5"
   },
   {
     "word": "flic",
@@ -7787,7 +7982,8 @@
         "definition": "a computer file containing an animation (= drawings or models that seem to move)",
         "examples": []
       }
-    ]
+    ],
+    "id": "52e8420e-06e6-4485-976b-d6bf38f8b531"
   },
   {
     "word": "floppy disk",
@@ -7801,7 +7997,8 @@
         "definition": "a flat disk inside a plastic cover, used in the past to store data in the form that a computer could read, and that could be removed from the computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "01a3a191-da64-42ca-806d-b6df7e8c8a0c"
   },
   {
     "word": "folder",
@@ -7833,7 +8030,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "282a45b3-4fac-42d3-ac0a-41b17ef5f7e2"
   },
   {
     "word": "format",
@@ -7851,7 +8049,8 @@
         "definition": "to prepare a computer disk for storing digital information",
         "examples": []
       }
-    ]
+    ],
+    "id": "5ce5cc0e-4506-4b26-947c-ecf811dd8d52"
   },
   {
     "word": "Fortran",
@@ -7865,7 +8064,8 @@
         "definition": "a high-level computer language used especially for doing scientific calculations",
         "examples": []
       }
-    ]
+    ],
+    "id": "8a4f34a5-3ed0-4ce4-a31f-ff9785d53cf1"
   },
   {
     "word": "forward slash",
@@ -7879,7 +8079,8 @@
         "definition": "the symbol (/) used in computer commands and in internet addresses to separate the different parts",
         "examples": []
       }
-    ]
+    ],
+    "id": "359adca1-938e-4204-9445-b993593beb60"
   },
   {
     "word": "freeware",
@@ -7893,7 +8094,8 @@
         "definition": "computer software that is offered free for anyone to use",
         "examples": []
       }
-    ]
+    ],
+    "id": "cc8aec19-ee46-45dc-9678-fc64e9ac35a1"
   },
   {
     "word": "freeze",
@@ -8049,7 +8251,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c593871e-4582-4430-9a72-b830d3bcae0e"
   },
   {
     "word": "front end",
@@ -8090,7 +8293,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2b14ec39-55c4-4a86-beb6-568be276da0f"
   },
   {
     "word": "function",
@@ -8155,7 +8359,8 @@
         "definition": "a part of a program, etc. that performs a basic operation",
         "examples": []
       }
-    ]
+    ],
+    "id": "8c55bae0-dc2a-4743-b070-7e64dc252657"
   },
   {
     "word": "functionality",
@@ -8187,7 +8392,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2c24c58f-e4b6-4414-9308-5eff9f3a2889"
   },
   {
     "word": "function key",
@@ -8201,7 +8407,8 @@
         "definition": "one of several keys on a computer keyboard, each marked with ‘F’ and a number, that can be used to do something, such as save a file or get to the ‘help’ function in a program",
         "examples": []
       }
-    ]
+    ],
+    "id": "d49170e9-ddc3-4bf9-9d49-300a61488e4f"
   },
   {
     "word": "generate",
@@ -8254,7 +8461,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "683033c7-298f-4420-99d8-c051380cb410"
   },
   {
     "word": "generative AI",
@@ -8273,7 +8481,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "15b02aec-dbb3-4944-90e7-16b1531e7064"
   },
   {
     "word": "generative artificial intelligence",
@@ -8292,7 +8501,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "80081077-ce07-47b2-8547-35d38a3b7023"
   },
   {
     "word": "gibibit",
@@ -8306,7 +8516,8 @@
         "definition": "a unit of computer memory or data, equal to 230, or 1 0243, (= 1 073 741 824) bits",
         "examples": []
       }
-    ]
+    ],
+    "id": "7b0a7256-6417-45e7-bfe7-508b0957250f"
   },
   {
     "word": "gibibyte",
@@ -8320,7 +8531,8 @@
         "definition": "a unit of computer memory or data, equal to 230, or 1 0243, (= 1 073 741 824) bytes",
         "examples": []
       }
-    ]
+    ],
+    "id": "3c92ea83-f64c-495b-a6ed-51f0d5841aad"
   },
   {
     "word": "GIF",
@@ -8339,7 +8551,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a9d9a382-942e-4182-aeec-f2a688952781"
   },
   {
     "word": "gigabit",
@@ -8357,7 +8570,8 @@
         "definition": "a unit of computer memory or data, equal to 230, or 1 0243, (= 1 073 741 824) bits",
         "examples": []
       }
-    ]
+    ],
+    "id": "0e55cc73-2b11-4725-a7d7-b5327566deb2"
   },
   {
     "word": "gigabyte",
@@ -8375,7 +8589,8 @@
         "definition": "a unit of computer memory or data, equal to 230, or 1 0243, (= 1 073 741 824) bytes",
         "examples": []
       }
-    ]
+    ],
+    "id": "7b8479cf-fd68-44be-98f5-4355e1af16de"
   },
   {
     "word": "GPU",
@@ -8389,7 +8604,8 @@
         "definition": "graphics processing unit (a component in a computer or other device that specifically handles the conversion (= changing) of digital to visual information on the device's screen)",
         "examples": []
       }
-    ]
+    ],
+    "id": "302bcc66-535e-4e9f-9224-c73c66849be9"
   },
   {
     "word": "graphics",
@@ -8425,7 +8641,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7a3610d0-b8c5-4636-bef8-1deac7729dc3"
   },
   {
     "word": "graphics adapter",
@@ -8439,7 +8656,8 @@
         "definition": "a device that allows images to be shown on a computer screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "0ef4de56-bc20-4ca6-aceb-afc7a3a56d01"
   },
   {
     "word": "graphics card",
@@ -8453,7 +8671,8 @@
         "definition": "a circuit board that allows a computer to show images on its screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "609141b4-8433-4b61-a1e1-34f9ef60414a"
   },
   {
     "word": "graphics tablet",
@@ -8467,7 +8686,8 @@
         "definition": "a flat device connected to a computer that you draw on with a special pen (called a stylus) to create an image on the screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "79f6138e-539b-4bf4-91d2-6aee115b65fd"
   },
   {
     "word": "groupware",
@@ -8481,7 +8701,8 @@
         "definition": "software that is designed to help a group of people on different computers to work together",
         "examples": []
       }
-    ]
+    ],
+    "id": "ad0e1d39-0933-42fd-a597-359e3c2d88c8"
   },
   {
     "word": "GUI",
@@ -8495,7 +8716,8 @@
         "definition": "a way of giving instructions to a computer using things that can be seen on the screen such as symbols and menus (the abbreviation for ‘graphical user interface’)",
         "examples": []
       }
-    ]
+    ],
+    "id": "9851152f-1e74-4f3d-a114-af0a14950a21"
   },
   {
     "word": "hack",
@@ -8574,7 +8796,8 @@
         "definition": "to drive a taxi",
         "examples": []
       }
-    ]
+    ],
+    "id": "5f82b279-e415-4c65-b528-a29d9e6c2de6"
   },
   {
     "word": "hack",
@@ -8631,7 +8854,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "59f4574e-bb2b-481f-ab8f-ae3f5fe48348"
   },
   {
     "word": "hackathon",
@@ -8650,7 +8874,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4dec4db5-5ec3-47dd-bbe8-1396b7608e9a"
   },
   {
     "word": "hacker",
@@ -8673,7 +8898,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8a4ccc19-046d-4ce4-8dd1-530879f87c02"
   },
   {
     "word": "hallucinate",
@@ -8709,7 +8935,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "eb7f67cf-76c3-46e9-9265-46f0e8a97d05"
   },
   {
     "word": "hallucination",
@@ -8758,7 +8985,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c254694d-f764-4507-9173-2c9a3ebf1166"
   },
   {
     "word": "handheld",
@@ -8777,7 +9005,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "beabfa57-d53a-481f-a1e3-b2a34b884a87"
   },
   {
     "word": "hard copy",
@@ -8804,7 +9033,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "fc8c0273-eaa8-475a-a033-ea96cd39d8a7"
   },
   {
     "word": "hard disk",
@@ -8823,7 +9053,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c91a03c3-a0a4-4297-96ae-33bd3b4edf65"
   },
   {
     "word": "hard error",
@@ -8837,7 +9068,8 @@
         "definition": "an error or a fault that makes a program or operating system stop working, and that cannot be corrected",
         "examples": []
       }
-    ]
+    ],
+    "id": "337b7849-b42c-4c10-885b-531b3e8d391a"
   },
   {
     "word": "hardware",
@@ -8874,7 +9106,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ba899840-c236-4241-9f66-20ca74358b94"
   },
   {
     "word": "help desk",
@@ -8893,7 +9126,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "669679d8-e8ba-48b8-b221-a938b6b0a9dd"
   },
   {
     "word": "icon",
@@ -8937,7 +9171,8 @@
         "definition": "a painting or statue of a holy person that is also thought of as a holy object",
         "examples": []
       }
-    ]
+    ],
+    "id": "a2c87f2f-0229-437f-afbd-d8e793e813e8"
   },
   {
     "word": "import",
@@ -8977,7 +9212,8 @@
         "definition": "to get data from another program, changing its form so that the program you are using can read it",
         "examples": []
       }
-    ]
+    ],
+    "id": "ad60c8d9-96c6-411a-99c2-b3e8a29a374b"
   },
   {
     "word": "index",
@@ -9064,7 +9300,8 @@
         "definition": "the small number written above a larger number to show how many times that number must be multiplied by itself. In the equation 42 = 16, the number 2 is an index. index",
         "examples": []
       }
-    ]
+    ],
+    "id": "c557a8b9-f34f-43ee-ac46-d4c6e16c3b6d"
   },
   {
     "word": "infect",
@@ -9113,7 +9350,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "61d35672-47b5-4867-aa87-4eec387fd6d8"
   },
   {
     "word": "information technology",
@@ -9132,7 +9370,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6a69aae4-0787-4b4b-a396-a27c298c9e68"
   },
   {
     "word": "initialization",
@@ -9146,7 +9385,8 @@
         "definition": "the act of making a computer program or system ready for use or of formatting a disk",
         "examples": []
       }
-    ]
+    ],
+    "id": "5f2d41de-d8e2-4c65-ba56-956852eb7b13"
   },
   {
     "word": "initialize",
@@ -9165,7 +9405,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4da6d4d6-65d8-41ea-91b1-45ac79d2757e"
   },
   {
     "word": "input",
@@ -9230,7 +9471,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f89a6a31-cf46-4e58-ae29-9a614738ec80"
   },
   {
     "word": "input",
@@ -9249,7 +9491,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c6bdc16e-f1f8-47c3-85b6-bbc6982ff489"
   },
   {
     "word": "install",
@@ -9319,7 +9562,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "57190839-202a-40f6-8454-b8f396427f8d"
   },
   {
     "word": "instruction",
@@ -9454,7 +9698,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ef42b97d-1de1-4768-8682-f0916fe13b41"
   },
   {
     "word": "interactive",
@@ -9498,7 +9743,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c6ab7bae-f359-45da-8beb-925d3688da9d"
   },
   {
     "word": "interface",
@@ -9535,7 +9781,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "84da676c-1245-4e62-9235-8be8d72a7e68"
   },
   {
     "word": "interoperability",
@@ -9563,7 +9810,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "499d64df-952f-4794-a6d5-93a4f0c70a55"
   },
   {
     "word": "interpreter",
@@ -9603,7 +9851,8 @@
         "definition": "a computer program that changes the instructions of another program into a form that the computer can understand and use",
         "examples": []
       }
-    ]
+    ],
+    "id": "74aca9c5-2980-45f8-927c-ca054ec87c0d"
   },
   {
     "word": "intranet",
@@ -9617,7 +9866,8 @@
         "definition": "a computer network that is private to a company, university, etc. often using the same software as the World Wide Web",
         "examples": []
       }
-    ]
+    ],
+    "id": "9cf09617-5108-46ba-b2b8-d4dee34925f2"
   },
   {
     "word": "invalid",
@@ -9666,7 +9916,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "529afaa9-9d95-4a66-9b6c-d8609674fe44"
   },
   {
     "word": "iPod™",
@@ -9689,7 +9940,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "124d5c66-2b5e-4582-b1c3-7df67efe963b"
   },
   {
     "word": "ISA2",
@@ -9703,7 +9955,8 @@
         "definition": "Industry Standard Architecture (the usual international system used for connecting computers and other devices)",
         "examples": []
       }
-    ]
+    ],
+    "id": "afdc16d2-4be1-47cb-9594-6905ee8a7f3c"
   },
   {
     "word": "IT",
@@ -9742,7 +9995,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d3064b9c-6fa8-47c6-85a0-c93f40066210"
   },
   {
     "word": "iteration",
@@ -9765,7 +10019,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7bfa3a42-28a7-483f-bc0d-2796244fa8a9"
   },
   {
     "word": "joystick",
@@ -9792,7 +10047,8 @@
         "definition": "a stick with a handle in an aircraft that is used to control direction or height",
         "examples": []
       }
-    ]
+    ],
+    "id": "ecaa62c5-1b88-40a1-b117-1f6bf381bdc7"
   },
   {
     "word": "K",
@@ -9828,7 +10084,8 @@
         "definition": "kelvin",
         "examples": []
       }
-    ]
+    ],
+    "id": "46b3acbe-5747-46b0-9724-d4f636b1acd8"
   },
   {
     "word": "key",
@@ -9961,7 +10218,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b130d0de-82b6-4ed5-8df4-ee94eaa2ad66"
   },
   {
     "word": "key",
@@ -9992,7 +10250,8 @@
         "definition": "to deliberately damage a car by scratching it with a key",
         "examples": []
       }
-    ]
+    ],
+    "id": "253577b9-92f0-4074-b081-80db3ea8c714"
   },
   {
     "word": "keyboard",
@@ -10045,7 +10304,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "75117c52-e177-4758-a08f-fe5f18a6ffd1"
   },
   {
     "word": "keylogger",
@@ -10072,7 +10332,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e35be0b9-e2fe-4a97-8b27-96d321e746be"
   },
   {
     "word": "keystroke",
@@ -10091,7 +10352,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5e474216-bc19-4410-802b-266656c3a717"
   },
   {
     "word": "keyword",
@@ -10119,7 +10381,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1bc7d3ea-87b7-489f-aa46-fd57e5f18e66"
   },
   {
     "word": "kibibit",
@@ -10133,7 +10396,8 @@
         "definition": "a unit for measuring computer memory or data, equal to 2 10, or 1 024 bits",
         "examples": []
       }
-    ]
+    ],
+    "id": "bc54ca1d-88ff-4414-9e3b-56ddc6ee2a06"
   },
   {
     "word": "kibibyte",
@@ -10147,7 +10411,8 @@
         "definition": "a unit for measuring computer memory or data, equal to 2 10, or 1 024 bytes",
         "examples": []
       }
-    ]
+    ],
+    "id": "9642e6eb-2e20-471e-ac7f-4c0983530050"
   },
   {
     "word": "killer app",
@@ -10166,7 +10431,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9ec788ec-69ab-44a9-903d-cb3d86ae8a8b"
   },
   {
     "word": "kilobit",
@@ -10189,7 +10455,8 @@
         "definition": "a unit for measuring computer memory or data, equal to 2 10, or 1 024 bits",
         "examples": []
       }
-    ]
+    ],
+    "id": "d92d2065-9487-4aac-8290-27bc8211843c"
   },
   {
     "word": "kilobyte",
@@ -10207,7 +10474,8 @@
         "definition": "a unit for measuring computer memory or data, equal to 2 10, or 1 024 bytes",
         "examples": []
       }
-    ]
+    ],
+    "id": "330e32b5-6640-4603-8253-92e97590cb6b"
   },
   {
     "word": "laggy",
@@ -10230,7 +10498,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5f3a9913-82f7-4ff1-b9df-df2f2d7a3fdb"
   },
   {
     "word": "LAN",
@@ -10244,7 +10513,8 @@
         "definition": "a system for communicating by computer within a large building or group of buildings (the abbreviation for ‘local area network’)",
         "examples": []
       }
-    ]
+    ],
+    "id": "2f49410f-4bb4-4788-bfeb-b83cad32933a"
   },
   {
     "word": "landscape",
@@ -10314,7 +10584,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f1ceb51b-bf0a-4ed6-ab2f-aac7d7608704"
   },
   {
     "word": "language",
@@ -10437,7 +10708,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "0dfe69c1-e081-4ea5-afca-d009ee3fac3c"
   },
   {
     "word": "laptop",
@@ -10460,7 +10732,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ee99bf43-d10d-461f-be52-1663a1961d7f"
   },
   {
     "word": "large language model",
@@ -10479,7 +10752,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "50197f4c-ff03-48d5-abd7-ad104036e0be"
   },
   {
     "word": "list box",
@@ -10493,7 +10767,8 @@
         "definition": "a list of choices in a box on a computer screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "6b9a2080-cbe4-4d45-bfec-0fe3191d9baa"
   },
   {
     "word": "LLM",
@@ -10525,7 +10800,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a60c75d0-f15e-4479-a913-1c13b3e64595"
   },
   {
     "word": "load",
@@ -10624,7 +10900,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8cbd625e-eb8a-4ea7-b4a3-f129e7dc853e"
   },
   {
     "word": "local area network",
@@ -10638,7 +10915,8 @@
         "definition": "a system for communicating by computer within a large building or group of buildings",
         "examples": []
       }
-    ]
+    ],
+    "id": "edc55e96-c02a-4802-9bff-b319f34ed0fd"
   },
   {
     "word": "local bus",
@@ -10652,7 +10930,8 @@
         "definition": "a high-speed data connection that directly links computer devices to the processor and memory",
         "examples": []
       }
-    ]
+    ],
+    "id": "d0790b6f-a228-4970-9acb-aba5a3aaee05"
   },
   {
     "word": "location",
@@ -10722,7 +11001,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "20b2c44f-0fe2-4f4a-b76e-9a1373f966ca"
   },
   {
     "word": "logger",
@@ -10754,7 +11034,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e0d76998-4e38-4d66-81d6-a025a1fe5501"
   },
   {
     "word": "logic",
@@ -10811,7 +11092,8 @@
         "definition": "a system or set of principles used in preparing a computer or electronic device to perform a particular task",
         "examples": []
       }
-    ]
+    ],
+    "id": "d6a20407-16ab-4417-9bf5-9472cbedf074"
   },
   {
     "word": "logic circuit",
@@ -10825,7 +11107,8 @@
         "definition": "a series of logic gates that performs operations on data that is put into a computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "fa1912ae-8487-4388-823b-b7960865e61f"
   },
   {
     "word": "log in",
@@ -10848,7 +11131,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c5493490-c417-4392-940a-891ad047e05c"
   },
   {
     "word": "login",
@@ -10876,7 +11160,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9041f02a-07d1-4946-825a-fed2eeef75db"
   },
   {
     "word": "log off",
@@ -10899,7 +11184,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "93167ecc-0389-4af7-8e92-085b3c2cb212"
   },
   {
     "word": "log on",
@@ -10922,7 +11208,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d9352af1-4b01-4833-9686-31b584dbf1a1"
   },
   {
     "word": "logon",
@@ -10950,7 +11237,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e84bdf5d-6f10-4fc5-abbf-2a1f7b5ad0e3"
   },
   {
     "word": "log out",
@@ -10973,7 +11261,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8d7c28f4-9b7b-4904-a85a-37ba9f04e656"
   },
   {
     "word": "machine code",
@@ -10987,7 +11276,8 @@
         "definition": "a code in which instructions are written in the form of numbers so that a computer can understand and act on them",
         "examples": []
       }
-    ]
+    ],
+    "id": "bde008a4-2d2b-4f4d-8a81-203f5eef855b"
   },
   {
     "word": "machine learning",
@@ -11010,7 +11300,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "10db27ca-1641-4386-9f15-406da7ec6317"
   },
   {
     "word": "macro",
@@ -11024,7 +11315,8 @@
         "definition": "a single instruction in a computer program that causes a complete series of instructions to be carried out, in order to perform a particular task macro-",
         "examples": []
       }
-    ]
+    ],
+    "id": "fa235eeb-484e-4d58-ae60-4e2814b11ce6"
   },
   {
     "word": "mailer",
@@ -11060,7 +11352,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c4dab3fa-312f-42fb-a961-d1072780a759"
   },
   {
     "word": "mainframe",
@@ -11074,7 +11367,8 @@
         "definition": "a large, powerful computer, usually the centre of a network and shared by many users",
         "examples": []
       }
-    ]
+    ],
+    "id": "1d11aa04-d40f-426e-8264-cac8e35a9ab1"
   },
   {
     "word": "malicious",
@@ -11110,7 +11404,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ce5901c6-badd-4ef2-84a5-4e421537e130"
   },
   {
     "word": "malvertising",
@@ -11133,7 +11428,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "aced9c24-f948-41f2-832e-f47eeec9630e"
   },
   {
     "word": "malware",
@@ -11160,7 +11456,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "14b45a5f-de8b-4a59-8b04-a63b6194fe98"
   },
   {
     "word": "markup",
@@ -11196,7 +11493,8 @@
         "definition": "the process or result of marking or correcting a text, etc., for example for printing",
         "examples": []
       }
-    ]
+    ],
+    "id": "a91875b7-3dca-40ae-9a4c-813530e7dadc"
   },
   {
     "word": "mebibit",
@@ -11210,7 +11508,8 @@
         "definition": "a unit of computer memory or data, equal to 2 20, or 1 024 2, (= 1 048 576) bits",
         "examples": []
       }
-    ]
+    ],
+    "id": "e54b9aab-332b-47cd-bdac-a2c741431561"
   },
   {
     "word": "mebibyte",
@@ -11224,7 +11523,8 @@
         "definition": "a unit of computer memory or data, equal to 2 20, or 1 024 2, (= 1 048 576) bytes",
         "examples": []
       }
-    ]
+    ],
+    "id": "cf2a1867-a653-43f2-8c3c-5f6e94acf50c"
   },
   {
     "word": "medium",
@@ -11303,7 +11603,8 @@
         "definition": "a person who claims to be able to communicate with the spirits of dead people",
         "examples": []
       }
-    ]
+    ],
+    "id": "93274565-ebd5-413c-8078-a816f77a53c4"
   },
   {
     "word": "megabit",
@@ -11321,7 +11622,8 @@
         "definition": "a unit of computer memory or data, equal to 2 20, or 1 024 2, (= 1 048 576) bits",
         "examples": []
       }
-    ]
+    ],
+    "id": "76dc9cdd-a141-424f-a468-a444a1dedbd6"
   },
   {
     "word": "megabyte",
@@ -11344,7 +11646,8 @@
         "definition": "a unit of computer memory or data, equal to 2 20, or 1 024 2, (= 1 048 576) bytes",
         "examples": []
       }
-    ]
+    ],
+    "id": "e06b7ef1-fd11-44a6-bf85-b2d505186e4c"
   },
   {
     "word": "megaflop",
@@ -11358,7 +11661,8 @@
         "definition": "a unit for measuring computer speed, equal to approximately one million operations per second mega-",
         "examples": []
       }
-    ]
+    ],
+    "id": "16f479de-6ab5-4f12-b5a6-c5fbc42f92ce"
   },
   {
     "word": "megahertz",
@@ -11372,7 +11676,8 @@
         "definition": "a unit for measuring radio waves and the speed at which a computer operates; 1 000 000 hertz",
         "examples": []
       }
-    ]
+    ],
+    "id": "6b602adb-5785-456b-9aee-8a870bc87b78"
   },
   {
     "word": "megapixel",
@@ -11391,7 +11696,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "93253b72-6b4c-40c9-a90b-80cbcd1df1de"
   },
   {
     "word": "memory",
@@ -11530,7 +11836,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "de79bf2a-04e3-4aef-8137-d092b8dc1f42"
   },
   {
     "word": "memory bank",
@@ -11544,7 +11851,8 @@
         "definition": "the memory of a device such as a computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "9361d851-3b64-40da-bcb0-466f21d78edc"
   },
   {
     "word": "memory card",
@@ -11558,7 +11866,8 @@
         "definition": "an electronic device that can be used to store data, used especially with digital cameras, mobile phones, music players, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "a10cc14d-0b14-4bc0-b154-527676c1beb8"
   },
   {
     "word": "Memory Stick™",
@@ -11572,7 +11881,8 @@
         "definition": "a small memory device that can be used to store data from a computer and to move it from one computer to another",
         "examples": []
       }
-    ]
+    ],
+    "id": "cd9fff04-0791-4f0d-82b8-dc1bc2bb79d2"
   },
   {
     "word": "menu",
@@ -11628,7 +11938,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c33f2a1f-0266-4929-ad0a-e64981481a94"
   },
   {
     "word": "menu bar",
@@ -11647,7 +11958,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4818fd0a-fa12-4e1b-9ad3-3fc804614996"
   },
   {
     "word": "metaverse",
@@ -11666,7 +11978,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a5d2ba04-f7bf-49b2-8a71-edc4f04d6d8c"
   },
   {
     "word": "MFA",
@@ -11685,7 +11998,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1c6c7124-d6cf-4209-b4a5-dd015a7b48e0"
   },
   {
     "word": "microchip",
@@ -11699,7 +12013,8 @@
         "definition": "a very small piece of a material that is a semiconductor, used to carry a complicated electronic circuit",
         "examples": []
       }
-    ]
+    ],
+    "id": "4a82819c-8d7e-4f62-8c5c-f06f54d4f719"
   },
   {
     "word": "microprocessor",
@@ -11713,7 +12028,8 @@
         "definition": "a small unit of a computer that contains all the functions of the central processing unit Microprocessor",
         "examples": []
       }
-    ]
+    ],
+    "id": "617bfecd-4d1f-407f-8b00-8c1b9d1b3eb5"
   },
   {
     "word": "middleware",
@@ -11727,7 +12043,8 @@
         "definition": "a layer of software in a computer between the operating system and applications that provides additional facilities not provided by the operating system",
         "examples": []
       }
-    ]
+    ],
+    "id": "b60d5c26-fdad-450e-8922-d360835b7b0c"
   },
   {
     "word": "mixed reality",
@@ -11746,7 +12063,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "95fc7452-4593-4b26-ab0a-4e8c6d97a7a1"
   },
   {
     "word": "mobile device",
@@ -11760,7 +12078,8 @@
         "definition": "any small computing device, such as a smartphone or tablet",
         "examples": []
       }
-    ]
+    ],
+    "id": "3d7cbd43-b0da-4351-8fa2-a0edcad1e27c"
   },
   {
     "word": "mod",
@@ -11792,7 +12111,8 @@
         "definition": "a member of a group of young people, especially in the UK in the 1960s, who wore neat, fashionable clothes and rode motor scooters",
         "examples": []
       }
-    ]
+    ],
+    "id": "7488a9fe-636c-487f-bc37-9d0894a73adf"
   },
   {
     "word": "mod",
@@ -11824,7 +12144,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "173241c0-57f8-4435-9b48-5524744f6ef5"
   },
   {
     "word": "modder",
@@ -11843,7 +12164,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9edd6e7c-8548-4019-930c-8d89a5798176"
   },
   {
     "word": "modding",
@@ -11862,7 +12184,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7a5e5d0b-b547-4a7b-846f-ef5e287030bb"
   },
   {
     "word": "modem",
@@ -11885,7 +12208,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "57987ab7-afc0-43f3-a6b9-7d2323bb079f"
   },
   {
     "word": "module",
@@ -11939,7 +12263,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "231a0ba2-ac17-41fe-bea0-a4cc93baaa6f"
   },
   {
     "word": "monitor",
@@ -12034,7 +12359,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "cde57ef1-2d92-4f6b-9a2d-c54d68cf94d7"
   },
   {
     "word": "motherboard",
@@ -12048,7 +12374,8 @@
         "definition": "the main board of a computer, containing all the circuits",
         "examples": []
       }
-    ]
+    ],
+    "id": "7dd94d90-f065-403f-b56f-164e2a638b81"
   },
   {
     "word": "mouse",
@@ -12104,7 +12431,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "84751094-9990-4def-b4e0-cac660f473a0"
   },
   {
     "word": "mouse mat",
@@ -12123,7 +12451,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b90e8e6d-daa0-4ef7-a322-17c20ae5190f"
   },
   {
     "word": "mouse potato",
@@ -12137,7 +12466,8 @@
         "definition": "a person who spends too much time using a computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "91a1e517-3355-4974-9e8b-3392e7919460"
   },
   {
     "word": "MP3 player",
@@ -12151,7 +12481,8 @@
         "definition": "a small piece of equipment that can store information taken from the internet and that you can carry with you, for example so that you can listen to music MP3 player",
         "examples": []
       }
-    ]
+    ],
+    "id": "54e748b2-dfcd-4053-a9d9-46251f796006"
   },
   {
     "word": "multi-factor authentication",
@@ -12170,7 +12501,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "005384cc-80cc-432b-8f9c-e2b25fab0560"
   },
   {
     "word": "multimedia",
@@ -12202,7 +12534,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5914ba49-94d7-4c54-8dcd-f5c6a4016e35"
   },
   {
     "word": "multiprocessor",
@@ -12216,7 +12549,8 @@
         "definition": "a computer with more than one central processing unit",
         "examples": []
       }
-    ]
+    ],
+    "id": "3223a60b-094e-4153-9e09-a1c6dabb5dbb"
   },
   {
     "word": "multitasking",
@@ -12234,7 +12568,8 @@
         "definition": "the ability to do several things at the same time",
         "examples": []
       }
-    ]
+    ],
+    "id": "e72a3f96-1e5e-4e5e-974c-6a21bfc62701"
   },
   {
     "word": "nav",
@@ -12257,7 +12592,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a2f7893a-f083-472a-838f-0197883a3268"
   },
   {
     "word": "netbook",
@@ -12271,7 +12607,8 @@
         "definition": "a small laptop computer, designed especially for using the internet and email",
         "examples": []
       }
-    ]
+    ],
+    "id": "81b47d3c-bf88-468d-bab2-7370652285cd"
   },
   {
     "word": "network",
@@ -12373,7 +12710,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1451c002-eda0-42c6-8f8e-c5d6be1cbfbb"
   },
   {
     "word": "network",
@@ -12410,7 +12748,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5e4a79d6-2a57-4b8a-8b17-808dd9283b65"
   },
   {
     "word": "NFT",
@@ -12433,7 +12772,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c3238e15-a28b-42b0-8722-bb41e9acb921"
   },
   {
     "word": "noise",
@@ -12502,7 +12842,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "990085ae-94d6-4d4e-b86e-658ce9581088"
   },
   {
     "word": "non-fungible token",
@@ -12521,7 +12862,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "be3df9b4-fcf0-46d6-b318-e049354967e3"
   },
   {
     "word": "notebook",
@@ -12552,7 +12894,8 @@
         "definition": "a small computer that can work with a battery and be easily carried",
         "examples": []
       }
-    ]
+    ],
+    "id": "788fbe21-8e99-417c-8fd5-2c0881fccb3d"
   },
   {
     "word": "notification",
@@ -12600,7 +12943,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6801ba84-86a1-4396-bfbe-98f4f35973e7"
   },
   {
     "word": "on-board",
@@ -12628,7 +12972,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f10fff49-87ee-4448-b68d-147db48d18e1"
   },
   {
     "word": "onboard",
@@ -12664,7 +13009,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e74a9db3-c638-40c8-b964-2705ece2cf33"
   },
   {
     "word": "open",
@@ -12956,7 +13302,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6bde8a14-8e11-43a3-839d-4a997698cdd5"
   },
   {
     "word": "open-source",
@@ -12970,7 +13317,8 @@
         "definition": "used to describe software for which the original source code is made available to anyone Open-source",
         "examples": []
       }
-    ]
+    ],
+    "id": "2e0df361-7dad-4ee5-a452-288d582234fe"
   },
   {
     "word": "operating system",
@@ -12989,7 +13337,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "39b13913-7142-433f-98d0-4ca859d5b1d8"
   },
   {
     "word": "operation",
@@ -13172,7 +13521,8 @@
         "definition": "a process in which a number or quantity is changed by adding, multiplying, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "20a937e3-e551-4938-ac85-e37eb5a475f5"
   },
   {
     "word": "option",
@@ -13310,7 +13660,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "433779c6-d8db-49d6-a70e-ee2cb5b37525"
   },
   {
     "word": "output",
@@ -13360,7 +13711,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "da282176-007b-4fb6-ab50-4e53b41724b5"
   },
   {
     "word": "output",
@@ -13379,7 +13731,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8964f94e-c420-4da5-bccf-db52641a5f16"
   },
   {
     "word": "overflow",
@@ -13423,7 +13776,8 @@
         "definition": "a fault that happens because a number or data item is too large for the computer to represent it exactly",
         "examples": []
       }
-    ]
+    ],
+    "id": "b6b01b25-1b8d-4735-9d34-22ae7f836f0c"
   },
   {
     "word": "overload",
@@ -13464,7 +13818,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5512c4db-fd24-4f74-816d-fd491ef86295"
   },
   {
     "word": "overload",
@@ -13487,7 +13842,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1d89b120-ffa5-43c3-a8b9-bf6739ee803e"
   },
   {
     "word": "palmtop",
@@ -13501,7 +13857,8 @@
         "definition": "a small computer that can be held in the palm of one hand",
         "examples": []
       }
-    ]
+    ],
+    "id": "127a75cd-4959-45a2-bc1b-1ec19e65d32e"
   },
   {
     "word": "pane",
@@ -13533,7 +13890,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3141b805-21b3-4ec9-8320-1a46d84548d5"
   },
   {
     "word": "parallel port",
@@ -13547,7 +13905,8 @@
         "definition": "a point on a computer where you connect a device such as a printer that sends or receives more than one piece of data at a time",
         "examples": []
       }
-    ]
+    ],
+    "id": "f7574838-6bcb-494a-a31a-49d4bf3c4701"
   },
   {
     "word": "pascal",
@@ -13565,7 +13924,8 @@
         "definition": "a language used for writing programs for computer systems",
         "examples": []
       }
-    ]
+    ],
+    "id": "21aeb767-b7d0-4bb6-bd10-aaf5c68248fb"
   },
   {
     "word": "passcode",
@@ -13584,7 +13944,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c70101ab-ce5c-4dad-ae53-b7b3a936cbb0"
   },
   {
     "word": "passphrase",
@@ -13603,7 +13964,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7cae3601-6c5b-4a23-adcf-3f600599c896"
   },
   {
     "word": "password",
@@ -13631,7 +13993,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f866afa0-473f-42b2-96ad-93eebc8bd7b9"
   },
   {
     "word": "paste",
@@ -13684,7 +14047,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "006666ff-2746-4fdb-9167-b2554108ebdf"
   },
   {
     "word": "patch",
@@ -13807,7 +14171,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6f3b2bdb-c667-496d-97bc-285403ba4c15"
   },
   {
     "word": "patch",
@@ -13839,7 +14204,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e35bcdf9-b998-4659-a8f2-b41363f1fb51"
   },
   {
     "word": "PC",
@@ -13853,7 +14219,8 @@
         "definition": "a computer that is designed for one person to use at work or at home (the abbreviation for ‘personal computer’)",
         "examples": []
       }
-    ]
+    ],
+    "id": "273728e0-a709-4dd5-81ae-7e8f6fafd3d7"
   },
   {
     "word": "pen drive",
@@ -13867,7 +14234,8 @@
         "definition": "a small memory device that can be used to store data from a computer or digital camera and to move it from one device to another",
         "examples": []
       }
-    ]
+    ],
+    "id": "ecd16d77-70de-4a2d-b767-4c93684abe54"
   },
   {
     "word": "peripheral",
@@ -13886,7 +14254,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7cc8c3cd-b55e-4136-bbab-9940bc0e364f"
   },
   {
     "word": "personal computer",
@@ -13900,7 +14269,8 @@
         "definition": "a computer that is designed for one person to use at work or at home",
         "examples": []
       }
-    ]
+    ],
+    "id": "115a48fe-40cd-4c8d-a556-d9c871e5b881"
   },
   {
     "word": "photoshop",
@@ -13923,7 +14293,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d1ab1e7e-be64-40fd-850f-0ad1a4b9047a"
   },
   {
     "word": "pinch",
@@ -14020,7 +14391,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "382d212b-a314-444f-bae9-2712e7870369"
   },
   {
     "word": "piracy",
@@ -14043,7 +14415,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9e4f1b12-1909-4ffb-85aa-6eeb6c5356eb"
   },
   {
     "word": "pirate",
@@ -14066,7 +14439,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "84de38aa-57b4-4d23-ac19-f07b8049442a"
   },
   {
     "word": "pixel",
@@ -14080,7 +14454,8 @@
         "definition": "any of the small individual areas on a computer screen, which together form the whole image Pixel",
         "examples": []
       }
-    ]
+    ],
+    "id": "b137ef28-6a53-4574-a1b4-3cb6815664b2"
   },
   {
     "word": "pixelate",
@@ -14098,7 +14473,8 @@
         "definition": "to show an unclear image on television, consisting of a small number of large pixels, especially in order to hide somebody’s identity",
         "examples": []
       }
-    ]
+    ],
+    "id": "398eb176-8e52-4d4a-aed3-62020996c1f1"
   },
   {
     "word": "plasma screen",
@@ -14112,7 +14488,8 @@
         "definition": "a type of television or computer screen that is larger and thinner than most screens and produces a very clear image Plasma screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "fb4f48b5-64f5-4283-b33a-7d2d531ab177"
   },
   {
     "word": "platform",
@@ -14229,7 +14606,8 @@
         "definition": "the open part at the back of a double-decker bus where you get on or off",
         "examples": []
       }
-    ]
+    ],
+    "id": "e1eae9a2-a2e3-48a0-b2f3-ea07b08658a2"
   },
   {
     "word": "Plug and Play",
@@ -14243,7 +14621,8 @@
         "definition": "a system that makes it possible for a piece of equipment, such as a printer, to be connected to a computer and to work immediately, without the user needing to do anything",
         "examples": []
       }
-    ]
+    ],
+    "id": "cbc5a79b-eeac-42d4-843f-77d3cc641e9c"
   },
   {
     "word": "plug-and-play",
@@ -14262,7 +14641,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "47190713-dba1-4730-934b-ff57b3aea99f"
   },
   {
     "word": "plug-in",
@@ -14294,7 +14674,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "814731d5-465b-45d8-a759-9389974a2190"
   },
   {
     "word": "pointer",
@@ -14347,7 +14728,8 @@
         "definition": "a large dog used in hunting, trained to stand still with its nose pointing towards the birds that are being hunted",
         "examples": []
       }
-    ]
+    ],
+    "id": "6828dc4d-e40f-48f0-95da-a1f4028983d3"
   },
   {
     "word": "pointing device",
@@ -14361,7 +14743,8 @@
         "definition": "a mouse or other device which allows you to move the cursor on a computer screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "e8f1e705-fb30-4220-9849-dcf4d8943d66"
   },
   {
     "word": "pop-up",
@@ -14393,7 +14776,8 @@
         "definition": "a ball that is hit high into the air but does not go far, making it easy to catch",
         "examples": []
       }
-    ]
+    ],
+    "id": "025e9f4b-7a1a-480e-ab41-751c4d0c1483"
   },
   {
     "word": "port",
@@ -14479,7 +14863,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9e91f93a-ec5f-46f6-9358-245e32c56db8"
   },
   {
     "word": "portrait",
@@ -14532,7 +14917,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "37225f6b-7316-475c-a368-6f93ca4188d3"
   },
   {
     "word": "PowerBank™",
@@ -14551,7 +14937,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d32ebc1b-0c30-4976-b634-931665579604"
   },
   {
     "word": "power brick",
@@ -14570,7 +14957,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8c220b94-7677-40b6-a143-29bfea097964"
   },
   {
     "word": "power pack",
@@ -14589,7 +14977,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c633fdab-e194-4fbf-a3f5-c93ccc895b50"
   },
   {
     "word": "power user",
@@ -14608,7 +14997,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1e094897-6143-4a79-8f1c-5178d81950f4"
   },
   {
     "word": "predictive",
@@ -14644,7 +15034,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2e2db8cf-4d09-4c02-bec2-413fa2705763"
   },
   {
     "word": "print",
@@ -14753,7 +15144,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "61e3c710-19f1-41a2-a8e7-406f2d3f14ac"
   },
   {
     "word": "printer",
@@ -14784,7 +15176,8 @@
         "definition": "a place where books, etc. are printed",
         "examples": []
       }
-    ]
+    ],
+    "id": "6681bdb2-5673-479f-829a-b67733bf6de0"
   },
   {
     "word": "printout",
@@ -14803,7 +15196,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b6bc895b-477e-4862-b470-c83cb59b4220"
   },
   {
     "word": "process1",
@@ -14873,7 +15267,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "982f45f3-83bb-4d93-9c05-eae707907153"
   },
   {
     "word": "processor",
@@ -14896,7 +15291,8 @@
         "definition": "a part of a computer that controls all the other parts of the system",
         "examples": []
       }
-    ]
+    ],
+    "id": "c0976cd4-e332-41ac-870c-0c9abc1b4c1c"
   },
   {
     "word": "program",
@@ -15049,7 +15445,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1a2af185-1e4d-4fbc-8929-d5f0f9d28b05"
   },
   {
     "word": "program",
@@ -15115,7 +15512,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "58db7a0c-cc4a-496d-933a-3bd3aee8ba62"
   },
   {
     "word": "programmatically",
@@ -15143,7 +15541,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "25e00a22-2132-43a6-b81c-8de61d320bfe"
   },
   {
     "word": "programmer",
@@ -15157,7 +15556,8 @@
         "definition": "a person whose job is writing computer programs",
         "examples": []
       }
-    ]
+    ],
+    "id": "97b8d1c8-0faf-438e-b2ea-30e27f7c976e"
   },
   {
     "word": "programming",
@@ -15185,7 +15585,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a5f05f6a-5250-4f27-9f77-33f1068ff6de"
   },
   {
     "word": "prompt",
@@ -15212,7 +15613,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9ed5d54e-ce5d-464c-8073-842c49de31bf"
   },
   {
     "word": "proxy server",
@@ -15231,7 +15633,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4b6c89bd-24d8-44f3-9ee0-5bd9df77ace7"
   },
   {
     "word": "push alert",
@@ -15250,7 +15653,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5b7544ac-4bcf-4ce9-82ef-d7e5d283451f"
   },
   {
     "word": "push notification",
@@ -15273,7 +15677,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b25e6519-fbd8-47a4-8c51-4a5230781ceb"
   },
   {
     "word": "query language",
@@ -15287,7 +15692,8 @@
         "definition": "a system of words and symbols that you type in order to ask a computer to give you information from a database or an information system",
         "examples": []
       }
-    ]
+    ],
+    "id": "3989e5ff-03e3-486c-a3ee-6f1d3cacc1d1"
   },
   {
     "word": "quit",
@@ -15381,7 +15787,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6b6b6876-5b0f-4ba6-a976-c5bbdf6dadc8"
   },
   {
     "word": "RAM",
@@ -15400,7 +15807,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a0b57d6d-3546-4c40-a7e1-8b9ea1aa7b5f"
   },
   {
     "word": "random-access memory",
@@ -15414,7 +15822,8 @@
         "definition": "computer memory in which data can be changed or removed and can be looked at in any order",
         "examples": []
       }
-    ]
+    ],
+    "id": "3ec47740-bcfc-4d69-82cf-d12793e57c2b"
   },
   {
     "word": "read-only",
@@ -15433,7 +15842,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e7fb52b6-1fd1-4595-8612-277bbc50a761"
   },
   {
     "word": "read-only memory",
@@ -15447,7 +15857,8 @@
         "definition": "computer memory that contains instructions or data that cannot be changed or removed",
         "examples": []
       }
-    ]
+    ],
+    "id": "64fc5939-3412-403f-97b3-f3f95ebe105e"
   },
   {
     "word": "real time",
@@ -15470,7 +15881,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "bf28e29a-5184-443c-82dd-899232d0efb4"
   },
   {
     "word": "reboot",
@@ -15501,7 +15913,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d4fa0ae3-1d71-469a-921b-d935065d0c8e"
   },
   {
     "word": "refresh",
@@ -15563,7 +15976,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "cfcc7897-8527-4bcf-a6ed-49f869c9bccc"
   },
   {
     "word": "refresh rate",
@@ -15582,7 +15996,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5b776858-1aa0-432a-b5f5-9c91e6aed5fa"
   },
   {
     "word": "reload",
@@ -15604,7 +16019,8 @@
         "definition": "to fill a container, vehicle, machine, etc. again",
         "examples": []
       }
-    ]
+    ],
+    "id": "873766fb-2305-4d61-9507-9a70b873ab6a"
   },
   {
     "word": "reserved word",
@@ -15618,7 +16034,8 @@
         "definition": "a word that has a special meaning to a computer program, and so cannot be used in other ways when entering data",
         "examples": []
       }
-    ]
+    ],
+    "id": "6926c894-af05-4511-91b6-c884205dbd33"
   },
   {
     "word": "resize",
@@ -15632,7 +16049,8 @@
         "definition": "to make something bigger or smaller, especially an image on a computer screen Resize",
         "examples": []
       }
-    ]
+    ],
+    "id": "c101fb1f-9b87-41cc-9d2a-13655fb7724b"
   },
   {
     "word": "retrieval",
@@ -15664,7 +16082,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "fa1a24e6-f7b4-4934-9c63-9c5919caef99"
   },
   {
     "word": "retrieve",
@@ -15717,7 +16136,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "cb3550c1-f585-46e4-9e50-6bc9c375cb36"
   },
   {
     "word": "return",
@@ -15920,7 +16340,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "55011f89-e01e-4fa0-9e7b-87239c5a008a"
   },
   {
     "word": "right-click",
@@ -15934,7 +16355,8 @@
         "definition": "to choose a particular function or item on a computer screen, etc., by pressing the button on a mouse that is on the right side Right-click",
         "examples": []
       }
-    ]
+    ],
+    "id": "1d013824-3371-4731-80a9-125abd7675ed"
   },
   {
     "word": "rip",
@@ -15994,7 +16416,8 @@
         "definition": "to change text or images into a form in which they can be displayed on a screen or printed",
         "examples": []
       }
-    ]
+    ],
+    "id": "f0becacd-8075-445e-a298-5b3d097383e7"
   },
   {
     "word": "ROM",
@@ -16008,7 +16431,8 @@
         "definition": "computer memory that contains instructions or data that cannot be changed or removed (the abbreviation for ‘read-only memory’)",
         "examples": []
       }
-    ]
+    ],
+    "id": "c2d0e4b2-a617-440e-b834-7dec71d49e18"
   },
   {
     "word": "router1",
@@ -16027,7 +16451,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2bece0ec-1a3e-45af-998b-3f76c76a531d"
   },
   {
     "word": "run",
@@ -16615,7 +17040,8 @@
         "definition": "if tights or stockings run, a long thin hole appears in them run",
         "examples": []
       }
-    ]
+    ],
+    "id": "53218af5-fbce-49ed-93f4-398a57251d9c"
   },
   {
     "word": "SaaS",
@@ -16634,7 +17060,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "bf422627-72f0-4c9f-995c-45862d4326e4"
   },
   {
     "word": "safe mode",
@@ -16653,7 +17080,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "92b3fc98-a4cd-40fb-ba0b-21e9a1f4f827"
   },
   {
     "word": "save",
@@ -16936,7 +17364,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "06d3f3b0-2297-416e-b27a-7c5bb20af12d"
   },
   {
     "word": "scan",
@@ -17045,7 +17474,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "de7496ad-49f2-4934-93e1-fac40e4eaa57"
   },
   {
     "word": "scanner",
@@ -17081,7 +17511,8 @@
         "definition": "a piece of equipment for receiving and sending radar signals",
         "examples": []
       }
-    ]
+    ],
+    "id": "2954d98d-18f6-469e-a680-8059f21e27bd"
   },
   {
     "word": "scareware",
@@ -17095,7 +17526,8 @@
         "definition": "a type of computer program that tricks a user into buying and downloading unnecessary software that could be dangerous for the computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "70c0feea-b3da-4160-8d23-f115d0b45961"
   },
   {
     "word": "screen",
@@ -17301,7 +17733,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4e26e442-1c23-4613-87f7-57fc77ed3409"
   },
   {
     "word": "screen reader",
@@ -17320,7 +17753,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "db21181e-6f33-4a6a-8747-a35c484d5e2d"
   },
   {
     "word": "screen saver",
@@ -17334,7 +17768,8 @@
         "definition": "a computer program that replaces a screen display on a computer with another, moving, display after a particular length of time",
         "examples": []
       }
-    ]
+    ],
+    "id": "f3a198d2-ad1a-4ded-a847-df3b4ecbf722"
   },
   {
     "word": "screenshot",
@@ -17348,7 +17783,8 @@
         "definition": "an image of the display on a screen, used when showing how a program works",
         "examples": []
       }
-    ]
+    ],
+    "id": "1e461efd-9882-43cd-a21f-19839f73893a"
   },
   {
     "word": "script",
@@ -17414,7 +17850,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1749eee0-02eb-4cd4-a426-58ad217c9c06"
   },
   {
     "word": "scroll",
@@ -17441,7 +17878,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "db0cab11-66f8-4ad6-9a62-1a451ab16c01"
   },
   {
     "word": "scroll bar",
@@ -17455,7 +17893,8 @@
         "definition": "a narrow area at the edge of a computer screen that you use to scroll through a file with, using a mouse",
         "examples": []
       }
-    ]
+    ],
+    "id": "9765e2b4-b3f2-4cb4-9402-b7ed9451e5b1"
   },
   {
     "word": "search",
@@ -17527,7 +17966,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "91a70880-3fec-4352-9a36-22490156f28e"
   },
   {
     "word": "second screen",
@@ -17554,7 +17994,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c19d0f17-afd1-4a90-a3e4-411e9790ffde"
   },
   {
     "word": "security hole",
@@ -17573,7 +18014,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f3743409-c9f3-4f86-9078-f66a47d49326"
   },
   {
     "word": "seek time",
@@ -17587,7 +18029,8 @@
         "definition": "the amount of time that a computer takes to find data",
         "examples": []
       }
-    ]
+    ],
+    "id": "3028e256-5aa0-4169-8140-48488d3277cb"
   },
   {
     "word": "select",
@@ -17659,7 +18102,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "29781bfc-fdd7-491b-bef4-6b34e0811aa1"
   },
   {
     "word": "serial port",
@@ -17673,7 +18117,8 @@
         "definition": "a point on a computer where you connect a device such as a mouse that sends or receives data one bit at a time",
         "examples": []
       }
-    ]
+    ],
+    "id": "3663efdb-85dc-4e7c-aa16-ccbf12d9e985"
   },
   {
     "word": "server",
@@ -17708,7 +18153,8 @@
         "definition": "a person who helps a priest during a church service",
         "examples": []
       }
-    ]
+    ],
+    "id": "f2aa19a1-be5e-4a49-8be5-2761b67e8078"
   },
   {
     "word": "server farm",
@@ -17727,7 +18173,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "09cd2b66-606f-4499-b1a4-44335120c9ec"
   },
   {
     "word": "server-side",
@@ -17746,7 +18193,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3c5329b8-fd6c-426a-9160-0f2d6e7c87d7"
   },
   {
     "word": "SGML",
@@ -17760,7 +18208,8 @@
         "definition": "Standard Generalized Mark-up Language (a system used for marking text on a computer so that the text can be read on a different computer system or displayed in different forms)",
         "examples": []
       }
-    ]
+    ],
+    "id": "05ae7417-c66b-443b-8d03-1721e21680aa"
   },
   {
     "word": "shareware",
@@ -17774,7 +18223,8 @@
         "definition": "computer software (= programs, etc.) that is available free for a user to test, after which they must pay if they wish to continue using it Shareware",
         "examples": []
       }
-    ]
+    ],
+    "id": "ac4c40af-b4a5-4445-8487-767042766461"
   },
   {
     "word": "shift",
@@ -17875,7 +18325,8 @@
         "definition": "a simple straight piece of clothing worn by women in the past as underwear",
         "examples": []
       }
-    ]
+    ],
+    "id": "4b148a67-70fe-482d-b504-92e39afd5ccc"
   },
   {
     "word": "sideload",
@@ -17903,7 +18354,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "dea43f74-e620-4608-ad52-fdf57f32a262"
   },
   {
     "word": "silicon chip",
@@ -17917,7 +18369,8 @@
         "definition": "a very small piece of silicon used to carry a complicated electronic circuit",
         "examples": []
       }
-    ]
+    ],
+    "id": "a332e773-b4db-4c1c-8361-0bf318b47909"
   },
   {
     "word": "skin",
@@ -18087,7 +18540,8 @@
         "definition": "the interface of a computer program (= the way a computer program presents information on screen), that the user can change as they wish",
         "examples": []
       }
-    ]
+    ],
+    "id": "060f3e18-4f54-440e-bcc9-ae23083095f8"
   },
   {
     "word": "slash",
@@ -18132,7 +18586,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2bd6b9de-cc9a-4945-8840-46cb7b55ff72"
   },
   {
     "word": "slider",
@@ -18172,7 +18627,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4c4837ea-fd78-41a6-b0f4-3e1f761e7fbd"
   },
   {
     "word": "slide show",
@@ -18204,7 +18660,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "89c9bd14-396e-4e95-bca1-3edb9a762423"
   },
   {
     "word": "smart speaker",
@@ -18223,7 +18680,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ed3973c2-08d9-4e52-afd7-1b60ae975111"
   },
   {
     "word": "soft error",
@@ -18237,7 +18695,8 @@
         "definition": "an error or fault that makes a program or operating system stop working, but that can often be corrected by switching the computer off then on again",
         "examples": []
       }
-    ]
+    ],
+    "id": "55c19c65-087b-4b82-b9b3-810bb9df133f"
   },
   {
     "word": "software",
@@ -18292,7 +18751,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1fad9238-ac5a-4690-9e06-0994cfa8e96d"
   },
   {
     "word": "software engineer",
@@ -18306,7 +18766,8 @@
         "definition": "a person who designs, develops and maintains computer software",
         "examples": []
       }
-    ]
+    ],
+    "id": "8c1d7094-3d23-48ff-ba9f-e06d43aa93e2"
   },
   {
     "word": "sound card",
@@ -18320,7 +18781,8 @@
         "definition": "a device that can be put into a computer to allow the use of sound with multimedia software",
         "examples": []
       }
-    ]
+    ],
+    "id": "4149301a-e4b3-43eb-a51a-46f38d3020e5"
   },
   {
     "word": "sound effect",
@@ -18334,7 +18796,8 @@
         "definition": "a sound that is made artificially, for example the sound of the wind or a battle, and used in a film, play, computer game, etc. to make it more realistic",
         "examples": []
       }
-    ]
+    ],
+    "id": "1dd5df15-91df-4809-b786-636397dddab4"
   },
   {
     "word": "source code",
@@ -18348,7 +18811,8 @@
         "definition": "a computer program written in text form that must be translated into another form, such as machine code, before it can run on a computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "de639778-4304-4a4c-9eef-971efbacb5cf"
   },
   {
     "word": "space bar",
@@ -18362,7 +18826,8 @@
         "definition": "a bar on the keyboard of a computer or typewriter that you press to make spaces between words",
         "examples": []
       }
-    ]
+    ],
+    "id": "6389a191-36b5-4626-9f15-1c28d8c39e31"
   },
   {
     "word": "spambot",
@@ -18381,7 +18846,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "04e6759d-a6d6-437c-83b9-202f31c04f3a"
   },
   {
     "word": "speech recognition",
@@ -18400,7 +18866,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9d708b7b-8667-4316-9907-639439c1c9cf"
   },
   {
     "word": "spellcheck",
@@ -18414,7 +18881,8 @@
         "definition": "to use a computer program to check your writing to see if your spelling is correct",
         "examples": []
       }
-    ]
+    ],
+    "id": "3e01bb31-9442-47ac-b0e9-5860291702f9"
   },
   {
     "word": "spellcheck",
@@ -18437,7 +18905,8 @@
         "definition": "a computer program that checks your writing to see if your spelling is correct",
         "examples": []
       }
-    ]
+    ],
+    "id": "afc1a2c7-e222-44d7-b96a-c8ac6cfadd9d"
   },
   {
     "word": "spellchecker",
@@ -18451,7 +18920,8 @@
         "definition": "a computer program that checks your writing to see if your spelling is correct",
         "examples": []
       }
-    ]
+    ],
+    "id": "f39215ad-5895-4dd9-ae91-317331df96d4"
   },
   {
     "word": "split screen",
@@ -18465,7 +18935,8 @@
         "definition": "a way of displaying two or more pictures or pieces of information at the same time on a television, cinema or computer screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "90a8d113-68b0-4855-be38-da844ef9baac"
   },
   {
     "word": "split-screen",
@@ -18484,7 +18955,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "57150473-ea76-4a24-b069-6c28cbe264a9"
   },
   {
     "word": "spreadsheet",
@@ -18507,7 +18979,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "76e16f8b-fe62-4353-83c3-b12ec3fe8421"
   },
   {
     "word": "sprint",
@@ -18556,7 +19029,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "0ccb87cd-8679-427c-a9aa-a0fa8748a791"
   },
   {
     "word": "stack",
@@ -18617,7 +19091,8 @@
         "definition": "a tall thin part of a cliff that has been separated from the land and stands on its own in the sea",
         "examples": []
       }
-    ]
+    ],
+    "id": "6ec2200f-cef1-48d6-9a7b-e51783d59f83"
   },
   {
     "word": "status bar",
@@ -18631,7 +19106,8 @@
         "definition": "an area that you see along the bottom of your computer screen that gives you information about the program that you are using or the document that you are working on",
         "examples": []
       }
-    ]
+    ],
+    "id": "ac52939f-70ec-4db9-ae72-4f36d62b4e4f"
   },
   {
     "word": "storage",
@@ -18684,7 +19160,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "33274a32-4367-4bed-af97-c068d6131542"
   },
   {
     "word": "suite",
@@ -18738,7 +19215,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6972b4be-ffb6-47db-9e12-da167dc09dff"
   },
   {
     "word": "swipe",
@@ -18784,7 +19262,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7195c3f8-ac10-433d-9d8e-84a010fd4a63"
   },
   {
     "word": "system",
@@ -18887,7 +19366,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9b3656fc-b1a7-4a12-a724-be7743ec30fe"
   },
   {
     "word": "systems analysis",
@@ -18901,7 +19381,8 @@
         "definition": "the job of analysing the needs of a business company or an organization and then designing processes for working efficiently using computer programs",
         "examples": []
       }
-    ]
+    ],
+    "id": "cd85e0c8-e50d-4a45-9e10-0a45c2c0bfdc"
   },
   {
     "word": "systems analyst",
@@ -18915,7 +19396,8 @@
         "definition": "a person whose job is to analyse the needs of a business company or an organization and then design processes for working efficiently using computer programs",
         "examples": []
       }
-    ]
+    ],
+    "id": "8e5ff5ff-358f-4039-bd43-2dde85d7bbdb"
   },
   {
     "word": "system unit",
@@ -18929,7 +19411,8 @@
         "definition": "the main part of a computer, separate from the keyboard, mouse and monitor, that contains the unit that controls all the other parts of the system",
         "examples": []
       }
-    ]
+    ],
+    "id": "c5ced1e7-94ab-434a-80a0-0dcf1b4b1035"
   },
   {
     "word": "tab",
@@ -19013,7 +19496,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "1a06ff26-ee04-4078-be02-8316174fc58d"
   },
   {
     "word": "tablet",
@@ -19083,7 +19567,8 @@
         "definition": "a number of pieces of paper for writing or drawing on, that are fastened together at one edge",
         "examples": []
       }
-    ]
+    ],
+    "id": "148ba87c-23af-440e-bf12-be9daaf0a056"
   },
   {
     "word": "taskbar",
@@ -19102,7 +19587,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "078b0939-f363-4238-8ed5-f82962958a3d"
   },
   {
     "word": "terminal",
@@ -19152,7 +19638,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "44c3511e-ad98-49fe-b35b-c23dd8a75280"
   },
   {
     "word": "text-to-speech",
@@ -19175,7 +19662,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "cbce41a0-d2a6-4037-b852-e03513f96cca"
   },
   {
     "word": "thumb drive",
@@ -19189,7 +19677,8 @@
         "definition": "a small memory device that can be used to store data from a computer or digital camera and to move it from one device to another",
         "examples": []
       }
-    ]
+    ],
+    "id": "476fb03b-1a9f-4e03-8b66-f3b504e4915b"
   },
   {
     "word": "time out",
@@ -19208,7 +19697,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ce4407c8-5ae0-4173-a7d8-c3adbb3ecc76"
   },
   {
     "word": "timeout",
@@ -19231,7 +19721,8 @@
         "definition": "an occasion when a process or program stops after a particular amount of time because it has not worked successfully",
         "examples": []
       }
-    ]
+    ],
+    "id": "d2e48332-4697-4a6a-8a69-4cc45b370241"
   },
   {
     "word": "timestamp",
@@ -19254,7 +19745,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ea1a8763-7f73-45ed-b780-5227f0983ef9"
   },
   {
     "word": "timestamp",
@@ -19273,7 +19765,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3362273c-833e-4ea6-8b33-0727577fea5f"
   },
   {
     "word": "title bar",
@@ -19287,7 +19780,8 @@
         "definition": "a bar at the top of a computer screen, which shows the name of the program and file that is on the screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "505c6b6b-974c-4ee4-8bd7-4cede079fac2"
   },
   {
     "word": "toggle",
@@ -19305,7 +19799,8 @@
         "definition": "a key on a computer that you press to change from one style or operation to another, and back again",
         "examples": []
       }
-    ]
+    ],
+    "id": "2a317510-d551-4fba-a04e-ef7386debd81"
   },
   {
     "word": "toggle",
@@ -19328,7 +19823,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "457b6da5-737c-4270-8d7b-02617f4cee8b"
   },
   {
     "word": "toolbar",
@@ -19342,7 +19838,8 @@
         "definition": "a row of symbols (= icons) on a computer screen, smartphone, etc. that show the different things that you can do with a particular program Toolbar",
         "examples": []
       }
-    ]
+    ],
+    "id": "b4d39d22-790e-4788-b7c5-1e6d6f0f460d"
   },
   {
     "word": "touchpad",
@@ -19356,7 +19853,8 @@
         "definition": "a device that you touch in different places in order to operate a program",
         "examples": []
       }
-    ]
+    ],
+    "id": "ffe24161-ef98-45a4-8412-ad0bba50ce37"
   },
   {
     "word": "touchscreen",
@@ -19370,7 +19868,8 @@
         "definition": "a screen on a computer, phone, etc. that allows you to give instructions to the device by touching areas on it Touch screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "a240daa6-5f8e-4886-b511-d2c140fa07f0"
   },
   {
     "word": "Trojan",
@@ -19393,7 +19892,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f40f4eb6-fe48-44fa-ac88-b0d1c9829280"
   },
   {
     "word": "Trojan horse",
@@ -19411,7 +19911,8 @@
         "definition": "a computer program that seems to be helpful but that is, in fact, designed to destroy data, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "eb4f2c1f-83d6-4db9-8e2a-3e349d849452"
   },
   {
     "word": "troubleshoot",
@@ -19429,7 +19930,8 @@
         "definition": "to identify and correct faults in a computer system",
         "examples": []
       }
-    ]
+    ],
+    "id": "885ad5c3-b078-43d0-944a-15c125d4c020"
   },
   {
     "word": "TTS",
@@ -19448,7 +19950,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5c41e783-0eaa-454c-b685-ada45677dd8c"
   },
   {
     "word": "tutorial",
@@ -19480,7 +19983,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "dd2f2b4b-e300-4383-94f2-5f05a026499d"
   },
   {
     "word": "type",
@@ -19528,7 +20032,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "0fef51e8-d6ee-49ff-86b3-0ca58fccc878"
   },
   {
     "word": "uncheck",
@@ -19542,7 +20047,8 @@
         "definition": "to remove a mark (✓) from a box on an electronic form to show that you do not want something",
         "examples": []
       }
-    ]
+    ],
+    "id": "bc6820ec-5517-4d02-8ebf-b4fca7323c99"
   },
   {
     "word": "undelete",
@@ -19556,7 +20062,8 @@
         "definition": "to cancel an action of deleting a document, a file, text, etc. on a computer, so that it appears again",
         "examples": []
       }
-    ]
+    ],
+    "id": "fc837a15-b943-48c7-b0d6-9fc5be35fc56"
   },
   {
     "word": "underscore",
@@ -19570,7 +20077,8 @@
         "definition": "the symbol (_ ) that is used to draw a line between letters or words, especially in computer commands and internet addresses",
         "examples": []
       }
-    ]
+    ],
+    "id": "f03e3e76-ecb5-4502-bc50-037213f0594e"
   },
   {
     "word": "unencrypted",
@@ -19589,7 +20097,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6b5b137f-8635-4810-9e34-93abb6306440"
   },
   {
     "word": "uninstall",
@@ -19608,7 +20117,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "77ab95c2-01d7-43f6-9bc3-fa96901b2ea9"
   },
   {
     "word": "unit",
@@ -19832,7 +20342,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "298270b0-3b24-42be-bb4d-0e096ea56cb0"
   },
   {
     "word": "unlock",
@@ -19890,7 +20401,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d64fd780-83ac-4415-b099-8342290327d5"
   },
   {
     "word": "unreadable",
@@ -19925,7 +20437,8 @@
         "definition": "containing information that a computer is not able to read",
         "examples": []
       }
-    ]
+    ],
+    "id": "c04c08c3-3efb-4a17-81c0-c540a66a5ace"
   },
   {
     "word": "upgrade",
@@ -19978,7 +20491,8 @@
         "definition": "to give somebody a more important job",
         "examples": []
       }
-    ]
+    ],
+    "id": "3c15c49e-26be-4bd0-9fcb-645fc56d9f88"
   },
   {
     "word": "upgrade",
@@ -20015,7 +20529,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4285a7d9-7302-41c0-9994-c160940115eb"
   },
   {
     "word": "upload",
@@ -20034,7 +20549,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "647fb30a-a693-47eb-9e12-39631162a3a0"
   },
   {
     "word": "upload",
@@ -20048,7 +20564,8 @@
         "definition": "data that has been moved to a larger computer system from a smaller one",
         "examples": []
       }
-    ]
+    ],
+    "id": "d766e523-ea5e-470f-ba4b-6be774e860c3"
   },
   {
     "word": "USB",
@@ -20071,7 +20588,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f4aa5371-9050-497d-a626-2d6a5f09d39d"
   },
   {
     "word": "USB drive",
@@ -20085,7 +20603,8 @@
         "definition": "a small memory device that can be used to store data from a computer or digital camera and to move it from one device to another",
         "examples": []
       }
-    ]
+    ],
+    "id": "d7a956ed-0f43-4c95-9667-91a214eb4921"
   },
   {
     "word": "user",
@@ -20164,7 +20683,8 @@
         "definition": "a person who uses illegal drugs",
         "examples": []
       }
-    ]
+    ],
+    "id": "e00d926c-aac1-49eb-8c81-458d49a34375"
   },
   {
     "word": "user ID",
@@ -20183,7 +20703,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "30f4d2bb-5221-4b58-8cad-870f582ac081"
   },
   {
     "word": "username",
@@ -20202,7 +20723,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b483c7da-741b-4a22-9c54-0313e0869f3f"
   },
   {
     "word": "utility",
@@ -20242,7 +20764,8 @@
         "definition": "a piece of computer software that performs a particular task",
         "examples": []
       }
-    ]
+    ],
+    "id": "3baf8d4a-b371-4e06-a2e7-9e20fd7ec62a"
   },
   {
     "word": "vapourware",
@@ -20256,7 +20779,8 @@
         "definition": "a piece of software or other computer product that has been advertised but is not available to buy yet, either because it is only an idea or because it is still being written or designed",
         "examples": []
       }
-    ]
+    ],
+    "id": "f00e0358-72cf-45ea-a51f-d09b6c909cf1"
   },
   {
     "word": "VDU",
@@ -20270,7 +20794,8 @@
         "definition": "a machine with a screen like a television that displays information from a computer (the abbreviation for ‘visual display unit’ or ‘video display terminal’)",
         "examples": []
       }
-    ]
+    ],
+    "id": "69ee81ab-3225-47eb-9e47-e3af8aa317d8"
   },
   {
     "word": "video",
@@ -20362,7 +20887,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8ebccee0-1c35-438e-9ac7-1da9a91d3c27"
   },
   {
     "word": "video card",
@@ -20376,7 +20902,8 @@
         "definition": "a device that allows images to be shown on a computer screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "00aad6cd-97a8-4f34-bd02-2985a76e44f3"
   },
   {
     "word": "virtual",
@@ -20440,7 +20967,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6d2771c0-c2b0-4410-86f2-1f1768342bb4"
   },
   {
     "word": "virtual machine",
@@ -20454,7 +20982,8 @@
         "definition": "a feature of a computer's operating system that allows multiple other systems to be run on the same computer, each with its own operating environment",
         "examples": []
       }
-    ]
+    ],
+    "id": "d43ec250-fb3a-46cf-ab41-89c897fa9290"
   },
   {
     "word": "virtual reality",
@@ -20477,7 +21006,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "17590eef-a89a-4b9b-9cd9-649cf1702166"
   },
   {
     "word": "virus",
@@ -20558,7 +21088,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c34b0135-4c57-4885-8b3f-9a38cf03aefd"
   },
   {
     "word": "visual display unit",
@@ -20572,7 +21103,8 @@
         "definition": "a machine with a screen like a television that displays information from a computer",
         "examples": []
       }
-    ]
+    ],
+    "id": "63ec068f-8614-41cd-b936-7f011f79c06a"
   },
   {
     "word": "voice assistant",
@@ -20591,7 +21123,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "07d76dcf-bc73-4614-bcc9-576eed599543"
   },
   {
     "word": "voice recognition",
@@ -20614,7 +21147,8 @@
         "definition": "technology that allows a computer to understand spoken words",
         "examples": []
       }
-    ]
+    ],
+    "id": "704765ed-4eaf-48b5-b764-b0a0325072fa"
   },
   {
     "word": "VPN",
@@ -20628,7 +21162,8 @@
         "definition": "a system that uses code to securely access a computer in a different location via the internet (the abbreviation for ‘virtual private network’)",
         "examples": []
       }
-    ]
+    ],
+    "id": "b2ca923c-f298-4e72-a8df-b506d72b943b"
   },
   {
     "word": "VR",
@@ -20642,7 +21177,8 @@
         "definition": "images and sounds created by a computer that seem almost real to the user, who can affect them by using sensors (the abbreviation for virtual reality)",
         "examples": []
       }
-    ]
+    ],
+    "id": "0dd5b586-93b4-433e-9095-2786128dbab0"
   },
   {
     "word": "wallpaper",
@@ -20678,7 +21214,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9b0f7462-3a81-41a8-9902-bd49796a1af4"
   },
   {
     "word": "WAN",
@@ -20692,7 +21229,8 @@
         "definition": "a system in which computers in different places are connected, usually over a large area (the abbreviation for ‘wide area network’)",
         "examples": []
       }
-    ]
+    ],
+    "id": "2c20befb-f876-4d9f-9191-0030a77fbfac"
   },
   {
     "word": "webcam",
@@ -20706,7 +21244,8 @@
         "definition": "a video camera that is connected to a computer so that what it records can be seen on a website or on another computer as it happens web",
         "examples": []
       }
-    ]
+    ],
+    "id": "cd44ae25-b7e0-4e4c-84e0-51bdc9bbd9fc"
   },
   {
     "word": "Wi-Fi™",
@@ -20720,7 +21259,8 @@
         "definition": "a system for connecting to the internet or sending data over computer networks using radio waves instead of wires",
         "examples": []
       }
-    ]
+    ],
+    "id": "544e7e24-0a66-4445-95de-d52be5db2523"
   },
   {
     "word": "window",
@@ -20824,7 +21364,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f1cce4d3-32fb-46cf-87a9-f5010143133c"
   },
   {
     "word": "windowing",
@@ -20843,7 +21384,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "00dce799-d90c-4a63-a8e8-24addd580093"
   },
   {
     "word": "wireless",
@@ -20862,7 +21404,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "56b7156c-ee12-4f08-9344-f8925631a802"
   },
   {
     "word": "word processing",
@@ -20881,7 +21424,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "57514db5-c1c5-4dd0-959b-884957d3ce29"
   },
   {
     "word": "word processor",
@@ -20895,7 +21439,8 @@
         "definition": "a program or machine used to create, edit and store text documents, usually typed from a keyboard",
         "examples": []
       }
-    ]
+    ],
+    "id": "ec0dc7ec-bc7e-467c-ae68-5f0a4e7f99ac"
   },
   {
     "word": "workstation",
@@ -20909,7 +21454,8 @@
         "definition": "the desk and computer at which a person works; one computer that is part of a computer network",
         "examples": []
       }
-    ]
+    ],
+    "id": "1fd9ad96-1358-4e77-bdcb-c6bc1d4fa2f4"
   },
   {
     "word": "worm",
@@ -20958,7 +21504,8 @@
         "definition": "a person you do not like or respect, especially because they have a weak character and do not behave well towards other people",
         "examples": []
       }
-    ]
+    ],
+    "id": "c17b2e61-7b76-4c65-80ef-4750e063c731"
   },
   {
     "word": "WYSIWYG",
@@ -20972,7 +21519,8 @@
         "definition": "what you see is what you get (what you see on the computer screen is exactly the same as will be printed or displayed)",
         "examples": []
       }
-    ]
+    ],
+    "id": "fe0442b4-d517-4763-8fc7-5e478640860c"
   },
   {
     "word": "XML",
@@ -20986,6 +21534,7 @@
         "definition": "Extensible Markup Language (a system used for marking the structure of text on a computer, for example when creating website pages) XML",
         "examples": []
       }
-    ]
+    ],
+    "id": "7641f792-9ff5-4eea-94d7-13b4eebfdfc7"
   }
 ]

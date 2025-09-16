@@ -16,7 +16,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2b677b96-e57a-466c-bf1e-387d727487cd"
   },
   {
     "word": "AC",
@@ -34,7 +35,8 @@
         "definition": "alternating current",
         "examples": []
       }
-    ]
+    ],
+    "id": "9403d828-34ed-41d7-a001-a637270ffb41"
   },
   {
     "word": "action",
@@ -193,7 +195,8 @@
         "definition": "the mechanical parts of a piano, gun, clock, etc. or the way the parts move",
         "examples": []
       }
-    ]
+    ],
+    "id": "c5d7d36d-87c5-4772-b2a0-5ad8e38ffb6e"
   },
   {
     "word": "activate",
@@ -216,7 +219,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c939a74d-c56a-447a-8535-3e9ca03aa2f6"
   },
   {
     "word": "activation",
@@ -239,7 +243,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a3749d59-be99-49c0-b3ef-948cc3c483a0"
   },
   {
     "word": "actuate",
@@ -267,7 +272,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "da91b5e6-ba5a-44b5-8c0b-4890d33bbf34"
   },
   {
     "word": "adapter",
@@ -294,7 +300,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ceb253df-3a3e-4430-97ec-e5b02c9dd685"
   },
   {
     "word": "alternator",
@@ -308,7 +315,8 @@
         "definition": "a device, used especially in a car, that produces an alternating current",
         "examples": []
       }
-    ]
+    ],
+    "id": "6f7bebc7-f324-4f7f-ab94-97d2466332ec"
   },
   {
     "word": "ammeter",
@@ -322,7 +330,8 @@
         "definition": "an instrument for measuring the strength of an electric current amp",
         "examples": []
       }
-    ]
+    ],
+    "id": "8935e111-54cf-421d-9fba-d7739787633b"
   },
   {
     "word": "amp",
@@ -345,7 +354,8 @@
         "definition": "an amplifier (= an electrical device or piece of equipment that makes sounds or radio signals louder)",
         "examples": []
       }
-    ]
+    ],
+    "id": "9665f7c1-0e27-411a-9443-44c2fd599b5d"
   },
   {
     "word": "amperage",
@@ -359,7 +369,8 @@
         "definition": "the strength of an electric current, measured in amps",
         "examples": []
       }
-    ]
+    ],
+    "id": "0e8c274a-b3c3-4a33-b6af-d66a9ac7c825"
   },
   {
     "word": "amplifier",
@@ -378,7 +389,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "91277003-6b5d-4dec-b42d-375369b6ceb9"
   },
   {
     "word": "analogue",
@@ -401,7 +413,8 @@
         "definition": "showing the time using hands on a dial and not with a display of numbers",
         "examples": []
       }
-    ]
+    ],
+    "id": "4e1efe58-83a3-4314-b0ae-edca18e205ea"
   },
   {
     "word": "antenna",
@@ -429,7 +442,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "f759807b-0c9e-42a9-9374-31752091376a"
   },
   {
     "word": "appliance",
@@ -460,7 +474,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "912d4c2b-8672-4a5a-80c2-68fe727e8d70"
   },
   {
     "word": "arm",
@@ -584,7 +599,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2b7146b8-4374-46ba-9481-e0ba682c6b14"
   },
   {
     "word": "ball bearing",
@@ -598,7 +614,8 @@
         "definition": "a ring of small metal balls used in a machine to enable the parts to turn smoothly; one of these small metal balls",
         "examples": []
       }
-    ]
+    ],
+    "id": "60b3d74f-48e5-48da-909e-0c28b5187f7b"
   },
   {
     "word": "bandwidth",
@@ -635,7 +652,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "fba22629-b4f4-458e-9e6b-550fab930bfc"
   },
   {
     "word": "battery",
@@ -738,7 +756,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ab641edf-2299-4d0a-a9ff-fc97beb7800b"
   },
   {
     "word": "bearing",
@@ -808,7 +827,8 @@
         "definition": "a part of a machine that supports a moving part, especially one that is turning",
         "examples": []
       }
-    ]
+    ],
+    "id": "561b4505-5fcc-45f1-b643-87c29a5e43c0"
   },
   {
     "word": "belt",
@@ -877,7 +897,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c7569964-d212-4fcc-97c3-b70b834f18ca"
   },
   {
     "word": "belt drive",
@@ -891,7 +912,8 @@
         "definition": "a system that uses a moving continuous belt to send power to part of a machine",
         "examples": []
       }
-    ]
+    ],
+    "id": "f3fb3529-4c08-40a7-9458-5fc3e10c73ca"
   },
   {
     "word": "bench test",
@@ -905,7 +927,8 @@
         "definition": "a test performed on a machine or part before it is sold",
         "examples": []
       }
-    ]
+    ],
+    "id": "c2def4bb-1243-4990-a9e0-b439667bfcce"
   },
   {
     "word": "bench-test",
@@ -919,7 +942,8 @@
         "definition": "to test a machine or part before it is sold",
         "examples": []
       }
-    ]
+    ],
+    "id": "3e2a3e5a-0c2e-4f44-8199-c28db5269b92"
   },
   {
     "word": "blade",
@@ -968,7 +992,8 @@
         "definition": "the flat metal part on the bottom of an ice skate",
         "examples": []
       }
-    ]
+    ],
+    "id": "c7a53fb2-a120-4e8d-b763-39bf62d96518"
   },
   {
     "word": "blow",
@@ -1183,7 +1208,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "54f516f6-342b-4d87-b8b2-59bc95d48273"
   },
   {
     "word": "blueprint",
@@ -1220,7 +1246,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d4c9e876-5cd1-4873-a413-11005c7c0a06"
   },
   {
     "word": "bolt",
@@ -1260,7 +1287,8 @@
         "definition": "a long piece of cloth wound in a roll around a piece of cardboard",
         "examples": []
       }
-    ]
+    ],
+    "id": "2aa97f18-d152-4ba7-87ee-0f54be52dcee"
   },
   {
     "word": "bolt",
@@ -1344,7 +1372,8 @@
         "definition": "to grow too quickly and start producing seeds and so become less good to eat",
         "examples": []
       }
-    ]
+    ],
+    "id": "28811605-b758-4801-911e-6b10dea5b9ae"
   },
   {
     "word": "bolt-on",
@@ -1358,7 +1387,8 @@
         "definition": "able to be easily added to a machine, etc. to make it able to do something new",
         "examples": []
       }
-    ]
+    ],
+    "id": "dffde4c5-bac2-4432-ad95-4b91d0095668"
   },
   {
     "word": "break",
@@ -1691,7 +1721,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2ef2026a-015a-4343-bcc7-874f5ec15ea4"
   },
   {
     "word": "break down",
@@ -1758,7 +1789,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "08898f57-45cb-414d-84ce-1e0e4b008d13"
   },
   {
     "word": "breakdown",
@@ -1845,7 +1877,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e977adda-ff3c-4674-b277-3c115b9ed1bc"
   },
   {
     "word": "button",
@@ -1943,7 +1976,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "946dc24d-6b4d-4e5a-9c30-eb5aeed9791d"
   },
   {
     "word": "cable",
@@ -2007,7 +2041,8 @@
         "definition": "a message sent by electrical signals and printed out",
         "examples": []
       }
-    ]
+    ],
+    "id": "972cd8bd-e746-4206-890d-4e5adf4abd9b"
   },
   {
     "word": "cannibalize",
@@ -2044,7 +2079,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3c2a93e7-dd57-45cf-bbd2-918aa84c516b"
   },
   {
     "word": "capacitor",
@@ -2058,7 +2094,8 @@
         "definition": "a device used to store an electrical charge",
         "examples": []
       }
-    ]
+    ],
+    "id": "eddd4870-0b54-403c-85a1-92fddd9907bd"
   },
   {
     "word": "capacity",
@@ -2169,7 +2206,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b90ac7a9-1f04-485b-aaeb-57b22b16f013"
   },
   {
     "word": "chemical engineering",
@@ -2183,7 +2221,8 @@
         "definition": "the study of the design and use of machines in industrial chemical processes",
         "examples": []
       }
-    ]
+    ],
+    "id": "7aae674a-c64f-4225-adce-e2c531bfec31"
   },
   {
     "word": "chronograph",
@@ -2201,7 +2240,8 @@
         "definition": "a stopwatch",
         "examples": []
       }
-    ]
+    ],
+    "id": "153bccee-c5b7-49bf-a16a-aa44720e18e2"
   },
   {
     "word": "circuit",
@@ -2281,7 +2321,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a9234850-3901-4ba0-b32b-558eeca28971"
   },
   {
     "word": "circuit board",
@@ -2295,7 +2336,8 @@
         "definition": "a board that holds electrical circuits inside a piece of electrical equipment",
         "examples": []
       }
-    ]
+    ],
+    "id": "cd924744-d8b0-46d4-b5e4-a161860e5269"
   },
   {
     "word": "circuit breaker",
@@ -2318,7 +2360,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8ef110f0-6c94-4b9d-a92c-1234e39431b5"
   },
   {
     "word": "civil engineering",
@@ -2332,7 +2375,8 @@
         "definition": "the design, building and repair of roads, bridges, canals, etc.; the study of this as a subject",
         "examples": []
       }
-    ]
+    ],
+    "id": "a79868cd-eebf-44d0-9dc8-e6f760dad2a4"
   },
   {
     "word": "clock",
@@ -2400,7 +2444,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "42ce420a-7a60-425c-9088-0dd6393f1c03"
   },
   {
     "word": "coax",
@@ -2414,7 +2459,8 @@
         "definition": "(of a cable) sending signals using two wires inside one cable, one of which is wrapped around the other. Coax cable is used by TV, phone and internet companies.",
         "examples": []
       }
-    ]
+    ],
+    "id": "3a33d72c-3a7a-4113-ae7e-667736af2da8"
   },
   {
     "word": "coaxial",
@@ -2432,7 +2478,8 @@
         "definition": "(of a cable) sending signals using two wires inside one cable, one of which is wrapped around the other. Coaxial cable is used by TV, phone and internet companies.",
         "examples": []
       }
-    ]
+    ],
+    "id": "ffa61bbf-0a0e-44bf-8c67-22c9887ecab7"
   },
   {
     "word": "cog",
@@ -2450,7 +2497,8 @@
         "definition": "a wheel with a series of teeth on the edge that fit between the teeth on the next wheel and cause it to move",
         "examples": []
       }
-    ]
+    ],
+    "id": "d1cd9567-1ae2-4aa4-a7ca-f89b2af72762"
   },
   {
     "word": "condenser",
@@ -2468,7 +2516,8 @@
         "definition": "a device that receives or stores electricity, especially in a car engine",
         "examples": []
       }
-    ]
+    ],
+    "id": "4bfb497b-9de5-49b9-bf14-364b22ad9e07"
   },
   {
     "word": "conduct",
@@ -2575,7 +2624,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "cda9baf4-8133-4123-82e2-45d6fefe4ee7"
   },
   {
     "word": "connect",
@@ -2713,7 +2763,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "421bd26a-55fb-4a52-ad4b-43d711c9be84"
   },
   {
     "word": "console2",
@@ -2731,7 +2782,8 @@
         "definition": "a small electronic device for playing video games",
         "examples": []
       }
-    ]
+    ],
+    "id": "3f31622a-9f32-4d09-9e57-a0b51059c652"
   },
   {
     "word": "contrivance",
@@ -2776,7 +2828,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ab9ccce2-1eed-4ad4-adb6-b64da33ab275"
   },
   {
     "word": "controller",
@@ -2820,7 +2873,8 @@
         "definition": "an electronic device that is used to control video games via a computer or games console",
         "examples": []
       }
-    ]
+    ],
+    "id": "ae0968b5-f24f-42fe-9855-4e182b96feeb"
   },
   {
     "word": "crane",
@@ -2838,7 +2892,8 @@
         "definition": "a large bird with long legs and a long neck",
         "examples": []
       }
-    ]
+    ],
+    "id": "e894904a-616f-404b-a0a0-73e273614fe0"
   },
   {
     "word": "crank",
@@ -2874,7 +2929,8 @@
         "definition": "a bar and handle in the shape of an L that you pull or turn to produce movement in a machine, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "415b918b-8926-4756-a8ae-54ac573db975"
   },
   {
     "word": "crank",
@@ -2897,7 +2953,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "00649f80-db6c-4b93-ac75-ec526fa0e676"
   },
   {
     "word": "crank up",
@@ -2920,7 +2977,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b68e09cb-3074-499f-89f1-25a02f049f7e"
   },
   {
     "word": "current",
@@ -2990,7 +3048,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "069ad83b-ba09-4660-828d-2f6451b4ec08"
   },
   {
     "word": "cycle",
@@ -3067,7 +3126,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d75614f0-0f88-4515-89b1-44c47b48d5cb"
   },
   {
     "word": "DC",
@@ -3090,7 +3150,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "43903d23-4e6c-4d29-ba85-0fe45fcc3e85"
   },
   {
     "word": "deactivate",
@@ -3109,7 +3170,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "27146d1a-daf0-4c20-8d02-7a7baa0cb354"
   },
   {
     "word": "depress",
@@ -3163,7 +3225,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "31bbc88b-9133-4c4e-b026-9d08e36f0efc"
   },
   {
     "word": "device",
@@ -3267,7 +3330,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9dd33959-e1e1-475e-a222-b8907e54fe8c"
   },
   {
     "word": "dial",
@@ -3306,7 +3370,8 @@
         "definition": "the round part on some older phones, with holes for the fingers, that you move around to call a particular number",
         "examples": []
       }
-    ]
+    ],
+    "id": "8f6617d3-8d71-4206-a752-bca5887789ca"
   },
   {
     "word": "diode",
@@ -3320,7 +3385,8 @@
         "definition": "an electronic device in which the electric current passes in one direction only, for example a silicon chip di-",
         "examples": []
       }
-    ]
+    ],
+    "id": "f691635b-82b3-419b-9bca-eaf906c97605"
   },
   {
     "word": "disconnect",
@@ -3388,7 +3454,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "adb414cb-2d76-4df3-92ba-7f15a6d603ae"
   },
   {
     "word": "driveshaft",
@@ -3402,7 +3469,8 @@
         "definition": "a long thin part of a machine that turns round and round and sends power from the engine to another part of the machine",
         "examples": []
       }
-    ]
+    ],
+    "id": "17fcee1b-ef4b-4965-b72c-51fc9a0dcab0"
   },
   {
     "word": "dynamo",
@@ -3429,7 +3497,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e2ccdfe7-2835-4795-ab1c-280a35add42e"
   },
   {
     "word": "earth",
@@ -3510,7 +3579,8 @@
         "definition": "a wire that connects an electric circuit with the ground and makes it safe",
         "examples": []
       }
-    ]
+    ],
+    "id": "669f395c-e63b-4220-93a7-983877e63083"
   },
   {
     "word": "earth",
@@ -3524,7 +3594,8 @@
         "definition": "to make electrical equipment safe by connecting it to the ground with a wire",
         "examples": []
       }
-    ]
+    ],
+    "id": "7a7223cd-934d-4cec-88e1-d9ad6e066fdc"
   },
   {
     "word": "electric",
@@ -3584,7 +3655,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "68a9db35-1d41-4438-8023-628d07cd15f6"
   },
   {
     "word": "electrical",
@@ -3611,7 +3683,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "82f6b420-82c1-4ec7-9336-660ed18e2383"
   },
   {
     "word": "electrical engineering",
@@ -3625,7 +3698,8 @@
         "definition": "the design and building of machines and systems that use or produce electricity; the study of this subject",
         "examples": []
       }
-    ]
+    ],
+    "id": "939a0c88-7af8-4aff-9594-0929c9880f01"
   },
   {
     "word": "electricity",
@@ -3684,7 +3758,8 @@
         "definition": "a feeling of great emotion, excitement, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "b4a27e33-acff-480d-a187-0976ad7a689e"
   },
   {
     "word": "electrode",
@@ -3698,7 +3773,8 @@
         "definition": "either of two points (or terminals) by which an electric current enters or leaves a battery or other electrical device electric",
         "examples": []
       }
-    ]
+    ],
+    "id": "382fe8ac-2a14-45f3-ad3c-f2bd84c03dc9"
   },
   {
     "word": "electronic",
@@ -3779,7 +3855,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d0299c05-a77f-4684-a474-a937664c4d09"
   },
   {
     "word": "electronics",
@@ -3819,7 +3896,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "af2ad670-396e-41a4-b046-f97c234c077f"
   },
   {
     "word": "engineer",
@@ -3880,7 +3958,8 @@
         "definition": "a soldier trained to design and build military structures",
         "examples": []
       }
-    ]
+    ],
+    "id": "cbf5102a-d0b0-44d8-8b05-14b357529d92"
   },
   {
     "word": "engineering",
@@ -3920,7 +3999,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "dbb71f08-2d83-4df3-b46f-326b62c05a9d"
   },
   {
     "word": "extension lead",
@@ -3939,7 +4019,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4431e805-cde0-4e1c-8ec6-29736f6384dd"
   },
   {
     "word": "filament",
@@ -3974,7 +4055,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4bce09e9-898d-451b-b48f-5a90a27e30cd"
   },
   {
     "word": "first generation",
@@ -3997,7 +4079,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "597a9ed1-0e8c-4d05-9fcf-d77f98423204"
   },
   {
     "word": "functionality",
@@ -4029,7 +4112,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8ffa1ad5-c6e5-4d69-87ef-853e910a81ea"
   },
   {
     "word": "fuse",
@@ -4069,7 +4153,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "18e5743d-4f7f-4e81-a624-f3517b306b99"
   },
   {
     "word": "gadget",
@@ -4088,7 +4173,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d0ee0ec4-cf66-4c95-a27a-5cd3ab4ab3ec"
   },
   {
     "word": "gearing",
@@ -4106,7 +4192,8 @@
         "definition": "a particular set or arrangement of gears in a machine or vehicle",
         "examples": []
       }
-    ]
+    ],
+    "id": "4b424900-4311-454f-8d8f-0fc865829f12"
   },
   {
     "word": "generation",
@@ -4234,7 +4321,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "c6abac84-1d19-4a78-826e-9839b4aac7aa"
   },
   {
     "word": "generator",
@@ -4288,7 +4376,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ef20cdfb-af08-4a87-bcc1-fea72f94bf73"
   },
   {
     "word": "genset",
@@ -4307,7 +4396,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7fbbb40d-e9c6-4227-9e06-6bbc025a3d14"
   },
   {
     "word": "ground",
@@ -4553,7 +4643,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "712bb86b-970a-4be2-9828-055863c21b64"
   },
   {
     "word": "ground",
@@ -4603,7 +4694,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a2f52429-0236-4456-a535-1b9157a2ffe7"
   },
   {
     "word": "high-tech",
@@ -4631,7 +4723,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d36be86e-d419-40c8-b50a-68abc05c9f01"
   },
   {
     "word": "high technology",
@@ -4645,7 +4738,8 @@
         "definition": "the most modern methods and machines, especially electronic ones; the use of these in industry, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "b308c21d-58be-4e43-a427-77ca21b5f7fe"
   },
   {
     "word": "hi-tech",
@@ -4663,7 +4757,8 @@
         "definition": "very modern in appearance; using modern materials",
         "examples": []
       }
-    ]
+    ],
+    "id": "fc6563d0-f9bf-4374-86c7-be1a8171d335"
   },
   {
     "word": "indicate",
@@ -4830,7 +4925,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "20e5e152-504c-4662-9b27-b6a81315c983"
   },
   {
     "word": "instrument",
@@ -4942,7 +5038,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4d928a3b-1353-456d-93bf-9bab947ffc60"
   },
   {
     "word": "insulator",
@@ -4956,7 +5053,8 @@
         "definition": "a material or device used to prevent heat, electricity, or sound from escaping from something",
         "examples": []
       }
-    ]
+    ],
+    "id": "80f2050d-2bfa-41c2-99dc-d9b9a72e9bfc"
   },
   {
     "word": "jack",
@@ -5000,7 +5098,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8c46e16f-cef4-4e16-ba1c-ef9bd4980be6"
   },
   {
     "word": "jam",
@@ -5066,7 +5165,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5530f401-45ce-4237-a0e9-344b8fcd5b4e"
   },
   {
     "word": "jam",
@@ -5152,7 +5252,8 @@
         "definition": "to play music with other musicians in an informal way without preparing or practising first",
         "examples": []
       }
-    ]
+    ],
+    "id": "29e170d1-971b-4f38-af33-4d472d7f95df"
   },
   {
     "word": "knob",
@@ -5205,7 +5306,8 @@
         "definition": "a penis",
         "examples": []
       }
-    ]
+    ],
+    "id": "3afa3ea7-d515-4a04-9720-3d7f9899588a"
   },
   {
     "word": "lathe",
@@ -5219,7 +5321,8 @@
         "definition": "a machine that shapes pieces of wood or metal by holding and turning them against a fixed cutting tool Lathe",
         "examples": []
       }
-    ]
+    ],
+    "id": "71da3fa6-8f60-4f4a-9b29-835608d00caf"
   },
   {
     "word": "lever",
@@ -5260,7 +5363,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d7b93db5-e9bc-4467-8e59-29558ee4ff96"
   },
   {
     "word": "live2",
@@ -5411,7 +5515,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2cba1078-d011-4ebe-b84b-5aa3eec2de89"
   },
   {
     "word": "machine",
@@ -5526,7 +5631,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "935f2601-7771-466a-9f67-3887927a35f6"
   },
   {
     "word": "machine",
@@ -5545,7 +5651,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "02455ec5-fb1f-49ef-8bff-87ea5e89bef5"
   },
   {
     "word": "machine-made",
@@ -5559,7 +5666,8 @@
         "definition": "made by a machine",
         "examples": []
       }
-    ]
+    ],
+    "id": "dd1f3316-d884-4d4d-8e7d-d61f40082c86"
   },
   {
     "word": "machinery",
@@ -5612,7 +5720,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "abdedd3f-64f4-423d-a8e6-b365881d13ea"
   },
   {
     "word": "machine tool",
@@ -5626,7 +5735,8 @@
         "definition": "a tool for cutting or shaping metal, wood, etc., driven by a machine",
         "examples": []
       }
-    ]
+    ],
+    "id": "3c26f516-e41e-4cfd-9ce7-1ce0ad80982a"
   },
   {
     "word": "magnify",
@@ -5675,7 +5785,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "754c265f-ef9c-4819-bc75-a235fc9eb2b8"
   },
   {
     "word": "mechanical",
@@ -5737,7 +5848,8 @@
         "definition": "good at understanding how machines work",
         "examples": []
       }
-    ]
+    ],
+    "id": "e3e72e02-5e80-4139-932d-df8fe5f35d2f"
   },
   {
     "word": "mechanical engineering",
@@ -5751,7 +5863,8 @@
         "definition": "the study of how machines are designed, built and repaired",
         "examples": []
       }
-    ]
+    ],
+    "id": "69af8fa4-4425-48a4-95fd-762ca37b86d2"
   },
   {
     "word": "mechanism",
@@ -5800,7 +5913,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "ac9fa51e-cdf1-4541-97fe-f5913b2a49b1"
   },
   {
     "word": "meter",
@@ -5874,7 +5988,8 @@
         "definition": "the arrangement of strong and weak stresses in lines of poetry that produces the rhythm; a particular example of this",
         "examples": []
       }
-    ]
+    ],
+    "id": "b5410909-2f42-49c0-b79b-5690608e4d5e"
   },
   {
     "word": "microchip",
@@ -5888,7 +6003,8 @@
         "definition": "a very small piece of a material that is a semiconductor, used to carry a complicated electronic circuit",
         "examples": []
       }
-    ]
+    ],
+    "id": "7189ec57-d649-46c8-88f9-48ad4fa8fa87"
   },
   {
     "word": "microelectronic",
@@ -5907,7 +6023,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b21f0c18-98bc-4ede-b455-e35e74750ba3"
   },
   {
     "word": "microelectronics",
@@ -5921,7 +6038,8 @@
         "definition": "the design, production and use of very small electronic circuits",
         "examples": []
       }
-    ]
+    ],
+    "id": "9ef68d0a-e6f2-4bce-a174-78d9a44f3939"
   },
   {
     "word": "motor",
@@ -5978,7 +6096,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9eefe103-80c0-4af2-9898-28e668b93757"
   },
   {
     "word": "next-generation",
@@ -5997,7 +6116,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "6666f520-433a-4a06-b327-dea8b9711ef3"
   },
   {
     "word": "nut",
@@ -6082,7 +6202,8 @@
         "definition": "a man’s testicles",
         "examples": []
       }
-    ]
+    ],
+    "id": "4292a633-6866-47b6-a938-6a3a22bd02d5"
   },
   {
     "word": "ohm",
@@ -6096,7 +6217,8 @@
         "definition": "a unit for measuring electrical resistance",
         "examples": []
       }
-    ]
+    ],
+    "id": "9901aaf4-c6c6-46d2-8424-5359665ff73a"
   },
   {
     "word": "ohmmeter",
@@ -6110,7 +6232,8 @@
         "definition": "a device for measuring electrical resistance",
         "examples": []
       }
-    ]
+    ],
+    "id": "19e74153-9ffa-4aef-b60a-1428ee076e13"
   },
   {
     "word": "oscillator",
@@ -6124,7 +6247,8 @@
         "definition": "a piece of equipment for producing oscillating electric currents",
         "examples": []
       }
-    ]
+    ],
+    "id": "54f72503-4f4c-4148-b630-8bd2abb63a84"
   },
   {
     "word": "oscilloscope",
@@ -6138,7 +6262,8 @@
         "definition": "a piece of equipment that shows changes in electrical current as waves in a line on a screen",
         "examples": []
       }
-    ]
+    ],
+    "id": "ef59a4da-12bb-44c0-b632-a9746d5516c4"
   },
   {
     "word": "overhaul",
@@ -6161,7 +6286,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "4c96a1be-672d-4662-bfa3-ed1a356a3298"
   },
   {
     "word": "overhaul",
@@ -6189,7 +6315,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "0b0b49d4-d200-4575-ae80-a79fc07e41b3"
   },
   {
     "word": "parallel circuit",
@@ -6203,7 +6330,8 @@
         "definition": "an electrical circuit in which the current divides into more than one path and then meets again",
         "examples": []
       }
-    ]
+    ],
+    "id": "7030de14-6cd1-413c-a0ff-7d575226ff71"
   },
   {
     "word": "photocell",
@@ -6217,7 +6345,8 @@
         "definition": "an electric device that uses a stream of light. When the stream is broken it shows that somebody/something is present, and can be used to control alarms, machines, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "29af7019-9a5b-45fc-9eed-8061cd0331dc"
   },
   {
     "word": "photoelectric",
@@ -6231,7 +6360,8 @@
         "definition": "using an electric current that is controlled by light",
         "examples": []
       }
-    ]
+    ],
+    "id": "2e18ae7c-79a5-4458-888f-3bf058d5423b"
   },
   {
     "word": "photoelectric cell",
@@ -6245,7 +6375,8 @@
         "definition": "an electric device that uses a stream of light. When the stream is broken it shows that somebody/something is present, and can be used to control alarms, machines, etc.",
         "examples": []
       }
-    ]
+    ],
+    "id": "4216f3a0-0c21-4472-a4eb-cf3e0337a935"
   },
   {
     "word": "press",
@@ -6433,7 +6564,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "59b70cae-cc0a-4982-9388-0527b5237467"
   },
   {
     "word": "probe",
@@ -6468,7 +6600,8 @@
         "definition": "a small device put inside something and used by scientists to test something or record information",
         "examples": []
       }
-    ]
+    ],
+    "id": "f7afaef4-98d6-42f8-86d1-ba8c957d8c87"
   },
   {
     "word": "prototype",
@@ -6491,7 +6624,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d1fd3f4a-9a25-4a0a-aac1-5578fea2fc0a"
   },
   {
     "word": "pump",
@@ -6570,7 +6704,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "365ec571-ba64-4e64-934d-76115f4ebcdf"
   },
   {
     "word": "pump",
@@ -6622,7 +6757,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "fe0b35da-28b5-4394-99dc-7d945ef767b4"
   },
   {
     "word": "relay1",
@@ -6675,7 +6811,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "114c8434-a0ab-4450-b2f4-a09afb0a91cb"
   },
   {
     "word": "rewire",
@@ -6694,7 +6831,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "fe1df406-109b-4a10-8a95-c10f79f3feea"
   },
   {
     "word": "rivet",
@@ -6708,7 +6846,8 @@
         "definition": "a metal pin that is used to fasten two pieces of leather, metal, etc. together",
         "examples": []
       }
-    ]
+    ],
+    "id": "cc12e67f-d99b-4542-81a3-e8e8fd082779"
   },
   {
     "word": "robot",
@@ -6753,7 +6892,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "b0ec0792-6dd5-4e31-8dde-97bed5320b44"
   },
   {
     "word": "robotics",
@@ -6767,7 +6907,8 @@
         "definition": "the science of designing and operating robots",
         "examples": []
       }
-    ]
+    ],
+    "id": "5c574e2b-677a-40ff-985d-7c917e53d800"
   },
   {
     "word": "roller",
@@ -6820,7 +6961,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "751b80c4-d3d9-4dce-94c6-5dda790426c3"
   },
   {
     "word": "rotor",
@@ -6839,7 +6981,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "3b9ca2bb-f76d-45dc-901d-4e905af4be8a"
   },
   {
     "word": "run",
@@ -7427,7 +7570,8 @@
         "definition": "if tights or stockings run, a long thin hole appears in them run",
         "examples": []
       }
-    ]
+    ],
+    "id": "27cb10d2-7cf9-4862-b94d-dfa922ae1666"
   },
   {
     "word": "running repairs",
@@ -7441,7 +7585,8 @@
         "definition": "small things that you do to a piece of clothing, a vehicle, a machine, etc. to repair it or to keep it working",
         "examples": []
       }
-    ]
+    ],
+    "id": "1af10805-1375-41e7-969c-04867723f65e"
   },
   {
     "word": "safety valve",
@@ -7464,7 +7609,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2c632168-9ef3-4f43-a3d1-ec9587db91f7"
   },
   {
     "word": "screw",
@@ -7556,7 +7702,8 @@
         "definition": "to have sex with somebody",
         "examples": []
       }
-    ]
+    ],
+    "id": "28a0a255-c382-445a-bb37-ea0b3dc199dd"
   },
   {
     "word": "screw",
@@ -7604,7 +7751,8 @@
         "definition": "a prison officer",
         "examples": []
       }
-    ]
+    ],
+    "id": "824aa41f-7945-4b02-98aa-4f83706a0c73"
   },
   {
     "word": "semiconductor",
@@ -7622,7 +7770,8 @@
         "definition": "a device containing a semiconductor used in electronics",
         "examples": []
       }
-    ]
+    ],
+    "id": "fc23fd83-e4d0-48f4-a941-209aaf4f4fc0"
   },
   {
     "word": "sensor",
@@ -7641,7 +7790,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "02ac4f71-3248-49ca-8159-793e3657bd7e"
   },
   {
     "word": "service",
@@ -7955,7 +8105,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "541e8c13-fabc-4dd5-85cc-7e7628f8006b"
   },
   {
     "word": "service",
@@ -8000,7 +8151,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "8cb459b2-f94f-4def-b8ca-090ae50507c3"
   },
   {
     "word": "servicing",
@@ -8028,7 +8180,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2c57852a-150b-494c-a507-c6b653306acd"
   },
   {
     "word": "servo",
@@ -8042,7 +8195,8 @@
         "definition": "a part of a machine that controls a larger machine",
         "examples": []
       }
-    ]
+    ],
+    "id": "46acf8e7-1fc6-4650-bd43-e6dc276ba4dc"
   },
   {
     "word": "shaft",
@@ -8117,7 +8271,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "62b8fbe4-250a-4abf-bcc1-7b218c18da0c"
   },
   {
     "word": "shock",
@@ -8264,7 +8419,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2f0117b5-dedf-4fa9-834d-67259af9f26e"
   },
   {
     "word": "short circuit",
@@ -8287,7 +8443,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "69597214-57d9-4931-8586-4352bf9f5bae"
   },
   {
     "word": "shut down",
@@ -8306,7 +8463,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "00003826-5a82-4cdf-84eb-42f36a155dd8"
   },
   {
     "word": "shutdown",
@@ -8329,7 +8487,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "077d7513-e457-4062-8c3f-4170e1bd244a"
   },
   {
     "word": "shut off",
@@ -8357,7 +8516,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5dc00c19-0594-4c5e-997c-a2f0dbc9f3b9"
   },
   {
     "word": "silicon chip",
@@ -8371,7 +8531,8 @@
         "definition": "a very small piece of silicon used to carry a complicated electronic circuit",
         "examples": []
       }
-    ]
+    ],
+    "id": "91e8e527-b2b9-4361-bca3-3d5810231ccf"
   },
   {
     "word": "sleep mode",
@@ -8390,7 +8551,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "a85802b9-331e-4760-9c83-854f2f2c7ecd"
   },
   {
     "word": "solar cell",
@@ -8404,7 +8566,8 @@
         "definition": "a device that receives light and heat energy from the sun and changes it into electricity",
         "examples": []
       }
-    ]
+    ],
+    "id": "855eec25-4d02-45fd-a31c-d4968867d54e"
   },
   {
     "word": "solenoid",
@@ -8418,7 +8581,8 @@
         "definition": "a piece of wire, wound into circles, which acts as a magnet when carrying an electric current",
         "examples": []
       }
-    ]
+    ],
+    "id": "f63f2464-ca5f-4977-9299-023bdf0e47bc"
   },
   {
     "word": "spare part",
@@ -8437,7 +8601,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "feaccabf-3e2d-42e2-a97f-96a1c9db0441"
   },
   {
     "word": "sprocket",
@@ -8455,7 +8620,8 @@
         "definition": "one of the teeth on such a wheel",
         "examples": []
       }
-    ]
+    ],
+    "id": "2ab288ec-37d1-4b79-9eab-0b669e209465"
   },
   {
     "word": "switch",
@@ -8523,7 +8689,8 @@
         "definition": "a thin stick that bends easily",
         "examples": []
       }
-    ]
+    ],
+    "id": "efbbd16a-4031-4e78-be1a-146f9208e35e"
   },
   {
     "word": "switch off",
@@ -8546,7 +8713,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9918bbc1-e3bf-4be1-8ed4-23cd0bbe8620"
   },
   {
     "word": "switch on",
@@ -8577,7 +8745,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "9f47a679-c8c7-4d0f-b347-8d9437a31ff6"
   },
   {
     "word": "technical",
@@ -8655,7 +8824,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "627e3faa-638d-40f4-b49c-81170214d10d"
   },
   {
     "word": "technician",
@@ -8691,7 +8861,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e1d6a424-3df8-44dc-b810-3e8961cace5e"
   },
   {
     "word": "thermostat",
@@ -8705,7 +8876,8 @@
         "definition": "a device that measures and controls the temperature of a machine or room, by switching the heating or cooling system on and off as necessary thermo-",
         "examples": []
       }
-    ]
+    ],
+    "id": "bb5f18f3-0434-41e9-8447-dfee02063ff9"
   },
   {
     "word": "timer",
@@ -8728,7 +8900,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d4e4e5a4-863e-4217-a76b-2c0f659e3529"
   },
   {
     "word": "time switch",
@@ -8747,7 +8920,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2509badd-f467-490b-bd23-649720953acb"
   },
   {
     "word": "transducer",
@@ -8761,7 +8935,8 @@
         "definition": "a device for producing an electrical signal from another form of energy such as pressure -er",
         "examples": []
       }
-    ]
+    ],
+    "id": "2310165a-7407-4dde-bd3c-49961f669b87"
   },
   {
     "word": "transformer",
@@ -8775,7 +8950,8 @@
         "definition": "a device for reducing or increasing the voltage of an electric power supply, usually to allow a particular piece of electrical equipment to be used",
         "examples": []
       }
-    ]
+    ],
+    "id": "a5238245-a88a-4471-b2d7-3d4fd3395b8f"
   },
   {
     "word": "transistor",
@@ -8793,7 +8969,8 @@
         "definition": "a small radio with transistors",
         "examples": []
       }
-    ]
+    ],
+    "id": "d2440eac-b400-425c-bea4-0b3518057146"
   },
   {
     "word": "transmitter",
@@ -8821,7 +8998,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "5b109a05-d83d-46ef-aead-a3e78a6b5312"
   },
   {
     "word": "turbine",
@@ -8844,7 +9022,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "bbd153ce-9e55-425c-88ee-94493f8e7748"
   },
   {
     "word": "turn off",
@@ -8867,7 +9046,8 @@
         "definition": "to stop somebody feeling sexually attracted; to make somebody have a strong feeling of dislike",
         "examples": []
       }
-    ]
+    ],
+    "id": "a22e3a95-cee0-40ba-aaff-573c18805a3d"
   },
   {
     "word": "turn on",
@@ -8895,7 +9075,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "d601c78f-b170-4ce2-8107-cc2d469dad24"
   },
   {
     "word": "volt",
@@ -8914,7 +9095,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "7d5413e6-f4c0-45ea-87be-4ea9910dbf2c"
   },
   {
     "word": "voltage",
@@ -8933,7 +9115,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "e4b59f5a-faad-45da-ac53-35049d530abd"
   },
   {
     "word": "voltmeter",
@@ -8947,7 +9130,8 @@
         "definition": "an instrument for measuring voltage",
         "examples": []
       }
-    ]
+    ],
+    "id": "74835652-ec89-4192-a72e-e5f935a92d71"
   },
   {
     "word": "washer",
@@ -8965,7 +9149,8 @@
         "definition": "a washing machine",
         "examples": []
       }
-    ]
+    ],
+    "id": "8a813f7f-7c5d-4fd6-9598-184487c05b7a"
   },
   {
     "word": "watt",
@@ -8984,7 +9169,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "2baa5e4f-94bb-4678-a430-d1387af49520"
   },
   {
     "word": "wattage",
@@ -8998,7 +9184,8 @@
         "definition": "an amount of electrical power expressed in watts",
         "examples": []
       }
-    ]
+    ],
+    "id": "c4b19bad-13d6-4445-856c-9a3d911363be"
   },
   {
     "word": "wire",
@@ -9077,7 +9264,8 @@
           }
         ]
       }
-    ]
+    ],
+    "id": "10507dc5-7d8b-4ba8-8839-bea3b4a4671f"
   },
   {
     "word": "working",
@@ -9179,6 +9367,7 @@
         "definition": "a working majority is a small majority that is enough to enable a government to win votes in parliament and make new laws working",
         "examples": []
       }
-    ]
+    ],
+    "id": "f1f5dded-f154-42b0-99d3-6beb5ffc215e"
   }
 ]
