@@ -12,7 +12,8 @@ part of '../translate_snapshot.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 TranslateSnapshot _$TranslateSnapshotFromJson(Map<String, dynamic> json) {
   return _TranslateSnapshot.fromJson(json);
@@ -39,14 +40,16 @@ mixin _$TranslateSnapshot {
 /// @nodoc
 abstract class $TranslateSnapshotCopyWith<$Res> {
   factory $TranslateSnapshotCopyWith(
-          TranslateSnapshot value, $Res Function(TranslateSnapshot) then) =
-      _$TranslateSnapshotCopyWithImpl<$Res, TranslateSnapshot>;
+    TranslateSnapshot value,
+    $Res Function(TranslateSnapshot) then,
+  ) = _$TranslateSnapshotCopyWithImpl<$Res, TranslateSnapshot>;
   @useResult
-  $Res call(
-      {String content,
-      String? spelling,
-      String? type,
-      List<ExtraTranslation> moreTranslations});
+  $Res call({
+    String content,
+    String? spelling,
+    String? type,
+    List<ExtraTranslation> moreTranslations,
+  });
 }
 
 /// @nodoc
@@ -69,49 +72,59 @@ class _$TranslateSnapshotCopyWithImpl<$Res, $Val extends TranslateSnapshot>
     Object? type = freezed,
     Object? moreTranslations = null,
   }) {
-    return _then(_value.copyWith(
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String,
-      spelling: freezed == spelling
-          ? _value.spelling
-          : spelling // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      moreTranslations: null == moreTranslations
-          ? _value.moreTranslations
-          : moreTranslations // ignore: cast_nullable_to_non_nullable
-              as List<ExtraTranslation>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            content:
+                null == content
+                    ? _value.content
+                    : content // ignore: cast_nullable_to_non_nullable
+                        as String,
+            spelling:
+                freezed == spelling
+                    ? _value.spelling
+                    : spelling // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            type:
+                freezed == type
+                    ? _value.type
+                    : type // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            moreTranslations:
+                null == moreTranslations
+                    ? _value.moreTranslations
+                    : moreTranslations // ignore: cast_nullable_to_non_nullable
+                        as List<ExtraTranslation>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$TranslateSnapshotImplCopyWith<$Res>
     implements $TranslateSnapshotCopyWith<$Res> {
-  factory _$$TranslateSnapshotImplCopyWith(_$TranslateSnapshotImpl value,
-          $Res Function(_$TranslateSnapshotImpl) then) =
-      __$$TranslateSnapshotImplCopyWithImpl<$Res>;
+  factory _$$TranslateSnapshotImplCopyWith(
+    _$TranslateSnapshotImpl value,
+    $Res Function(_$TranslateSnapshotImpl) then,
+  ) = __$$TranslateSnapshotImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String content,
-      String? spelling,
-      String? type,
-      List<ExtraTranslation> moreTranslations});
+  $Res call({
+    String content,
+    String? spelling,
+    String? type,
+    List<ExtraTranslation> moreTranslations,
+  });
 }
 
 /// @nodoc
 class __$$TranslateSnapshotImplCopyWithImpl<$Res>
     extends _$TranslateSnapshotCopyWithImpl<$Res, _$TranslateSnapshotImpl>
     implements _$$TranslateSnapshotImplCopyWith<$Res> {
-  __$$TranslateSnapshotImplCopyWithImpl(_$TranslateSnapshotImpl _value,
-      $Res Function(_$TranslateSnapshotImpl) _then)
-      : super(_value, _then);
+  __$$TranslateSnapshotImplCopyWithImpl(
+    _$TranslateSnapshotImpl _value,
+    $Res Function(_$TranslateSnapshotImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of TranslateSnapshot
   /// with the given fields replaced by the non-null parameter values.
@@ -123,36 +136,42 @@ class __$$TranslateSnapshotImplCopyWithImpl<$Res>
     Object? type = freezed,
     Object? moreTranslations = null,
   }) {
-    return _then(_$TranslateSnapshotImpl(
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as String,
-      spelling: freezed == spelling
-          ? _value.spelling
-          : spelling // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
-      moreTranslations: null == moreTranslations
-          ? _value._moreTranslations
-          : moreTranslations // ignore: cast_nullable_to_non_nullable
-              as List<ExtraTranslation>,
-    ));
+    return _then(
+      _$TranslateSnapshotImpl(
+        content:
+            null == content
+                ? _value.content
+                : content // ignore: cast_nullable_to_non_nullable
+                    as String,
+        spelling:
+            freezed == spelling
+                ? _value.spelling
+                : spelling // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        type:
+            freezed == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        moreTranslations:
+            null == moreTranslations
+                ? _value._moreTranslations
+                : moreTranslations // ignore: cast_nullable_to_non_nullable
+                    as List<ExtraTranslation>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$TranslateSnapshotImpl implements _TranslateSnapshot {
-  const _$TranslateSnapshotImpl(
-      {this.content = '',
-      this.spelling,
-      this.type,
-      final List<ExtraTranslation> moreTranslations = const []})
-      : _moreTranslations = moreTranslations;
+  const _$TranslateSnapshotImpl({
+    this.content = '',
+    this.spelling,
+    this.type,
+    final List<ExtraTranslation> moreTranslations = const [],
+  }) : _moreTranslations = moreTranslations;
 
   factory _$TranslateSnapshotImpl.fromJson(Map<String, dynamic> json) =>
       _$$TranslateSnapshotImplFromJson(json);
@@ -188,14 +207,21 @@ class _$TranslateSnapshotImpl implements _TranslateSnapshot {
             (identical(other.spelling, spelling) ||
                 other.spelling == spelling) &&
             (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality()
-                .equals(other._moreTranslations, _moreTranslations));
+            const DeepCollectionEquality().equals(
+              other._moreTranslations,
+              _moreTranslations,
+            ));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, content, spelling, type,
-      const DeepCollectionEquality().hash(_moreTranslations));
+  int get hashCode => Object.hash(
+    runtimeType,
+    content,
+    spelling,
+    type,
+    const DeepCollectionEquality().hash(_moreTranslations),
+  );
 
   /// Create a copy of TranslateSnapshot
   /// with the given fields replaced by the non-null parameter values.
@@ -204,22 +230,23 @@ class _$TranslateSnapshotImpl implements _TranslateSnapshot {
   @pragma('vm:prefer-inline')
   _$$TranslateSnapshotImplCopyWith<_$TranslateSnapshotImpl> get copyWith =>
       __$$TranslateSnapshotImplCopyWithImpl<_$TranslateSnapshotImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TranslateSnapshotImplToJson(
-      this,
-    );
+    return _$$TranslateSnapshotImplToJson(this);
   }
 }
 
 abstract class _TranslateSnapshot implements TranslateSnapshot {
-  const factory _TranslateSnapshot(
-      {final String content,
-      final String? spelling,
-      final String? type,
-      final List<ExtraTranslation> moreTranslations}) = _$TranslateSnapshotImpl;
+  const factory _TranslateSnapshot({
+    final String content,
+    final String? spelling,
+    final String? type,
+    final List<ExtraTranslation> moreTranslations,
+  }) = _$TranslateSnapshotImpl;
 
   factory _TranslateSnapshot.fromJson(Map<String, dynamic> json) =
       _$TranslateSnapshotImpl.fromJson;

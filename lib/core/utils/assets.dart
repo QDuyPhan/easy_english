@@ -5,6 +5,135 @@ import '../../domain/entities/lesson_entity.dart';
 class Assets {
   Assets._();
 
+  static const vocabularyList = [
+    'animals',
+    'appearance',
+    'communication',
+    'culture',
+    'foodAndDrink',
+    'functions',
+    'health',
+    'homesAndBuildings',
+    'leisure',
+    'notions',
+    'people',
+    'politicsAndSociety',
+    'scienceAndTechnology',
+    'sport',
+    'theNaturalWorld',
+    'timeAndSpace',
+    'travel',
+    'workAndBusiness',
+    'weather',
+    'education',
+    'transportation',
+    'history',
+    'language',
+    'emotions',
+    'technology',
+    'music',
+    'art',
+    'literature',
+    'religion',
+    'philosophy',
+    'economics',
+    'mathematics',
+    'physics',
+    'chemistry',
+    'biology',
+    'geography',
+    'astronomy',
+    'psychology',
+    'socialMedia',
+    'internet',
+    'computers',
+    'gaming',
+    'fashion',
+    'beauty',
+    'relationships',
+    'family',
+    'friends',
+    'workplace',
+    'money',
+    'banking',
+    'government',
+    'law',
+    'environment',
+    'pollution',
+    'globalWarming',
+    'climateChange',
+    'sustainability',
+    'greenEnergy',
+    'recycling',
+    'animalsInZoos',
+    'marineLife',
+    'forests',
+    'mountains',
+    'deserts',
+    'rivers',
+    'oceans',
+    'volcanoes',
+    'earthquakes',
+    'climateZones',
+    'tropicalForest',
+    'coralReefs',
+    'endangeredSpecies',
+    'extinctSpecies',
+    'invasiveSpecies',
+    'wildlifeConservation',
+    'gardening',
+    'landscaping',
+    'flowers',
+    'trees',
+    'fruits',
+    'vegetables',
+    'herbs',
+    'seasonalFood',
+    'worldCuisines',
+    'traditionalFoods',
+    'spices',
+    'desserts',
+    'beverages',
+    'snacks',
+    'fastFood',
+    'veganism',
+    'vegetarianism',
+    'sustainabilityInFood',
+    'foodSecurity',
+    'agriculture',
+    'foodProcessing',
+    'groceryShopping',
+    'foodWaste',
+    'foodPolitics',
+    'nutrition',
+    'dietetics',
+    'exercise',
+    'fitness',
+    'mentalHealth',
+    'wellbeing',
+    'meditation',
+    'yoga',
+    'sportsMedicine',
+    'physiotherapy',
+    'healthcare',
+    'medicine',
+    'doctors',
+    'nurses',
+    'hospitals',
+    'pharmacies',
+    'healthPolicy',
+    'healthEducation',
+    'publicHealth',
+    'diseasePrevention',
+    'mentalIllness',
+    'substanceAbuse',
+    'healthcareAccess',
+    'medicalTechnology',
+    'biotechnology',
+    'genetics',
+    'stemCellResearch',
+  ];
+
   // Search in topics
   static const topicFolders = [
     'animals',
@@ -592,29 +721,11 @@ class Assets {
 
   // image
   static const String imageTopic = 'assets/images/image_topic.jpg';
-  static const String pngCat = 'assets/png/cat.png';
-  static const String pngAppearance = 'assets/png/appearance.png';
-  static const String pngCommunication = 'assets/png/communication.png';
-  static const String pngCulture = 'assets/png/culture.png';
-  static const String pngFoodAndDrink = 'assets/png/food_and_drink.png';
-  static const String pngFunction = 'assets/png/function.png';
-  static const String pngHealth = 'assets/png/health.png';
-  static const String pngHomeAndBuilding = 'assets/png/home_and_building.png';
-  static const String pngLeisure = 'assets/png/leisure.png';
-  static const String pngNotions = 'assets/png/notions.png';
-  static const String pngPeople = 'assets/png/people.png';
-  static const String pngPoliticsAndSociety =
-      'assets/png/politics_and_society.png';
-  static const String pngScienceAndTechnology =
-      'assets/png/science_and_technology.png';
-  static const String pngSport = 'assets/png/sport.png';
-  static const String pngTheNaturalWorld = 'assets/png/the_natural_world.png';
-  static const String pngTimeAndSpace = 'assets/png/time_and_space.png';
-  static const String pngTravel = 'assets/png/travel.png';
-  static const String pngWorkAndBusiness = 'assets/png/work_and_business.png';
   static const String pngWordsList = 'assets/png/wordslist.png';
   static const String pngGrammar = 'assets/png/grammar.png';
   static const String pngFlashCards = 'assets/png/flashcard.png';
   static const String pngCalander = 'assets/png/calander.png';
   static const String pngLauncher = 'assets/png/launcher.png';
+  static const String jsonDictionary = 'assets/json/dictionary.json';
+  static const String jsonLesson = 'assets/json/lesson.json';
 }

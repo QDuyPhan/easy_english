@@ -12,7 +12,8 @@ part of '../category_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$CategoryData {
@@ -34,17 +35,19 @@ mixin _$CategoryData {
 /// @nodoc
 abstract class $CategoryDataCopyWith<$Res> {
   factory $CategoryDataCopyWith(
-          CategoryData value, $Res Function(CategoryData) then) =
-      _$CategoryDataCopyWithImpl<$Res, CategoryData>;
+    CategoryData value,
+    $Res Function(CategoryData) then,
+  ) = _$CategoryDataCopyWithImpl<$Res, CategoryData>;
   @useResult
-  $Res call(
-      {int id,
-      String title,
-      String description,
-      List<Lesson> lessons,
-      int progress,
-      int total,
-      bool isBeta});
+  $Res call({
+    int id,
+    String title,
+    String description,
+    List<Lesson> lessons,
+    int progress,
+    int total,
+    bool isBeta,
+  });
 }
 
 /// @nodoc
@@ -70,36 +73,46 @@ class _$CategoryDataCopyWithImpl<$Res, $Val extends CategoryData>
     Object? total = null,
     Object? isBeta = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      lessons: null == lessons
-          ? _value.lessons
-          : lessons // ignore: cast_nullable_to_non_nullable
-              as List<Lesson>,
-      progress: null == progress
-          ? _value.progress
-          : progress // ignore: cast_nullable_to_non_nullable
-              as int,
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-      isBeta: null == isBeta
-          ? _value.isBeta
-          : isBeta // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            description:
+                null == description
+                    ? _value.description
+                    : description // ignore: cast_nullable_to_non_nullable
+                        as String,
+            lessons:
+                null == lessons
+                    ? _value.lessons
+                    : lessons // ignore: cast_nullable_to_non_nullable
+                        as List<Lesson>,
+            progress:
+                null == progress
+                    ? _value.progress
+                    : progress // ignore: cast_nullable_to_non_nullable
+                        as int,
+            total:
+                null == total
+                    ? _value.total
+                    : total // ignore: cast_nullable_to_non_nullable
+                        as int,
+            isBeta:
+                null == isBeta
+                    ? _value.isBeta
+                    : isBeta // ignore: cast_nullable_to_non_nullable
+                        as bool,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -107,18 +120,20 @@ class _$CategoryDataCopyWithImpl<$Res, $Val extends CategoryData>
 abstract class _$$CategoryDataImplCopyWith<$Res>
     implements $CategoryDataCopyWith<$Res> {
   factory _$$CategoryDataImplCopyWith(
-          _$CategoryDataImpl value, $Res Function(_$CategoryDataImpl) then) =
-      __$$CategoryDataImplCopyWithImpl<$Res>;
+    _$CategoryDataImpl value,
+    $Res Function(_$CategoryDataImpl) then,
+  ) = __$$CategoryDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id,
-      String title,
-      String description,
-      List<Lesson> lessons,
-      int progress,
-      int total,
-      bool isBeta});
+  $Res call({
+    int id,
+    String title,
+    String description,
+    List<Lesson> lessons,
+    int progress,
+    int total,
+    bool isBeta,
+  });
 }
 
 /// @nodoc
@@ -126,8 +141,9 @@ class __$$CategoryDataImplCopyWithImpl<$Res>
     extends _$CategoryDataCopyWithImpl<$Res, _$CategoryDataImpl>
     implements _$$CategoryDataImplCopyWith<$Res> {
   __$$CategoryDataImplCopyWithImpl(
-      _$CategoryDataImpl _value, $Res Function(_$CategoryDataImpl) _then)
-      : super(_value, _then);
+    _$CategoryDataImpl _value,
+    $Res Function(_$CategoryDataImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of CategoryData
   /// with the given fields replaced by the non-null parameter values.
@@ -142,51 +158,60 @@ class __$$CategoryDataImplCopyWithImpl<$Res>
     Object? total = null,
     Object? isBeta = null,
   }) {
-    return _then(_$CategoryDataImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      lessons: null == lessons
-          ? _value._lessons
-          : lessons // ignore: cast_nullable_to_non_nullable
-              as List<Lesson>,
-      progress: null == progress
-          ? _value.progress
-          : progress // ignore: cast_nullable_to_non_nullable
-              as int,
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as int,
-      isBeta: null == isBeta
-          ? _value.isBeta
-          : isBeta // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$CategoryDataImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        description:
+            null == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                    as String,
+        lessons:
+            null == lessons
+                ? _value._lessons
+                : lessons // ignore: cast_nullable_to_non_nullable
+                    as List<Lesson>,
+        progress:
+            null == progress
+                ? _value.progress
+                : progress // ignore: cast_nullable_to_non_nullable
+                    as int,
+        total:
+            null == total
+                ? _value.total
+                : total // ignore: cast_nullable_to_non_nullable
+                    as int,
+        isBeta:
+            null == isBeta
+                ? _value.isBeta
+                : isBeta // ignore: cast_nullable_to_non_nullable
+                    as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$CategoryDataImpl implements _CategoryData {
-  const _$CategoryDataImpl(
-      {required this.id,
-      required this.title,
-      required this.description,
-      final List<Lesson> lessons = const [],
-      this.progress = 0,
-      this.total = 0,
-      this.isBeta = false})
-      : _lessons = lessons;
+  const _$CategoryDataImpl({
+    required this.id,
+    required this.title,
+    required this.description,
+    final List<Lesson> lessons = const [],
+    this.progress = 0,
+    this.total = 0,
+    this.isBeta = false,
+  }) : _lessons = lessons;
 
   @override
   final int id;
@@ -235,8 +260,16 @@ class _$CategoryDataImpl implements _CategoryData {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, description,
-      const DeepCollectionEquality().hash(_lessons), progress, total, isBeta);
+  int get hashCode => Object.hash(
+    runtimeType,
+    id,
+    title,
+    description,
+    const DeepCollectionEquality().hash(_lessons),
+    progress,
+    total,
+    isBeta,
+  );
 
   /// Create a copy of CategoryData
   /// with the given fields replaced by the non-null parameter values.
@@ -248,14 +281,15 @@ class _$CategoryDataImpl implements _CategoryData {
 }
 
 abstract class _CategoryData implements CategoryData {
-  const factory _CategoryData(
-      {required final int id,
-      required final String title,
-      required final String description,
-      final List<Lesson> lessons,
-      final int progress,
-      final int total,
-      final bool isBeta}) = _$CategoryDataImpl;
+  const factory _CategoryData({
+    required final int id,
+    required final String title,
+    required final String description,
+    final List<Lesson> lessons,
+    final int progress,
+    final int total,
+    final bool isBeta,
+  }) = _$CategoryDataImpl;
 
   @override
   int get id;

@@ -12,7 +12,8 @@ part of '../example.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Example _$ExampleFromJson(Map<String, dynamic> json) {
   return _Example.fromJson(json);
@@ -20,9 +21,7 @@ Example _$ExampleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Example {
-  @HiveField(0)
   String get cf => throw _privateConstructorUsedError;
-  @HiveField(1)
   String get x => throw _privateConstructorUsedError;
 
   /// Serializes this Example to a JSON map.
@@ -39,7 +38,7 @@ abstract class $ExampleCopyWith<$Res> {
   factory $ExampleCopyWith(Example value, $Res Function(Example) then) =
       _$ExampleCopyWithImpl<$Res, Example>;
   @useResult
-  $Res call({@HiveField(0) String cf, @HiveField(1) String x});
+  $Res call({String cf, String x});
 }
 
 /// @nodoc
@@ -56,31 +55,34 @@ class _$ExampleCopyWithImpl<$Res, $Val extends Example>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? cf = null,
-    Object? x = null,
-  }) {
-    return _then(_value.copyWith(
-      cf: null == cf
-          ? _value.cf
-          : cf // ignore: cast_nullable_to_non_nullable
-              as String,
-      x: null == x
-          ? _value.x
-          : x // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? cf = null, Object? x = null}) {
+    return _then(
+      _value.copyWith(
+            cf:
+                null == cf
+                    ? _value.cf
+                    : cf // ignore: cast_nullable_to_non_nullable
+                        as String,
+            x:
+                null == x
+                    ? _value.x
+                    : x // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$ExampleImplCopyWith<$Res> implements $ExampleCopyWith<$Res> {
   factory _$$ExampleImplCopyWith(
-          _$ExampleImpl value, $Res Function(_$ExampleImpl) then) =
-      __$$ExampleImplCopyWithImpl<$Res>;
+    _$ExampleImpl value,
+    $Res Function(_$ExampleImpl) then,
+  ) = __$$ExampleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@HiveField(0) String cf, @HiveField(1) String x});
+  $Res call({String cf, String x});
 }
 
 /// @nodoc
@@ -88,45 +90,45 @@ class __$$ExampleImplCopyWithImpl<$Res>
     extends _$ExampleCopyWithImpl<$Res, _$ExampleImpl>
     implements _$$ExampleImplCopyWith<$Res> {
   __$$ExampleImplCopyWithImpl(
-      _$ExampleImpl _value, $Res Function(_$ExampleImpl) _then)
-      : super(_value, _then);
+    _$ExampleImpl _value,
+    $Res Function(_$ExampleImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Example
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? cf = null,
-    Object? x = null,
-  }) {
-    return _then(_$ExampleImpl(
-      cf: null == cf
-          ? _value.cf
-          : cf // ignore: cast_nullable_to_non_nullable
-              as String,
-      x: null == x
-          ? _value.x
-          : x // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? cf = null, Object? x = null}) {
+    return _then(
+      _$ExampleImpl(
+        cf:
+            null == cf
+                ? _value.cf
+                : cf // ignore: cast_nullable_to_non_nullable
+                    as String,
+        x:
+            null == x
+                ? _value.x
+                : x // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ExampleImpl implements _Example {
-  const _$ExampleImpl({@HiveField(0) this.cf = "", @HiveField(1) this.x = ""});
+  const _$ExampleImpl({this.cf = "", this.x = ""});
 
   factory _$ExampleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExampleImplFromJson(json);
 
   @override
   @JsonKey()
-  @HiveField(0)
   final String cf;
   @override
   @JsonKey()
-  @HiveField(1)
   final String x;
 
   @override
@@ -157,24 +159,18 @@ class _$ExampleImpl implements _Example {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ExampleImplToJson(
-      this,
-    );
+    return _$$ExampleImplToJson(this);
   }
 }
 
 abstract class _Example implements Example {
-  const factory _Example(
-      {@HiveField(0) final String cf,
-      @HiveField(1) final String x}) = _$ExampleImpl;
+  const factory _Example({final String cf, final String x}) = _$ExampleImpl;
 
   factory _Example.fromJson(Map<String, dynamic> json) = _$ExampleImpl.fromJson;
 
   @override
-  @HiveField(0)
   String get cf;
   @override
-  @HiveField(1)
   String get x;
 
   /// Create a copy of Example

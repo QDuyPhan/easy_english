@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:isolate';
 
 import 'package:easy_english/core/config/app_config.dart';
-import 'package:easy_english/core/config/hive_config.dart';
 import 'package:easy_english/data/models/word.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
@@ -19,10 +18,9 @@ abstract interface class AssetsData {
 
 @LazySingleton(as: AssetsData)
 class AssetsDataImpl implements AssetsData {
-  final HiveConfig _hiveConfig;
+  // final HiveConfig _hiveConfig;
 
-  const AssetsDataImpl({required HiveConfig hiveConfig})
-    : _hiveConfig = hiveConfig;
+  const AssetsDataImpl();
 
   static Future<List<Word>> _loadWordsInIsolate(String path) async {
     try {
@@ -62,9 +60,7 @@ class AssetsDataImpl implements AssetsData {
     final words = await _loadWordsInIsolate(
       'assets/json/oxford_words/$letter.json',
     );
-    return words
-        .map((w) => w.copyWith(folder: '', topic: '', origin: 'oxford_words'))
-        .toList();
+    return words.map((w) => w.copyWith()).toList();
   }
 
   @override
@@ -89,13 +85,7 @@ class AssetsDataImpl implements AssetsData {
     final jsonString = await rootBundle.loadString(path);
     final List<dynamic> jsonData = jsonDecode(jsonString);
     return await Isolate.run(() {
-      return jsonData
-          .map(
-            (e) => Word.fromJson(
-              e,
-            ).copyWith(folder: folder, topic: topic, origin: 'topics'),
-          )
-          .toList();
+      return jsonData.map((e) => Word.fromJson(e).copyWith()).toList();
     });
   }
 

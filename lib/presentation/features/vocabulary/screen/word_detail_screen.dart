@@ -161,7 +161,7 @@ class WordDetailScreen extends StatelessWidget {
             const SizedBox(width: 10),
             Phonetic(
               phonetic: word.phonetic,
-              phoneticText: word.phoneticText,
+              phoneticText: word.phoneticText!,
               backgroundColor: colorScheme.primary.withOpacity(0.1),
             ),
           ],
@@ -172,8 +172,8 @@ class WordDetailScreen extends StatelessWidget {
             SvgPicture.asset(Assets.svgFlagUS, height: 24),
             const SizedBox(width: 10),
             Phonetic(
-              phonetic: word.phoneticAm,
-              phoneticText: word.phoneticAmText,
+              phonetic: word.phoneticAm!,
+              phoneticText: word.phoneticAmText!,
               backgroundColor: colorScheme.primary.withOpacity(0.1),
             ),
           ],

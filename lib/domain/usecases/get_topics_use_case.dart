@@ -8,7 +8,7 @@ class GetTopicsUseCase {
 
   const GetTopicsUseCase(this._topicRepository);
 
-  List<WordEntity> execute(String folder, String topic) {
-    return _topicRepository.getTopic(folder, topic);
+  Future<List<WordEntity>> execute(String folder, String topic) async {
+    return await _topicRepository.getTopic(folder, topic);
   }
 }

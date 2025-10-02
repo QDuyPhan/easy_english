@@ -19,7 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.9.2
+  sdk: ^3.7.2
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -39,15 +39,15 @@ dependencies:
   flutter_bloc: ^9.1.0
   flutter_svg: ^2.0.17
   json_annotation: ^4.9.0
-  freezed_annotation: 2.4.4
+  freezed_annotation: ^2.4.4
   get_it: ^8.0.3
   dio: ^5.7.0
-  connectivity_plus: ^6.1.3
+  connectivity_plus: ^6.1.5
   dartz: ^0.10.1
   loading_animation_widget: ^1.3.0
   flutter_html: ^3.0.0
   #  google_mobile_ads: ^6.0.0
-  hive_flutter: ^1.1.0
+#  hive_flutter: ^1.1.0
   intl: ^0.20.2
   path_provider: ^2.1.5
   timezone: ^0.10.0
@@ -56,7 +56,7 @@ dependencies:
   app_settings: ^6.0.0
   url_launcher: ^6.3.1
   flash_card: ^0.1.0
-#  swipeable_page_route: ^0.4.7
+  #  swipeable_page_route: ^0.4.7
   amplitude_flutter: ^4.2.0
   shared_preferences: ^2.5.2
   #  in_app_review: ^2.0.10
@@ -69,8 +69,8 @@ dependencies:
   #  lottie: ^3.3.1
   share_plus: ^10.1.4
   flutter_markdown: ^0.7.7
-  percent_indicator: ^4.2.5
-  equatable: ^2.0.7
+#  percent_indicator: ^4.2.5
+#  equatable: ^2.0.7
   just_audio: ^0.10.0
   logger: ^2.5.0
   collection: ^1.19.1
@@ -113,10 +113,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
-  freezed: 2.4.8
-  json_serializable: 6.8.0
-  build_runner: ^2.4.13
-  hive_generator: ^2.0.1
+  freezed: ^2.5.7
+  json_serializable: ^6.9.0
+  build_runner: ^2.4.15
+#  hive_generator: ^2.0.1
   injectable_generator: ^2.6.2
   auto_mappr_annotation: ^2.3.0
 
@@ -239,7 +239,3 @@ flutter_icons:
   image_path: "assets/png/launcher.png"
   adaptive_icon_background: "#6C63FF"
   adaptive_icon_foreground: "assets/png/launcher.png"
-
-dependency_overrides:
-  analyzer: 6.4.1
-  dart_style: 2.3.6

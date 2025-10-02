@@ -12,7 +12,8 @@ part of '../search_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$SearchEvent {
@@ -20,47 +21,42 @@ mixin _$SearchEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String query) searchWords,
     required TResult Function() clearSearch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String query)? searchWords,
     TResult? Function()? clearSearch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String query)? searchWords,
     TResult Function()? clearSearch,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SearchWords value) searchWords,
     required TResult Function(_ClearSearch value) clearSearch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SearchWords value)? searchWords,
     TResult? Function(_ClearSearch value)? clearSearch,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SearchWords value)? searchWords,
     TResult Function(_ClearSearch value)? clearSearch,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SearchEventCopyWith<$Res> {
   factory $SearchEventCopyWith(
-          SearchEvent value, $Res Function(SearchEvent) then) =
-      _$SearchEventCopyWithImpl<$Res, SearchEvent>;
+    SearchEvent value,
+    $Res Function(SearchEvent) then,
+  ) = _$SearchEventCopyWithImpl<$Res, SearchEvent>;
 }
 
 /// @nodoc
@@ -80,8 +76,9 @@ class _$SearchEventCopyWithImpl<$Res, $Val extends SearchEvent>
 /// @nodoc
 abstract class _$$SearchWordsImplCopyWith<$Res> {
   factory _$$SearchWordsImplCopyWith(
-          _$SearchWordsImpl value, $Res Function(_$SearchWordsImpl) then) =
-      __$$SearchWordsImplCopyWithImpl<$Res>;
+    _$SearchWordsImpl value,
+    $Res Function(_$SearchWordsImpl) then,
+  ) = __$$SearchWordsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String query});
 }
@@ -91,22 +88,24 @@ class __$$SearchWordsImplCopyWithImpl<$Res>
     extends _$SearchEventCopyWithImpl<$Res, _$SearchWordsImpl>
     implements _$$SearchWordsImplCopyWith<$Res> {
   __$$SearchWordsImplCopyWithImpl(
-      _$SearchWordsImpl _value, $Res Function(_$SearchWordsImpl) _then)
-      : super(_value, _then);
+    _$SearchWordsImpl _value,
+    $Res Function(_$SearchWordsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SearchEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? query = null,
-  }) {
-    return _then(_$SearchWordsImpl(
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? query = null}) {
+    return _then(
+      _$SearchWordsImpl(
+        query:
+            null == query
+                ? _value.query
+                : query // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
@@ -220,8 +219,9 @@ abstract class _SearchWords implements SearchEvent {
 /// @nodoc
 abstract class _$$ClearSearchImplCopyWith<$Res> {
   factory _$$ClearSearchImplCopyWith(
-          _$ClearSearchImpl value, $Res Function(_$ClearSearchImpl) then) =
-      __$$ClearSearchImplCopyWithImpl<$Res>;
+    _$ClearSearchImpl value,
+    $Res Function(_$ClearSearchImpl) then,
+  ) = __$$ClearSearchImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -229,8 +229,9 @@ class __$$ClearSearchImplCopyWithImpl<$Res>
     extends _$SearchEventCopyWithImpl<$Res, _$ClearSearchImpl>
     implements _$$ClearSearchImplCopyWith<$Res> {
   __$$ClearSearchImplCopyWithImpl(
-      _$ClearSearchImpl _value, $Res Function(_$ClearSearchImpl) _then)
-      : super(_value, _then);
+    _$ClearSearchImpl _value,
+    $Res Function(_$ClearSearchImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SearchEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -331,8 +332,7 @@ mixin _$SearchState {
     required TResult Function(List<WordEntity> results) success,
     required TResult Function() noResults,
     required TResult Function(String message) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -340,8 +340,7 @@ mixin _$SearchState {
     TResult? Function(List<WordEntity> results)? success,
     TResult? Function()? noResults,
     TResult? Function(String message)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
@@ -350,8 +349,7 @@ mixin _$SearchState {
     TResult Function()? noResults,
     TResult Function(String message)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -359,8 +357,7 @@ mixin _$SearchState {
     required TResult Function(_Success value) success,
     required TResult Function(_NoResults value) noResults,
     required TResult Function(_Error value) error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -368,8 +365,7 @@ mixin _$SearchState {
     TResult? Function(_Success value)? success,
     TResult? Function(_NoResults value)? noResults,
     TResult? Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
@@ -378,15 +374,15 @@ mixin _$SearchState {
     TResult Function(_NoResults value)? noResults,
     TResult Function(_Error value)? error,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SearchStateCopyWith<$Res> {
   factory $SearchStateCopyWith(
-          SearchState value, $Res Function(SearchState) then) =
-      _$SearchStateCopyWithImpl<$Res, SearchState>;
+    SearchState value,
+    $Res Function(SearchState) then,
+  ) = _$SearchStateCopyWithImpl<$Res, SearchState>;
 }
 
 /// @nodoc
@@ -406,8 +402,9 @@ class _$SearchStateCopyWithImpl<$Res, $Val extends SearchState>
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -415,8 +412,9 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$SearchStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -529,8 +527,9 @@ abstract class _Initial implements SearchState {
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+    _$LoadingImpl value,
+    $Res Function(_$LoadingImpl) then,
+  ) = __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -538,8 +537,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$SearchStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
-      : super(_value, _then);
+    _$LoadingImpl _value,
+    $Res Function(_$LoadingImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -652,8 +652,9 @@ abstract class _Loading implements SearchState {
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+    _$SuccessImpl value,
+    $Res Function(_$SuccessImpl) then,
+  ) = __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<WordEntity> results});
 }
@@ -663,22 +664,24 @@ class __$$SuccessImplCopyWithImpl<$Res>
     extends _$SearchStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
-      : super(_value, _then);
+    _$SuccessImpl _value,
+    $Res Function(_$SuccessImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SearchState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? results = null,
-  }) {
-    return _then(_$SuccessImpl(
-      results: null == results
-          ? _value._results
-          : results // ignore: cast_nullable_to_non_nullable
-              as List<WordEntity>,
-    ));
+  $Res call({Object? results = null}) {
+    return _then(
+      _$SuccessImpl(
+        results:
+            null == results
+                ? _value._results
+                : results // ignore: cast_nullable_to_non_nullable
+                    as List<WordEntity>,
+      ),
+    );
   }
 }
 
@@ -686,7 +689,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 class _$SuccessImpl implements _Success {
   const _$SuccessImpl({required final List<WordEntity> results})
-      : _results = results;
+    : _results = results;
 
   final List<WordEntity> _results;
   @override
@@ -818,8 +821,9 @@ abstract class _Success implements SearchState {
 /// @nodoc
 abstract class _$$NoResultsImplCopyWith<$Res> {
   factory _$$NoResultsImplCopyWith(
-          _$NoResultsImpl value, $Res Function(_$NoResultsImpl) then) =
-      __$$NoResultsImplCopyWithImpl<$Res>;
+    _$NoResultsImpl value,
+    $Res Function(_$NoResultsImpl) then,
+  ) = __$$NoResultsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -827,8 +831,9 @@ class __$$NoResultsImplCopyWithImpl<$Res>
     extends _$SearchStateCopyWithImpl<$Res, _$NoResultsImpl>
     implements _$$NoResultsImplCopyWith<$Res> {
   __$$NoResultsImplCopyWithImpl(
-      _$NoResultsImpl _value, $Res Function(_$NoResultsImpl) _then)
-      : super(_value, _then);
+    _$NoResultsImpl _value,
+    $Res Function(_$NoResultsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SearchState
   /// with the given fields replaced by the non-null parameter values.
@@ -941,8 +946,9 @@ abstract class _NoResults implements SearchState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
-      __$$ErrorImplCopyWithImpl<$Res>;
+    _$ErrorImpl value,
+    $Res Function(_$ErrorImpl) then,
+  ) = __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
@@ -952,22 +958,24 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$SearchStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
-      : super(_value, _then);
+    _$ErrorImpl _value,
+    $Res Function(_$ErrorImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of SearchState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$ErrorImpl(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? message = null}) {
+    return _then(
+      _$ErrorImpl(
+        message:
+            null == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 

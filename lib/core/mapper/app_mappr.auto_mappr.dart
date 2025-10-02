@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -9,12 +10,14 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_mappr_annotation/auto_mappr_annotation.dart' as _i3;
 
+import '../../data/models/dictionary.dart' as _i15;
 import '../../data/models/example.dart' as _i8;
 import '../../data/models/scheduled_notification.dart' as _i13;
 import '../../data/models/sense.dart' as _i6;
 import '../../data/models/theme.dart' as _i10;
 import '../../data/models/word.dart' as _i4;
 import '../../data/models/word_status.dart' as _i2;
+import '../../domain/entities/dictionary_entity.dart' as _i14;
 import '../../domain/entities/example_entity.dart' as _i9;
 import '../../domain/entities/scheduled_notification_entity.dart' as _i12;
 import '../../domain/entities/sense_entity.dart' as _i7;
@@ -36,6 +39,7 @@ import '../../domain/entities/word_status_entity.dart' as _i1;
 /// - `ThemeEntity` → `Theme`.
 /// - `ThemeType` → `ThemeType`.
 /// - `ScheduledNotificationEntity` → `ScheduledNotification`.
+/// - `DictionaryEntity` → `Dictionary`.
 /// {@endtemplate}
 class $AppMappr implements _i3.AutoMapprInterface {
   const $AppMappr();
@@ -122,6 +126,12 @@ class $AppMappr implements _i3.AutoMapprInterface {
             targetTypeOf == _typeOf<_i13.ScheduledNotification?>())) {
       return true;
     }
+    if ((sourceTypeOf == _typeOf<_i14.DictionaryEntity>() ||
+            sourceTypeOf == _typeOf<_i14.DictionaryEntity?>()) &&
+        (targetTypeOf == _typeOf<_i15.Dictionary>() ||
+            targetTypeOf == _typeOf<_i15.Dictionary?>())) {
+      return true;
+    }
     if (recursive) {
       for (final mappr in _delegates) {
         if (mappr.canConvert<SOURCE, TARGET>()) {
@@ -154,20 +164,14 @@ class $AppMappr implements _i3.AutoMapprInterface {
   TARGET? tryConvert<SOURCE, TARGET>(
     SOURCE? model, {
     void Function(Object error, StackTrace stackTrace, SOURCE? source)?
-        onMappingError,
+    onMappingError,
   }) {
     if (canConvert<SOURCE, TARGET>(recursive: false)) {
-      return _safeConvert(
-        model,
-        onMappingError: onMappingError,
-      );
+      return _safeConvert(model, onMappingError: onMappingError);
     }
     for (final mappr in _delegates) {
       if (mappr.canConvert<SOURCE, TARGET>()) {
-        return mappr.tryConvert(
-          model,
-          onMappingError: onMappingError,
-        );
+        return mappr.tryConvert(model, onMappingError: onMappingError);
       }
     }
 
@@ -199,18 +203,16 @@ class $AppMappr implements _i3.AutoMapprInterface {
   Iterable<TARGET?> tryConvertIterable<SOURCE, TARGET>(
     Iterable<SOURCE?> model, {
     void Function(Object error, StackTrace stackTrace, SOURCE? source)?
-        onMappingError,
+    onMappingError,
   }) {
     if (canConvert<SOURCE, TARGET>(recursive: false)) {
       return model.map<TARGET?>(
-          (item) => _safeConvert(item, onMappingError: onMappingError));
+        (item) => _safeConvert(item, onMappingError: onMappingError),
+      );
     }
     for (final mappr in _delegates) {
       if (mappr.canConvert<SOURCE, TARGET>()) {
-        return mappr.tryConvertIterable(
-          model,
-          onMappingError: onMappingError,
-        );
+        return mappr.tryConvertIterable(model, onMappingError: onMappingError);
       }
     }
 
@@ -242,7 +244,7 @@ class $AppMappr implements _i3.AutoMapprInterface {
   List<TARGET?> tryConvertList<SOURCE, TARGET>(
     Iterable<SOURCE?> model, {
     void Function(Object error, StackTrace stackTrace, SOURCE? source)?
-        onMappingError,
+    onMappingError,
   }) {
     if (canConvert<SOURCE, TARGET>(recursive: false)) {
       return tryConvertIterable<SOURCE, TARGET>(
@@ -252,10 +254,7 @@ class $AppMappr implements _i3.AutoMapprInterface {
     }
     for (final mappr in _delegates) {
       if (mappr.canConvert<SOURCE, TARGET>()) {
-        return mappr.tryConvertList(
-          model,
-          onMappingError: onMappingError,
-        );
+        return mappr.tryConvertList(model, onMappingError: onMappingError);
       }
     }
 
@@ -287,7 +286,7 @@ class $AppMappr implements _i3.AutoMapprInterface {
   Set<TARGET?> tryConvertSet<SOURCE, TARGET>(
     Iterable<SOURCE?> model, {
     void Function(Object error, StackTrace stackTrace, SOURCE? source)?
-        onMappingError,
+    onMappingError,
   }) {
     if (canConvert<SOURCE, TARGET>(recursive: false)) {
       return tryConvertIterable<SOURCE, TARGET>(
@@ -297,10 +296,7 @@ class $AppMappr implements _i3.AutoMapprInterface {
     }
     for (final mappr in _delegates) {
       if (mappr.canConvert<SOURCE, TARGET>()) {
-        return mappr.tryConvertSet(
-          model,
-          onMappingError: onMappingError,
-        );
+        return mappr.tryConvertSet(model, onMappingError: onMappingError);
       }
     }
 
@@ -370,7 +366,9 @@ class $AppMappr implements _i3.AutoMapprInterface {
         return null;
       }
       return (_map__i9$ExampleEntity_To__i8$Example(
-          (model as _i9.ExampleEntity?)) as TARGET);
+            (model as _i9.ExampleEntity?),
+          )
+          as TARGET);
     }
     if ((sourceTypeOf == _typeOf<_i2.WordStatus>() ||
             sourceTypeOf == _typeOf<_i2.WordStatus?>()) &&
@@ -380,7 +378,9 @@ class $AppMappr implements _i3.AutoMapprInterface {
         return null;
       }
       return (_map__i2$WordStatus_To__i1$WordStatusEntity(
-          (model as _i2.WordStatus?)) as TARGET);
+            (model as _i2.WordStatus?),
+          )
+          as TARGET);
     }
     if ((sourceTypeOf == _typeOf<_i1.WordStatusEntity>() ||
             sourceTypeOf == _typeOf<_i1.WordStatusEntity?>()) &&
@@ -390,7 +390,9 @@ class $AppMappr implements _i3.AutoMapprInterface {
         return null;
       }
       return (_map__i1$WordStatusEntity_To__i2$WordStatus(
-          (model as _i1.WordStatusEntity?)) as TARGET);
+            (model as _i1.WordStatusEntity?),
+          )
+          as TARGET);
     }
     if ((sourceTypeOf == _typeOf<_i10.Theme>() ||
             sourceTypeOf == _typeOf<_i10.Theme?>()) &&
@@ -430,7 +432,21 @@ class $AppMappr implements _i3.AutoMapprInterface {
         return null;
       }
       return (_map__i12$ScheduledNotificationEntity_To__i13$ScheduledNotification(
-          (model as _i12.ScheduledNotificationEntity?)) as TARGET);
+            (model as _i12.ScheduledNotificationEntity?),
+          )
+          as TARGET);
+    }
+    if ((sourceTypeOf == _typeOf<_i14.DictionaryEntity>() ||
+            sourceTypeOf == _typeOf<_i14.DictionaryEntity?>()) &&
+        (targetTypeOf == _typeOf<_i15.Dictionary>() ||
+            targetTypeOf == _typeOf<_i15.Dictionary?>())) {
+      if (canReturnNull && model == null) {
+        return null;
+      }
+      return (_map__i14$DictionaryEntity_To__i15$Dictionary(
+            (model as _i14.DictionaryEntity?),
+          )
+          as TARGET);
     }
     throw Exception('No ${model.runtimeType} -> $targetTypeOf mapping.');
   }
@@ -438,19 +454,13 @@ class $AppMappr implements _i3.AutoMapprInterface {
   TARGET? _safeConvert<SOURCE, TARGET>(
     SOURCE? model, {
     void Function(Object error, StackTrace stackTrace, SOURCE? source)?
-        onMappingError,
+    onMappingError,
   }) {
     if (!useSafeMapping<SOURCE, TARGET>()) {
-      return _convert(
-        model,
-        canReturnNull: true,
-      );
+      return _convert(model, canReturnNull: true);
     }
     try {
-      return _convert(
-        model,
-        canReturnNull: true,
-      );
+      return _convert(model, canReturnNull: true);
     } catch (e, s) {
       onMappingError?.call(e, s, model);
       return null;
@@ -468,23 +478,22 @@ class $AppMappr implements _i3.AutoMapprInterface {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping Word → WordEntity failed because Word was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<Word, WordEntity> to handle null values during mapping.');
+        r'Mapping Word → WordEntity failed because Word was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<Word, WordEntity> to handle null values during mapping.',
+      );
     }
     return _i5.WordEntity(
       word: model.word,
       pos: model.pos,
       phonetic: model.phonetic,
-      phoneticText: model.phoneticText,
-      phoneticAm: model.phoneticAm,
-      phoneticAmText: model.phoneticAmText,
-      senses: model.senses
-          .map<_i7.SenseEntity>(
-              (value) => _map__i6$Sense_To__i7$SenseEntity(value))
-          .toList(),
+      senses:
+          model.senses
+              .map<_i7.SenseEntity>(
+                (value) => _map__i6$Sense_To__i7$SenseEntity(value),
+              )
+              .toList(),
       status: _map__i2$WordStatus_To__i1$WordStatusEntity(model.status),
-      index: model.index,
-      userDefinition: model.userDefinition,
+      id: model.id,
     );
   }
 
@@ -492,22 +501,22 @@ class $AppMappr implements _i3.AutoMapprInterface {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping WordEntity → Word failed because WordEntity was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<WordEntity, Word> to handle null values during mapping.');
+        r'Mapping WordEntity → Word failed because WordEntity was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<WordEntity, Word> to handle null values during mapping.',
+      );
     }
     return _i4.Word(
       word: model.word,
       pos: model.pos,
       phonetic: model.phonetic,
-      phoneticText: model.phoneticText,
-      phoneticAm: model.phoneticAm,
-      phoneticAmText: model.phoneticAmText,
-      senses: model.senses
-          .map<_i6.Sense>((value) => _map__i7$SenseEntity_To__i6$Sense(value))
-          .toList(),
+      senses:
+          model.senses
+              .map<_i6.Sense>(
+                (value) => _map__i7$SenseEntity_To__i6$Sense(value),
+              )
+              .toList(),
       status: _map__i1$WordStatusEntity_To__i2$WordStatus(model.status),
-      index: model.index,
-      userDefinition: model.userDefinition,
+      id: model.id,
     );
   }
 
@@ -515,15 +524,18 @@ class $AppMappr implements _i3.AutoMapprInterface {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping Sense → SenseEntity failed because Sense was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<Sense, SenseEntity> to handle null values during mapping.');
+        r'Mapping Sense → SenseEntity failed because Sense was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<Sense, SenseEntity> to handle null values during mapping.',
+      );
     }
     return _i7.SenseEntity(
       definition: model.definition,
-      examples: model.examples
-          .map<_i9.ExampleEntity>(
-              (value) => _map__i8$Example_To__i9$ExampleEntity(value))
-          .toList(),
+      examples:
+          model.examples
+              .map<_i9.ExampleEntity>(
+                (value) => _map__i8$Example_To__i9$ExampleEntity(value),
+              )
+              .toList(),
     );
   }
 
@@ -531,15 +543,18 @@ class $AppMappr implements _i3.AutoMapprInterface {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping SenseEntity → Sense failed because SenseEntity was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<SenseEntity, Sense> to handle null values during mapping.');
+        r'Mapping SenseEntity → Sense failed because SenseEntity was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<SenseEntity, Sense> to handle null values during mapping.',
+      );
     }
     return _i6.Sense(
       definition: model.definition,
-      examples: model.examples
-          .map<_i8.Example>(
-              (value) => _map__i9$ExampleEntity_To__i8$Example(value))
-          .toList(),
+      examples:
+          model.examples
+              .map<_i8.Example>(
+                (value) => _map__i9$ExampleEntity_To__i8$Example(value),
+              )
+              .toList(),
     );
   }
 
@@ -547,46 +562,46 @@ class $AppMappr implements _i3.AutoMapprInterface {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping Example → ExampleEntity failed because Example was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<Example, ExampleEntity> to handle null values during mapping.');
+        r'Mapping Example → ExampleEntity failed because Example was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<Example, ExampleEntity> to handle null values during mapping.',
+      );
     }
-    return _i9.ExampleEntity(
-      cf: model.cf,
-      x: model.x,
-    );
+    return _i9.ExampleEntity(cf: model.cf, x: model.x);
   }
 
   _i8.Example _map__i9$ExampleEntity_To__i8$Example(_i9.ExampleEntity? input) {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping ExampleEntity → Example failed because ExampleEntity was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<ExampleEntity, Example> to handle null values during mapping.');
+        r'Mapping ExampleEntity → Example failed because ExampleEntity was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<ExampleEntity, Example> to handle null values during mapping.',
+      );
     }
-    return _i8.Example(
-      cf: model.cf,
-      x: model.x,
-    );
+    return _i8.Example(cf: model.cf, x: model.x);
   }
 
   _i1.WordStatusEntity _map__i2$WordStatus_To__i1$WordStatusEntity(
-      _i2.WordStatus? input) {
+    _i2.WordStatus? input,
+  ) {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping WordStatus → WordStatusEntity failed because WordStatus was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<WordStatus, WordStatusEntity> to handle null values during mapping.');
+        r'Mapping WordStatus → WordStatusEntity failed because WordStatus was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<WordStatus, WordStatusEntity> to handle null values during mapping.',
+      );
     }
     return _i1.WordStatusEntity.values.firstWhere((x) => x.name == model.name);
   }
 
   _i2.WordStatus _map__i1$WordStatusEntity_To__i2$WordStatus(
-      _i1.WordStatusEntity? input) {
+    _i1.WordStatusEntity? input,
+  ) {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping WordStatusEntity → WordStatus failed because WordStatusEntity was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<WordStatusEntity, WordStatus> to handle null values during mapping.');
+        r'Mapping WordStatusEntity → WordStatus failed because WordStatusEntity was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<WordStatusEntity, WordStatus> to handle null values during mapping.',
+      );
     }
     return _i2.WordStatus.values.firstWhere((x) => x.name == model.name);
   }
@@ -595,8 +610,9 @@ class $AppMappr implements _i3.AutoMapprInterface {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping Theme → ThemeEntity failed because Theme was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<Theme, ThemeEntity> to handle null values during mapping.');
+        r'Mapping Theme → ThemeEntity failed because Theme was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<Theme, ThemeEntity> to handle null values during mapping.',
+      );
     }
     return _i11.ThemeEntity(themeType: model.themeType);
   }
@@ -605,8 +621,9 @@ class $AppMappr implements _i3.AutoMapprInterface {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping ThemeEntity → Theme failed because ThemeEntity was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<ThemeEntity, Theme> to handle null values during mapping.');
+        r'Mapping ThemeEntity → Theme failed because ThemeEntity was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<ThemeEntity, Theme> to handle null values during mapping.',
+      );
     }
     return _i10.Theme(themeType: model.themeType);
   }
@@ -615,26 +632,46 @@ class $AppMappr implements _i3.AutoMapprInterface {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping ThemeType → ThemeType failed because ThemeType was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<ThemeType, ThemeType> to handle null values during mapping.');
+        r'Mapping ThemeType → ThemeType failed because ThemeType was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<ThemeType, ThemeType> to handle null values during mapping.',
+      );
     }
     return _i11.ThemeType.values.firstWhere((x) => x.name == model.name);
   }
 
   _i13.ScheduledNotification
-      _map__i12$ScheduledNotificationEntity_To__i13$ScheduledNotification(
-          _i12.ScheduledNotificationEntity? input) {
+  _map__i12$ScheduledNotificationEntity_To__i13$ScheduledNotification(
+    _i12.ScheduledNotificationEntity? input,
+  ) {
     final model = input;
     if (model == null) {
       throw Exception(
-          r'Mapping ScheduledNotificationEntity → ScheduledNotification failed because ScheduledNotificationEntity was null, and no default value was provided. '
-          r'Consider setting the whenSourceIsNull parameter on the MapType<ScheduledNotificationEntity, ScheduledNotification> to handle null values during mapping.');
+        r'Mapping ScheduledNotificationEntity → ScheduledNotification failed because ScheduledNotificationEntity was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<ScheduledNotificationEntity, ScheduledNotification> to handle null values during mapping.',
+      );
     }
     return _i13.ScheduledNotification(
       id: model.id,
       title: model.title,
       body: model.body,
       scheduledDate: model.scheduledDate,
+    );
+  }
+
+  _i15.Dictionary _map__i14$DictionaryEntity_To__i15$Dictionary(
+    _i14.DictionaryEntity? input,
+  ) {
+    final model = input;
+    if (model == null) {
+      throw Exception(
+        r'Mapping DictionaryEntity → Dictionary failed because DictionaryEntity was null, and no default value was provided. '
+        r'Consider setting the whenSourceIsNull parameter on the MapType<DictionaryEntity, Dictionary> to handle null values during mapping.',
+      );
+    }
+    return _i15.Dictionary(
+      topic: model.topic,
+      category: model.category,
+      image: model.image,
     );
   }
 }

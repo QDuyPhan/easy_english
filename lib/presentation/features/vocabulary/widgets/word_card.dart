@@ -111,13 +111,13 @@ class WordCard extends StatelessWidget {
               children: [
                 Phonetic(
                   phonetic: word.phonetic,
-                  phoneticText: word.phoneticText,
+                  phoneticText: word.phoneticText!,
                   backgroundColor: colorScheme.primaryContainer,
                 ),
                 const SizedBox(height: 4),
                 Phonetic(
-                  phonetic: word.phoneticAm,
-                  phoneticText: word.phoneticAmText,
+                  phonetic: word.phoneticAm!,
+                  phoneticText: word.phoneticAmText!,
                   backgroundColor: colorScheme.tertiaryContainer,
                 ),
               ],

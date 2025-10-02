@@ -12,4 +12,16 @@ class SenseEntity {
       examples: examples ?? this.examples,
     );
   }
+
+  factory SenseEntity.fromJson(Map<String, dynamic> json) {
+    return SenseEntity(
+      definition: json['definition'],
+      examples:
+          json['examples'] != null
+              ? List<ExampleEntity>.from(
+                json['examples'].map((x) => ExampleEntity.fromJson(x)).toList(),
+              )
+              : [],
+    );
+  }
 }

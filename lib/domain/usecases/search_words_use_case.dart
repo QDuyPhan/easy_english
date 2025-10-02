@@ -16,7 +16,7 @@ class SearchWordsUseCase {
   }) : _oxfordWordsRepository = oxfordWordsRepository,
        _topicRepository = topicRepository;
 
-  List<WordEntity> execute(String query) {
+  Future<List<WordEntity>> execute(String query) async {
     if (query.trim().isEmpty) {
       return [];
     }
@@ -35,7 +35,7 @@ class SearchWordsUseCase {
         try {
           final topics = Assets.getTopicsForFolder(folder);
           for (final topic in topics) {
-            final topicWords = _topicRepository.getTopic(folder, topic);
+            final topicWords = await _topicRepository.getTopic(folder, topic);
             final topicResults = _searchInWords(topicWords, searchQuery);
             allResults.addAll(topicResults);
           }

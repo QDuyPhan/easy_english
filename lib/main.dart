@@ -1,6 +1,5 @@
 import 'package:easy_english/core/config/app_config.dart';
 import 'package:easy_english/di/injector.dart' as di;
-import 'package:easy_english/domain/usecases/init_data_oxford_words_use_case.dart';
 import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +15,6 @@ import 'package:timezone/timezone.dart' as tz;
 import 'core/navigation/app_router.dart';
 import 'core/navigation/route_paths.dart';
 import 'core/utils/local_notifications_tools.dart';
-import 'domain/usecases/init_data_topics_use_case.dart';
 import 'my_app.dart';
 import 'presentation/observers/my_bloc_observer.dart';
 
@@ -29,7 +27,7 @@ void main() async {
     ),
   );
   HydratedBloc.storage = storage;
-
+  // configureInjection(Environment.prod);
   await setupCoreDependencies();
 
   await Future.wait([
@@ -37,8 +35,8 @@ void main() async {
       onDidReceiveNotificationResponse,
       onDidReceiveBackgroundNotificationResponse,
     ),
-    di.getIt<InitDataOxfordWordsUseCase>().execute(),
-    di.getIt<InitDataTopicsUseCase>().execute(),
+    // di.getIt<InitDataOxfordWordsUseCase>().execute(),
+    // di.getIt<InitDataTopicsUseCase>().execute(),
   ]);
 
   runApp(
@@ -55,7 +53,6 @@ Future<void> setupCoreDependencies() async {
   final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
   tz.initializeTimeZones();
   tz.setLocalLocation(tz.getLocation(currentTimeZone));
-
   await di.setupDependencies();
 }
 

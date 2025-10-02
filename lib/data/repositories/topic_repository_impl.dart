@@ -1,5 +1,7 @@
+import 'dart:convert';
+import 'dart:isolate';
+
 import 'package:dartz/dartz.dart';
-import 'package:easy_english/core/config/hive_config.dart';
 import 'package:easy_english/core/errors/failure.dart';
 import 'package:easy_english/core/mapper/app_mappr.dart';
 import 'package:easy_english/core/utils/assets.dart';
@@ -8,6 +10,7 @@ import 'package:easy_english/data/datasources/local/local_data.dart';
 import 'package:easy_english/data/models/word.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/repositories/topic_repository.dart';
+import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../core/config/app_config.dart';
@@ -15,19 +18,30 @@ import '../../core/config/app_config.dart';
 @LazySingleton(as: TopicRepository)
 class TopicRepositoryImpl implements TopicRepository {
   final AssetsData _assetsData;
-  final HiveConfig _hiveConfig;
+
+  // final HiveConfig _hiveConfig;
   final LocalData _localData;
   final AppMappr _appMappr;
 
   TopicRepositoryImpl({
     required AssetsData assetsData,
-    required HiveConfig hiveConfig,
+    // required HiveConfig hiveConfig,
     required LocalData localData,
     required AppMappr appMappr,
   }) : _assetsData = assetsData,
-       _hiveConfig = hiveConfig,
+       // _hiveConfig = hiveConfig,
        _localData = localData,
        _appMappr = appMappr;
+
+  static Future<List<Word>> _loadWordsInIsolate(String path) async {
+    try {
+      final jsonString = await rootBundle.loadString(path);
+      final List<dynamic> jsonList = json.decode(jsonString);
+      return jsonList.map((e) => Word.fromJson(e)).toList();
+    } catch (e) {
+      throw Exception('Failed to load words in isolate: $e');
+    }
+  }
 
   @override
   Future<void> initData() async {
@@ -83,7 +97,7 @@ class TopicRepositoryImpl implements TopicRepository {
   }
 
   @override
-  List<WordEntity> getTopic(String folder, String topic) {
+  Future<List<WordEntity>> getTopic(String folder, String topic) async {
     try {
       final topicWords = _localData.getAllTopicWords();
       if (topicWords.isEmpty) {
@@ -110,12 +124,25 @@ class TopicRepositoryImpl implements TopicRepository {
     }
   }
 
-  Future<void> clearAllTopicsData() async {
-    try {
-      await _hiveConfig.topicsBox.clear();
-      app_config.printLog('i', 'All topics data cleared');
-    } catch (e) {
-      app_config.printLog('e', 'Failed to clear topics data: $e');
-    }
+  // Future<void> clearAllTopicsData() async {
+  //   try {
+  //     await _hiveConfig.topicsBox.clear();
+  //     app_config.printLog('i', 'All topics data cleared');
+  //   } catch (e) {
+  //     app_config.printLog('e', 'Failed to clear topics data: $e');
+  //   }
+  // }
+
+  @override
+  Future<List<WordEntity>> getTopicFromJson(String folder, String topic) async {
+    final path = 'assets/json/topics/$folder/$topic.json';
+    final jsonString = await rootBundle.loadString(path);
+    final List<dynamic> jsonData = jsonDecode(jsonString);
+    List<WordEntity> words =
+        jsonData.map((e) => WordEntity.fromJson(e)).toList();
+    app_config.printLog('i', 'getTopicFromJson ${words.length}');
+    return await Isolate.run(() {
+      return words;
+    });
   }
 }

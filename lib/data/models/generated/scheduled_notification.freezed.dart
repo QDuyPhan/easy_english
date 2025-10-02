@@ -12,22 +12,20 @@ part of '../scheduled_notification.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ScheduledNotification _$ScheduledNotificationFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _ScheduledNotification.fromJson(json);
 }
 
 /// @nodoc
 mixin _$ScheduledNotification {
-  @HiveField(0)
   int get id => throw _privateConstructorUsedError;
-  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
-  @HiveField(2)
   String get body => throw _privateConstructorUsedError;
-  @HiveField(3)
   String get scheduledDate => throw _privateConstructorUsedError;
 
   /// Serializes this ScheduledNotification to a JSON map.
@@ -42,20 +40,19 @@ mixin _$ScheduledNotification {
 
 /// @nodoc
 abstract class $ScheduledNotificationCopyWith<$Res> {
-  factory $ScheduledNotificationCopyWith(ScheduledNotification value,
-          $Res Function(ScheduledNotification) then) =
-      _$ScheduledNotificationCopyWithImpl<$Res, ScheduledNotification>;
+  factory $ScheduledNotificationCopyWith(
+    ScheduledNotification value,
+    $Res Function(ScheduledNotification) then,
+  ) = _$ScheduledNotificationCopyWithImpl<$Res, ScheduledNotification>;
   @useResult
-  $Res call(
-      {@HiveField(0) int id,
-      @HiveField(1) String title,
-      @HiveField(2) String body,
-      @HiveField(3) String scheduledDate});
+  $Res call({int id, String title, String body, String scheduledDate});
 }
 
 /// @nodoc
-class _$ScheduledNotificationCopyWithImpl<$Res,
-        $Val extends ScheduledNotification>
+class _$ScheduledNotificationCopyWithImpl<
+  $Res,
+  $Val extends ScheduledNotification
+>
     implements $ScheduledNotificationCopyWith<$Res> {
   _$ScheduledNotificationCopyWithImpl(this._value, this._then);
 
@@ -74,24 +71,31 @@ class _$ScheduledNotificationCopyWithImpl<$Res,
     Object? body = null,
     Object? scheduledDate = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String,
-      scheduledDate: null == scheduledDate
-          ? _value.scheduledDate
-          : scheduledDate // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            body:
+                null == body
+                    ? _value.body
+                    : body // ignore: cast_nullable_to_non_nullable
+                        as String,
+            scheduledDate:
+                null == scheduledDate
+                    ? _value.scheduledDate
+                    : scheduledDate // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -99,26 +103,23 @@ class _$ScheduledNotificationCopyWithImpl<$Res,
 abstract class _$$ScheduledNotificationImplCopyWith<$Res>
     implements $ScheduledNotificationCopyWith<$Res> {
   factory _$$ScheduledNotificationImplCopyWith(
-          _$ScheduledNotificationImpl value,
-          $Res Function(_$ScheduledNotificationImpl) then) =
-      __$$ScheduledNotificationImplCopyWithImpl<$Res>;
+    _$ScheduledNotificationImpl value,
+    $Res Function(_$ScheduledNotificationImpl) then,
+  ) = __$$ScheduledNotificationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@HiveField(0) int id,
-      @HiveField(1) String title,
-      @HiveField(2) String body,
-      @HiveField(3) String scheduledDate});
+  $Res call({int id, String title, String body, String scheduledDate});
 }
 
 /// @nodoc
 class __$$ScheduledNotificationImplCopyWithImpl<$Res>
-    extends _$ScheduledNotificationCopyWithImpl<$Res,
-        _$ScheduledNotificationImpl>
+    extends
+        _$ScheduledNotificationCopyWithImpl<$Res, _$ScheduledNotificationImpl>
     implements _$$ScheduledNotificationImplCopyWith<$Res> {
-  __$$ScheduledNotificationImplCopyWithImpl(_$ScheduledNotificationImpl _value,
-      $Res Function(_$ScheduledNotificationImpl) _then)
-      : super(_value, _then);
+  __$$ScheduledNotificationImplCopyWithImpl(
+    _$ScheduledNotificationImpl _value,
+    $Res Function(_$ScheduledNotificationImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ScheduledNotification
   /// with the given fields replaced by the non-null parameter values.
@@ -130,54 +131,57 @@ class __$$ScheduledNotificationImplCopyWithImpl<$Res>
     Object? body = null,
     Object? scheduledDate = null,
   }) {
-    return _then(_$ScheduledNotificationImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      body: null == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String,
-      scheduledDate: null == scheduledDate
-          ? _value.scheduledDate
-          : scheduledDate // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$ScheduledNotificationImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        body:
+            null == body
+                ? _value.body
+                : body // ignore: cast_nullable_to_non_nullable
+                    as String,
+        scheduledDate:
+            null == scheduledDate
+                ? _value.scheduledDate
+                : scheduledDate // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ScheduledNotificationImpl implements _ScheduledNotification {
-  const _$ScheduledNotificationImpl(
-      {@HiveField(0) this.id = 0,
-      @HiveField(1) this.title = "",
-      @HiveField(2) this.body = "",
-      @HiveField(3) this.scheduledDate = ""});
+  const _$ScheduledNotificationImpl({
+    this.id = 0,
+    this.title = "",
+    this.body = "",
+    this.scheduledDate = "",
+  });
 
   factory _$ScheduledNotificationImpl.fromJson(Map<String, dynamic> json) =>
       _$$ScheduledNotificationImplFromJson(json);
 
   @override
   @JsonKey()
-  @HiveField(0)
   final int id;
   @override
   @JsonKey()
-  @HiveField(1)
   final String title;
   @override
   @JsonKey()
-  @HiveField(2)
   final String body;
   @override
   @JsonKey()
-  @HiveField(3)
   final String scheduledDate;
 
   @override
@@ -207,38 +211,36 @@ class _$ScheduledNotificationImpl implements _ScheduledNotification {
   @override
   @pragma('vm:prefer-inline')
   _$$ScheduledNotificationImplCopyWith<_$ScheduledNotificationImpl>
-      get copyWith => __$$ScheduledNotificationImplCopyWithImpl<
-          _$ScheduledNotificationImpl>(this, _$identity);
+  get copyWith =>
+      __$$ScheduledNotificationImplCopyWithImpl<_$ScheduledNotificationImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ScheduledNotificationImplToJson(
-      this,
-    );
+    return _$$ScheduledNotificationImplToJson(this);
   }
 }
 
 abstract class _ScheduledNotification implements ScheduledNotification {
-  const factory _ScheduledNotification(
-      {@HiveField(0) final int id,
-      @HiveField(1) final String title,
-      @HiveField(2) final String body,
-      @HiveField(3) final String scheduledDate}) = _$ScheduledNotificationImpl;
+  const factory _ScheduledNotification({
+    final int id,
+    final String title,
+    final String body,
+    final String scheduledDate,
+  }) = _$ScheduledNotificationImpl;
 
   factory _ScheduledNotification.fromJson(Map<String, dynamic> json) =
       _$ScheduledNotificationImpl.fromJson;
 
   @override
-  @HiveField(0)
   int get id;
   @override
-  @HiveField(1)
   String get title;
   @override
-  @HiveField(2)
   String get body;
   @override
-  @HiveField(3)
   String get scheduledDate;
 
   /// Create a copy of ScheduledNotification
@@ -246,5 +248,5 @@ abstract class _ScheduledNotification implements ScheduledNotification {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScheduledNotificationImplCopyWith<_$ScheduledNotificationImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }

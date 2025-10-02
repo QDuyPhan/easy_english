@@ -40,7 +40,7 @@ class OxfordWordsRepositoryImpl implements OxfordWordsRepository {
       if (currentWords.isNotEmpty) return;
       final words =
           (await _assetsData.getAllOxfordWords())
-              .mapIndexed((index, word) => word.copyWith(index: index + 1))
+              .mapIndexed((index, word) => word.copyWith())
               .toList();
       app_config.printLog('i', "${words.map((e) => e.word).toList()}");
       await _localData.saveWords(words);

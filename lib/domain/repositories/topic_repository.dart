@@ -11,7 +11,9 @@ abstract interface class TopicRepository {
     WordEntity word,
   );
 
-  List<WordEntity> getTopic(String folder, String topic);
+  Future<List<WordEntity>> getTopic(String folder, String topic);
 
   Future<Either<Failure, void>> saveWord(WordEntity word);
+
+  Future<List<WordEntity>> getTopicFromJson(String folder, String topic);
 }

@@ -1,4 +1,3 @@
-import 'package:easy_english/core/utils/assets.dart';
 import 'package:logger/logger.dart';
 
 const bool isDev = true;
@@ -38,27 +37,6 @@ class AppConfig {
       }
     }
   }
-
-  List<String> listImageTopic = [
-    Assets.pngCat,
-    Assets.pngAppearance,
-    Assets.pngCommunication,
-    Assets.pngCulture,
-    Assets.pngFoodAndDrink,
-    Assets.pngFunction,
-    Assets.pngHealth,
-    Assets.pngHomeAndBuilding,
-    Assets.pngLeisure,
-    Assets.pngNotions,
-    Assets.pngPeople,
-    Assets.pngPoliticsAndSociety,
-    Assets.pngScienceAndTechnology,
-    Assets.pngSport,
-    Assets.pngTheNaturalWorld,
-    Assets.pngTimeAndSpace,
-    Assets.pngTravel,
-    Assets.pngWorkAndBusiness,
-  ];
 }
 
 final AppConfig app_config = AppConfig();

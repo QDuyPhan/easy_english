@@ -11,4 +11,9 @@ class TopicsEvent with _$TopicsEvent {
     required WordEntity word,
     required WordStatusEntity wordStatus,
   }) = _SaveWord;
+
+  const factory TopicsEvent.getTopicFromJson({
+    required String folder,
+    required String topic,
+  }) = _GetTopicFromJson;
 }

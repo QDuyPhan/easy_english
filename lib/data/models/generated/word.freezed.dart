@@ -12,7 +12,8 @@ part of '../word.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Word _$WordFromJson(Map<String, dynamic> json) {
   return _Word.fromJson(json);
@@ -20,32 +21,15 @@ Word _$WordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Word {
-  @HiveField(0)
   String get word => throw _privateConstructorUsedError;
-  @HiveField(1)
   String get pos => throw _privateConstructorUsedError;
-  @HiveField(2)
   String get phonetic => throw _privateConstructorUsedError;
-  @HiveField(3)
-  String get phoneticText => throw _privateConstructorUsedError;
-  @HiveField(4)
-  String get phoneticAm => throw _privateConstructorUsedError;
-  @HiveField(5)
-  String get phoneticAmText => throw _privateConstructorUsedError;
-  @HiveField(6)
+  String get phonetic_text => throw _privateConstructorUsedError;
+  String get phonetic_am => throw _privateConstructorUsedError;
+  String get phonetic_am_text => throw _privateConstructorUsedError;
   List<Sense> get senses => throw _privateConstructorUsedError;
-  @HiveField(7)
   WordStatus get status => throw _privateConstructorUsedError;
-  @HiveField(8)
-  int get index => throw _privateConstructorUsedError;
-  @HiveField(9)
-  String? get userDefinition => throw _privateConstructorUsedError;
-  @HiveField(10)
-  String get folder => throw _privateConstructorUsedError;
-  @HiveField(11)
-  String get topic => throw _privateConstructorUsedError;
-  @HiveField(12)
-  String get origin => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
 
   /// Serializes this Word to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -61,20 +45,17 @@ abstract class $WordCopyWith<$Res> {
   factory $WordCopyWith(Word value, $Res Function(Word) then) =
       _$WordCopyWithImpl<$Res, Word>;
   @useResult
-  $Res call(
-      {@HiveField(0) String word,
-      @HiveField(1) String pos,
-      @HiveField(2) String phonetic,
-      @HiveField(3) String phoneticText,
-      @HiveField(4) String phoneticAm,
-      @HiveField(5) String phoneticAmText,
-      @HiveField(6) List<Sense> senses,
-      @HiveField(7) WordStatus status,
-      @HiveField(8) int index,
-      @HiveField(9) String? userDefinition,
-      @HiveField(10) String folder,
-      @HiveField(11) String topic,
-      @HiveField(12) String origin});
+  $Res call({
+    String word,
+    String pos,
+    String phonetic,
+    String phonetic_text,
+    String phonetic_am,
+    String phonetic_am_text,
+    List<Sense> senses,
+    WordStatus status,
+    String id,
+  });
 }
 
 /// @nodoc
@@ -95,95 +76,85 @@ class _$WordCopyWithImpl<$Res, $Val extends Word>
     Object? word = null,
     Object? pos = null,
     Object? phonetic = null,
-    Object? phoneticText = null,
-    Object? phoneticAm = null,
-    Object? phoneticAmText = null,
+    Object? phonetic_text = null,
+    Object? phonetic_am = null,
+    Object? phonetic_am_text = null,
     Object? senses = null,
     Object? status = null,
-    Object? index = null,
-    Object? userDefinition = freezed,
-    Object? folder = null,
-    Object? topic = null,
-    Object? origin = null,
+    Object? id = null,
   }) {
-    return _then(_value.copyWith(
-      word: null == word
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String,
-      pos: null == pos
-          ? _value.pos
-          : pos // ignore: cast_nullable_to_non_nullable
-              as String,
-      phonetic: null == phonetic
-          ? _value.phonetic
-          : phonetic // ignore: cast_nullable_to_non_nullable
-              as String,
-      phoneticText: null == phoneticText
-          ? _value.phoneticText
-          : phoneticText // ignore: cast_nullable_to_non_nullable
-              as String,
-      phoneticAm: null == phoneticAm
-          ? _value.phoneticAm
-          : phoneticAm // ignore: cast_nullable_to_non_nullable
-              as String,
-      phoneticAmText: null == phoneticAmText
-          ? _value.phoneticAmText
-          : phoneticAmText // ignore: cast_nullable_to_non_nullable
-              as String,
-      senses: null == senses
-          ? _value.senses
-          : senses // ignore: cast_nullable_to_non_nullable
-              as List<Sense>,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as WordStatus,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-      userDefinition: freezed == userDefinition
-          ? _value.userDefinition
-          : userDefinition // ignore: cast_nullable_to_non_nullable
-              as String?,
-      folder: null == folder
-          ? _value.folder
-          : folder // ignore: cast_nullable_to_non_nullable
-              as String,
-      topic: null == topic
-          ? _value.topic
-          : topic // ignore: cast_nullable_to_non_nullable
-              as String,
-      origin: null == origin
-          ? _value.origin
-          : origin // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            word:
+                null == word
+                    ? _value.word
+                    : word // ignore: cast_nullable_to_non_nullable
+                        as String,
+            pos:
+                null == pos
+                    ? _value.pos
+                    : pos // ignore: cast_nullable_to_non_nullable
+                        as String,
+            phonetic:
+                null == phonetic
+                    ? _value.phonetic
+                    : phonetic // ignore: cast_nullable_to_non_nullable
+                        as String,
+            phonetic_text:
+                null == phonetic_text
+                    ? _value.phonetic_text
+                    : phonetic_text // ignore: cast_nullable_to_non_nullable
+                        as String,
+            phonetic_am:
+                null == phonetic_am
+                    ? _value.phonetic_am
+                    : phonetic_am // ignore: cast_nullable_to_non_nullable
+                        as String,
+            phonetic_am_text:
+                null == phonetic_am_text
+                    ? _value.phonetic_am_text
+                    : phonetic_am_text // ignore: cast_nullable_to_non_nullable
+                        as String,
+            senses:
+                null == senses
+                    ? _value.senses
+                    : senses // ignore: cast_nullable_to_non_nullable
+                        as List<Sense>,
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as WordStatus,
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$WordImplCopyWith<$Res> implements $WordCopyWith<$Res> {
   factory _$$WordImplCopyWith(
-          _$WordImpl value, $Res Function(_$WordImpl) then) =
-      __$$WordImplCopyWithImpl<$Res>;
+    _$WordImpl value,
+    $Res Function(_$WordImpl) then,
+  ) = __$$WordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@HiveField(0) String word,
-      @HiveField(1) String pos,
-      @HiveField(2) String phonetic,
-      @HiveField(3) String phoneticText,
-      @HiveField(4) String phoneticAm,
-      @HiveField(5) String phoneticAmText,
-      @HiveField(6) List<Sense> senses,
-      @HiveField(7) WordStatus status,
-      @HiveField(8) int index,
-      @HiveField(9) String? userDefinition,
-      @HiveField(10) String folder,
-      @HiveField(11) String topic,
-      @HiveField(12) String origin});
+  $Res call({
+    String word,
+    String pos,
+    String phonetic,
+    String phonetic_text,
+    String phonetic_am,
+    String phonetic_am_text,
+    List<Sense> senses,
+    WordStatus status,
+    String id,
+  });
 }
 
 /// @nodoc
@@ -191,7 +162,7 @@ class __$$WordImplCopyWithImpl<$Res>
     extends _$WordCopyWithImpl<$Res, _$WordImpl>
     implements _$$WordImplCopyWith<$Res> {
   __$$WordImplCopyWithImpl(_$WordImpl _value, $Res Function(_$WordImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Word
   /// with the given fields replaced by the non-null parameter values.
@@ -201,124 +172,104 @@ class __$$WordImplCopyWithImpl<$Res>
     Object? word = null,
     Object? pos = null,
     Object? phonetic = null,
-    Object? phoneticText = null,
-    Object? phoneticAm = null,
-    Object? phoneticAmText = null,
+    Object? phonetic_text = null,
+    Object? phonetic_am = null,
+    Object? phonetic_am_text = null,
     Object? senses = null,
     Object? status = null,
-    Object? index = null,
-    Object? userDefinition = freezed,
-    Object? folder = null,
-    Object? topic = null,
-    Object? origin = null,
+    Object? id = null,
   }) {
-    return _then(_$WordImpl(
-      word: null == word
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String,
-      pos: null == pos
-          ? _value.pos
-          : pos // ignore: cast_nullable_to_non_nullable
-              as String,
-      phonetic: null == phonetic
-          ? _value.phonetic
-          : phonetic // ignore: cast_nullable_to_non_nullable
-              as String,
-      phoneticText: null == phoneticText
-          ? _value.phoneticText
-          : phoneticText // ignore: cast_nullable_to_non_nullable
-              as String,
-      phoneticAm: null == phoneticAm
-          ? _value.phoneticAm
-          : phoneticAm // ignore: cast_nullable_to_non_nullable
-              as String,
-      phoneticAmText: null == phoneticAmText
-          ? _value.phoneticAmText
-          : phoneticAmText // ignore: cast_nullable_to_non_nullable
-              as String,
-      senses: null == senses
-          ? _value._senses
-          : senses // ignore: cast_nullable_to_non_nullable
-              as List<Sense>,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as WordStatus,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-      userDefinition: freezed == userDefinition
-          ? _value.userDefinition
-          : userDefinition // ignore: cast_nullable_to_non_nullable
-              as String?,
-      folder: null == folder
-          ? _value.folder
-          : folder // ignore: cast_nullable_to_non_nullable
-              as String,
-      topic: null == topic
-          ? _value.topic
-          : topic // ignore: cast_nullable_to_non_nullable
-              as String,
-      origin: null == origin
-          ? _value.origin
-          : origin // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$WordImpl(
+        word:
+            null == word
+                ? _value.word
+                : word // ignore: cast_nullable_to_non_nullable
+                    as String,
+        pos:
+            null == pos
+                ? _value.pos
+                : pos // ignore: cast_nullable_to_non_nullable
+                    as String,
+        phonetic:
+            null == phonetic
+                ? _value.phonetic
+                : phonetic // ignore: cast_nullable_to_non_nullable
+                    as String,
+        phonetic_text:
+            null == phonetic_text
+                ? _value.phonetic_text
+                : phonetic_text // ignore: cast_nullable_to_non_nullable
+                    as String,
+        phonetic_am:
+            null == phonetic_am
+                ? _value.phonetic_am
+                : phonetic_am // ignore: cast_nullable_to_non_nullable
+                    as String,
+        phonetic_am_text:
+            null == phonetic_am_text
+                ? _value.phonetic_am_text
+                : phonetic_am_text // ignore: cast_nullable_to_non_nullable
+                    as String,
+        senses:
+            null == senses
+                ? _value._senses
+                : senses // ignore: cast_nullable_to_non_nullable
+                    as List<Sense>,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as WordStatus,
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$WordImpl implements _Word {
-  const _$WordImpl(
-      {@HiveField(0) this.word = "",
-      @HiveField(1) this.pos = "",
-      @HiveField(2) this.phonetic = "",
-      @HiveField(3) this.phoneticText = "",
-      @HiveField(4) this.phoneticAm = "",
-      @HiveField(5) this.phoneticAmText = "",
-      @HiveField(6) final List<Sense> senses = const [],
-      @HiveField(7) this.status = WordStatus.unknown,
-      @HiveField(8) this.index = 0,
-      @HiveField(9) this.userDefinition = null,
-      @HiveField(10) this.folder = "",
-      @HiveField(11) this.topic = "",
-      @HiveField(12) this.origin = ""})
-      : _senses = senses;
+  const _$WordImpl({
+    this.word = "",
+    this.pos = "",
+    this.phonetic = "",
+    this.phonetic_text = "",
+    this.phonetic_am = "",
+    this.phonetic_am_text = "",
+    final List<Sense> senses = const [],
+    this.status = WordStatus.unknown,
+    this.id = "",
+  }) : _senses = senses;
 
   factory _$WordImpl.fromJson(Map<String, dynamic> json) =>
       _$$WordImplFromJson(json);
 
   @override
   @JsonKey()
-  @HiveField(0)
   final String word;
   @override
   @JsonKey()
-  @HiveField(1)
   final String pos;
   @override
   @JsonKey()
-  @HiveField(2)
   final String phonetic;
   @override
   @JsonKey()
-  @HiveField(3)
-  final String phoneticText;
+  final String phonetic_text;
   @override
   @JsonKey()
-  @HiveField(4)
-  final String phoneticAm;
+  final String phonetic_am;
   @override
   @JsonKey()
-  @HiveField(5)
-  final String phoneticAmText;
+  final String phonetic_am_text;
   final List<Sense> _senses;
   @override
   @JsonKey()
-  @HiveField(6)
   List<Sense> get senses {
     if (_senses is EqualUnmodifiableListView) return _senses;
     // ignore: implicit_dynamic_type
@@ -327,32 +278,14 @@ class _$WordImpl implements _Word {
 
   @override
   @JsonKey()
-  @HiveField(7)
   final WordStatus status;
   @override
   @JsonKey()
-  @HiveField(8)
-  final int index;
-  @override
-  @JsonKey()
-  @HiveField(9)
-  final String? userDefinition;
-  @override
-  @JsonKey()
-  @HiveField(10)
-  final String folder;
-  @override
-  @JsonKey()
-  @HiveField(11)
-  final String topic;
-  @override
-  @JsonKey()
-  @HiveField(12)
-  final String origin;
+  final String id;
 
   @override
   String toString() {
-    return 'Word(word: $word, pos: $pos, phonetic: $phonetic, phoneticText: $phoneticText, phoneticAm: $phoneticAm, phoneticAmText: $phoneticAmText, senses: $senses, status: $status, index: $index, userDefinition: $userDefinition, folder: $folder, topic: $topic, origin: $origin)';
+    return 'Word(word: $word, pos: $pos, phonetic: $phonetic, phonetic_text: $phonetic_text, phonetic_am: $phonetic_am, phonetic_am_text: $phonetic_am_text, senses: $senses, status: $status, id: $id)';
   }
 
   @override
@@ -364,39 +297,31 @@ class _$WordImpl implements _Word {
             (identical(other.pos, pos) || other.pos == pos) &&
             (identical(other.phonetic, phonetic) ||
                 other.phonetic == phonetic) &&
-            (identical(other.phoneticText, phoneticText) ||
-                other.phoneticText == phoneticText) &&
-            (identical(other.phoneticAm, phoneticAm) ||
-                other.phoneticAm == phoneticAm) &&
-            (identical(other.phoneticAmText, phoneticAmText) ||
-                other.phoneticAmText == phoneticAmText) &&
+            (identical(other.phonetic_text, phonetic_text) ||
+                other.phonetic_text == phonetic_text) &&
+            (identical(other.phonetic_am, phonetic_am) ||
+                other.phonetic_am == phonetic_am) &&
+            (identical(other.phonetic_am_text, phonetic_am_text) ||
+                other.phonetic_am_text == phonetic_am_text) &&
             const DeepCollectionEquality().equals(other._senses, _senses) &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.index, index) || other.index == index) &&
-            (identical(other.userDefinition, userDefinition) ||
-                other.userDefinition == userDefinition) &&
-            (identical(other.folder, folder) || other.folder == folder) &&
-            (identical(other.topic, topic) || other.topic == topic) &&
-            (identical(other.origin, origin) || other.origin == origin));
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      word,
-      pos,
-      phonetic,
-      phoneticText,
-      phoneticAm,
-      phoneticAmText,
-      const DeepCollectionEquality().hash(_senses),
-      status,
-      index,
-      userDefinition,
-      folder,
-      topic,
-      origin);
+    runtimeType,
+    word,
+    pos,
+    phonetic,
+    phonetic_text,
+    phonetic_am,
+    phonetic_am_text,
+    const DeepCollectionEquality().hash(_senses),
+    status,
+    id,
+  );
 
   /// Create a copy of Word
   /// with the given fields replaced by the non-null parameter values.
@@ -408,69 +333,43 @@ class _$WordImpl implements _Word {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$WordImplToJson(
-      this,
-    );
+    return _$$WordImplToJson(this);
   }
 }
 
 abstract class _Word implements Word {
-  const factory _Word(
-      {@HiveField(0) final String word,
-      @HiveField(1) final String pos,
-      @HiveField(2) final String phonetic,
-      @HiveField(3) final String phoneticText,
-      @HiveField(4) final String phoneticAm,
-      @HiveField(5) final String phoneticAmText,
-      @HiveField(6) final List<Sense> senses,
-      @HiveField(7) final WordStatus status,
-      @HiveField(8) final int index,
-      @HiveField(9) final String? userDefinition,
-      @HiveField(10) final String folder,
-      @HiveField(11) final String topic,
-      @HiveField(12) final String origin}) = _$WordImpl;
+  const factory _Word({
+    final String word,
+    final String pos,
+    final String phonetic,
+    final String phonetic_text,
+    final String phonetic_am,
+    final String phonetic_am_text,
+    final List<Sense> senses,
+    final WordStatus status,
+    final String id,
+  }) = _$WordImpl;
 
   factory _Word.fromJson(Map<String, dynamic> json) = _$WordImpl.fromJson;
 
   @override
-  @HiveField(0)
   String get word;
   @override
-  @HiveField(1)
   String get pos;
   @override
-  @HiveField(2)
   String get phonetic;
   @override
-  @HiveField(3)
-  String get phoneticText;
+  String get phonetic_text;
   @override
-  @HiveField(4)
-  String get phoneticAm;
+  String get phonetic_am;
   @override
-  @HiveField(5)
-  String get phoneticAmText;
+  String get phonetic_am_text;
   @override
-  @HiveField(6)
   List<Sense> get senses;
   @override
-  @HiveField(7)
   WordStatus get status;
   @override
-  @HiveField(8)
-  int get index;
-  @override
-  @HiveField(9)
-  String? get userDefinition;
-  @override
-  @HiveField(10)
-  String get folder;
-  @override
-  @HiveField(11)
-  String get topic;
-  @override
-  @HiveField(12)
-  String get origin;
+  String get id;
 
   /// Create a copy of Word
   /// with the given fields replaced by the non-null parameter values.

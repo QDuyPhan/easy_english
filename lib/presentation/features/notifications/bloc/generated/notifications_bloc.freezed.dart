@@ -12,7 +12,8 @@ part of '../notifications_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$NotificationsEvent {
@@ -23,14 +24,16 @@ mixin _$NotificationsEvent {
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
     required TResult Function(NotificationsState state) emitState,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? requestPermissions,
@@ -38,14 +41,16 @@ mixin _$NotificationsEvent {
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
     TResult? Function(NotificationsState state)? emitState,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? requestPermissions,
@@ -53,76 +58,76 @@ mixin _$NotificationsEvent {
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
     TResult Function(NotificationsState state)? emitState,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $NotificationsEventCopyWith<$Res> {
   factory $NotificationsEventCopyWith(
-          NotificationsEvent value, $Res Function(NotificationsEvent) then) =
-      _$NotificationsEventCopyWithImpl<$Res, NotificationsEvent>;
+    NotificationsEvent value,
+    $Res Function(NotificationsEvent) then,
+  ) = _$NotificationsEventCopyWithImpl<$Res, NotificationsEvent>;
 }
 
 /// @nodoc
@@ -141,18 +146,20 @@ class _$NotificationsEventCopyWithImpl<$Res, $Val extends NotificationsEvent>
 
 /// @nodoc
 abstract class _$$RequestPermissionsImplCopyWith<$Res> {
-  factory _$$RequestPermissionsImplCopyWith(_$RequestPermissionsImpl value,
-          $Res Function(_$RequestPermissionsImpl) then) =
-      __$$RequestPermissionsImplCopyWithImpl<$Res>;
+  factory _$$RequestPermissionsImplCopyWith(
+    _$RequestPermissionsImpl value,
+    $Res Function(_$RequestPermissionsImpl) then,
+  ) = __$$RequestPermissionsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$RequestPermissionsImplCopyWithImpl<$Res>
     extends _$NotificationsEventCopyWithImpl<$Res, _$RequestPermissionsImpl>
     implements _$$RequestPermissionsImplCopyWith<$Res> {
-  __$$RequestPermissionsImplCopyWithImpl(_$RequestPermissionsImpl _value,
-      $Res Function(_$RequestPermissionsImpl) _then)
-      : super(_value, _then);
+  __$$RequestPermissionsImplCopyWithImpl(
+    _$RequestPermissionsImpl _value,
+    $Res Function(_$RequestPermissionsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -185,8 +192,11 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -203,8 +213,11 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -221,8 +234,11 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -240,18 +256,18 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return requestPermissions(this);
@@ -262,16 +278,16 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return requestPermissions?.call(this);
@@ -282,16 +298,16 @@ class _$RequestPermissionsImpl implements _RequestPermissions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -309,20 +325,23 @@ abstract class _RequestPermissions implements NotificationsEvent {
 /// @nodoc
 abstract class _$$HandleOpenAppFromNotificationImplCopyWith<$Res> {
   factory _$$HandleOpenAppFromNotificationImplCopyWith(
-          _$HandleOpenAppFromNotificationImpl value,
-          $Res Function(_$HandleOpenAppFromNotificationImpl) then) =
-      __$$HandleOpenAppFromNotificationImplCopyWithImpl<$Res>;
+    _$HandleOpenAppFromNotificationImpl value,
+    $Res Function(_$HandleOpenAppFromNotificationImpl) then,
+  ) = __$$HandleOpenAppFromNotificationImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$HandleOpenAppFromNotificationImplCopyWithImpl<$Res>
-    extends _$NotificationsEventCopyWithImpl<$Res,
-        _$HandleOpenAppFromNotificationImpl>
+    extends
+        _$NotificationsEventCopyWithImpl<
+          $Res,
+          _$HandleOpenAppFromNotificationImpl
+        >
     implements _$$HandleOpenAppFromNotificationImplCopyWith<$Res> {
   __$$HandleOpenAppFromNotificationImplCopyWithImpl(
-      _$HandleOpenAppFromNotificationImpl _value,
-      $Res Function(_$HandleOpenAppFromNotificationImpl) _then)
-      : super(_value, _then);
+    _$HandleOpenAppFromNotificationImpl _value,
+    $Res Function(_$HandleOpenAppFromNotificationImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -357,8 +376,11 @@ class _$HandleOpenAppFromNotificationImpl
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -375,8 +397,11 @@ class _$HandleOpenAppFromNotificationImpl
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -393,8 +418,11 @@ class _$HandleOpenAppFromNotificationImpl
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -412,18 +440,18 @@ class _$HandleOpenAppFromNotificationImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return handleOpenAppFromNotification(this);
@@ -434,16 +462,16 @@ class _$HandleOpenAppFromNotificationImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return handleOpenAppFromNotification?.call(this);
@@ -454,16 +482,16 @@ class _$HandleOpenAppFromNotificationImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -482,20 +510,23 @@ abstract class _HandleOpenAppFromNotification implements NotificationsEvent {
 /// @nodoc
 abstract class _$$ClearWordIdFromNotificationImplCopyWith<$Res> {
   factory _$$ClearWordIdFromNotificationImplCopyWith(
-          _$ClearWordIdFromNotificationImpl value,
-          $Res Function(_$ClearWordIdFromNotificationImpl) then) =
-      __$$ClearWordIdFromNotificationImplCopyWithImpl<$Res>;
+    _$ClearWordIdFromNotificationImpl value,
+    $Res Function(_$ClearWordIdFromNotificationImpl) then,
+  ) = __$$ClearWordIdFromNotificationImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$ClearWordIdFromNotificationImplCopyWithImpl<$Res>
-    extends _$NotificationsEventCopyWithImpl<$Res,
-        _$ClearWordIdFromNotificationImpl>
+    extends
+        _$NotificationsEventCopyWithImpl<
+          $Res,
+          _$ClearWordIdFromNotificationImpl
+        >
     implements _$$ClearWordIdFromNotificationImplCopyWith<$Res> {
   __$$ClearWordIdFromNotificationImplCopyWithImpl(
-      _$ClearWordIdFromNotificationImpl _value,
-      $Res Function(_$ClearWordIdFromNotificationImpl) _then)
-      : super(_value, _then);
+    _$ClearWordIdFromNotificationImpl _value,
+    $Res Function(_$ClearWordIdFromNotificationImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -530,8 +561,11 @@ class _$ClearWordIdFromNotificationImpl
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -548,8 +582,11 @@ class _$ClearWordIdFromNotificationImpl
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -566,8 +603,11 @@ class _$ClearWordIdFromNotificationImpl
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -585,18 +625,18 @@ class _$ClearWordIdFromNotificationImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return clearWordIdFromNotification(this);
@@ -607,16 +647,16 @@ class _$ClearWordIdFromNotificationImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return clearWordIdFromNotification?.call(this);
@@ -627,16 +667,16 @@ class _$ClearWordIdFromNotificationImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -655,36 +695,37 @@ abstract class _ClearWordIdFromNotification implements NotificationsEvent {
 /// @nodoc
 abstract class _$$ScheduleNextDayReminderImplCopyWith<$Res> {
   factory _$$ScheduleNextDayReminderImplCopyWith(
-          _$ScheduleNextDayReminderImpl value,
-          $Res Function(_$ScheduleNextDayReminderImpl) then) =
-      __$$ScheduleNextDayReminderImplCopyWithImpl<$Res>;
+    _$ScheduleNextDayReminderImpl value,
+    $Res Function(_$ScheduleNextDayReminderImpl) then,
+  ) = __$$ScheduleNextDayReminderImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DateTime scheduledTime});
 }
 
 /// @nodoc
 class __$$ScheduleNextDayReminderImplCopyWithImpl<$Res>
-    extends _$NotificationsEventCopyWithImpl<$Res,
-        _$ScheduleNextDayReminderImpl>
+    extends
+        _$NotificationsEventCopyWithImpl<$Res, _$ScheduleNextDayReminderImpl>
     implements _$$ScheduleNextDayReminderImplCopyWith<$Res> {
   __$$ScheduleNextDayReminderImplCopyWithImpl(
-      _$ScheduleNextDayReminderImpl _value,
-      $Res Function(_$ScheduleNextDayReminderImpl) _then)
-      : super(_value, _then);
+    _$ScheduleNextDayReminderImpl _value,
+    $Res Function(_$ScheduleNextDayReminderImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? scheduledTime = null,
-  }) {
-    return _then(_$ScheduleNextDayReminderImpl(
-      scheduledTime: null == scheduledTime
-          ? _value.scheduledTime
-          : scheduledTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
+  $Res call({Object? scheduledTime = null}) {
+    return _then(
+      _$ScheduleNextDayReminderImpl(
+        scheduledTime:
+            null == scheduledTime
+                ? _value.scheduledTime
+                : scheduledTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+      ),
+    );
   }
 }
 
@@ -719,8 +760,9 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
   @override
   @pragma('vm:prefer-inline')
   _$$ScheduleNextDayReminderImplCopyWith<_$ScheduleNextDayReminderImpl>
-      get copyWith => __$$ScheduleNextDayReminderImplCopyWithImpl<
-          _$ScheduleNextDayReminderImpl>(this, _$identity);
+  get copyWith => __$$ScheduleNextDayReminderImplCopyWithImpl<
+    _$ScheduleNextDayReminderImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -730,8 +772,11 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -748,8 +793,11 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -766,8 +814,11 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -785,18 +836,18 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return scheduleNextDayReminder(this);
@@ -807,16 +858,16 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return scheduleNextDayReminder?.call(this);
@@ -827,16 +878,16 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -848,8 +899,9 @@ class _$ScheduleNextDayReminderImpl implements _ScheduleNextDayReminder {
 }
 
 abstract class _ScheduleNextDayReminder implements NotificationsEvent {
-  const factory _ScheduleNextDayReminder(
-      {required final DateTime scheduledTime}) = _$ScheduleNextDayReminderImpl;
+  const factory _ScheduleNextDayReminder({
+    required final DateTime scheduledTime,
+  }) = _$ScheduleNextDayReminderImpl;
 
   DateTime get scheduledTime;
 
@@ -857,26 +909,31 @@ abstract class _ScheduleNextDayReminder implements NotificationsEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScheduleNextDayReminderImplCopyWith<_$ScheduleNextDayReminderImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ScheduleWordReminderImplCopyWith<$Res> {
-  factory _$$ScheduleWordReminderImplCopyWith(_$ScheduleWordReminderImpl value,
-          $Res Function(_$ScheduleWordReminderImpl) then) =
-      __$$ScheduleWordReminderImplCopyWithImpl<$Res>;
+  factory _$$ScheduleWordReminderImplCopyWith(
+    _$ScheduleWordReminderImpl value,
+    $Res Function(_$ScheduleWordReminderImpl) then,
+  ) = __$$ScheduleWordReminderImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {List<WordEntity> words, DateTime scheduledTime, Duration interval});
+  $Res call({
+    List<WordEntity> words,
+    DateTime scheduledTime,
+    Duration interval,
+  });
 }
 
 /// @nodoc
 class __$$ScheduleWordReminderImplCopyWithImpl<$Res>
     extends _$NotificationsEventCopyWithImpl<$Res, _$ScheduleWordReminderImpl>
     implements _$$ScheduleWordReminderImplCopyWith<$Res> {
-  __$$ScheduleWordReminderImplCopyWithImpl(_$ScheduleWordReminderImpl _value,
-      $Res Function(_$ScheduleWordReminderImpl) _then)
-      : super(_value, _then);
+  __$$ScheduleWordReminderImplCopyWithImpl(
+    _$ScheduleWordReminderImpl _value,
+    $Res Function(_$ScheduleWordReminderImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -887,31 +944,36 @@ class __$$ScheduleWordReminderImplCopyWithImpl<$Res>
     Object? scheduledTime = null,
     Object? interval = null,
   }) {
-    return _then(_$ScheduleWordReminderImpl(
-      words: null == words
-          ? _value._words
-          : words // ignore: cast_nullable_to_non_nullable
-              as List<WordEntity>,
-      scheduledTime: null == scheduledTime
-          ? _value.scheduledTime
-          : scheduledTime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      interval: null == interval
-          ? _value.interval
-          : interval // ignore: cast_nullable_to_non_nullable
-              as Duration,
-    ));
+    return _then(
+      _$ScheduleWordReminderImpl(
+        words:
+            null == words
+                ? _value._words
+                : words // ignore: cast_nullable_to_non_nullable
+                    as List<WordEntity>,
+        scheduledTime:
+            null == scheduledTime
+                ? _value.scheduledTime
+                : scheduledTime // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
+        interval:
+            null == interval
+                ? _value.interval
+                : interval // ignore: cast_nullable_to_non_nullable
+                    as Duration,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
-  const _$ScheduleWordReminderImpl(
-      {required final List<WordEntity> words,
-      required this.scheduledTime,
-      required this.interval})
-      : _words = words;
+  const _$ScheduleWordReminderImpl({
+    required final List<WordEntity> words,
+    required this.scheduledTime,
+    required this.interval,
+  }) : _words = words;
 
   final List<WordEntity> _words;
   @override
@@ -944,8 +1006,12 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_words), scheduledTime, interval);
+  int get hashCode => Object.hash(
+    runtimeType,
+    const DeepCollectionEquality().hash(_words),
+    scheduledTime,
+    interval,
+  );
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -953,9 +1019,11 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
   @override
   @pragma('vm:prefer-inline')
   _$$ScheduleWordReminderImplCopyWith<_$ScheduleWordReminderImpl>
-      get copyWith =>
-          __$$ScheduleWordReminderImplCopyWithImpl<_$ScheduleWordReminderImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$ScheduleWordReminderImplCopyWithImpl<_$ScheduleWordReminderImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -965,8 +1033,11 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -983,8 +1054,11 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -1001,8 +1075,11 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -1020,18 +1097,18 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return scheduleWordsReminder(this);
@@ -1042,16 +1119,16 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return scheduleWordsReminder?.call(this);
@@ -1062,16 +1139,16 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -1083,10 +1160,11 @@ class _$ScheduleWordReminderImpl implements _ScheduleWordReminder {
 }
 
 abstract class _ScheduleWordReminder implements NotificationsEvent {
-  const factory _ScheduleWordReminder(
-      {required final List<WordEntity> words,
-      required final DateTime scheduledTime,
-      required final Duration interval}) = _$ScheduleWordReminderImpl;
+  const factory _ScheduleWordReminder({
+    required final List<WordEntity> words,
+    required final DateTime scheduledTime,
+    required final Duration interval,
+  }) = _$ScheduleWordReminderImpl;
 
   List<WordEntity> get words;
   DateTime get scheduledTime;
@@ -1096,14 +1174,15 @@ abstract class _ScheduleWordReminder implements NotificationsEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ScheduleWordReminderImplCopyWith<_$ScheduleWordReminderImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ReminderWordTomorrowImplCopyWith<$Res> {
-  factory _$$ReminderWordTomorrowImplCopyWith(_$ReminderWordTomorrowImpl value,
-          $Res Function(_$ReminderWordTomorrowImpl) then) =
-      __$$ReminderWordTomorrowImplCopyWithImpl<$Res>;
+  factory _$$ReminderWordTomorrowImplCopyWith(
+    _$ReminderWordTomorrowImpl value,
+    $Res Function(_$ReminderWordTomorrowImpl) then,
+  ) = __$$ReminderWordTomorrowImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WordEntity word});
 }
@@ -1112,23 +1191,25 @@ abstract class _$$ReminderWordTomorrowImplCopyWith<$Res> {
 class __$$ReminderWordTomorrowImplCopyWithImpl<$Res>
     extends _$NotificationsEventCopyWithImpl<$Res, _$ReminderWordTomorrowImpl>
     implements _$$ReminderWordTomorrowImplCopyWith<$Res> {
-  __$$ReminderWordTomorrowImplCopyWithImpl(_$ReminderWordTomorrowImpl _value,
-      $Res Function(_$ReminderWordTomorrowImpl) _then)
-      : super(_value, _then);
+  __$$ReminderWordTomorrowImplCopyWithImpl(
+    _$ReminderWordTomorrowImpl _value,
+    $Res Function(_$ReminderWordTomorrowImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? word = null,
-  }) {
-    return _then(_$ReminderWordTomorrowImpl(
-      word: null == word
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as WordEntity,
-    ));
+  $Res call({Object? word = null}) {
+    return _then(
+      _$ReminderWordTomorrowImpl(
+        word:
+            null == word
+                ? _value.word
+                : word // ignore: cast_nullable_to_non_nullable
+                    as WordEntity,
+      ),
+    );
   }
 }
 
@@ -1162,9 +1243,11 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
   @override
   @pragma('vm:prefer-inline')
   _$$ReminderWordTomorrowImplCopyWith<_$ReminderWordTomorrowImpl>
-      get copyWith =>
-          __$$ReminderWordTomorrowImplCopyWithImpl<_$ReminderWordTomorrowImpl>(
-              this, _$identity);
+  get copyWith =>
+      __$$ReminderWordTomorrowImplCopyWithImpl<_$ReminderWordTomorrowImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -1174,8 +1257,11 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -1192,8 +1278,11 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -1210,8 +1299,11 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -1229,18 +1321,18 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return reminderWordTomorrow(this);
@@ -1251,16 +1343,16 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return reminderWordTomorrow?.call(this);
@@ -1271,16 +1363,16 @@ class _$ReminderWordTomorrowImpl implements _ReminderWordTomorrow {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -1301,26 +1393,26 @@ abstract class _ReminderWordTomorrow implements NotificationsEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ReminderWordTomorrowImplCopyWith<_$ReminderWordTomorrowImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GetScheduledNotificationsImplCopyWith<$Res> {
   factory _$$GetScheduledNotificationsImplCopyWith(
-          _$GetScheduledNotificationsImpl value,
-          $Res Function(_$GetScheduledNotificationsImpl) then) =
-      __$$GetScheduledNotificationsImplCopyWithImpl<$Res>;
+    _$GetScheduledNotificationsImpl value,
+    $Res Function(_$GetScheduledNotificationsImpl) then,
+  ) = __$$GetScheduledNotificationsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
 class __$$GetScheduledNotificationsImplCopyWithImpl<$Res>
-    extends _$NotificationsEventCopyWithImpl<$Res,
-        _$GetScheduledNotificationsImpl>
+    extends
+        _$NotificationsEventCopyWithImpl<$Res, _$GetScheduledNotificationsImpl>
     implements _$$GetScheduledNotificationsImplCopyWith<$Res> {
   __$$GetScheduledNotificationsImplCopyWithImpl(
-      _$GetScheduledNotificationsImpl _value,
-      $Res Function(_$GetScheduledNotificationsImpl) _then)
-      : super(_value, _then);
+    _$GetScheduledNotificationsImpl _value,
+    $Res Function(_$GetScheduledNotificationsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1354,8 +1446,11 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -1372,8 +1467,11 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -1390,8 +1488,11 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -1409,18 +1510,18 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return getScheduledNotifications(this);
@@ -1431,16 +1532,16 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return getScheduledNotifications?.call(this);
@@ -1451,16 +1552,16 @@ class _$GetScheduledNotificationsImpl implements _GetScheduledNotifications {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -1478,36 +1579,39 @@ abstract class _GetScheduledNotifications implements NotificationsEvent {
 /// @nodoc
 abstract class _$$RemoveScheduledNotificationsImplCopyWith<$Res> {
   factory _$$RemoveScheduledNotificationsImplCopyWith(
-          _$RemoveScheduledNotificationsImpl value,
-          $Res Function(_$RemoveScheduledNotificationsImpl) then) =
-      __$$RemoveScheduledNotificationsImplCopyWithImpl<$Res>;
+    _$RemoveScheduledNotificationsImpl value,
+    $Res Function(_$RemoveScheduledNotificationsImpl) then,
+  ) = __$$RemoveScheduledNotificationsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int id});
 }
 
 /// @nodoc
 class __$$RemoveScheduledNotificationsImplCopyWithImpl<$Res>
-    extends _$NotificationsEventCopyWithImpl<$Res,
-        _$RemoveScheduledNotificationsImpl>
+    extends
+        _$NotificationsEventCopyWithImpl<
+          $Res,
+          _$RemoveScheduledNotificationsImpl
+        >
     implements _$$RemoveScheduledNotificationsImplCopyWith<$Res> {
   __$$RemoveScheduledNotificationsImplCopyWithImpl(
-      _$RemoveScheduledNotificationsImpl _value,
-      $Res Function(_$RemoveScheduledNotificationsImpl) _then)
-      : super(_value, _then);
+    _$RemoveScheduledNotificationsImpl _value,
+    $Res Function(_$RemoveScheduledNotificationsImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? id = null,
-  }) {
-    return _then(_$RemoveScheduledNotificationsImpl(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
+  $Res call({Object? id = null}) {
+    return _then(
+      _$RemoveScheduledNotificationsImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
   }
 }
 
@@ -1542,9 +1646,11 @@ class _$RemoveScheduledNotificationsImpl
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveScheduledNotificationsImplCopyWith<
-          _$RemoveScheduledNotificationsImpl>
-      get copyWith => __$$RemoveScheduledNotificationsImplCopyWithImpl<
-          _$RemoveScheduledNotificationsImpl>(this, _$identity);
+    _$RemoveScheduledNotificationsImpl
+  >
+  get copyWith => __$$RemoveScheduledNotificationsImplCopyWithImpl<
+    _$RemoveScheduledNotificationsImpl
+  >(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1554,8 +1660,11 @@ class _$RemoveScheduledNotificationsImpl
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -1572,8 +1681,11 @@ class _$RemoveScheduledNotificationsImpl
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -1590,8 +1702,11 @@ class _$RemoveScheduledNotificationsImpl
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -1609,18 +1724,18 @@ class _$RemoveScheduledNotificationsImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return removeScheduledNotifications(this);
@@ -1631,16 +1746,16 @@ class _$RemoveScheduledNotificationsImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return removeScheduledNotifications?.call(this);
@@ -1651,16 +1766,16 @@ class _$RemoveScheduledNotificationsImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -1681,15 +1796,17 @@ abstract class _RemoveScheduledNotifications implements NotificationsEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveScheduledNotificationsImplCopyWith<
-          _$RemoveScheduledNotificationsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$RemoveScheduledNotificationsImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$EmitStateImplCopyWith<$Res> {
   factory _$$EmitStateImplCopyWith(
-          _$EmitStateImpl value, $Res Function(_$EmitStateImpl) then) =
-      __$$EmitStateImplCopyWithImpl<$Res>;
+    _$EmitStateImpl value,
+    $Res Function(_$EmitStateImpl) then,
+  ) = __$$EmitStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({NotificationsState state});
 
@@ -1701,22 +1818,23 @@ class __$$EmitStateImplCopyWithImpl<$Res>
     extends _$NotificationsEventCopyWithImpl<$Res, _$EmitStateImpl>
     implements _$$EmitStateImplCopyWith<$Res> {
   __$$EmitStateImplCopyWithImpl(
-      _$EmitStateImpl _value, $Res Function(_$EmitStateImpl) _then)
-      : super(_value, _then);
+    _$EmitStateImpl _value,
+    $Res Function(_$EmitStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? state = null,
-  }) {
-    return _then(_$EmitStateImpl(
-      null == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as NotificationsState,
-    ));
+  $Res call({Object? state = null}) {
+    return _then(
+      _$EmitStateImpl(
+        null == state
+            ? _value.state
+            : state // ignore: cast_nullable_to_non_nullable
+                as NotificationsState,
+      ),
+    );
   }
 
   /// Create a copy of NotificationsEvent
@@ -1770,8 +1888,11 @@ class _$EmitStateImpl implements _EmitState {
     required TResult Function() clearWordIdFromNotification,
     required TResult Function(DateTime scheduledTime) scheduleNextDayReminder,
     required TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )
+    scheduleWordsReminder,
     required TResult Function(WordEntity word) reminderWordTomorrow,
     required TResult Function() getScheduledNotifications,
     required TResult Function(int id) removeScheduledNotifications,
@@ -1788,8 +1909,11 @@ class _$EmitStateImpl implements _EmitState {
     TResult? Function()? clearWordIdFromNotification,
     TResult? Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult? Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult? Function(WordEntity word)? reminderWordTomorrow,
     TResult? Function()? getScheduledNotifications,
     TResult? Function(int id)? removeScheduledNotifications,
@@ -1806,8 +1930,11 @@ class _$EmitStateImpl implements _EmitState {
     TResult Function()? clearWordIdFromNotification,
     TResult Function(DateTime scheduledTime)? scheduleNextDayReminder,
     TResult Function(
-            List<WordEntity> words, DateTime scheduledTime, Duration interval)?
-        scheduleWordsReminder,
+      List<WordEntity> words,
+      DateTime scheduledTime,
+      Duration interval,
+    )?
+    scheduleWordsReminder,
     TResult Function(WordEntity word)? reminderWordTomorrow,
     TResult Function()? getScheduledNotifications,
     TResult Function(int id)? removeScheduledNotifications,
@@ -1825,18 +1952,18 @@ class _$EmitStateImpl implements _EmitState {
   TResult map<TResult extends Object?>({
     required TResult Function(_RequestPermissions value) requestPermissions,
     required TResult Function(_HandleOpenAppFromNotification value)
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     required TResult Function(_ClearWordIdFromNotification value)
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     required TResult Function(_ScheduleNextDayReminder value)
-        scheduleNextDayReminder,
+    scheduleNextDayReminder,
     required TResult Function(_ScheduleWordReminder value)
-        scheduleWordsReminder,
+    scheduleWordsReminder,
     required TResult Function(_ReminderWordTomorrow value) reminderWordTomorrow,
     required TResult Function(_GetScheduledNotifications value)
-        getScheduledNotifications,
+    getScheduledNotifications,
     required TResult Function(_RemoveScheduledNotifications value)
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     required TResult Function(_EmitState value) emitState,
   }) {
     return emitState(this);
@@ -1847,16 +1974,16 @@ class _$EmitStateImpl implements _EmitState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_RequestPermissions value)? requestPermissions,
     TResult? Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult? Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult? Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult? Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult? Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult? Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult? Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult? Function(_EmitState value)? emitState,
   }) {
     return emitState?.call(this);
@@ -1867,16 +1994,16 @@ class _$EmitStateImpl implements _EmitState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_RequestPermissions value)? requestPermissions,
     TResult Function(_HandleOpenAppFromNotification value)?
-        handleOpenAppFromNotification,
+    handleOpenAppFromNotification,
     TResult Function(_ClearWordIdFromNotification value)?
-        clearWordIdFromNotification,
+    clearWordIdFromNotification,
     TResult Function(_ScheduleNextDayReminder value)? scheduleNextDayReminder,
     TResult Function(_ScheduleWordReminder value)? scheduleWordsReminder,
     TResult Function(_ReminderWordTomorrow value)? reminderWordTomorrow,
     TResult Function(_GetScheduledNotifications value)?
-        getScheduledNotifications,
+    getScheduledNotifications,
     TResult Function(_RemoveScheduledNotifications value)?
-        removeScheduledNotifications,
+    removeScheduledNotifications,
     TResult Function(_EmitState value)? emitState,
     required TResult orElse(),
   }) {
@@ -1918,15 +2045,17 @@ mixin _$NotificationsState {
 /// @nodoc
 abstract class $NotificationsStateCopyWith<$Res> {
   factory $NotificationsStateCopyWith(
-          NotificationsState value, $Res Function(NotificationsState) then) =
-      _$NotificationsStateCopyWithImpl<$Res, NotificationsState>;
+    NotificationsState value,
+    $Res Function(NotificationsState) then,
+  ) = _$NotificationsStateCopyWithImpl<$Res, NotificationsState>;
   @useResult
-  $Res call(
-      {Failure? failure,
-      String? message,
-      bool isNotificationsGranted,
-      int? wordIdFromNotification,
-      List<ScheduledNotificationEntity> scheduledNotifications});
+  $Res call({
+    Failure? failure,
+    String? message,
+    bool isNotificationsGranted,
+    int? wordIdFromNotification,
+    List<ScheduledNotificationEntity> scheduledNotifications,
+  });
 
   $FailureCopyWith<$Res>? get failure;
 }
@@ -1952,28 +2081,36 @@ class _$NotificationsStateCopyWithImpl<$Res, $Val extends NotificationsState>
     Object? wordIdFromNotification = freezed,
     Object? scheduledNotifications = null,
   }) {
-    return _then(_value.copyWith(
-      failure: freezed == failure
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as Failure?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isNotificationsGranted: null == isNotificationsGranted
-          ? _value.isNotificationsGranted
-          : isNotificationsGranted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      wordIdFromNotification: freezed == wordIdFromNotification
-          ? _value.wordIdFromNotification
-          : wordIdFromNotification // ignore: cast_nullable_to_non_nullable
-              as int?,
-      scheduledNotifications: null == scheduledNotifications
-          ? _value.scheduledNotifications
-          : scheduledNotifications // ignore: cast_nullable_to_non_nullable
-              as List<ScheduledNotificationEntity>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            failure:
+                freezed == failure
+                    ? _value.failure
+                    : failure // ignore: cast_nullable_to_non_nullable
+                        as Failure?,
+            message:
+                freezed == message
+                    ? _value.message
+                    : message // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            isNotificationsGranted:
+                null == isNotificationsGranted
+                    ? _value.isNotificationsGranted
+                    : isNotificationsGranted // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            wordIdFromNotification:
+                freezed == wordIdFromNotification
+                    ? _value.wordIdFromNotification
+                    : wordIdFromNotification // ignore: cast_nullable_to_non_nullable
+                        as int?,
+            scheduledNotifications:
+                null == scheduledNotifications
+                    ? _value.scheduledNotifications
+                    : scheduledNotifications // ignore: cast_nullable_to_non_nullable
+                        as List<ScheduledNotificationEntity>,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of NotificationsState
@@ -1994,17 +2131,19 @@ class _$NotificationsStateCopyWithImpl<$Res, $Val extends NotificationsState>
 /// @nodoc
 abstract class _$$NotificationsStateImplCopyWith<$Res>
     implements $NotificationsStateCopyWith<$Res> {
-  factory _$$NotificationsStateImplCopyWith(_$NotificationsStateImpl value,
-          $Res Function(_$NotificationsStateImpl) then) =
-      __$$NotificationsStateImplCopyWithImpl<$Res>;
+  factory _$$NotificationsStateImplCopyWith(
+    _$NotificationsStateImpl value,
+    $Res Function(_$NotificationsStateImpl) then,
+  ) = __$$NotificationsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {Failure? failure,
-      String? message,
-      bool isNotificationsGranted,
-      int? wordIdFromNotification,
-      List<ScheduledNotificationEntity> scheduledNotifications});
+  $Res call({
+    Failure? failure,
+    String? message,
+    bool isNotificationsGranted,
+    int? wordIdFromNotification,
+    List<ScheduledNotificationEntity> scheduledNotifications,
+  });
 
   @override
   $FailureCopyWith<$Res>? get failure;
@@ -2014,9 +2153,10 @@ abstract class _$$NotificationsStateImplCopyWith<$Res>
 class __$$NotificationsStateImplCopyWithImpl<$Res>
     extends _$NotificationsStateCopyWithImpl<$Res, _$NotificationsStateImpl>
     implements _$$NotificationsStateImplCopyWith<$Res> {
-  __$$NotificationsStateImplCopyWithImpl(_$NotificationsStateImpl _value,
-      $Res Function(_$NotificationsStateImpl) _then)
-      : super(_value, _then);
+  __$$NotificationsStateImplCopyWithImpl(
+    _$NotificationsStateImpl _value,
+    $Res Function(_$NotificationsStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of NotificationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -2029,42 +2169,48 @@ class __$$NotificationsStateImplCopyWithImpl<$Res>
     Object? wordIdFromNotification = freezed,
     Object? scheduledNotifications = null,
   }) {
-    return _then(_$NotificationsStateImpl(
-      failure: freezed == failure
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as Failure?,
-      message: freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isNotificationsGranted: null == isNotificationsGranted
-          ? _value.isNotificationsGranted
-          : isNotificationsGranted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      wordIdFromNotification: freezed == wordIdFromNotification
-          ? _value.wordIdFromNotification
-          : wordIdFromNotification // ignore: cast_nullable_to_non_nullable
-              as int?,
-      scheduledNotifications: null == scheduledNotifications
-          ? _value._scheduledNotifications
-          : scheduledNotifications // ignore: cast_nullable_to_non_nullable
-              as List<ScheduledNotificationEntity>,
-    ));
+    return _then(
+      _$NotificationsStateImpl(
+        failure:
+            freezed == failure
+                ? _value.failure
+                : failure // ignore: cast_nullable_to_non_nullable
+                    as Failure?,
+        message:
+            freezed == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        isNotificationsGranted:
+            null == isNotificationsGranted
+                ? _value.isNotificationsGranted
+                : isNotificationsGranted // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        wordIdFromNotification:
+            freezed == wordIdFromNotification
+                ? _value.wordIdFromNotification
+                : wordIdFromNotification // ignore: cast_nullable_to_non_nullable
+                    as int?,
+        scheduledNotifications:
+            null == scheduledNotifications
+                ? _value._scheduledNotifications
+                : scheduledNotifications // ignore: cast_nullable_to_non_nullable
+                    as List<ScheduledNotificationEntity>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$NotificationsStateImpl implements _NotificationsState {
-  const _$NotificationsStateImpl(
-      {this.failure = null,
-      this.message = null,
-      this.isNotificationsGranted = false,
-      this.wordIdFromNotification = null,
-      final List<ScheduledNotificationEntity> scheduledNotifications =
-          const []})
-      : _scheduledNotifications = scheduledNotifications;
+  const _$NotificationsStateImpl({
+    this.failure = null,
+    this.message = null,
+    this.isNotificationsGranted = false,
+    this.wordIdFromNotification = null,
+    final List<ScheduledNotificationEntity> scheduledNotifications = const [],
+  }) : _scheduledNotifications = scheduledNotifications;
 
   @override
   @JsonKey()
@@ -2105,17 +2251,20 @@ class _$NotificationsStateImpl implements _NotificationsState {
             (identical(other.wordIdFromNotification, wordIdFromNotification) ||
                 other.wordIdFromNotification == wordIdFromNotification) &&
             const DeepCollectionEquality().equals(
-                other._scheduledNotifications, _scheduledNotifications));
+              other._scheduledNotifications,
+              _scheduledNotifications,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      failure,
-      message,
-      isNotificationsGranted,
-      wordIdFromNotification,
-      const DeepCollectionEquality().hash(_scheduledNotifications));
+    runtimeType,
+    failure,
+    message,
+    isNotificationsGranted,
+    wordIdFromNotification,
+    const DeepCollectionEquality().hash(_scheduledNotifications),
+  );
 
   /// Create a copy of NotificationsState
   /// with the given fields replaced by the non-null parameter values.
@@ -2124,17 +2273,19 @@ class _$NotificationsStateImpl implements _NotificationsState {
   @pragma('vm:prefer-inline')
   _$$NotificationsStateImplCopyWith<_$NotificationsStateImpl> get copyWith =>
       __$$NotificationsStateImplCopyWithImpl<_$NotificationsStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _NotificationsState implements NotificationsState {
-  const factory _NotificationsState(
-          {final Failure? failure,
-          final String? message,
-          final bool isNotificationsGranted,
-          final int? wordIdFromNotification,
-          final List<ScheduledNotificationEntity> scheduledNotifications}) =
-      _$NotificationsStateImpl;
+  const factory _NotificationsState({
+    final Failure? failure,
+    final String? message,
+    final bool isNotificationsGranted,
+    final int? wordIdFromNotification,
+    final List<ScheduledNotificationEntity> scheduledNotifications,
+  }) = _$NotificationsStateImpl;
 
   @override
   Failure? get failure;

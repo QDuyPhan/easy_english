@@ -18,7 +18,7 @@ class SearchResultItem extends StatelessWidget {
     final definition =
         word.senses.isNotEmpty ? word.senses.first.definition : '';
     final phoneticText =
-        word.phoneticText.isNotEmpty ? word.phoneticText : word.phoneticAmText;
+        word.phoneticText!.isNotEmpty ? word.phoneticText : word.phoneticAmText;
 
     return InkWell(
       borderRadius: BorderRadius.circular(12),
@@ -57,7 +57,7 @@ class SearchResultItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                if (phoneticText.isNotEmpty)
+                if (phoneticText!.isNotEmpty)
                   Text(
                     phoneticText,
                     style: textTheme.bodyMedium?.copyWith(

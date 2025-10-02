@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/config/app_config.dart';
 import '../../../../core/navigation/route_paths.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
 import '../../flashcard/widgets/flash_cards_button.dart';
@@ -24,10 +25,17 @@ class _TopicsScreenState extends State<TopicsScreen> {
 
   @override
   void initState() {
-    super.initState();
-    context.read<TopicsBloc>().add(
-      TopicsEvent.getAllTopics(folder: widget.folder, topic: widget.topic),
+    app_config.printLog(
+      'i',
+      'TopicsScreen: initState: ${widget.folder}/${widget.topic}',
     );
+    // context.read<TopicsBloc>().add(
+    //   TopicsEvent.getAllTopics(folder: widget.folder, topic: widget.topic),
+    // );
+    context.read<TopicsBloc>().add(
+      TopicsEvent.getTopicFromJson(folder: widget.folder, topic: widget.topic),
+    );
+    super.initState();
   }
 
   @override

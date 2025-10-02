@@ -38,7 +38,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       // Thêm delay nhỏ để tránh search quá nhanh
       await Future.delayed(const Duration(milliseconds: 100));
 
-      final results = _searchWordsUseCase.execute(event.query);
+      final results = await _searchWordsUseCase.execute(event.query);
 
       if (results.isEmpty) {
         emit(const SearchState.noResults());

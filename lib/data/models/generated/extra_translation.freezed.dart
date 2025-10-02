@@ -12,7 +12,8 @@ part of '../extra_translation.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ExtraTranslation _$ExtraTranslationFromJson(Map<String, dynamic> json) {
   return _ExtraTranslation.fromJson(json);
@@ -37,8 +38,9 @@ mixin _$ExtraTranslation {
 /// @nodoc
 abstract class $ExtraTranslationCopyWith<$Res> {
   factory $ExtraTranslationCopyWith(
-          ExtraTranslation value, $Res Function(ExtraTranslation) then) =
-      _$ExtraTranslationCopyWithImpl<$Res, ExtraTranslation>;
+    ExtraTranslation value,
+    $Res Function(ExtraTranslation) then,
+  ) = _$ExtraTranslationCopyWithImpl<$Res, ExtraTranslation>;
   @useResult
   $Res call({String label, String type, List<String> content});
 }
@@ -62,29 +64,36 @@ class _$ExtraTranslationCopyWithImpl<$Res, $Val extends ExtraTranslation>
     Object? type = null,
     Object? content = null,
   }) {
-    return _then(_value.copyWith(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            label:
+                null == label
+                    ? _value.label
+                    : label // ignore: cast_nullable_to_non_nullable
+                        as String,
+            type:
+                null == type
+                    ? _value.type
+                    : type // ignore: cast_nullable_to_non_nullable
+                        as String,
+            content:
+                null == content
+                    ? _value.content
+                    : content // ignore: cast_nullable_to_non_nullable
+                        as List<String>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$ExtraTranslationImplCopyWith<$Res>
     implements $ExtraTranslationCopyWith<$Res> {
-  factory _$$ExtraTranslationImplCopyWith(_$ExtraTranslationImpl value,
-          $Res Function(_$ExtraTranslationImpl) then) =
-      __$$ExtraTranslationImplCopyWithImpl<$Res>;
+  factory _$$ExtraTranslationImplCopyWith(
+    _$ExtraTranslationImpl value,
+    $Res Function(_$ExtraTranslationImpl) then,
+  ) = __$$ExtraTranslationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String label, String type, List<String> content});
@@ -94,9 +103,10 @@ abstract class _$$ExtraTranslationImplCopyWith<$Res>
 class __$$ExtraTranslationImplCopyWithImpl<$Res>
     extends _$ExtraTranslationCopyWithImpl<$Res, _$ExtraTranslationImpl>
     implements _$$ExtraTranslationImplCopyWith<$Res> {
-  __$$ExtraTranslationImplCopyWithImpl(_$ExtraTranslationImpl _value,
-      $Res Function(_$ExtraTranslationImpl) _then)
-      : super(_value, _then);
+  __$$ExtraTranslationImplCopyWithImpl(
+    _$ExtraTranslationImpl _value,
+    $Res Function(_$ExtraTranslationImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ExtraTranslation
   /// with the given fields replaced by the non-null parameter values.
@@ -107,31 +117,36 @@ class __$$ExtraTranslationImplCopyWithImpl<$Res>
     Object? type = null,
     Object? content = null,
   }) {
-    return _then(_$ExtraTranslationImpl(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      content: null == content
-          ? _value._content
-          : content // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
+    return _then(
+      _$ExtraTranslationImpl(
+        label:
+            null == label
+                ? _value.label
+                : label // ignore: cast_nullable_to_non_nullable
+                    as String,
+        type:
+            null == type
+                ? _value.type
+                : type // ignore: cast_nullable_to_non_nullable
+                    as String,
+        content:
+            null == content
+                ? _value._content
+                : content // ignore: cast_nullable_to_non_nullable
+                    as List<String>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ExtraTranslationImpl implements _ExtraTranslation {
-  const _$ExtraTranslationImpl(
-      {required this.label,
-      required this.type,
-      required final List<String> content})
-      : _content = content;
+  const _$ExtraTranslationImpl({
+    required this.label,
+    required this.type,
+    required final List<String> content,
+  }) : _content = content;
 
   factory _$ExtraTranslationImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExtraTranslationImplFromJson(json);
@@ -166,7 +181,11 @@ class _$ExtraTranslationImpl implements _ExtraTranslation {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, label, type, const DeepCollectionEquality().hash(_content));
+    runtimeType,
+    label,
+    type,
+    const DeepCollectionEquality().hash(_content),
+  );
 
   /// Create a copy of ExtraTranslation
   /// with the given fields replaced by the non-null parameter values.
@@ -175,21 +194,22 @@ class _$ExtraTranslationImpl implements _ExtraTranslation {
   @pragma('vm:prefer-inline')
   _$$ExtraTranslationImplCopyWith<_$ExtraTranslationImpl> get copyWith =>
       __$$ExtraTranslationImplCopyWithImpl<_$ExtraTranslationImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ExtraTranslationImplToJson(
-      this,
-    );
+    return _$$ExtraTranslationImplToJson(this);
   }
 }
 
 abstract class _ExtraTranslation implements ExtraTranslation {
-  const factory _ExtraTranslation(
-      {required final String label,
-      required final String type,
-      required final List<String> content}) = _$ExtraTranslationImpl;
+  const factory _ExtraTranslation({
+    required final String label,
+    required final String type,
+    required final List<String> content,
+  }) = _$ExtraTranslationImpl;
 
   factory _ExtraTranslation.fromJson(Map<String, dynamic> json) =
       _$ExtraTranslationImpl.fromJson;

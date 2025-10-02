@@ -12,7 +12,8 @@ part of '../theme_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$ThemeEvent {
@@ -20,47 +21,42 @@ mixin _$ThemeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getTheme,
     required TResult Function() toggleTheme,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getTheme,
     TResult? Function()? toggleTheme,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getTheme,
     TResult Function()? toggleTheme,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetTheme value) getTheme,
     required TResult Function(_ToggleTheme value) toggleTheme,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetTheme value)? getTheme,
     TResult? Function(_ToggleTheme value)? toggleTheme,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetTheme value)? getTheme,
     TResult Function(_ToggleTheme value)? toggleTheme,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ThemeEventCopyWith<$Res> {
   factory $ThemeEventCopyWith(
-          ThemeEvent value, $Res Function(ThemeEvent) then) =
-      _$ThemeEventCopyWithImpl<$Res, ThemeEvent>;
+    ThemeEvent value,
+    $Res Function(ThemeEvent) then,
+  ) = _$ThemeEventCopyWithImpl<$Res, ThemeEvent>;
 }
 
 /// @nodoc
@@ -80,8 +76,9 @@ class _$ThemeEventCopyWithImpl<$Res, $Val extends ThemeEvent>
 /// @nodoc
 abstract class _$$GetThemeImplCopyWith<$Res> {
   factory _$$GetThemeImplCopyWith(
-          _$GetThemeImpl value, $Res Function(_$GetThemeImpl) then) =
-      __$$GetThemeImplCopyWithImpl<$Res>;
+    _$GetThemeImpl value,
+    $Res Function(_$GetThemeImpl) then,
+  ) = __$$GetThemeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -89,8 +86,9 @@ class __$$GetThemeImplCopyWithImpl<$Res>
     extends _$ThemeEventCopyWithImpl<$Res, _$GetThemeImpl>
     implements _$$GetThemeImplCopyWith<$Res> {
   __$$GetThemeImplCopyWithImpl(
-      _$GetThemeImpl _value, $Res Function(_$GetThemeImpl) _then)
-      : super(_value, _then);
+    _$GetThemeImpl _value,
+    $Res Function(_$GetThemeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ThemeEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -185,8 +183,9 @@ abstract class _GetTheme implements ThemeEvent {
 /// @nodoc
 abstract class _$$ToggleThemeImplCopyWith<$Res> {
   factory _$$ToggleThemeImplCopyWith(
-          _$ToggleThemeImpl value, $Res Function(_$ToggleThemeImpl) then) =
-      __$$ToggleThemeImplCopyWithImpl<$Res>;
+    _$ToggleThemeImpl value,
+    $Res Function(_$ToggleThemeImpl) then,
+  ) = __$$ToggleThemeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -194,8 +193,9 @@ class __$$ToggleThemeImplCopyWithImpl<$Res>
     extends _$ThemeEventCopyWithImpl<$Res, _$ToggleThemeImpl>
     implements _$$ToggleThemeImplCopyWith<$Res> {
   __$$ToggleThemeImplCopyWithImpl(
-      _$ToggleThemeImpl _value, $Res Function(_$ToggleThemeImpl) _then)
-      : super(_value, _then);
+    _$ToggleThemeImpl _value,
+    $Res Function(_$ToggleThemeImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ThemeEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -293,35 +293,29 @@ mixin _$ThemeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ThemeEntity? themeEntity) initial,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ThemeEntity? themeEntity)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ThemeEntity? themeEntity)? initial,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  }) => throw _privateConstructorUsedError;
 
   /// Create a copy of ThemeState
   /// with the given fields replaced by the non-null parameter values.
@@ -333,8 +327,9 @@ mixin _$ThemeState {
 /// @nodoc
 abstract class $ThemeStateCopyWith<$Res> {
   factory $ThemeStateCopyWith(
-          ThemeState value, $Res Function(ThemeState) then) =
-      _$ThemeStateCopyWithImpl<$Res, ThemeState>;
+    ThemeState value,
+    $Res Function(ThemeState) then,
+  ) = _$ThemeStateCopyWithImpl<$Res, ThemeState>;
   @useResult
   $Res call({ThemeEntity? themeEntity});
 }
@@ -353,15 +348,17 @@ class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? themeEntity = freezed,
-  }) {
-    return _then(_value.copyWith(
-      themeEntity: freezed == themeEntity
-          ? _value.themeEntity
-          : themeEntity // ignore: cast_nullable_to_non_nullable
-              as ThemeEntity?,
-    ) as $Val);
+  $Res call({Object? themeEntity = freezed}) {
+    return _then(
+      _value.copyWith(
+            themeEntity:
+                freezed == themeEntity
+                    ? _value.themeEntity
+                    : themeEntity // ignore: cast_nullable_to_non_nullable
+                        as ThemeEntity?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -369,8 +366,9 @@ class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
 abstract class _$$InitialImplCopyWith<$Res>
     implements $ThemeStateCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+    _$InitialImpl value,
+    $Res Function(_$InitialImpl) then,
+  ) = __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ThemeEntity? themeEntity});
@@ -381,22 +379,24 @@ class __$$InitialImplCopyWithImpl<$Res>
     extends _$ThemeStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+    _$InitialImpl _value,
+    $Res Function(_$InitialImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ThemeState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? themeEntity = freezed,
-  }) {
-    return _then(_$InitialImpl(
-      themeEntity: freezed == themeEntity
-          ? _value.themeEntity
-          : themeEntity // ignore: cast_nullable_to_non_nullable
-              as ThemeEntity?,
-    ));
+  $Res call({Object? themeEntity = freezed}) {
+    return _then(
+      _$InitialImpl(
+        themeEntity:
+            freezed == themeEntity
+                ? _value.themeEntity
+                : themeEntity // ignore: cast_nullable_to_non_nullable
+                    as ThemeEntity?,
+      ),
+    );
   }
 }
 

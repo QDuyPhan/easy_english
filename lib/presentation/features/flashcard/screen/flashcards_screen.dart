@@ -136,7 +136,7 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
             ),
             const SizedBox(height: 8),
             Text(
-              word.phoneticText,
+              word.phoneticText!,
               style: textTheme.bodyLarge?.copyWith(
                 color: colorScheme.onPrimaryContainer,
               ),

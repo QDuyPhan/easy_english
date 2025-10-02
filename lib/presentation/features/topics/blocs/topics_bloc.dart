@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/config/app_config.dart';
 import '../../../../domain/entities/word_status_entity.dart';
+import '../../../../domain/usecases/get_topic_from_json_use_case.dart';
 import '../../../../domain/usecases/get_topics_use_case.dart';
 
 part 'generated/topics_bloc.freezed.dart';
@@ -16,19 +17,42 @@ part 'topics_state.dart';
 class TopicsBloc extends Bloc<TopicsEvent, TopicsState> {
   final GetTopicsUseCase _getTopicsUseCase;
   final SaveTopicWordUseCase _saveTopicWordUseCase;
+  final GetTopicFromJsonUseCase _getTopicFromJsonUseCase;
 
   TopicsBloc({
     required SaveTopicWordUseCase saveTopicWordUseCase,
     required GetTopicsUseCase getTopicsUseCase,
+    required GetTopicFromJsonUseCase getTopicFromJsonUseCase,
   }) : _saveTopicWordUseCase = saveTopicWordUseCase,
        _getTopicsUseCase = getTopicsUseCase,
+       _getTopicFromJsonUseCase = getTopicFromJsonUseCase,
        super(const TopicsState.initial()) {
     on<TopicsEvent>((event, emit) async {
       await event.map(
         getAllTopics: (event) => _handleGetTopic(event, emit),
         saveWord: (event) => _handleSaveWord(event, emit),
+        getTopicFromJson: (event) => _handleGetTopicFromJson(event, emit),
       );
     });
+  }
+
+  Future<void> _handleGetTopicFromJson(
+    _GetTopicFromJson event,
+    Emitter<TopicsState> emit,
+  ) async {
+    try {
+      final topic = await _getTopicFromJsonUseCase.execute(
+        event.folder,
+        event.topic,
+      );
+      app_config.printLog(
+        'i',
+        "Loaded topics for ${event.folder}/${event.topic}: ${topic.length} topics",
+      );
+      emit(state.copyWith(words: topic));
+    } catch (e) {
+      app_config.printLog('e', e.toString());
+    }
   }
 
   Future<void> _handleGetTopic(
@@ -36,7 +60,7 @@ class TopicsBloc extends Bloc<TopicsEvent, TopicsState> {
     Emitter<TopicsState> emit,
   ) async {
     try {
-      final topics = _getTopicsUseCase.execute(event.folder, event.topic);
+      final topics = await _getTopicsUseCase.execute(event.folder, event.topic);
       app_config.printLog(
         'i',
         "Loaded topics for ${event.folder}/${event.topic}: ${topics.length} topics",
@@ -58,7 +82,7 @@ class TopicsBloc extends Bloc<TopicsEvent, TopicsState> {
           state.words
               .map((word) => word == event.word ? newWord : word)
               .toList();
-      await _saveTopicWordUseCase.execute(newWord); // ⚠️ Đừng quên await
+      await _saveTopicWordUseCase.execute(newWord);
       emit(state.copyWith(words: words));
     } catch (e) {
       app_config.printLog('e', e.toString());

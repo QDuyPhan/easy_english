@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/config/app_config.dart';
 import '../../../../core/errors/failure.dart';
 import '../../../../core/utils/widgets/app_snack_bar.dart';
 import '../../notifications/bloc/notifications_bloc.dart';
@@ -29,9 +30,19 @@ class HomeNavigation extends StatefulWidget {
     FluentIcons.settings_16_regular,
   ];
 
-  static const labels = ["Home", "Dictionary", "Grammar", "My Words", "Settings"];
+  static const labels = [
+    "Home",
+    "Dictionary",
+    "Grammar",
+    "My Words",
+    "Settings",
+  ];
 
-  const HomeNavigation({super.key, required this.state, required this.navigationShell});
+  const HomeNavigation({
+    super.key,
+    required this.state,
+    required this.navigationShell,
+  });
 
   @override
   State<HomeNavigation> createState() => _HomeNavigationState();
@@ -45,13 +56,24 @@ class _HomeNavigationState extends State<HomeNavigation> {
     super.initState();
     final notificationsBloc = context.read<NotificationsBloc>();
     notificationsBloc.add(const NotificationsEvent.requestPermissions());
-    notificationsBloc.add(const NotificationsEvent.handleOpenAppFromNotification());
+    notificationsBloc.add(
+      const NotificationsEvent.handleOpenAppFromNotification(),
+    );
     _appLifecycleListener = AppLifecycleListener(
       onShow: () {
-        debugPrint('NotificationsScreen: onShow');
+        app_config.printLog('i', 'NotificationsScreen: onShow');
         notificationsBloc.add(const NotificationsEvent.requestPermissions());
       },
     );
+  }
+
+  void _onSelect(int value) {
+    // if (value == HomeNavigation.routes.indexOf(RoutePaths.streak)) {
+    //   context.read<NotificationsBloc>().add(
+    //     const NotificationsEvent.getScheduledNotifications(),
+    //   );
+    // }
+    widget.navigationShell.goBranch(value);
   }
 
   @override
@@ -89,9 +111,10 @@ class _HomeNavigationState extends State<HomeNavigation> {
           child: Column(children: [Flexible(child: widget.navigationShell)]),
         ),
         bottomNavigationBar: Theme(
-          data: Theme.of(
-            context,
-          ).copyWith(splashColor: Colors.transparent, highlightColor: Colors.transparent),
+          data: Theme.of(context).copyWith(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+          ),
           child: BottomNavigationBar(
             currentIndex: selectedIndex == -1 ? 0 : selectedIndex,
             type: BottomNavigationBarType.fixed,
@@ -101,9 +124,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
             elevation: 0,
             selectedItemColor: colorScheme.primary,
             unselectedItemColor: Colors.grey[600]!,
-            onTap: (index) {
-              widget.navigationShell.goBranch(index);
-            },
+            onTap: _onSelect,
             items: List.generate(
               HomeNavigation.labels.length,
               (index) => BottomNavigationBarItem(
@@ -111,15 +132,16 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 icon: Container(
                   padding: EdgeInsets.all(2),
                   decoration: BoxDecoration(
-                    color:
-                        index == selectedIndex
-                            ? colorScheme.primaryContainer
-                            : Colors.transparent,
+                    color: index == selectedIndex
+                        ? colorScheme.primaryContainer
+                        : Colors.transparent,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: ColorFiltered(
                     colorFilter: ColorFilter.mode(
-                      index == selectedIndex ? colorScheme.primary : Colors.grey[600]!,
+                      index == selectedIndex
+                          ? colorScheme.primary
+                          : Colors.grey[600]!,
                       BlendMode.srcIn,
                     ),
                     child: Icon(HomeNavigation.icons[index]),

@@ -92,10 +92,7 @@ class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
             borderRadius: BorderRadius.circular(12),
             child: Container(
               margin: const EdgeInsets.only(bottom: 12),
-              padding: const EdgeInsets.symmetric(
-                vertical: 12,
-                horizontal: 16,
-              ),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(12),

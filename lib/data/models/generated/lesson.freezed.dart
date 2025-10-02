@@ -12,7 +12,8 @@ part of '../lesson.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$Lesson {
@@ -55,32 +56,40 @@ class _$LessonCopyWithImpl<$Res, $Val extends Lesson>
     Object? subTitle = freezed,
     Object? path = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      subTitle: freezed == subTitle
-          ? _value.subTitle
-          : subTitle // ignore: cast_nullable_to_non_nullable
-              as String?,
-      path: null == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            subTitle:
+                freezed == subTitle
+                    ? _value.subTitle
+                    : subTitle // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            path:
+                null == path
+                    ? _value.path
+                    : path // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$LessonImplCopyWith<$Res> implements $LessonCopyWith<$Res> {
   factory _$$LessonImplCopyWith(
-          _$LessonImpl value, $Res Function(_$LessonImpl) then) =
-      __$$LessonImplCopyWithImpl<$Res>;
+    _$LessonImpl value,
+    $Res Function(_$LessonImpl) then,
+  ) = __$$LessonImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String title, String? subTitle, String path});
@@ -91,8 +100,9 @@ class __$$LessonImplCopyWithImpl<$Res>
     extends _$LessonCopyWithImpl<$Res, _$LessonImpl>
     implements _$$LessonImplCopyWith<$Res> {
   __$$LessonImplCopyWithImpl(
-      _$LessonImpl _value, $Res Function(_$LessonImpl) _then)
-      : super(_value, _then);
+    _$LessonImpl _value,
+    $Res Function(_$LessonImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Lesson
   /// with the given fields replaced by the non-null parameter values.
@@ -104,35 +114,42 @@ class __$$LessonImplCopyWithImpl<$Res>
     Object? subTitle = freezed,
     Object? path = null,
   }) {
-    return _then(_$LessonImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      subTitle: freezed == subTitle
-          ? _value.subTitle
-          : subTitle // ignore: cast_nullable_to_non_nullable
-              as String?,
-      path: null == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$LessonImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        subTitle:
+            freezed == subTitle
+                ? _value.subTitle
+                : subTitle // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        path:
+            null == path
+                ? _value.path
+                : path // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$LessonImpl implements _Lesson {
-  const _$LessonImpl(
-      {required this.id,
-      required this.title,
-      this.subTitle = null,
-      this.path = ''});
+  const _$LessonImpl({
+    required this.id,
+    required this.title,
+    this.subTitle = null,
+    this.path = '',
+  });
 
   @override
   final int id;
@@ -175,11 +192,12 @@ class _$LessonImpl implements _Lesson {
 }
 
 abstract class _Lesson implements Lesson {
-  const factory _Lesson(
-      {required final int id,
-      required final String title,
-      final String? subTitle,
-      final String path}) = _$LessonImpl;
+  const factory _Lesson({
+    required final int id,
+    required final String title,
+    final String? subTitle,
+    final String path,
+  }) = _$LessonImpl;
 
   @override
   int get id;

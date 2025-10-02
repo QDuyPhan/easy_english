@@ -28,7 +28,7 @@ class GetDailyWordsUseCase {
     for (final folder in Assets.topicFolders) {
       final topics = Assets.getTopicsForFolder(folder);
       for (final topic in topics) {
-        final topicWords = _topicRepository.getTopic(folder, topic);
+        final topicWords = await _topicRepository.getTopic(folder, topic);
         allWords.addAll(topicWords);
       }
     }

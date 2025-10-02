@@ -1,9 +1,11 @@
 import 'package:auto_mappr_annotation/auto_mappr_annotation.dart';
+import 'package:easy_english/data/models/dictionary.dart';
 import 'package:easy_english/data/models/example.dart';
 import 'package:easy_english/data/models/scheduled_notification.dart';
 import 'package:easy_english/data/models/sense.dart';
 import 'package:easy_english/data/models/word.dart';
 import 'package:easy_english/data/models/word_status.dart';
+import 'package:easy_english/domain/entities/dictionary_entity.dart';
 import 'package:easy_english/domain/entities/example_entity.dart';
 import 'package:easy_english/domain/entities/scheduled_notification_entity.dart';
 import 'package:easy_english/domain/entities/sense_entity.dart';
@@ -40,6 +42,7 @@ import 'app_mappr.auto_mappr.dart';
   MapType<ThemeEntity, Theme>(),
   MapType<ThemeType, ThemeType>(),
   MapType<ScheduledNotificationEntity, ScheduledNotification>(),
+  MapType<DictionaryEntity, Dictionary>(),
 ])
 @injectable
 class AppMappr extends $AppMappr {}

@@ -3,15 +3,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/config/app_config.dart';
 import '../../../../core/navigation/route_paths.dart';
 import '../../../../core/theme/app_color.dart';
+import '../../../../domain/entities/dictionary_entity.dart';
 
 class TopicBox extends StatefulWidget {
-  final MapEntry<String, List<String>> topicEntry;
+  final MapEntry<String, List<String>>? topicEntry;
   final int index;
+  final DictionaryEntity dictionary;
 
-  const TopicBox({super.key, required this.topicEntry, required this.index});
+  const TopicBox({
+    super.key,
+    required this.topicEntry,
+    required this.index,
+    required this.dictionary,
+  });
 
   @override
   State<TopicBox> createState() => _TopicBoxState();
@@ -27,6 +33,7 @@ class _TopicBoxState extends State<TopicBox> {
   void initState() {
     super.initState();
     _assignUniqueColor();
+    // app_config.printLog('i', 'dictionary ${widget.dictionary.topic}');
   }
 
   void _assignUniqueColor() {
@@ -49,8 +56,8 @@ class _TopicBoxState extends State<TopicBox> {
     final width = MediaQuery.sizeOf(context).width;
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final image = app_config.listImageTopic[widget.index];
-
+    final image = widget.dictionary.image;
+    final dictionary = widget.dictionary;
     return InkWell(
       borderRadius: BorderRadius.circular(10),
       onTap: () {
@@ -85,12 +92,11 @@ class _TopicBoxState extends State<TopicBox> {
             ),
             const SizedBox(height: 8),
             Text(
-              widget.topicEntry.key.replaceAll('_', " ").toUpperCase(),
+              dictionary.topic.replaceAll('_', " ").toUpperCase(),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: textTheme.titleMedium?.copyWith(
                 color: colorScheme.onPrimary,
-                // dùng theme thay vì AppColor.black100
                 fontWeight: FontWeight.bold,
               ),
             ),

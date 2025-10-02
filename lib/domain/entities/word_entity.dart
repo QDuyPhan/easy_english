@@ -5,25 +5,23 @@ class WordEntity {
   final String word;
   final String pos;
   final String phonetic;
-  final String phoneticText;
-  final String phoneticAm;
-  final String phoneticAmText;
+  final String? phoneticText;
+  final String? phoneticAm;
+  final String? phoneticAmText;
   final List<SenseEntity> senses;
   final WordStatusEntity status;
-  final int index;
-  final String? userDefinition;
+  final String id;
 
   WordEntity({
     required this.word,
     required this.pos,
     required this.phonetic,
-    required this.phoneticText,
-    required this.phoneticAm,
-    required this.phoneticAmText,
+    this.phoneticText,
+    this.phoneticAm,
+    this.phoneticAmText,
     required this.senses,
     required this.status,
-    required this.index,
-    this.userDefinition,
+    required this.id,
   });
 
   WordEntity copyWith({
@@ -35,8 +33,7 @@ class WordEntity {
     String? phoneticAmText,
     List<SenseEntity>? senses,
     WordStatusEntity? status,
-    int? index,
-    String? userDefinition,
+    String? id,
   }) {
     return WordEntity(
       word: word ?? this.word,
@@ -47,8 +44,26 @@ class WordEntity {
       phoneticAmText: phoneticAmText ?? this.phoneticAmText,
       senses: senses ?? this.senses,
       status: status ?? this.status,
-      index: index ?? this.index,
-      userDefinition: userDefinition ?? this.userDefinition,
+      id: id ?? this.id,
+    );
+  }
+
+  factory WordEntity.fromJson(Map<String, dynamic> json) {
+    return WordEntity(
+      word: json['word'],
+      pos: json['pos'],
+      phonetic: json['phonetic'],
+      phoneticText: json['phonetic_text'],
+      phoneticAm: json['phonetic_am'],
+      phoneticAmText: json['phonetic_am_text'],
+      senses:
+          json['senses'] != null
+              ? List<SenseEntity>.from(
+                json['senses'].map((x) => SenseEntity.fromJson(x)).toList(),
+              )
+              : [],
+      status: WordStatusEntity.fromJson(json['status']),
+      id: json['id'],
     );
   }
 }

@@ -12,7 +12,8 @@ part of '../sense.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Sense _$SenseFromJson(Map<String, dynamic> json) {
   return _Sense.fromJson(json);
@@ -20,9 +21,7 @@ Sense _$SenseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Sense {
-  @HiveField(0)
   String get definition => throw _privateConstructorUsedError;
-  @HiveField(1)
   List<Example> get examples => throw _privateConstructorUsedError;
 
   /// Serializes this Sense to a JSON map.
@@ -39,8 +38,7 @@ abstract class $SenseCopyWith<$Res> {
   factory $SenseCopyWith(Sense value, $Res Function(Sense) then) =
       _$SenseCopyWithImpl<$Res, Sense>;
   @useResult
-  $Res call(
-      {@HiveField(0) String definition, @HiveField(1) List<Example> examples});
+  $Res call({String definition, List<Example> examples});
 }
 
 /// @nodoc
@@ -57,32 +55,34 @@ class _$SenseCopyWithImpl<$Res, $Val extends Sense>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? definition = null,
-    Object? examples = null,
-  }) {
-    return _then(_value.copyWith(
-      definition: null == definition
-          ? _value.definition
-          : definition // ignore: cast_nullable_to_non_nullable
-              as String,
-      examples: null == examples
-          ? _value.examples
-          : examples // ignore: cast_nullable_to_non_nullable
-              as List<Example>,
-    ) as $Val);
+  $Res call({Object? definition = null, Object? examples = null}) {
+    return _then(
+      _value.copyWith(
+            definition:
+                null == definition
+                    ? _value.definition
+                    : definition // ignore: cast_nullable_to_non_nullable
+                        as String,
+            examples:
+                null == examples
+                    ? _value.examples
+                    : examples // ignore: cast_nullable_to_non_nullable
+                        as List<Example>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$SenseImplCopyWith<$Res> implements $SenseCopyWith<$Res> {
   factory _$$SenseImplCopyWith(
-          _$SenseImpl value, $Res Function(_$SenseImpl) then) =
-      __$$SenseImplCopyWithImpl<$Res>;
+    _$SenseImpl value,
+    $Res Function(_$SenseImpl) then,
+  ) = __$$SenseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@HiveField(0) String definition, @HiveField(1) List<Example> examples});
+  $Res call({String definition, List<Example> examples});
 }
 
 /// @nodoc
@@ -90,49 +90,49 @@ class __$$SenseImplCopyWithImpl<$Res>
     extends _$SenseCopyWithImpl<$Res, _$SenseImpl>
     implements _$$SenseImplCopyWith<$Res> {
   __$$SenseImplCopyWithImpl(
-      _$SenseImpl _value, $Res Function(_$SenseImpl) _then)
-      : super(_value, _then);
+    _$SenseImpl _value,
+    $Res Function(_$SenseImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of Sense
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? definition = null,
-    Object? examples = null,
-  }) {
-    return _then(_$SenseImpl(
-      definition: null == definition
-          ? _value.definition
-          : definition // ignore: cast_nullable_to_non_nullable
-              as String,
-      examples: null == examples
-          ? _value._examples
-          : examples // ignore: cast_nullable_to_non_nullable
-              as List<Example>,
-    ));
+  $Res call({Object? definition = null, Object? examples = null}) {
+    return _then(
+      _$SenseImpl(
+        definition:
+            null == definition
+                ? _value.definition
+                : definition // ignore: cast_nullable_to_non_nullable
+                    as String,
+        examples:
+            null == examples
+                ? _value._examples
+                : examples // ignore: cast_nullable_to_non_nullable
+                    as List<Example>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SenseImpl implements _Sense {
-  const _$SenseImpl(
-      {@HiveField(0) this.definition = "",
-      @HiveField(1) final List<Example> examples = const []})
-      : _examples = examples;
+  const _$SenseImpl({
+    this.definition = "",
+    final List<Example> examples = const [],
+  }) : _examples = examples;
 
   factory _$SenseImpl.fromJson(Map<String, dynamic> json) =>
       _$$SenseImplFromJson(json);
 
   @override
   @JsonKey()
-  @HiveField(0)
   final String definition;
   final List<Example> _examples;
   @override
   @JsonKey()
-  @HiveField(1)
   List<Example> get examples {
     if (_examples is EqualUnmodifiableListView) return _examples;
     // ignore: implicit_dynamic_type
@@ -157,7 +157,10 @@ class _$SenseImpl implements _Sense {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, definition, const DeepCollectionEquality().hash(_examples));
+    runtimeType,
+    definition,
+    const DeepCollectionEquality().hash(_examples),
+  );
 
   /// Create a copy of Sense
   /// with the given fields replaced by the non-null parameter values.
@@ -169,24 +172,21 @@ class _$SenseImpl implements _Sense {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SenseImplToJson(
-      this,
-    );
+    return _$$SenseImplToJson(this);
   }
 }
 
 abstract class _Sense implements Sense {
-  const factory _Sense(
-      {@HiveField(0) final String definition,
-      @HiveField(1) final List<Example> examples}) = _$SenseImpl;
+  const factory _Sense({
+    final String definition,
+    final List<Example> examples,
+  }) = _$SenseImpl;
 
   factory _Sense.fromJson(Map<String, dynamic> json) = _$SenseImpl.fromJson;
 
   @override
-  @HiveField(0)
   String get definition;
   @override
-  @HiveField(1)
   List<Example> get examples;
 
   /// Create a copy of Sense
