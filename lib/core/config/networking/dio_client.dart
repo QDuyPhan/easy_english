@@ -1,6 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:easy_english/core/config/networking/interceptors.dart';
+import 'package:easy_english/core/config/networking/rate_limit_interceptor.dart';
 import 'package:injectable/injectable.dart';
 
 import 'endpoints.dart';
@@ -22,6 +23,7 @@ abstract class BaseDioClient {
         ..interceptors.addAll([
           LoggerInterceptor(),
           NetworkConnectivity(connectivity: _connectivity),
+          RateLimitInterceptor(),
         ]);
 
   Future<Response> get(

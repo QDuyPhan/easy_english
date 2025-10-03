@@ -1,6 +1,5 @@
 import 'package:easy_english/core/theme/app_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AppTheme {
   static ThemeData getTheme(bool isDark) {
@@ -10,17 +9,17 @@ class AppTheme {
       colorScheme: colorScheme,
       textTheme: _textTheme(colorScheme),
     ).copyWith(
-      useMaterial3: true,
-      appBarTheme: AppBarTheme(
-        backgroundColor: colorScheme.surface,
-        foregroundColor: colorScheme.onSurface,
-        elevation: 0,
-        iconTheme: IconThemeData(color: colorScheme.onSurface),
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
-        ),
-      ),
+      // useMaterial3: true,
+      // appBarTheme: AppBarTheme(
+      //   backgroundColor: colorScheme.surface,
+      //   foregroundColor: colorScheme.onSurface,
+      //   elevation: 0,
+      //   iconTheme: IconThemeData(color: colorScheme.onSurface),
+      //   systemOverlayStyle: SystemUiOverlayStyle(
+      //     statusBarColor: Colors.transparent,
+      //     statusBarIconBrightness: isDark ? Brightness.light : Brightness.dark,
+      //   ),
+      // ),
       iconTheme: IconThemeData(color: colorScheme.onSurface),
       cardTheme: CardThemeData(
         color: colorScheme.surface,

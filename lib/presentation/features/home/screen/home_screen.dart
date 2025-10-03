@@ -1,11 +1,11 @@
-import 'package:easy_english/core/utils/assets.dart';
-import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
+import 'package:easy_english/core/utils/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_debouncer/flutter_debouncer.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/utils/assets.dart';
 import '../../../../domain/entities/word_entity.dart';
 import '../bloc/words_bloc.dart';
 
@@ -50,19 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      backgroundColor: colorScheme.background,
-      appBar: CustomAppbar(
-        text: const Text('Easy English'),
-        centerTitle: true,
-        backgroundColor: Colors.redAccent,
-        leading: [
-          Image.asset(
-            Assets.pngLauncher,
-            height: size.height * 0.05,
-            width: size.width * 0.06,
-          ),
-        ],
-      ),
       body: BlocBuilder<WordsBloc, WordsState>(
         builder: (context, state) {
           if (state.isLoading && state.words.isEmpty) {
@@ -72,18 +59,28 @@ class _HomeScreenState extends State<HomeScreen> {
             return Center(child: Text(state.error));
           }
 
-          return Column(
-            children: [
-              Expanded(
-                child: _buildListWord(
-                  state.words,
-                  state,
-                  colorScheme,
-                  textTheme,
-                  size,
-                ),
+          return CustomAppBar(
+            title: 'Easy English',
+            leading: [
+              Image.asset(
+                Assets.pngLauncher,
+                height: size.height * 0.05,
+                width: size.width * 0.06,
               ),
             ],
+            child: Column(
+              children: [
+                Expanded(
+                  child: _buildListWord(
+                    state.words,
+                    state,
+                    colorScheme,
+                    textTheme,
+                    size,
+                  ),
+                ),
+              ],
+            ),
           );
         },
       ),

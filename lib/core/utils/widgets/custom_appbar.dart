@@ -39,7 +39,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     final colorScheme = Theme.of(context).colorScheme;
     return AppBar(
       title: text,
-      backgroundColor: Colors.transparent,
+      backgroundColor: colorScheme.onPrimary,
       elevation: 0,
       actions: actions,
       centerTitle: centerTitle,
