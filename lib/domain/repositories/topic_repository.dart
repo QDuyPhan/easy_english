@@ -3,8 +3,6 @@ import 'package:easy_english/core/errors/failure.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 
 abstract interface class TopicRepository {
-  Future<void> initData();
-
   Future<Either<Failure, void>> saveTopic(
     String folder,
     String topic,

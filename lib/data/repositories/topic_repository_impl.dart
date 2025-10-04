@@ -4,7 +4,6 @@ import 'dart:isolate';
 import 'package:dartz/dartz.dart';
 import 'package:easy_english/core/errors/failure.dart';
 import 'package:easy_english/core/mapper/app_mappr.dart';
-import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/data/datasources/local/assets_data.dart';
 import 'package:easy_english/data/datasources/local/local_data.dart';
 import 'package:easy_english/data/models/word.dart';
@@ -40,44 +39,6 @@ class TopicRepositoryImpl implements TopicRepository {
       return jsonList.map((e) => Word.fromJson(e)).toList();
     } catch (e) {
       throw Exception('Failed to load words in isolate: $e');
-    }
-  }
-
-  @override
-  Future<void> initData() async {
-    try {
-      final currentTopics = _localData.getAllTopicWords();
-      app_config.printLog('i', 'currentTopics  ${currentTopics.length}');
-      if (currentTopics.isNotEmpty) {
-        app_config.printLog(
-          'i',
-          'Topics data already initialized, skipping...',
-        );
-        return;
-      }
-      app_config.printLog('i', 'Initializing topics data...');
-      final listTopic = Assets.listTopic;
-      for (var key in listTopic.keys) {
-        final folder = key;
-        final topics = listTopic[key]!;
-
-        for (var topic in topics) {
-          final list = await _assetsData.readFromJsonTopic(
-            folder.toLowerCase(),
-            topic.toLowerCase(),
-          );
-          app_config.printLog('i', 'initData $list');
-          await _localData.saveVocabularyByTopic(
-            folder.toLowerCase(),
-            topic.toLowerCase(),
-            list,
-          );
-        }
-      }
-      app_config.printLog('i', 'Topics data initialization completed');
-    } catch (e) {
-      app_config.printLog('e', 'Failed to init data: $e');
-      throw Exception('Failed to init data: $e');
     }
   }
 

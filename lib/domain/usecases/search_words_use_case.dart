@@ -27,8 +27,8 @@ class SearchWordsUseCase {
     try {
       // Search in Oxford words first (priority)
       final oxfordWords = _oxfordWordsRepository.getAllOxfordWords();
-      final oxfordResults = _searchInWords(oxfordWords, searchQuery);
-      allResults.addAll(oxfordResults);
+      // final oxfordResults = _searchInWords(oxfordWords, searchQuery);
+      // allResults.addAll(oxfordResults);
 
       // Search in topics
       for (final folder in Assets.topicFolders) {

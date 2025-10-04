@@ -18,10 +18,6 @@ abstract interface class AssetsData {
 
 @LazySingleton(as: AssetsData)
 class AssetsDataImpl implements AssetsData {
-  // final HiveConfig _hiveConfig;
-
-  const AssetsDataImpl();
-
   static Future<List<Word>> _loadWordsInIsolate(String path) async {
     try {
       final jsonString = await rootBundle.loadString(path);

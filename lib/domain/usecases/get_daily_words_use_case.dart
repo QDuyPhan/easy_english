@@ -23,7 +23,7 @@ class GetDailyWordsUseCase {
   Future<List<WordEntity>> execute() async {
     final List<WordEntity> allWords = [];
     final oxfordWords = _oxfordWordsRepository.getAllOxfordWords();
-    allWords.addAll(oxfordWords);
+    // allWords.addAll(oxfordWords);
 
     for (final folder in Assets.topicFolders) {
       final topics = Assets.getTopicsForFolder(folder);

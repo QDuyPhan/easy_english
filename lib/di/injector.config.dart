@@ -47,8 +47,6 @@ import '../domain/usecases/get_theme_use_case.dart' as _i131;
 import '../domain/usecases/get_topic_from_json_use_case.dart' as _i836;
 import '../domain/usecases/get_topics_use_case.dart' as _i280;
 import '../domain/usecases/hero_ku/fetch_randoms_words_use_case.dart' as _i894;
-import '../domain/usecases/init_data_oxford_words_use_case.dart' as _i308;
-import '../domain/usecases/init_data_topics_use_case.dart' as _i599;
 import '../domain/usecases/notifications/get_scheduled_notifications_use_case.dart'
     as _i433;
 import '../domain/usecases/notifications/remove_scheduled_notification_use_case.dart'
@@ -86,6 +84,10 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i863.LocalNotificationsTools>(
     () => _i863.LocalNotificationsTools(),
   );
+  gh.factory<_i822.GetAllOxfordWordsUseCase>(
+    () => _i822.GetAllOxfordWordsUseCase(),
+  );
+  gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc());
   await gh.factoryAsync<_i460.SharedPreferences>(
     () => sharedPreferencesModule.prefs,
     preResolve: true,
@@ -108,7 +110,7 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i716.HeroKuDio>(() => _i716.HeroKuDio(gh<_i895.Connectivity>()));
   gh.lazySingleton<_i82.WordsService>(() => _i82.WordsServiceImpl());
   gh.lazySingleton<_i614.LocalData>(() => _i614.LocalDataImpl());
-  gh.lazySingleton<_i481.AssetsData>(() => const _i481.AssetsDataImpl());
+  gh.lazySingleton<_i481.AssetsData>(() => _i481.AssetsDataImpl());
   gh.lazySingleton<_i512.HeroKuService>(() => _i512.HeroKuServiceImpl());
   gh.lazySingleton<_i20.WordsRepository>(() => _i1045.WordsRepositoryImpl());
   gh.lazySingleton<_i1063.VocabularyRepository>(
@@ -118,6 +120,9 @@ Future<_i174.GetIt> $initGetIt(
     ),
   );
   gh.lazySingleton<_i1013.HeroKuRepository>(() => _i489.HeroKuRepositoryImpl());
+  gh.lazySingleton<_i212.OxfordWordsRepository>(
+    () => _i319.OxfordWordsRepositoryImpl(),
+  );
   gh.lazySingleton<_i246.NotificationsRepository>(
     () => _i935.NotificationsRepositoryImpl(
       localData: gh<_i614.LocalData>(),
@@ -137,13 +142,6 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i388.SaveScheduledNotificationUseCase>(
     () => _i388.SaveScheduledNotificationUseCase(
       gh<_i246.NotificationsRepository>(),
-    ),
-  );
-  gh.lazySingleton<_i212.OxfordWordsRepository>(
-    () => _i319.OxfordWordsRepositoryImpl(
-      assetsData: gh<_i481.AssetsData>(),
-      localData: gh<_i614.LocalData>(),
-      appMappr: gh<_i556.AppMappr>(),
     ),
   );
   gh.lazySingleton<_i13.TopicRepository>(
@@ -179,17 +177,8 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i836.GetTopicFromJsonUseCase>(
     () => _i836.GetTopicFromJsonUseCase(gh<_i13.TopicRepository>()),
   );
-  gh.factory<_i599.InitDataTopicsUseCase>(
-    () => _i599.InitDataTopicsUseCase(gh<_i13.TopicRepository>()),
-  );
   gh.factory<_i902.SaveTopicWordUseCase>(
     () => _i902.SaveTopicWordUseCase(gh<_i13.TopicRepository>()),
-  );
-  gh.factory<_i822.GetAllOxfordWordsUseCase>(
-    () => _i822.GetAllOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()),
-  );
-  gh.factory<_i308.InitDataOxfordWordsUseCase>(
-    () => _i308.InitDataOxfordWordsUseCase(gh<_i212.OxfordWordsRepository>()),
   );
   gh.factory<_i282.TopicsBloc>(
     () => _i282.TopicsBloc(
@@ -226,11 +215,6 @@ Future<_i174.GetIt> $initGetIt(
     () => _i63.SearchWordsUseCase(
       oxfordWordsRepository: gh<_i212.OxfordWordsRepository>(),
       topicRepository: gh<_i13.TopicRepository>(),
-    ),
-  );
-  gh.factory<_i431.VocabularyBloc>(
-    () => _i431.VocabularyBloc(
-      getAllOxfordWordsUseCase: gh<_i822.GetAllOxfordWordsUseCase>(),
     ),
   );
   gh.factory<_i131.GetThemeUseCase>(
