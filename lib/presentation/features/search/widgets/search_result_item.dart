@@ -16,7 +16,7 @@ class SearchResultItem extends StatelessWidget {
     final textTheme = theme.textTheme;
 
     final definition =
-        word.senses.isNotEmpty ? word.senses.first.definition : '';
+        word.senses?.isNotEmpty ?? false ? word.senses?.first.definition : '';
     final phoneticText =
         word.phoneticText!.isNotEmpty ? word.phoneticText : word.phoneticAmText;
 
@@ -50,7 +50,7 @@ class SearchResultItem extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    word.word,
+                    word.word ?? "",
                     style: textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: colorScheme.primary,
@@ -69,7 +69,7 @@ class SearchResultItem extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              definition,
+              definition ?? "",
               style: textTheme.bodyLarge?.copyWith(
                 color: colorScheme.onSurfaceVariant,
               ),
@@ -80,7 +80,7 @@ class SearchResultItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                if (word.pos.isNotEmpty)
+                if (word.pos?.isNotEmpty ?? false)
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,
@@ -91,7 +91,7 @@ class SearchResultItem extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      word.pos,
+                      word.pos ?? "",
                       style: textTheme.labelMedium?.copyWith(
                         color: colorScheme.onPrimaryContainer,
                         fontWeight: FontWeight.w600,

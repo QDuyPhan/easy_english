@@ -4,6 +4,7 @@ import 'package:easy_english/presentation/features/theme/blocs/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:go_router/go_router.dart';
@@ -42,7 +43,14 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [BlocProvider(create: (context) => di.getIt<ThemeBloc>())],
-      child: const MyApp(),
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return MyApp();
+        },
+      ),
     ),
   );
 }

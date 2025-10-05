@@ -56,19 +56,19 @@ class SearchWordsUseCase {
   /// Search words with improved matching
   List<WordEntity> _searchInWords(List<WordEntity> words, String searchQuery) {
     return words.where((word) {
-      final wordLower = word.word.toLowerCase();
+      final wordLower = word.word?.toLowerCase();
 
       // Exact match gets highest priority
       if (wordLower == searchQuery) return true;
 
       // Starts with search query
-      if (wordLower.startsWith(searchQuery)) return true;
+      if (wordLower!.startsWith(searchQuery)) return true;
 
       // Contains search query
       if (wordLower.contains(searchQuery)) return true;
 
       // Search in definitions
-      for (final sense in word.senses) {
+      for (final sense in word.senses ?? []) {
         if (sense.definition.toLowerCase().contains(searchQuery)) {
           return true;
         }
@@ -87,26 +87,26 @@ class SearchWordsUseCase {
     final seenWords = <String>{};
 
     for (final word in allResults) {
-      final key = word.word.toLowerCase();
+      final key = word.word?.toLowerCase();
       if (!seenWords.contains(key)) {
-        seenWords.add(key);
+        seenWords.add(key ?? '');
         uniqueResults.add(word);
       }
     }
 
     // Sort by relevance: exact match > starts with > contains > definition match
     uniqueResults.sort((a, b) {
-      final aWord = a.word.toLowerCase();
-      final bWord = b.word.toLowerCase();
+      final aWord = a.word?.toLowerCase();
+      final bWord = b.word?.toLowerCase();
 
       // Exact match gets highest priority
       if (aWord == searchQuery && bWord != searchQuery) return -1;
       if (bWord == searchQuery && aWord != searchQuery) return 1;
 
       // Starts with gets second priority
-      if (aWord.startsWith(searchQuery) && !bWord.startsWith(searchQuery))
+      if (aWord!.startsWith(searchQuery) && !bWord!.startsWith(searchQuery))
         return -1;
-      if (bWord.startsWith(searchQuery) && !aWord.startsWith(searchQuery))
+      if (bWord!.startsWith(searchQuery) && !aWord.startsWith(searchQuery))
         return 1;
 
       // Contains gets third priority

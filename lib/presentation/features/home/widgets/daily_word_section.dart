@@ -59,7 +59,7 @@ class DailyWordsSection extends StatelessWidget {
                                       RoutePaths.wordDetails,
                                       extra: {'word': word},
                                     ),
-                                child: Chip(label: Text(word.word)),
+                                child: Chip(label: Text(word.word ?? '')),
                               ),
                             )
                             .toList(),

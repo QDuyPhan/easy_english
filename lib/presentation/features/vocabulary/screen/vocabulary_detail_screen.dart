@@ -1,10 +1,11 @@
 import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/phonetic.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/pos_badge.dart';
+import 'package:easy_english/presentation/features/home/widgets/pos_badge.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../home/widgets/phonetic.dart';
 
 class VocabularyDetailScreen extends StatelessWidget {
   final WordEntity word;
@@ -15,7 +16,7 @@ class VocabularyDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final pos = word.pos.split(', ');
+    final pos = word.pos?.split(', ');
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -35,7 +36,7 @@ class VocabularyDetailScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      word.word,
+                      word.word ?? '',
                       style: textTheme.headlineSmall?.copyWith(
                         color: colorScheme.onSurface,
                         fontWeight: FontWeight.bold,
@@ -44,7 +45,7 @@ class VocabularyDetailScreen extends StatelessWidget {
                   ),
                   Wrap(
                     spacing: 6,
-                    children: pos.map((p) => PosBadge(word: p)).toList(),
+                    children: pos?.map((p) => PosBadge(word: p)).toList() ?? [],
                   ),
                 ],
               ),
@@ -59,7 +60,7 @@ class VocabularyDetailScreen extends StatelessWidget {
                       SvgPicture.asset(Assets.svgFlagUK, height: 20),
                       const SizedBox(width: 8),
                       Phonetic(
-                        phonetic: word.phonetic,
+                        phonetic: word.phonetic ?? '',
                         phoneticText: word.phoneticText!,
                         backgroundColor: AppColor.strongBlue,
                       ),
@@ -91,21 +92,21 @@ class VocabularyDetailScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              ...List.generate(word.senses.length, (index) {
-                final sense = word.senses[index];
+              ...List.generate(word.senses!.length, (index) {
+                final sense = word.senses?[index];
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${index + 1}. ${sense.definition}',
+                        '${index + 1}. ${sense?.definition}',
                         style: textTheme.bodyLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: colorScheme.onSurface,
                         ),
                       ),
-                      if (sense.examples.isNotEmpty) ...[
+                      if (sense!.examples.isNotEmpty) ...[
                         const SizedBox(height: 8),
                         Text(
                           "Examples:",

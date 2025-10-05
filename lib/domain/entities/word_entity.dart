@@ -5,23 +5,23 @@ class WordEntity {
   final String word;
   final String pos;
   final String phonetic;
-  final String? phoneticText;
-  final String? phoneticAm;
-  final String? phoneticAmText;
+  final String phoneticText;
+  final String phoneticAm;
+  final String phoneticAmText;
   final List<SenseEntity> senses;
   final WordStatusEntity status;
   final String id;
 
   WordEntity({
-    required this.word,
-    required this.pos,
-    required this.phonetic,
-    this.phoneticText,
-    this.phoneticAm,
-    this.phoneticAmText,
-    required this.senses,
-    required this.status,
-    required this.id,
+    this.word = '',
+    this.pos = '',
+    this.phonetic = '',
+    this.phoneticText = '',
+    this.phoneticAm = '',
+    this.phoneticAmText = '',
+    this.senses = const [],
+    this.status = WordStatusEntity.unknown,
+    this.id = '',
   });
 
   WordEntity copyWith({
@@ -50,20 +50,22 @@ class WordEntity {
 
   factory WordEntity.fromJson(Map<String, dynamic> json) {
     return WordEntity(
-      word: json['word'],
-      pos: json['pos'],
-      phonetic: json['phonetic'],
-      phoneticText: json['phonetic_text'],
-      phoneticAm: json['phonetic_am'],
-      phoneticAmText: json['phonetic_am_text'],
+      word: json['word']?.toString() ?? "",
+      pos: json['pos']?.toString() ?? "",
+      phonetic: json['phonetic']?.toString() ?? "",
+      phoneticText: json['phonetic_text']?.toString() ?? "",
+      phoneticAm: json['phonetic_am']?.toString() ?? "",
+      phoneticAmText: json['phonetic_am_text']?.toString() ?? "",
       senses:
-          json['senses'] != null
-              ? List<SenseEntity>.from(
-                json['senses'].map((x) => SenseEntity.fromJson(x)).toList(),
-              )
-              : [],
-      status: WordStatusEntity.fromJson(json['status']),
-      id: json['id'],
+          (json['senses'] as List?)
+              ?.map((x) => SenseEntity.fromJson(x))
+              .toList() ??
+          [],
+      status:
+          json['status'] != null
+              ? WordStatusEntity.fromJson(json['status'])
+              : WordStatusEntity.unknown,
+      id: json['id']?.toString() ?? "",
     );
   }
 }

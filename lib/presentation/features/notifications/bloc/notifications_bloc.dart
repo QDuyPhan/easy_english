@@ -145,9 +145,9 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         await _localNotificationsTools.scheduleNotification(
           // id: word.index,
           id: 1,
-          title: word.word,
+          title: word.word ?? "",
           body:
-              word.senses.firstOrNull?.definition ??
+              word.senses?.firstOrNull?.definition ??
               'Learn the meaning of this word!',
           scheduledDate: notificationTime,
           category: NotificationCategory.vocabulary,
@@ -158,9 +158,9 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
           ScheduledNotificationEntity(
             // id: word.index,
             id: 1,
-            title: word.word,
+            title: word.word ?? "",
             body:
-                word.senses.firstOrNull?.definition ??
+                word.senses?.firstOrNull?.definition ??
                 'Learn the meaning of this word!',
             scheduledDate: notificationTime.toIso8601String(),
           ),
@@ -212,9 +212,9 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
       await _localNotificationsTools.scheduleNotification(
         // id: event.word.index,
         id: 1,
-        title: event.word.word,
+        title: event.word.word ?? '',
         body:
-            event.word.senses.firstOrNull?.definition ??
+            event.word.senses?.firstOrNull?.definition ??
             'Learn the meaning of this word!',
         scheduledDate: scheduledDate,
         category: NotificationCategory.vocabulary,
@@ -225,9 +225,9 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
         ScheduledNotificationEntity(
           // id: event.word.index,
           id: 1,
-          title: event.word.word,
+          title: event.word.word ?? '',
           body:
-              event.word.senses.firstOrNull?.definition ??
+              event.word.senses?.firstOrNull?.definition ??
               'Learn the meaning of this word!',
           scheduledDate: scheduledDate.toIso8601String(),
         ),

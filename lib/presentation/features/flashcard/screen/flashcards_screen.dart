@@ -127,7 +127,7 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              word.word,
+              word.word ?? '',
               style: textTheme.headlineSmall?.copyWith(
                 color: colorScheme.onPrimaryContainer,
                 fontWeight: FontWeight.bold,
@@ -169,8 +169,8 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    final hasSense = word.senses.isNotEmpty;
-    final hasExample = hasSense && word.senses.first.examples.isNotEmpty;
+    final hasSense = word.senses?.isNotEmpty ?? false;
+    final hasExample = hasSense && word.senses!.first.examples.isNotEmpty;
 
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -181,7 +181,7 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              hasSense ? word.senses.first.definition : 'No definition',
+              hasSense ? word.senses!.first.definition : 'No definition',
               style: textTheme.titleLarge?.copyWith(
                 color: colorScheme.onPrimaryContainer,
                 fontWeight: FontWeight.w600,
@@ -199,7 +199,7 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
             ),
             const SizedBox(height: 6),
             Text(
-              hasExample ? word.senses.first.examples.first.x : 'No example',
+              hasExample ? word.senses!.first.examples.first.x : 'No example',
               style: textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onPrimaryContainer,
               ),

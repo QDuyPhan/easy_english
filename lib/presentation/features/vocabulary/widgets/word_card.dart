@@ -1,13 +1,14 @@
 import 'package:easy_english/core/navigation/route_paths.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/entities/word_status_entity.dart';
+import 'package:easy_english/presentation/features/home/widgets/pos_badge.dart';
 import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/phonetic.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/pos_badge.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../home/widgets/phonetic.dart';
 
 class WordCard extends StatelessWidget {
   final WordEntity word;
@@ -18,7 +19,7 @@ class WordCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final pos = word.pos.split(', ');
+    final pos = word.pos?.split(', ');
 
     return InkWell(
       onTap: () {
@@ -54,7 +55,7 @@ class WordCard extends StatelessWidget {
                       Flexible(
                         flex: 3,
                         child: Text(
-                          word.word,
+                          word.word ?? "",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: textTheme.titleMedium?.copyWith(
@@ -73,7 +74,8 @@ class WordCard extends StatelessWidget {
                           child: Wrap(
                             spacing: 4,
                             children:
-                                pos.map((p) => PosBadge(word: p)).toList(),
+                                pos?.map((p) => PosBadge(word: p)).toList() ??
+                                [],
                           ),
                         ),
                       ),
@@ -110,7 +112,7 @@ class WordCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Phonetic(
-                  phonetic: word.phonetic,
+                  phonetic: word.phonetic ?? '',
                   phoneticText: word.phoneticText!,
                   backgroundColor: colorScheme.primaryContainer,
                 ),

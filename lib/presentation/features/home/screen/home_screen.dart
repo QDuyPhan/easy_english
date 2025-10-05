@@ -1,4 +1,7 @@
+import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/utils/widgets/custom_app_bar.dart';
+import 'package:easy_english/presentation/features/home/widgets/phonetic.dart';
+import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_debouncer/flutter_debouncer.dart';
@@ -7,7 +10,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/navigation/route_paths.dart';
 import '../../../../core/utils/assets.dart';
 import '../../../../domain/entities/word_entity.dart';
-import '../bloc/words_bloc.dart';
+import '../widgets/pos_badge.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,15 +29,15 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     Future.microtask(() {
       if (!mounted) return;
-      context.read<WordsBloc>().add(const WordsEvent.getListWord());
+      context.read<VocabularyBloc>().add(const VocabularyEvent.getListWord());
     });
 
-    _scrollController.addListener(() {
-      if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
-        context.read<WordsBloc>().add(const WordsEvent.getListWord());
-      }
-    });
+    // _scrollController.addListener(() {
+    //   if (_scrollController.position.pixels ==
+    //       _scrollController.position.maxScrollExtent) {
+    //     context.read<WordsBloc>().add(const WordsEvent.getListWord());
+    //   }
+    // });
   }
 
   @override
@@ -50,15 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      body: BlocBuilder<WordsBloc, WordsState>(
+      body: BlocBuilder<VocabularyBloc, VocabularyState>(
         builder: (context, state) {
-          if (state.isLoading && state.words.isEmpty) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (state.error.isNotEmpty) {
-            return Center(child: Text(state.error));
-          }
-
           return CustomAppBar(
             title: 'Easy English',
             leading: [
@@ -88,12 +84,18 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildListWord(
-    List<String> words,
-    WordsState state,
+    List<WordEntity> words,
+    VocabularyState state,
     ColorScheme colorScheme,
     TextTheme textTheme,
     Size size,
   ) {
+    if (state.isLoading && state.words.isEmpty) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (state.error.isNotEmpty) {
+      return Center(child: Text(state.error));
+    }
     return ListView.builder(
       controller: _scrollController,
       itemCount: words.length + 1,
@@ -103,20 +105,18 @@ class _HomeScreenState extends State<HomeScreen> {
               ? const Center(child: CircularProgressIndicator())
               : const SizedBox.shrink();
         }
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: _buildWordCard(words[index], colorScheme, textTheme, size),
-        );
+        return _buildWordCard(words[index], colorScheme, textTheme, size);
       },
     );
   }
 
   Widget _buildWordCard(
-    String word,
+    WordEntity word,
     ColorScheme colorScheme,
     TextTheme textTheme,
     Size size,
   ) {
+    final pos = word.pos.split(', ');
     return InkWell(
       onTap: () {},
       borderRadius: BorderRadius.circular(12),
@@ -129,16 +129,65 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: colorScheme.outline.withOpacity(0.3)),
         ),
-        child: Center(
-          child: Text(
-            word,
-            style: textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w600,
-              color: colorScheme.onSurface,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Flexible(
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Flexible(
+                    child: Text(
+                      word.word ?? "",
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: textTheme.titleMedium?.copyWith(
+                        color: colorScheme.onSurface,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children:
+                            pos.map((p) => PosBadge(word: p)).toList() ?? [],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
+            const SizedBox(height: 6),
+            Row(
+              children: [
+                Phonetic(
+                  backgroundColor: AppColor.jungleGreen,
+                  phonetic: word.phonetic,
+                  phoneticText: word.phoneticText,
+                ),
+                const SizedBox(width: 8),
+                Phonetic(
+                  backgroundColor: AppColor.strongBlue,
+                  phonetic: word.phoneticAm,
+                  phoneticText: word.phoneticAmText,
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Text(
+              word.senses.first.definition ?? '',
+              style: textTheme.bodySmall?.copyWith(
+                color: colorScheme.onSurface,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
         ),
       ),
     );
@@ -173,11 +222,14 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) {
               final word = results[index];
               final def =
-                  word.senses.isNotEmpty ? word.senses.first.definition : '';
+                  word.senses!.isNotEmpty ? word.senses?.first.definition : '';
               return ListTile(
-                title: Text(word.word, style: theme.textTheme.titleMedium),
+                title: Text(
+                  word.word ?? '',
+                  style: theme.textTheme.titleMedium,
+                ),
                 subtitle: Text(
-                  def,
+                  def ?? '',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: theme.textTheme.titleMedium,

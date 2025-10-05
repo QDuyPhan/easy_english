@@ -1,10 +1,5 @@
-import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_bloc.dart';
-import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_event.dart';
-import 'package:easy_english/presentation/features/vocabulary/blocs/vocabulary_state.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/word_card.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/navigation/route_paths.dart';
@@ -23,7 +18,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
     super.initState();
     Future.microtask(() {
       if (!mounted) return;
-      context.read<VocabularyBloc>().add(const GetAllOxfordWords());
+      // context.read<VocabularyBloc>().add(const GetAllOxfordWords());
     });
   }
 
@@ -50,28 +45,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
           ),
         ],
       ),
-      body: BlocBuilder<VocabularyBloc, VocabularyState>(
-        builder: (context, state) {
-          if (state is VocabularyLoading) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is VocabularyError) {
-            return Center(child: Text(state.message));
-          }
-          if (state is VocabularyLoaded) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ListView.builder(
-                itemCount: state.words.length,
-                itemBuilder: (context, index) {
-                  final word = state.words[index];
-                  return WordCard(word: word);
-                },
-              ),
-            );
-          }
-          return const Center(child: CircularProgressIndicator());
-        },
-      ),
+      body: Container(),
     );
   }
 }

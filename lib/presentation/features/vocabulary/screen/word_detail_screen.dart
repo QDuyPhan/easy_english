@@ -2,14 +2,15 @@ import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/entities/word_status_entity.dart';
+import 'package:easy_english/presentation/features/home/widgets/pos_badge.dart';
 import 'package:easy_english/presentation/features/topics/blocs/topics_bloc.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/phonetic.dart';
-import 'package:easy_english/presentation/features/vocabulary/widgets/pos_badge.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../home/widgets/phonetic.dart';
 
 class WordDetailScreen extends StatelessWidget {
   final WordEntity word;
@@ -30,7 +31,7 @@ class WordDetailScreen extends StatelessWidget {
 
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final posList = word.pos.split(', ');
+    final posList = word.pos?.split(', ');
 
     return SafeArea(
       child: Scaffold(
@@ -75,7 +76,7 @@ class WordDetailScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      word.word,
+                      word.word ?? '',
                       style: textTheme.titleLarge?.copyWith(
                         color: colorScheme.primary,
                         fontWeight: FontWeight.bold,
@@ -84,7 +85,8 @@ class WordDetailScreen extends StatelessWidget {
                     const Spacer(),
                     Wrap(
                       spacing: 4,
-                      children: posList.map((p) => PosBadge(word: p)).toList(),
+                      children:
+                          posList?.map((p) => PosBadge(word: p)).toList() ?? [],
                     ),
                   ],
                 ),
@@ -104,20 +106,20 @@ class WordDetailScreen extends StatelessWidget {
                 const SizedBox(height: 12),
 
                 /// Definitions + Examples
-                ...List.generate(word.senses.length, (i) {
-                  final sense = word.senses[i];
+                ...List.generate(word.senses?.length ?? 0, (i) {
+                  final sense = word.senses?[i];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${i + 1}. ${sense.definition}',
+                          '${i + 1}. ${sense?.definition}',
                           style: textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        if (sense.examples.isNotEmpty) ...[
+                        if (sense!.examples.isNotEmpty) ...[
                           const SizedBox(height: 8),
                           Text(
                             'Examples:',
@@ -160,7 +162,7 @@ class WordDetailScreen extends StatelessWidget {
             SvgPicture.asset(Assets.svgFlagUK, height: 24),
             const SizedBox(width: 10),
             Phonetic(
-              phonetic: word.phonetic,
+              phonetic: word.phonetic ?? '',
               phoneticText: word.phoneticText!,
               backgroundColor: colorScheme.primary.withOpacity(0.1),
             ),

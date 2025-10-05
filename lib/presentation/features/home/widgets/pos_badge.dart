@@ -11,12 +11,14 @@ class PosBadge extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final pos = WordPos.fromString(word);
     final backgroundColor = pos.color;
-    final textColor = ThemeData.estimateBrightnessForColor(backgroundColor) == Brightness.dark
-        ? Colors.white
-        : Colors.black;
+    final textColor =
+        ThemeData.estimateBrightnessForColor(backgroundColor) == Brightness.dark
+            ? Colors.white
+            : Colors.black;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      margin: const EdgeInsets.only(right: 4),
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(6),

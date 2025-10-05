@@ -1,13 +1,6 @@
-import 'package:equatable/equatable.dart';
+part of 'vocabulary_bloc.dart';
 
-abstract class VocabularyEvent extends Equatable {
-  const VocabularyEvent();
-}
-
-class GetAllOxfordWords extends VocabularyEvent {
-  const GetAllOxfordWords();
-
-  @override
-  // TODO: implement props
-  List<Object?> get props => [];
+@freezed
+class VocabularyEvent with _$VocabularyEvent {
+  const factory VocabularyEvent.getListWord() = _GetAllOxfordWords;
 }

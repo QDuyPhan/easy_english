@@ -99,7 +99,7 @@ class _PhoneticState extends State<Phonetic> {
         if (hasAudio) const SizedBox(width: 8),
         Text(
           widget.phoneticText,
-          style: textTheme.bodyLarge?.copyWith(color: colorScheme.onSurface),
+          style: textTheme.bodySmall?.copyWith(color: colorScheme.onSurface),
         ),
       ],
     );
