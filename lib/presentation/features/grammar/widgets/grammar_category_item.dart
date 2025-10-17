@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/navigation/app_route_paths.dart';
 import '../../../../domain/entities/lesson_entity.dart';
 
 class GrammarCategoryItem extends StatelessWidget {
@@ -17,7 +17,7 @@ class GrammarCategoryItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        context.push(RoutePaths.lesson, extra: {'lesson': lesson});
+        context.push(AppRoutePaths.lesson, extra: {'lesson': lesson});
       },
       child: Container(
         width: size.width,

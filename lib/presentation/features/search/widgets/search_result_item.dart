@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/navigation/app_route_paths.dart';
 import '../../../../domain/entities/word_entity.dart';
 
 class SearchResultItem extends StatelessWidget {
@@ -24,7 +24,7 @@ class SearchResultItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       onTap: () {
         context.push(
-          RoutePaths.search + RoutePaths.wordDetails,
+          AppRoutePaths.search + AppRoutePaths.homeDetails,
           extra: {'word': word},
         );
       },

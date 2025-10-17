@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/config/app_config.dart';
-import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/navigation/app_route_paths.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
 import '../../flashcard/widgets/flash_cards_button.dart';
 import '../blocs/topics_bloc.dart';
@@ -59,7 +59,10 @@ class _TopicsScreenState extends State<TopicsScreen> {
           body: _buildWordListTab(context, state),
           floatingActionButton: FlashCardsButton(
             onPressed: () {
-              context.push(RoutePaths.flashcards, extra: {'word': state.words});
+              context.push(
+                AppRoutePaths.flashcards,
+                extra: {'word': state.words},
+              );
             },
           ),
         );

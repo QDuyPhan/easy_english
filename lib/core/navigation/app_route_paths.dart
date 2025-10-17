@@ -1,6 +1,7 @@
-class RoutePaths {
-  const RoutePaths._();
+class AppRoutePaths {
+  const AppRoutePaths._();
 
+  /// main route
   static const String streak = '/streak';
   static const String review = '/review';
   static const String flashcards = '/flashcards';
@@ -8,7 +9,6 @@ class RoutePaths {
   static const String profile = '/profile';
   static const String vocabulary = '/vocabulary';
   static const String vocabularyDetails = '/vocabulary_details';
-  static const String wordDetails = '/word_details';
   static const String onboarding = '/onboarding';
   static const String grammar = '/grammar';
   static const String grammarCategory = '/grammar-category';
@@ -22,4 +22,7 @@ class RoutePaths {
   static const String dictionary = '/dictionary';
   static const String search = '/search';
   static const String stats = '/stats';
+
+  /// child route
+  static const String homeDetails = '/details';
 }

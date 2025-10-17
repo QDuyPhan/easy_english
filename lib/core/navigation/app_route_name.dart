@@ -1,0 +1,6 @@
+class AppRouteName {
+  const AppRouteName._();
+  static const home = 'home';
+
+  static const homeDetail = 'homeDetail';
+}

@@ -1,4 +1,4 @@
-import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/navigation/app_route_paths.dart';
 import 'package:easy_english/core/utils/assets.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
 import 'package:easy_english/presentation/features/topics/widgets/topic_box.dart';
@@ -68,6 +68,6 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
   }
 
   void _openSearch() {
-    context.push(RoutePaths.search);
+    context.push(AppRoutePaths.search);
   }
 }

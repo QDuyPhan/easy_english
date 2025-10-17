@@ -1,4 +1,4 @@
-import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/navigation/app_route_paths.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:easy_english/domain/entities/category_data_entity.dart';
 import 'package:easy_english/domain/entities/lesson_entity.dart';
@@ -30,13 +30,14 @@ import 'package:go_router/go_router.dart';
 import '../../presentation/features/dictionary/bloc/dictionary_bloc.dart';
 import '../../presentation/features/notifications/bloc/notifications_bloc.dart';
 import '../utils/widgets/swipeable.dart';
+import 'app_route_name.dart';
 
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>(debugLabel: 'root');
 
   static final router = GoRouter(
-    initialLocation: RoutePaths.home,
+    initialLocation: AppRoutePaths.home,
     navigatorKey: navigatorKey,
     routes: [
       StatefulShellRoute.indexedStack(
@@ -64,7 +65,8 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.home,
+                path: AppRoutePaths.home,
+                name: AppRouteName.home,
                 pageBuilder: (context, state) {
                   return NoTransitionPage(
                     key: state.pageKey,
@@ -84,9 +86,23 @@ class AppRouter {
                     ),
                   );
                 },
+                routes: [
+                  GoRoute(
+                    path: AppRoutePaths.homeDetails,
+                    name: AppRouteName.homeDetail,
+                    pageBuilder: (context, state) {
+                      final extra = state.extra as Map<String, dynamic>?;
+                      final word = extra?['word'] as WordEntity;
+                      return SwipeablePage(
+                        key: state.pageKey,
+                        builder: (context) => WordDetailScreen(word: word),
+                      );
+                    },
+                  ),
+                ],
               ),
               GoRoute(
-                path: RoutePaths.vocabulary,
+                path: AppRoutePaths.vocabulary,
                 pageBuilder: (context, state) {
                   return SwipeablePage(
                     key: state.pageKey,
@@ -98,23 +114,23 @@ class AppRouter {
                   );
                 },
               ),
-              GoRoute(
-                path: RoutePaths.wordDetails,
-                pageBuilder: (context, state) {
-                  final extra = state.extra as Map<String, dynamic>?;
-                  final word = extra?['word'] as WordEntity;
-                  return SwipeablePage(
-                    key: state.pageKey,
-                    builder: (context) => WordDetailScreen(word: word),
-                  );
-                },
-              ),
+              // GoRoute(
+              //   path: RoutePaths.wordDetails,
+              //   pageBuilder: (context, state) {
+              //     final extra = state.extra as Map<String, dynamic>?;
+              //     final word = extra?['word'] as WordEntity;
+              //     return SwipeablePage(
+              //       key: state.pageKey,
+              //       builder: (context) => WordDetailScreen(word: word),
+              //     );
+              //   },
+              // ),
             ],
           ),
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.dictionary,
+                path: AppRoutePaths.dictionary,
                 pageBuilder: (context, state) {
                   return NoTransitionPage(
                     key: state.pageKey,
@@ -123,7 +139,7 @@ class AppRouter {
                 },
               ),
               GoRoute(
-                path: RoutePaths.topicCategory,
+                path: AppRoutePaths.topicCategory,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
                   final topicEntry =
@@ -137,7 +153,7 @@ class AppRouter {
                 },
               ),
               GoRoute(
-                path: RoutePaths.topics,
+                path: AppRoutePaths.topics,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
                   final folder = extra?['folder'] as String? ?? '';
@@ -150,7 +166,7 @@ class AppRouter {
                 },
               ),
               GoRoute(
-                path: RoutePaths.vocabularyDetails,
+                path: AppRoutePaths.vocabularyDetails,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
                   final word = extra?['word'] as WordEntity;
@@ -160,19 +176,19 @@ class AppRouter {
                   );
                 },
               ),
+              // GoRoute(
+              //   path: RoutePaths.wordDetails,
+              //   pageBuilder: (context, state) {
+              //     final extra = state.extra as Map<String, dynamic>?;
+              //     final word = extra?['word'] as WordEntity;
+              //     return SwipeablePage(
+              //       key: state.pageKey,
+              //       builder: (context) => WordDetailScreen(word: word),
+              //     );
+              //   },
+              // ),
               GoRoute(
-                path: RoutePaths.wordDetails,
-                pageBuilder: (context, state) {
-                  final extra = state.extra as Map<String, dynamic>?;
-                  final word = extra?['word'] as WordEntity;
-                  return SwipeablePage(
-                    key: state.pageKey,
-                    builder: (context) => WordDetailScreen(word: word),
-                  );
-                },
-              ),
-              GoRoute(
-                path: RoutePaths.flashcards,
+                path: AppRoutePaths.flashcards,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
                   final word = extra?['word'] as List<WordEntity>;
@@ -187,7 +203,7 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.grammar,
+                path: AppRoutePaths.grammar,
                 pageBuilder:
                     (context, state) => CustomTransitionPage(
                       key: state.pageKey,
@@ -204,7 +220,7 @@ class AppRouter {
                     ),
               ),
               GoRoute(
-                path: RoutePaths.grammarCategory,
+                path: AppRoutePaths.grammarCategory,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
                   final category = extra?['category'] as CategoryDataEntity;
@@ -216,7 +232,7 @@ class AppRouter {
                 },
               ),
               GoRoute(
-                path: RoutePaths.lesson,
+                path: AppRoutePaths.lesson,
                 pageBuilder: (context, state) {
                   final extra = state.extra as Map<String, dynamic>?;
                   final lesson = extra?['lesson'] as LessonEntity;
@@ -231,7 +247,7 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.studying,
+                path: AppRoutePaths.studying,
                 pageBuilder:
                     (context, state) => CustomTransitionPage(
                       key: state.pageKey,
@@ -252,7 +268,7 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: RoutePaths.settings,
+                path: AppRoutePaths.settings,
                 pageBuilder: (context, state) {
                   return NoTransitionPage(
                     key: state.pageKey,
@@ -274,7 +290,7 @@ class AppRouter {
         ],
       ),
       GoRoute(
-        path: RoutePaths.search,
+        path: AppRoutePaths.search,
         pageBuilder: (context, state) {
           return SwipeablePage(
             key: const ValueKey('SearchScreen'),
@@ -286,22 +302,22 @@ class AppRouter {
           );
         },
         routes: [
-          GoRoute(
-            name: RoutePaths.search + RoutePaths.wordDetails,
-            path: 'word_details',
-            pageBuilder: (context, state) {
-              final extra = state.extra as Map<String, dynamic>?;
-              final word = extra?['word'] as WordEntity;
-              return SwipeablePage(
-                key: const ValueKey('WordDetailScreen_Outside'),
-                builder:
-                    (context) => BlocProvider(
-                      create: (context) => di.getIt<TopicsBloc>(),
-                      child: WordDetailScreen(word: word),
-                    ),
-              );
-            },
-          ),
+          // GoRoute(
+          //   name: RoutePaths.search + RoutePaths.wordDetails,
+          //   path: 'word_details',
+          //   pageBuilder: (context, state) {
+          //     final extra = state.extra as Map<String, dynamic>?;
+          //     final word = extra?['word'] as WordEntity;
+          //     return SwipeablePage(
+          //       key: const ValueKey('WordDetailScreen_Outside'),
+          //       builder:
+          //           (context) => BlocProvider(
+          //             create: (context) => di.getIt<TopicsBloc>(),
+          //             child: WordDetailScreen(word: word),
+          //           ),
+          //     );
+          //   },
+          // ),
         ],
       ),
     ],

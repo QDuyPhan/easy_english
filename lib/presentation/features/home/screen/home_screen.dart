@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_debouncer/flutter_debouncer.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/navigation/app_route_name.dart';
 import '../../../../core/utils/assets.dart';
 import '../../../../domain/entities/word_entity.dart';
 import '../widgets/pos_badge.dart';
@@ -118,7 +118,9 @@ class _HomeScreenState extends State<HomeScreen> {
   ) {
     final pos = word.pos.split(', ');
     return InkWell(
-      onTap: () {},
+      onTap:
+          () =>
+              context.pushNamed(AppRouteName.homeDetail, extra: {'word': word}),
       borderRadius: BorderRadius.circular(12),
       child: Container(
         width: size.width,
@@ -134,33 +136,27 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Flexible(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Flexible(
-                    child: Text(
-                      word.word ?? "",
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: textTheme.titleMedium?.copyWith(
-                        color: colorScheme.onSurface,
-                        fontWeight: FontWeight.bold,
-                      ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Flexible(
+                  child: Text(
+                    word.word ?? "",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: textTheme.titleMedium?.copyWith(
+                      color: colorScheme.onSurface,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children:
-                            pos.map((p) => PosBadge(word: p)).toList() ?? [],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(width: 8),
+                Wrap(
+                  spacing: 4,
+                  runSpacing: 2,
+                  children: pos.map((p) => PosBadge(word: p)).toList(),
+                ),
+              ],
             ),
             const SizedBox(height: 6),
             Row(
@@ -235,11 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: theme.textTheme.titleMedium,
                 ),
                 trailing: const Icon(Icons.arrow_forward_ios_rounded, size: 16),
-                onTap:
-                    () => context.push(
-                      RoutePaths.wordDetails,
-                      extra: {'word': word},
-                    ),
+                onTap: () => null,
               );
             },
           ),

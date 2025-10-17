@@ -1,4 +1,4 @@
-import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/navigation/app_route_paths.dart';
 import 'package:easy_english/domain/entities/category_data_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +15,10 @@ class GrammarItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        context.push(RoutePaths.grammarCategory, extra: {'category': category});
+        context.push(
+          AppRoutePaths.grammarCategory,
+          extra: {'category': category},
+        );
       },
       borderRadius: BorderRadius.circular(12),
       child: Container(

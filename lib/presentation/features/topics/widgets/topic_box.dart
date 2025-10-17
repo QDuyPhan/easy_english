@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/navigation/app_route_paths.dart';
 import '../../../../core/theme/app_color.dart';
 import '../../../../domain/entities/dictionary_entity.dart';
 
@@ -62,7 +62,7 @@ class _TopicBoxState extends State<TopicBox> {
       borderRadius: BorderRadius.circular(10),
       onTap: () {
         context.push(
-          RoutePaths.topicCategory,
+          AppRoutePaths.topicCategory,
           extra: {'topics': widget.topicEntry},
         );
       },

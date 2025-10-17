@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/navigation/app_route_paths.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
 import '../../flashcard/widgets/flash_cards_button.dart';
 import '../../vocabulary/widgets/word_card.dart';
@@ -64,7 +64,7 @@ class StudyingScreen extends StatelessWidget {
                   : FlashCardsButton(
                     onPressed: () {
                       context.push(
-                        RoutePaths.flashcards,
+                        AppRoutePaths.flashcards,
                         extra: {'word': newWords},
                       );
                     },

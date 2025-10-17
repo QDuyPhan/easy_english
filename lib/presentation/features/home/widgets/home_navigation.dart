@@ -1,4 +1,4 @@
-import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/navigation/app_route_paths.dart';
 import 'package:easy_english/core/utils/extensions/go_router_extension.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +15,11 @@ class HomeNavigation extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
 
   static const routes = [
-    RoutePaths.home,
-    RoutePaths.dictionary,
-    RoutePaths.grammar,
-    RoutePaths.studying,
-    RoutePaths.settings,
+    AppRoutePaths.home,
+    AppRoutePaths.dictionary,
+    AppRoutePaths.grammar,
+    AppRoutePaths.studying,
+    AppRoutePaths.settings,
   ];
 
   static final List<IconData> icons = [
@@ -96,7 +96,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
             _handleError(context, state.failure);
             if (state.wordIdFromNotification != null) {
               context.go(
-                RoutePaths.vocabulary,
+                AppRoutePaths.vocabulary,
                 extra: {'wordId': state.wordIdFromNotification},
               );
             }
@@ -132,9 +132,10 @@ class _HomeNavigationState extends State<HomeNavigation> {
                 icon: Container(
                   padding: EdgeInsets.all(2),
                   decoration: BoxDecoration(
-                    color: index == selectedIndex
-                        ? colorScheme.primaryContainer
-                        : Colors.transparent,
+                    color:
+                        index == selectedIndex
+                            ? colorScheme.primaryContainer
+                            : Colors.transparent,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: ColorFiltered(

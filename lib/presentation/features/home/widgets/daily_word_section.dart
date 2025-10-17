@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/navigation/app_route_paths.dart';
 import '../../../../core/utils/assets.dart';
 import '../bloc/daily_words_bloc.dart';
 
@@ -56,7 +56,7 @@ class DailyWordsSection extends StatelessWidget {
                               (word) => GestureDetector(
                                 onTap:
                                     () => context.push(
-                                      RoutePaths.wordDetails,
+                                      AppRoutePaths.homeDetails,
                                       extra: {'word': word},
                                     ),
                                 child: Chip(label: Text(word.word ?? '')),

@@ -13,8 +13,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
+import 'core/navigation/app_route_paths.dart';
 import 'core/navigation/app_router.dart';
-import 'core/navigation/route_paths.dart';
 import 'core/utils/local_notifications_tools.dart';
 import 'my_app.dart';
 import 'presentation/observers/my_bloc_observer.dart';
@@ -73,7 +73,7 @@ void onDidReceiveNotificationResponse(
   );
   final id = int.tryParse(notificationResponse.payload ?? '');
   AppRouter.navigatorKey.currentContext?.go(
-    RoutePaths.vocabulary,
+    AppRoutePaths.vocabulary,
     extra: {'wordId': id},
   );
 }
@@ -87,7 +87,7 @@ void onDidReceiveBackgroundNotificationResponse(
   );
   final id = int.tryParse(notificationResponse.payload ?? '');
   AppRouter.navigatorKey.currentContext?.go(
-    RoutePaths.vocabulary,
+    AppRoutePaths.vocabulary,
     extra: {'wordId': id},
   );
 }

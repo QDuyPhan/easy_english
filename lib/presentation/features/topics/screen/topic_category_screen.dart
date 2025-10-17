@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/navigation/app_route_paths.dart';
 import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/utils/widgets/custom_appbar.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
@@ -85,7 +85,7 @@ class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
           return InkWell(
             onTap: () {
               context.push(
-                RoutePaths.topics,
+                AppRoutePaths.topics,
                 extra: {'folder': widget.topicEntry.key, 'topic': category},
               );
             },
@@ -132,6 +132,6 @@ class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
   }
 
   void _openSearch() {
-    context.push(RoutePaths.search);
+    context.push(AppRoutePaths.search);
   }
 }

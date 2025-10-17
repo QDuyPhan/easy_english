@@ -1,4 +1,4 @@
-import 'package:easy_english/core/navigation/route_paths.dart';
+import 'package:easy_english/core/navigation/app_route_paths.dart';
 import 'package:easy_english/domain/entities/word_entity.dart';
 import 'package:easy_english/domain/entities/word_status_entity.dart';
 import 'package:easy_english/presentation/features/home/widgets/pos_badge.dart';
@@ -23,7 +23,7 @@ class WordCard extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        context.push(RoutePaths.wordDetails, extra: {'word': word});
+        context.push(AppRoutePaths.homeDetails, extra: {'word': word});
       },
       borderRadius: BorderRadius.circular(10),
       child: Container(

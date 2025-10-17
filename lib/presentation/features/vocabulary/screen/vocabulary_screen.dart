@@ -2,7 +2,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/navigation/route_paths.dart';
+import '../../../../core/navigation/app_route_paths.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
 
 class VocabularyScreen extends StatefulWidget {
@@ -40,7 +40,7 @@ class _VocabularyScreenState extends State<VocabularyScreen> {
         ],
         actions: [
           IconButton(
-            onPressed: () => context.push(RoutePaths.search),
+            onPressed: () => context.push(AppRoutePaths.search),
             icon: const Icon(FluentIcons.search_12_regular),
           ),
         ],
