@@ -19,16 +19,6 @@ class WordDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final WordEntity currentWord = context.select<TopicsBloc, WordEntity>((
-      bloc,
-    ) {
-      final state = bloc.state;
-      return state.words.firstWhere(
-        (w) => w.word == word.word,
-        orElse: () => word,
-      );
-    });
-
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final posList = word.pos.split(', ');
@@ -101,7 +91,7 @@ class WordDetailScreen extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          if (sense!.examples.isNotEmpty) ...[
+                          if (sense.examples.isNotEmpty) ...[
                             const SizedBox(height: 8),
                             Text(
                               'Examples:',
@@ -146,7 +136,7 @@ class WordDetailScreen extends StatelessWidget {
             const SizedBox(width: 10),
             Phonetic(
               phonetic: word.phonetic ?? '',
-              phoneticText: word.phoneticText!,
+              phoneticText: word.phoneticText,
               backgroundColor: colorScheme.primary.withOpacity(0.1),
             ),
           ],
@@ -157,8 +147,8 @@ class WordDetailScreen extends StatelessWidget {
             SvgPicture.asset(Assets.svgFlagUS, height: 24),
             const SizedBox(width: 10),
             Phonetic(
-              phonetic: word.phoneticAm!,
-              phoneticText: word.phoneticAmText!,
+              phonetic: word.phoneticAm,
+              phoneticText: word.phoneticAmText,
               backgroundColor: colorScheme.primary.withOpacity(0.1),
             ),
           ],

@@ -43,5 +43,6 @@ class VocabularyState with _$VocabularyState {
     @Default(false) bool isLoading,
     @Default('') String error,
     @Default('') String message,
+    @Default([]) List<DictionaryEntity> dictionary,
   }) = _VocabularyState;
 }

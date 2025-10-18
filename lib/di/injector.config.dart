@@ -88,6 +88,7 @@ Future<_i174.GetIt> $initGetIt(
     () => _i822.GetAllOxfordWordsUseCase(),
   );
   gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc());
+  gh.factory<_i1030.GetDictionaryUseCase>(() => _i1030.GetDictionaryUseCase());
   await gh.factoryAsync<_i460.SharedPreferences>(
     () => sharedPreferencesModule.prefs,
     preResolve: true,
@@ -112,6 +113,11 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i614.LocalData>(() => _i614.LocalDataImpl());
   gh.lazySingleton<_i481.AssetsData>(() => _i481.AssetsDataImpl());
   gh.lazySingleton<_i512.HeroKuService>(() => _i512.HeroKuServiceImpl());
+  gh.factory<_i69.DictionaryBloc>(
+    () => _i69.DictionaryBloc(
+      getDictionaryUseCase: gh<_i1030.GetDictionaryUseCase>(),
+    ),
+  );
   gh.lazySingleton<_i20.WordsRepository>(() => _i1045.WordsRepositoryImpl());
   gh.lazySingleton<_i1063.VocabularyRepository>(
     () => _i904.VocabularyRepositoryImpl(
@@ -161,9 +167,6 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i794.DictionaryRepository>(
     () => _i1010.DictionaryRepositoryImpl(appMappr: gh<_i556.AppMappr>()),
   );
-  gh.factory<_i1030.GetDictionaryUseCase>(
-    () => _i1030.GetDictionaryUseCase(gh<_i794.DictionaryRepository>()),
-  );
   gh.factory<_i246.GetDailyWordsUseCase>(
     () => _i246.GetDailyWordsUseCase(
       vocabularyRepository: gh<_i1063.VocabularyRepository>(),
@@ -189,11 +192,6 @@ Future<_i174.GetIt> $initGetIt(
   );
   gh.lazySingleton<_i443.ThemeRepository>(
     () => _i792.ThemeRepositoryImpl(themeLocal: gh<_i110.ThemeLocal>()),
-  );
-  gh.factory<_i69.DictionaryBloc>(
-    () => _i69.DictionaryBloc(
-      getDictionaryUseCase: gh<_i1030.GetDictionaryUseCase>(),
-    ),
   );
   gh.factory<_i382.NotificationsBloc>(
     () => _i382.NotificationsBloc(

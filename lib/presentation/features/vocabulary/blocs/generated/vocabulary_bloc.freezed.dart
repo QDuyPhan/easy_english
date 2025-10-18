@@ -20,27 +20,33 @@ mixin _$VocabularyEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getListWord,
+    required TResult Function() getDictionary,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getListWord,
+    TResult? Function()? getDictionary,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListWord,
+    TResult Function()? getDictionary,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllOxfordWords value) getListWord,
+    required TResult Function(_GetDictionary value) getDictionary,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllOxfordWords value)? getListWord,
+    TResult? Function(_GetDictionary value)? getDictionary,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllOxfordWords value)? getListWord,
+    TResult Function(_GetDictionary value)? getDictionary,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -111,6 +117,7 @@ class _$GetAllOxfordWordsImpl implements _GetAllOxfordWords {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getListWord,
+    required TResult Function() getDictionary,
   }) {
     return getListWord();
   }
@@ -119,6 +126,7 @@ class _$GetAllOxfordWordsImpl implements _GetAllOxfordWords {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getListWord,
+    TResult? Function()? getDictionary,
   }) {
     return getListWord?.call();
   }
@@ -127,6 +135,7 @@ class _$GetAllOxfordWordsImpl implements _GetAllOxfordWords {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListWord,
+    TResult Function()? getDictionary,
     required TResult orElse(),
   }) {
     if (getListWord != null) {
@@ -139,6 +148,7 @@ class _$GetAllOxfordWordsImpl implements _GetAllOxfordWords {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAllOxfordWords value) getListWord,
+    required TResult Function(_GetDictionary value) getDictionary,
   }) {
     return getListWord(this);
   }
@@ -147,6 +157,7 @@ class _$GetAllOxfordWordsImpl implements _GetAllOxfordWords {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetAllOxfordWords value)? getListWord,
+    TResult? Function(_GetDictionary value)? getDictionary,
   }) {
     return getListWord?.call(this);
   }
@@ -155,6 +166,7 @@ class _$GetAllOxfordWordsImpl implements _GetAllOxfordWords {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAllOxfordWords value)? getListWord,
+    TResult Function(_GetDictionary value)? getDictionary,
     required TResult orElse(),
   }) {
     if (getListWord != null) {
@@ -169,11 +181,119 @@ abstract class _GetAllOxfordWords implements VocabularyEvent {
 }
 
 /// @nodoc
+abstract class _$$GetDictionaryImplCopyWith<$Res> {
+  factory _$$GetDictionaryImplCopyWith(
+    _$GetDictionaryImpl value,
+    $Res Function(_$GetDictionaryImpl) then,
+  ) = __$$GetDictionaryImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetDictionaryImplCopyWithImpl<$Res>
+    extends _$VocabularyEventCopyWithImpl<$Res, _$GetDictionaryImpl>
+    implements _$$GetDictionaryImplCopyWith<$Res> {
+  __$$GetDictionaryImplCopyWithImpl(
+    _$GetDictionaryImpl _value,
+    $Res Function(_$GetDictionaryImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of VocabularyEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetDictionaryImpl implements _GetDictionary {
+  const _$GetDictionaryImpl();
+
+  @override
+  String toString() {
+    return 'VocabularyEvent.getDictionary()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GetDictionaryImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getListWord,
+    required TResult Function() getDictionary,
+  }) {
+    return getDictionary();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getListWord,
+    TResult? Function()? getDictionary,
+  }) {
+    return getDictionary?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getListWord,
+    TResult Function()? getDictionary,
+    required TResult orElse(),
+  }) {
+    if (getDictionary != null) {
+      return getDictionary();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetAllOxfordWords value) getListWord,
+    required TResult Function(_GetDictionary value) getDictionary,
+  }) {
+    return getDictionary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetAllOxfordWords value)? getListWord,
+    TResult? Function(_GetDictionary value)? getDictionary,
+  }) {
+    return getDictionary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetAllOxfordWords value)? getListWord,
+    TResult Function(_GetDictionary value)? getDictionary,
+    required TResult orElse(),
+  }) {
+    if (getDictionary != null) {
+      return getDictionary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetDictionary implements VocabularyEvent {
+  const factory _GetDictionary() = _$GetDictionaryImpl;
+}
+
+/// @nodoc
 mixin _$VocabularyState {
   List<WordEntity> get words => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String get error => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
+  List<DictionaryEntity> get dictionary => throw _privateConstructorUsedError;
 
   /// Create a copy of VocabularyState
   /// with the given fields replaced by the non-null parameter values.
@@ -194,6 +314,7 @@ abstract class $VocabularyStateCopyWith<$Res> {
     bool isLoading,
     String error,
     String message,
+    List<DictionaryEntity> dictionary,
   });
 }
 
@@ -216,6 +337,7 @@ class _$VocabularyStateCopyWithImpl<$Res, $Val extends VocabularyState>
     Object? isLoading = null,
     Object? error = null,
     Object? message = null,
+    Object? dictionary = null,
   }) {
     return _then(
       _value.copyWith(
@@ -239,6 +361,11 @@ class _$VocabularyStateCopyWithImpl<$Res, $Val extends VocabularyState>
                     ? _value.message
                     : message // ignore: cast_nullable_to_non_nullable
                         as String,
+            dictionary:
+                null == dictionary
+                    ? _value.dictionary
+                    : dictionary // ignore: cast_nullable_to_non_nullable
+                        as List<DictionaryEntity>,
           )
           as $Val,
     );
@@ -259,6 +386,7 @@ abstract class _$$VocabularyStateImplCopyWith<$Res>
     bool isLoading,
     String error,
     String message,
+    List<DictionaryEntity> dictionary,
   });
 }
 
@@ -280,6 +408,7 @@ class __$$VocabularyStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? error = null,
     Object? message = null,
+    Object? dictionary = null,
   }) {
     return _then(
       _$VocabularyStateImpl(
@@ -303,6 +432,11 @@ class __$$VocabularyStateImplCopyWithImpl<$Res>
                 ? _value.message
                 : message // ignore: cast_nullable_to_non_nullable
                     as String,
+        dictionary:
+            null == dictionary
+                ? _value._dictionary
+                : dictionary // ignore: cast_nullable_to_non_nullable
+                    as List<DictionaryEntity>,
       ),
     );
   }
@@ -316,7 +450,9 @@ class _$VocabularyStateImpl implements _VocabularyState {
     this.isLoading = false,
     this.error = '',
     this.message = '',
-  }) : _words = words;
+    final List<DictionaryEntity> dictionary = const [],
+  }) : _words = words,
+       _dictionary = dictionary;
 
   final List<WordEntity> _words;
   @override
@@ -336,10 +472,18 @@ class _$VocabularyStateImpl implements _VocabularyState {
   @override
   @JsonKey()
   final String message;
+  final List<DictionaryEntity> _dictionary;
+  @override
+  @JsonKey()
+  List<DictionaryEntity> get dictionary {
+    if (_dictionary is EqualUnmodifiableListView) return _dictionary;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dictionary);
+  }
 
   @override
   String toString() {
-    return 'VocabularyState(words: $words, isLoading: $isLoading, error: $error, message: $message)';
+    return 'VocabularyState(words: $words, isLoading: $isLoading, error: $error, message: $message, dictionary: $dictionary)';
   }
 
   @override
@@ -351,7 +495,11 @@ class _$VocabularyStateImpl implements _VocabularyState {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.error, error) || other.error == error) &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            const DeepCollectionEquality().equals(
+              other._dictionary,
+              _dictionary,
+            ));
   }
 
   @override
@@ -361,6 +509,7 @@ class _$VocabularyStateImpl implements _VocabularyState {
     isLoading,
     error,
     message,
+    const DeepCollectionEquality().hash(_dictionary),
   );
 
   /// Create a copy of VocabularyState
@@ -381,6 +530,7 @@ abstract class _VocabularyState implements VocabularyState {
     final bool isLoading,
     final String error,
     final String message,
+    final List<DictionaryEntity> dictionary,
   }) = _$VocabularyStateImpl;
 
   @override
@@ -391,6 +541,8 @@ abstract class _VocabularyState implements VocabularyState {
   String get error;
   @override
   String get message;
+  @override
+  List<DictionaryEntity> get dictionary;
 
   /// Create a copy of VocabularyState
   /// with the given fields replaced by the non-null parameter values.
