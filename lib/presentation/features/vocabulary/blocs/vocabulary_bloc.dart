@@ -29,7 +29,6 @@ class VocabularyBloc extends Bloc<VocabularyEvent, VocabularyState> {
     Emitter<VocabularyState> emit,
   ) async {
     try {
-      emit(state.copyWith(isLoading: true));
       final result = await di.getIt<GetDictionaryUseCase>().execute();
       result.fold(
         (failure) {
@@ -39,12 +38,9 @@ class VocabularyBloc extends Bloc<VocabularyEvent, VocabularyState> {
           emit(state.copyWith(dictionary: dictionary));
         },
       );
-
-      emit(state.copyWith(isLoading: false));
     } catch (e) {
       app_config.printLog('e', e.toString());
       emit(state.copyWith(error: e.toString()));
-      emit(state.copyWith(isLoading: false));
     }
   }
 

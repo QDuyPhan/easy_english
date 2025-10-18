@@ -93,7 +93,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const Spacer(),
                         GestureDetector(
-                          onTap: () => context.push(AppRouteName.homeDetail),
+                          onTap:
+                              () => context.pushNamed(
+                                AppRouteName.homeDictionary,
+                              ),
                           child: const Text(
                             'See all',
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -118,9 +121,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       availableColors.length];
                               return InkWell(
                                 onTap:
-                                    () => context.push(
-                                      AppRouteName.homeDetail,
-                                      extra: {'word': dictItem},
+                                    () => context.pushNamed(
+                                      AppRouteName.homeCategory,
+                                      extra: {'topics': dictItem},
                                     ),
                                 child: Container(
                                   decoration: BoxDecoration(

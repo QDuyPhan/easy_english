@@ -27,6 +27,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../domain/entities/dictionary_entity.dart';
 import '../../presentation/features/dictionary/bloc/dictionary_bloc.dart';
 import '../../presentation/features/notifications/bloc/notifications_bloc.dart';
 import '../utils/widgets/swipeable.dart';
@@ -99,6 +100,45 @@ class AppRouter {
                       );
                     },
                   ),
+                  GoRoute(
+                    path: AppRoutePaths.honeDictionary,
+                    name: AppRouteName.homeDictionary,
+                    pageBuilder: (context, state) {
+                      return SwipeablePage(
+                        key: state.pageKey,
+                        builder: (context) => DictionaryScreen(),
+                      );
+                    },
+                    routes: [],
+                  ),
+                  GoRoute(
+                    path: AppRoutePaths.homeCategory,
+                    name: AppRouteName.homeCategory,
+                    pageBuilder: (context, state) {
+                      final extra = state.extra as Map<String, dynamic>?;
+                      final topicEntry = extra?['topics'] as DictionaryEntity;
+                      return SwipeablePage(
+                        key: state.pageKey,
+                        builder:
+                            (context) =>
+                                TopicCategoryScreen(dictionary: topicEntry),
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: AppRoutePaths.topics,
+                    pageBuilder: (context, state) {
+                      final extra = state.extra as Map<String, dynamic>?;
+                      final folder = extra?['folder'] as String? ?? '';
+                      final topic = extra?['topic'] as String? ?? '';
+                      return SwipeablePage(
+                        key: state.pageKey,
+                        builder:
+                            (context) =>
+                                TopicsScreen(folder: folder, topic: topic),
+                      );
+                    },
+                  ),
                 ],
               ),
               GoRoute(
@@ -135,20 +175,6 @@ class AppRouter {
                   return NoTransitionPage(
                     key: state.pageKey,
                     child: DictionaryScreen(),
-                  );
-                },
-              ),
-              GoRoute(
-                path: AppRoutePaths.topicCategory,
-                pageBuilder: (context, state) {
-                  final extra = state.extra as Map<String, dynamic>?;
-                  final topicEntry =
-                      extra?['topics'] as MapEntry<String, List<String>>;
-                  return SwipeablePage(
-                    key: state.pageKey,
-                    builder:
-                        (context) =>
-                            TopicCategoryScreen(topicEntry: topicEntry),
                   );
                 },
               ),

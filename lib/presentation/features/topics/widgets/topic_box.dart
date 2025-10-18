@@ -3,21 +3,15 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/navigation/app_route_paths.dart';
+import '../../../../core/navigation/app_route_name.dart';
 import '../../../../core/theme/app_color.dart';
 import '../../../../domain/entities/dictionary_entity.dart';
 
 class TopicBox extends StatefulWidget {
-  final MapEntry<String, List<String>>? topicEntry;
   final int index;
   final DictionaryEntity dictionary;
 
-  const TopicBox({
-    super.key,
-    required this.topicEntry,
-    required this.index,
-    required this.dictionary,
-  });
+  const TopicBox({super.key, required this.index, required this.dictionary});
 
   @override
   State<TopicBox> createState() => _TopicBoxState();
@@ -33,7 +27,6 @@ class _TopicBoxState extends State<TopicBox> {
   void initState() {
     super.initState();
     _assignUniqueColor();
-    // app_config.printLog('i', 'dictionary ${widget.dictionary.topic}');
   }
 
   void _assignUniqueColor() {
@@ -61,9 +54,9 @@ class _TopicBoxState extends State<TopicBox> {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
       onTap: () {
-        context.push(
-          AppRoutePaths.topicCategory,
-          extra: {'topics': widget.topicEntry},
+        context.pushNamed(
+          AppRouteName.homeCategory,
+          extra: {'topics': dictionary},
         );
       },
       child: Container(

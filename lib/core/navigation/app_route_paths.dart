@@ -13,7 +13,6 @@ class AppRoutePaths {
   static const String grammar = '/grammar';
   static const String grammarCategory = '/grammar-category';
   static const String category = '/category';
-  static const String topicCategory = '/topic-category';
   static const String lesson = '/lesson';
   static const String home = '/home';
   static const String translate = '/translate';
@@ -25,4 +24,6 @@ class AppRoutePaths {
 
   /// child route
   static const String homeDetails = '/details';
+  static const String honeDictionary = '/dictionary';
+  static const String homeCategory = '/category';
 }
