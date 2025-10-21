@@ -1,0 +1,248 @@
+[
+  {
+    "id": 1,
+    "title": "Tenses",
+    "description": "13 tenses in English",
+    "progress": 0,
+    "total": 13,
+    "lessons": [
+      {
+        "id": 1,
+        "title": "Simple Present",
+        "subTitle": "S + to be/V + O",
+        "path": "assets/presentSimplePresentTense"
+      },
+      {
+        "id": 2,
+        "title": "Present Continuous",
+        "subTitle": "S + to be + V-ing + O",
+        "path": "assets/presentPresentContinuousTense"
+      },
+      {
+        "id": 3,
+        "title": "Present Perfect",
+        "subTitle": "S + have/has + V3 + O",
+        "path": "assets/presentPresentPerfectTense"
+      },
+      {
+        "id": 4,
+        "title": "Present Perfect Continuous",
+        "subTitle": "S + have/has + been + V-ing + O",
+        "path": "assets/presentPresentPerfectContinuousTense"
+      },
+      {
+        "id": 5,
+        "title": "Simple Past",
+        "subTitle": "S + V2 + O",
+        "path": "assets/pastSimplePastTense"
+      },
+      {
+        "id": 6,
+        "title": "Past Continuous",
+        "subTitle": "S + was/were + V-ing + O",
+        "path": "assets/pastPastContinuousTense"
+      },
+      {
+        "id": 7,
+        "title": "Past Perfect",
+        "subTitle": "S + had + V3 + O",
+        "path": "assets/pastPastPerfectTense"
+      },
+      {
+        "id": 8,
+        "title": "Past Perfect Continuous",
+        "subTitle": "S + had + been + V-ing + O",
+        "path": "assets/pastPastPerfectContinuousTense"
+      },
+      {
+        "id": 9,
+        "title": "Simple Future",
+        "subTitle": "S + will + V + O",
+        "path": "assets/futureFutureSimpleTense"
+      },
+      {
+        "id": 10,
+        "title": "Future Continuous",
+        "subTitle": "S + will + be + V-ing + O",
+        "path": "assets/futureFutureContinuousTense"
+      },
+      {
+        "id": 11,
+        "title": "Future Perfect",
+        "subTitle": "S + will + have + V3 + O",
+        "path": "assets/futureFuturePerfectTense"
+      },
+      {
+        "id": 12,
+        "title": "Future Perfect Continuous",
+        "subTitle": "S + will + have + been + V-ing + O",
+        "path": "assets/futureFuturePerfectContinuousTense"
+      },
+      {
+        "id": 13,
+        "title": "Near Future",
+        "subTitle": "S + to be + going to + V + O",
+        "path": "assets/futureNearFuture"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Sentences",
+    "description": "Sentences in English",
+    "progress": 0,
+    "total": 8,
+    "lessons": [
+      {
+        "id": 14,
+        "title": "Passive Voice",
+        "subTitle": "Emphasize the action rather than the doer",
+        "path": "assets/sentencesPassiveVoice"
+      },
+      {
+        "id": 15,
+        "title": "Reported Speech",
+        "subTitle": "Report what someone else said",
+        "path": "assets/sentencesReportedSpeech"
+      },
+      {
+        "id": 16,
+        "title": "Conditional Sentences",
+        "subTitle": "4 types of conditional sentences",
+        "path": "assets/sentencesConditionalSentences"
+      },
+      {
+        "id": 17,
+        "title": "Wish Sentences",
+        "subTitle": "Express regret or desire",
+        "path": "assets/sentencesWishSentences"
+      },
+      {
+        "id": 18,
+        "title": "Question Tags",
+        "subTitle": "Short questions at the end of a sentence",
+        "path": "assets/sentencesQuestionTags"
+      },
+      {
+        "id": 19,
+        "title": "Imperative Sentences",
+        "subTitle": "Give orders or instructions",
+        "path": "assets/sentencesImperativeSentences"
+      },
+      {
+        "id": 20,
+        "title": "Comparison Sentences",
+        "subTitle": "Compare two or more things",
+        "path": "assets/sentencesComparisonSentences"
+      },
+      {
+        "id": 21,
+        "title": "Exclamatory Sentences",
+        "subTitle": "Express strong feelings",
+        "path": "assets/sentencesExclamatorySentences"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Words",
+    "description": "Words in English",
+    "progress": 0,
+    "total": 9,
+    "lessons": [
+      {
+        "id": 22,
+        "title": "Nouns",
+        "subTitle": "Person, place, thing, or idea",
+        "path": "assets/wordFamiliesNouns"
+      },
+      {
+        "id": 23,
+        "title": "Pronouns",
+        "subTitle": "Replace nouns",
+        "path": "assets/wordsPronouns"
+      },
+      {
+        "id": 24,
+        "title": "Adjectives",
+        "subTitle": "Describe nouns",
+        "path": "assets/wordFamiliesAdjectives"
+      },
+      {
+        "id": 25,
+        "title": "Adverbs",
+        "subTitle": "Describe verbs, adjectives, or other adverbs",
+        "path": "assets/wordFamiliesAdverbs"
+      },
+      {
+        "id": 26,
+        "title": "Prepositions",
+        "subTitle": "Show the relationship between a noun and another word",
+        "path": "assets/wordsPreposition"
+      },
+      {
+        "id": 27,
+        "title": "Conjunctions",
+        "subTitle": "Connect words, phrases, or clauses",
+        "path": "assets/wordsConjunction"
+      },
+      {
+        "id": 28,
+        "title": "Interjections",
+        "subTitle": "Express strong feelings or emotions",
+        "path": "assets/wordsInterjection"
+      },
+      {
+        "id": 29,
+        "title": "Articles",
+        "subTitle": "A, an, the",
+        "path": "assets/wordsArticle"
+      },
+      {
+        "id": 32,
+        "title": "Modals Verbs",
+        "subTitle": "Can, could, may, might, must, shall, should, will, would",
+        "path": "assets/wordsModalVerbs"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Others",
+    "description": "Other grammar topics",
+    "progress": 0,
+    "total": 5,
+    "lessons": [
+      {
+        "id": 33,
+        "title": "Word Families",
+        "subTitle": "Words that are related to each other",
+        "path": "assets/wordFamiliesWordFamilies"
+      },
+      {
+        "id": 34,
+        "title": "Phrasal Verbs",
+        "subTitle": "Verb + preposition or adverb",
+        "path": "assets/grammarPhrasalVerbs"
+      },
+      {
+        "id": 35,
+        "title": "Idioms",
+        "subTitle": "Expressions that have a meaning different from the meaning of the individual words",
+        "path": "assets/grammarIdioms"
+      },
+      {
+        "id": 36,
+        "title": "Proverbs",
+        "subTitle": "Short sayings that give advice or express a belief",
+        "path": "assets/grammarProverbs"
+      },
+      {
+        "id": 37,
+        "title": "Quantifiers",
+        "subTitle": "Words that describe quantity",
+        "path": "assets/grammarQuantifiers"
+      }
+    ]
+  }
+]

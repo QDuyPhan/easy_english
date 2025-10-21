@@ -1,0 +1,185 @@
+[
+  {
+    "topic": "animals",
+    "category": [
+      "animals",
+      "birds",
+      "fish_and_shellfish",
+      "insects_worms"
+    ],
+    "image": "assets/png/cat.png"
+  },
+  {
+    "topic": "appearance",
+    "category": [
+      "appearance",
+      "body",
+      "clothes_and_fashion",
+      "colours_and_shapes"
+    ],
+    "image": "assets/png/appearance.png"
+  },
+  {
+    "topic": "communication",
+    "category": [
+      "language",
+      "phones_email_and_the_internet"
+    ],
+    "image": "assets/png/communication.png"
+  },
+  {
+    "topic": "culture",
+    "category": [
+      "art",
+      "film_and_theatre",
+      "literature_and_writing",
+      "music",
+      "tv_radio_and_news"
+    ],
+    "image": "assets/png/culture.png"
+  },
+  {
+    "topic": "food_and_drink",
+    "category": [
+      "cooking_and_eating",
+      "drinks",
+      "food"
+    ],
+    "image": "assets/png/food_and_drink.png"
+  },
+  {
+    "topic": "functions",
+    "category": [
+      "discussion_and_agreement",
+      "doubt_guessing_and_certainty",
+      "opinion_and_argument",
+      "permission_and_obligation",
+      "preferences_and_decisions",
+      "suggestions_and_advice"
+    ],
+    "image": "assets/png/function.png"
+  },
+  {
+    "topic": "health",
+    "category": [
+      "disability",
+      "health_and_fitness",
+      "health_problems",
+      "healthcare",
+      "mental_health"
+    ],
+    "image": "assets/png/health.png"
+  },
+  {
+    "topic": "homes_and_buildings",
+    "category": [
+      "buildings",
+      "gardens",
+      "houses_and_homes"
+    ],
+    "image": "assets/png/home_and_building.png"
+  },
+  {
+    "topic": "leisure",
+    "category": [
+      "games_and_toys",
+      "hobbies",
+      "shopping"
+    ],
+    "image": "assets/png/leisure.png"
+  },
+  {
+    "topic": "notions",
+    "category": [
+      "change_cause_and_effect",
+      "danger",
+      "difficulty_and_failure",
+      "success"
+    ],
+    "image": "assets/png/notions.png"
+  },
+  {
+    "topic": "people",
+    "category": [
+      "education",
+      "family_and_relationships",
+      "feelings",
+      "life_stages",
+      "personal_qualities"
+    ],
+    "image": "assets/png/people.png"
+  },
+  {
+    "topic": "politics_and_society",
+    "category": [
+      "crime_and_punishment",
+      "law_and_justice",
+      "people_in_society",
+      "politics",
+      "religion_and_festivals",
+      "social_issues",
+      "war_and_conflict"
+    ],
+    "image": "assets/png/politics_and_society.png"
+  },
+  {
+    "topic": "science_and_technology",
+    "category": [
+      "biology",
+      "computers",
+      "engineering",
+      "maths_and_measurement",
+      "physics_and_chemistry",
+      "scientific_research"
+    ],
+    "image": "assets/png/science_and_technology.png"
+  },
+  {
+    "topic": "sport",
+    "category": [
+      "other_sports",
+      "sports_ball_and_racket_sports",
+      "water_sports"
+    ],
+    "image": "assets/png/sport.png"
+  },
+  {
+    "topic": "the_natural_world",
+    "category": [
+      "farming",
+      "geography",
+      "plants_and_trees",
+      "the_environment",
+      "weather"
+    ],
+    "image": "assets/png/the_natural_world.png"
+  },
+  {
+    "topic": "time_and_space",
+    "category": [
+      "history",
+      "space",
+      "time"
+    ],
+    "image": "assets/png/time_and_space.png"
+  },
+  {
+    "topic": "travel",
+    "category": [
+      "holidays",
+      "transport_by_air",
+      "transport_by_bus_and_train",
+      "transport_by_car_or_lorry",
+      "transport_by_water"
+    ],
+    "image": "assets/png/travel.png"
+  },
+  {
+    "topic": "work_and_business",
+    "category": [
+      "business",
+      "jobs"
+    ],
+    "image": "assets/png/work_and_business.png"
+  }
+]
