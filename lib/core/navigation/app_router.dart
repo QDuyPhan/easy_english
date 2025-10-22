@@ -126,7 +126,8 @@ class AppRouter {
                     },
                   ),
                   GoRoute(
-                    path: AppRoutePaths.topics,
+                    path: AppRoutePaths.homeTopics,
+                    name: AppRouteName.homeTopics,
                     pageBuilder: (context, state) {
                       final extra = state.extra as Map<String, dynamic>?;
                       final folder = extra?['folder'] as String? ?? '';
@@ -178,19 +179,19 @@ class AppRouter {
                   );
                 },
               ),
-              GoRoute(
-                path: AppRoutePaths.topics,
-                pageBuilder: (context, state) {
-                  final extra = state.extra as Map<String, dynamic>?;
-                  final folder = extra?['folder'] as String? ?? '';
-                  final topic = extra?['topic'] as String? ?? '';
-                  return SwipeablePage(
-                    key: state.pageKey,
-                    builder:
-                        (context) => TopicsScreen(folder: folder, topic: topic),
-                  );
-                },
-              ),
+              // GoRoute(
+              //   path: AppRoutePaths.topics,
+              //   pageBuilder: (context, state) {
+              //     final extra = state.extra as Map<String, dynamic>?;
+              //     final folder = extra?['folder'] as String? ?? '';
+              //     final topic = extra?['topic'] as String? ?? '';
+              //     return SwipeablePage(
+              //       key: state.pageKey,
+              //       builder:
+              //           (context) => TopicsScreen(folder: folder, topic: topic),
+              //     );
+              //   },
+              // ),
               GoRoute(
                 path: AppRoutePaths.vocabularyDetails,
                 pageBuilder: (context, state) {

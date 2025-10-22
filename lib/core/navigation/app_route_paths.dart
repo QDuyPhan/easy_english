@@ -16,7 +16,7 @@ class AppRoutePaths {
   static const String lesson = '/lesson';
   static const String home = '/home';
   static const String translate = '/translate';
-  static const String topics = '/topics';
+
   static const String studying = '/studying';
   static const String dictionary = '/dictionary';
   static const String search = '/search';
@@ -26,4 +26,5 @@ class AppRoutePaths {
   static const String homeDetails = '/details';
   static const String honeDictionary = '/dictionary';
   static const String homeCategory = '/category';
+  static const String homeTopics = '/topics';
 }

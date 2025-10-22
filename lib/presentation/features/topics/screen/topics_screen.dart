@@ -1,3 +1,4 @@
+import 'package:easy_english/presentation/features/dictionary/bloc/dictionary_bloc.dart';
 import 'package:easy_english/presentation/features/vocabulary/widgets/word_card.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/navigation/app_route_paths.dart';
+import '../../../../core/utils/widgets/custom_app_bar.dart';
 import '../../../../core/utils/widgets/custom_appbar.dart';
 import '../../flashcard/widgets/flash_cards_button.dart';
 import '../blocs/topics_bloc.dart';
@@ -24,8 +26,8 @@ class _TopicsScreenState extends State<TopicsScreen> {
 
   @override
   void initState() {
-    context.read<TopicsBloc>().add(
-      TopicsEvent.getTopicFromJson(folder: widget.folder, topic: widget.topic),
+    context.read<DictionaryBloc>().add(
+      DictionaryEvent.getWords(folder: widget.folder, topic: widget.topic),
     );
     super.initState();
   }
@@ -34,21 +36,19 @@ class _TopicsScreenState extends State<TopicsScreen> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
-    return BlocBuilder<TopicsBloc, TopicsState>(
+    return BlocBuilder<DictionaryBloc, DictionaryState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: CustomAppbar(
-            text: Text(widget.topic.replaceAll('_', ' ').toUpperCase()),
-            centerTitle: true,
+          body: CustomAppBar(
+            title: widget.topic.replaceAll('_', ' ').toUpperCase(),
             leading: [
               IconButton(
                 onPressed: () => context.pop(),
                 icon: Icon(FluentIcons.chevron_left_12_regular),
               ),
             ],
+            child: _buildWordListTab(context, state),
           ),
-          backgroundColor: colorScheme.background,
-          body: _buildWordListTab(context, state),
           floatingActionButton: FlashCardsButton(
             onPressed: () {
               context.push(
@@ -62,7 +62,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
     );
   }
 
-  Widget _buildWordListTab(BuildContext context, TopicsState state) {
+  Widget _buildWordListTab(BuildContext context, DictionaryState state) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -75,15 +75,14 @@ class _TopicsScreenState extends State<TopicsScreen> {
           ),
         ),
       );
+    } else {
+      return ListView.builder(
+        itemCount: state.words.length,
+        itemBuilder: (context, index) {
+          final word = state.words[index];
+          return WordCard(word: word);
+        },
+      );
     }
-
-    return ListView.builder(
-      itemCount: state.words.length,
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      itemBuilder: (context, index) {
-        final word = state.words[index];
-        return WordCard(word: word);
-      },
-    );
   }
 }

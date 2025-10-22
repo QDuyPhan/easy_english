@@ -15,6 +15,7 @@ import '../../../../core/navigation/app_route_name.dart';
 import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/widgets/app_text_field.dart';
 import '../../../../domain/entities/word_entity.dart';
+import '../../vocabulary/widgets/word_card.dart';
 import '../widgets/pos_badge.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -247,76 +248,6 @@ class _HomeScreenState extends State<HomeScreen> {
     TextTheme textTheme,
     Size size,
   ) {
-    final pos = word.pos.split(', ');
-    return InkWell(
-      onTap:
-          () =>
-              context.pushNamed(AppRouteName.homeDetail, extra: {'word': word}),
-      borderRadius: BorderRadius.circular(12),
-      child: Container(
-        width: size.width,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        margin: const EdgeInsets.only(bottom: 12),
-        decoration: BoxDecoration(
-          color: colorScheme.surface,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: colorScheme.outline.withOpacity(0.3)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Flexible(
-                  child: Text(
-                    word.word ?? "",
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: textTheme.titleMedium?.copyWith(
-                      color: colorScheme.onSurface,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Wrap(
-                  spacing: 4,
-                  runSpacing: 2,
-                  children: pos.map((p) => PosBadge(word: p)).toList(),
-                ),
-              ],
-            ),
-            const SizedBox(height: 6),
-            Row(
-              children: [
-                Phonetic(
-                  backgroundColor: AppColor.jungleGreen,
-                  phonetic: word.phonetic,
-                  phoneticText: word.phoneticText,
-                ),
-                const SizedBox(width: 8),
-                Phonetic(
-                  backgroundColor: AppColor.strongBlue,
-                  phonetic: word.phoneticAm,
-                  phoneticText: word.phoneticAmText,
-                ),
-              ],
-            ),
-            const SizedBox(height: 6),
-            Text(
-              word.senses.first.definition ?? '',
-              style: textTheme.bodySmall?.copyWith(
-                color: colorScheme.onSurface,
-              ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ],
-        ),
-      ),
-    );
+    return WordCard(word: word);
   }
 }

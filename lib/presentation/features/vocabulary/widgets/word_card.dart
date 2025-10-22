@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/navigation/app_route_name.dart';
+import '../../../../core/theme/app_color.dart';
 import '../../home/widgets/phonetic.dart';
 
 class WordCard extends StatelessWidget {
@@ -19,115 +21,187 @@ class WordCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    final pos = word.pos?.split(', ');
+    final pos = word.pos.split(', ');
+    final size = MediaQuery.sizeOf(context);
 
     return InkWell(
-      onTap: () {
-        context.push(AppRoutePaths.homeDetails, extra: {'word': word});
-      },
-      borderRadius: BorderRadius.circular(10),
+      onTap:
+          () =>
+              context.pushNamed(AppRouteName.homeDetail, extra: {'word': word}),
+      borderRadius: BorderRadius.circular(12),
       child: Container(
+        width: size.width,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         margin: const EdgeInsets.only(bottom: 12),
-        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: colorScheme.surfaceVariant,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: colorScheme.shadow.withOpacity(0.05),
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-            ),
-          ],
+          color: colorScheme.surface,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: colorScheme.outline.withOpacity(0.3)),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Word title + bookmark icon
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
               children: [
-                /// Word + POS badges
                 Flexible(
-                  child: Row(
-                    children: [
-                      /// Word
-                      Flexible(
-                        flex: 3,
-                        child: Text(
-                          word.word ?? "",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: textTheme.titleMedium?.copyWith(
-                            color: colorScheme.onSurface,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-
-                      /// POS badges
-                      Flexible(
-                        flex: 2,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Wrap(
-                            spacing: 4,
-                            children:
-                                pos?.map((p) => PosBadge(word: p)).toList() ??
-                                [],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                /// Bookmark icon
-                Tooltip(
-                  message:
-                      word.status == WordStatusEntity.star
-                          ? 'Unsave word'
-                          : 'Save word',
-                  child: IconButton(
-                    onPressed: () => _onSave(context),
-                    icon: Icon(
-                      word.status == WordStatusEntity.star
-                          ? FluentIcons.bookmark_16_filled
-                          : FluentIcons.bookmark_16_regular,
-                      color:
-                          word.status == WordStatusEntity.star
-                              ? colorScheme.secondary
-                              : colorScheme.onSurfaceVariant,
+                  child: Text(
+                    word.word ?? "",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: textTheme.titleMedium?.copyWith(
+                      color: colorScheme.onSurface,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
+                const SizedBox(width: 8),
+                Wrap(
+                  spacing: 4,
+                  runSpacing: 2,
+                  children: pos!.map((p) => PosBadge(word: p)).toList(),
+                ),
               ],
             ),
-
-            const SizedBox(height: 8),
-
-            /// Phonetics
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            const SizedBox(height: 6),
+            Row(
               children: [
                 Phonetic(
-                  phonetic: word.phonetic ?? '',
-                  phoneticText: word.phoneticText!,
-                  backgroundColor: colorScheme.primaryContainer,
+                  backgroundColor: AppColor.jungleGreen,
+                  phonetic: word.phonetic,
+                  phoneticText: word.phoneticText,
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(width: 8),
                 Phonetic(
-                  phonetic: word.phoneticAm!,
-                  phoneticText: word.phoneticAmText!,
-                  backgroundColor: colorScheme.tertiaryContainer,
+                  backgroundColor: AppColor.strongBlue,
+                  phonetic: word.phoneticAm,
+                  phoneticText: word.phoneticAmText,
                 ),
               ],
+            ),
+            const SizedBox(height: 6),
+            Text(
+              word.senses.first.definition ?? '',
+              style: textTheme.bodySmall?.copyWith(
+                color: colorScheme.onSurface,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
       ),
     );
+
+    // return InkWell(
+    //   onTap: () {
+    //     context.push(AppRoutePaths.homeDetails, extra: {'word': word});
+    //   },
+    //   borderRadius: BorderRadius.circular(10),
+    //   child: Container(
+    //     margin: const EdgeInsets.only(bottom: 12),
+    //     padding: const EdgeInsets.all(12),
+    //     decoration: BoxDecoration(
+    //       color: colorScheme.surfaceVariant,
+    //       borderRadius: BorderRadius.circular(10),
+    //       boxShadow: [
+    //         BoxShadow(
+    //           color: colorScheme.shadow.withOpacity(0.05),
+    //           blurRadius: 4,
+    //           offset: const Offset(0, 2),
+    //         ),
+    //       ],
+    //     ),
+    //     child: Column(
+    //       crossAxisAlignment: CrossAxisAlignment.start,
+    //       children: [
+    //         /// Word title + bookmark icon
+    //         Row(
+    //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //           children: [
+    //             /// Word + POS badges
+    //             Flexible(
+    //               child: Row(
+    //                 children: [
+    //                   /// Word
+    //                   Flexible(
+    //                     flex: 3,
+    //                     child: Text(
+    //                       word.word ?? "",
+    //                       maxLines: 1,
+    //                       overflow: TextOverflow.ellipsis,
+    //                       style: textTheme.titleMedium?.copyWith(
+    //                         color: colorScheme.onSurface,
+    //                         fontWeight: FontWeight.bold,
+    //                       ),
+    //                     ),
+    //                   ),
+    //                   const SizedBox(width: 8),
+    //
+    //                   /// POS badges
+    //                   Flexible(
+    //                     flex: 2,
+    //                     child: SingleChildScrollView(
+    //                       scrollDirection: Axis.horizontal,
+    //                       child: Wrap(
+    //                         spacing: 4,
+    //                         children:
+    //                             pos?.map((p) => PosBadge(word: p)).toList() ??
+    //                             [],
+    //                       ),
+    //                     ),
+    //                   ),
+    //                 ],
+    //               ),
+    //             ),
+    //
+    //             /// Bookmark icon
+    //             Tooltip(
+    //               message:
+    //                   word.status == WordStatusEntity.star
+    //                       ? 'Unsave word'
+    //                       : 'Save word',
+    //               child: IconButton(
+    //                 onPressed: () => _onSave(context),
+    //                 icon: Icon(
+    //                   word.status == WordStatusEntity.star
+    //                       ? FluentIcons.bookmark_16_filled
+    //                       : FluentIcons.bookmark_16_regular,
+    //                   color:
+    //                       word.status == WordStatusEntity.star
+    //                           ? colorScheme.secondary
+    //                           : colorScheme.onSurfaceVariant,
+    //                 ),
+    //               ),
+    //             ),
+    //           ],
+    //         ),
+    //
+    //         const SizedBox(height: 8),
+    //
+    //         /// Phonetics
+    //         Column(
+    //           crossAxisAlignment: CrossAxisAlignment.start,
+    //           children: [
+    //             Phonetic(
+    //               phonetic: word.phonetic ?? '',
+    //               phoneticText: word.phoneticText!,
+    //               backgroundColor: colorScheme.primaryContainer,
+    //             ),
+    //             const SizedBox(height: 4),
+    //             Phonetic(
+    //               phonetic: word.phoneticAm!,
+    //               phoneticText: word.phoneticAmText!,
+    //               backgroundColor: colorScheme.tertiaryContainer,
+    //             ),
+    //           ],
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 
   void _onSave(BuildContext context) {

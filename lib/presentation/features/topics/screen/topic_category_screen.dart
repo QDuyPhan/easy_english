@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:easy_english/core/navigation/app_route_name.dart';
 import 'package:easy_english/core/navigation/app_route_paths.dart';
 import 'package:easy_english/core/theme/app_color.dart';
 import 'package:easy_english/core/utils/widgets/custom_app_bar.dart';
@@ -66,14 +67,15 @@ class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
           padding: const EdgeInsets.all(16),
           itemCount: widget.dictionary.category.length,
           itemBuilder: (context, index) {
-            final color = _colors[index];
-            final category = widget.dictionary.category[index];
+            final Color color = _colors[index];
+            final String category = widget.dictionary.category[index];
+            final String folder = widget.dictionary.topic;
             return InkWell(
               onTap: () {
-                // context.push(
-                //   AppRoutePaths.topics,
-                //   extra: {'folder': widget.topicEntry.key, 'topic': category},
-                // );
+                context.pushNamed(
+                  AppRouteName.homeTopics,
+                  extra: {'folder': folder, 'topic': category},
+                );
               },
               borderRadius: BorderRadius.circular(12),
               child: Container(
@@ -100,7 +102,7 @@ class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
                         category.replaceAll('_', ' ').toUpperCase(),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: textTheme.titleMedium?.copyWith(
+                        style: textTheme.labelSmall?.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                         ),
@@ -119,9 +121,5 @@ class _TopicCategoryScreenState extends State<TopicCategoryScreen> {
         ),
       ),
     );
-  }
-
-  void _openSearch() {
-    context.push(AppRoutePaths.search);
   }
 }

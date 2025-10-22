@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 // import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:go_router/go_router.dart';
@@ -36,8 +37,6 @@ void main() async {
       onDidReceiveNotificationResponse,
       onDidReceiveBackgroundNotificationResponse,
     ),
-    // di.getIt<InitDataOxfordWordsUseCase>().execute(),
-    // di.getIt<InitDataTopicsUseCase>().execute(),
   ]);
 
   runApp(
