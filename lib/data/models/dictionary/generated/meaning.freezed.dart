@@ -21,10 +21,10 @@ Meaning _$MeaningFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Meaning {
-  String get partOfSpeech => throw _privateConstructorUsedError;
-  List<Definition> get definitions => throw _privateConstructorUsedError;
-  List<String> get synonyms => throw _privateConstructorUsedError;
-  List<String> get antonyms => throw _privateConstructorUsedError;
+  String? get partOfSpeech => throw _privateConstructorUsedError;
+  List<Definition>? get definitions => throw _privateConstructorUsedError;
+  List<String>? get synonyms => throw _privateConstructorUsedError;
+  List<String>? get antonyms => throw _privateConstructorUsedError;
 
   /// Serializes this Meaning to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,10 +41,10 @@ abstract class $MeaningCopyWith<$Res> {
       _$MeaningCopyWithImpl<$Res, Meaning>;
   @useResult
   $Res call({
-    String partOfSpeech,
-    List<Definition> definitions,
-    List<String> synonyms,
-    List<String> antonyms,
+    String? partOfSpeech,
+    List<Definition>? definitions,
+    List<String>? synonyms,
+    List<String>? antonyms,
   });
 }
 
@@ -63,33 +63,33 @@ class _$MeaningCopyWithImpl<$Res, $Val extends Meaning>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? partOfSpeech = null,
-    Object? definitions = null,
-    Object? synonyms = null,
-    Object? antonyms = null,
+    Object? partOfSpeech = freezed,
+    Object? definitions = freezed,
+    Object? synonyms = freezed,
+    Object? antonyms = freezed,
   }) {
     return _then(
       _value.copyWith(
             partOfSpeech:
-                null == partOfSpeech
+                freezed == partOfSpeech
                     ? _value.partOfSpeech
                     : partOfSpeech // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
             definitions:
-                null == definitions
+                freezed == definitions
                     ? _value.definitions
                     : definitions // ignore: cast_nullable_to_non_nullable
-                        as List<Definition>,
+                        as List<Definition>?,
             synonyms:
-                null == synonyms
+                freezed == synonyms
                     ? _value.synonyms
                     : synonyms // ignore: cast_nullable_to_non_nullable
-                        as List<String>,
+                        as List<String>?,
             antonyms:
-                null == antonyms
+                freezed == antonyms
                     ? _value.antonyms
                     : antonyms // ignore: cast_nullable_to_non_nullable
-                        as List<String>,
+                        as List<String>?,
           )
           as $Val,
     );
@@ -105,10 +105,10 @@ abstract class _$$MeaningImplCopyWith<$Res> implements $MeaningCopyWith<$Res> {
   @override
   @useResult
   $Res call({
-    String partOfSpeech,
-    List<Definition> definitions,
-    List<String> synonyms,
-    List<String> antonyms,
+    String? partOfSpeech,
+    List<Definition>? definitions,
+    List<String>? synonyms,
+    List<String>? antonyms,
   });
 }
 
@@ -126,33 +126,33 @@ class __$$MeaningImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? partOfSpeech = null,
-    Object? definitions = null,
-    Object? synonyms = null,
-    Object? antonyms = null,
+    Object? partOfSpeech = freezed,
+    Object? definitions = freezed,
+    Object? synonyms = freezed,
+    Object? antonyms = freezed,
   }) {
     return _then(
       _$MeaningImpl(
         partOfSpeech:
-            null == partOfSpeech
+            freezed == partOfSpeech
                 ? _value.partOfSpeech
                 : partOfSpeech // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         definitions:
-            null == definitions
+            freezed == definitions
                 ? _value._definitions
                 : definitions // ignore: cast_nullable_to_non_nullable
-                    as List<Definition>,
+                    as List<Definition>?,
         synonyms:
-            null == synonyms
+            freezed == synonyms
                 ? _value._synonyms
                 : synonyms // ignore: cast_nullable_to_non_nullable
-                    as List<String>,
+                    as List<String>?,
         antonyms:
-            null == antonyms
+            freezed == antonyms
                 ? _value._antonyms
                 : antonyms // ignore: cast_nullable_to_non_nullable
-                    as List<String>,
+                    as List<String>?,
       ),
     );
   }
@@ -162,10 +162,10 @@ class __$$MeaningImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MeaningImpl implements _Meaning {
   const _$MeaningImpl({
-    this.partOfSpeech = '',
-    final List<Definition> definitions = const [],
-    final List<String> synonyms = const [],
-    final List<String> antonyms = const [],
+    this.partOfSpeech,
+    final List<Definition>? definitions,
+    final List<String>? synonyms,
+    final List<String>? antonyms,
   }) : _definitions = definitions,
        _synonyms = synonyms,
        _antonyms = antonyms;
@@ -174,33 +174,35 @@ class _$MeaningImpl implements _Meaning {
       _$$MeaningImplFromJson(json);
 
   @override
-  @JsonKey()
-  final String partOfSpeech;
-  final List<Definition> _definitions;
+  final String? partOfSpeech;
+  final List<Definition>? _definitions;
   @override
-  @JsonKey()
-  List<Definition> get definitions {
+  List<Definition>? get definitions {
+    final value = _definitions;
+    if (value == null) return null;
     if (_definitions is EqualUnmodifiableListView) return _definitions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_definitions);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _synonyms;
+  final List<String>? _synonyms;
   @override
-  @JsonKey()
-  List<String> get synonyms {
+  List<String>? get synonyms {
+    final value = _synonyms;
+    if (value == null) return null;
     if (_synonyms is EqualUnmodifiableListView) return _synonyms;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_synonyms);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _antonyms;
+  final List<String>? _antonyms;
   @override
-  @JsonKey()
-  List<String> get antonyms {
+  List<String>? get antonyms {
+    final value = _antonyms;
+    if (value == null) return null;
     if (_antonyms is EqualUnmodifiableListView) return _antonyms;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_antonyms);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -249,22 +251,22 @@ class _$MeaningImpl implements _Meaning {
 
 abstract class _Meaning implements Meaning {
   const factory _Meaning({
-    final String partOfSpeech,
-    final List<Definition> definitions,
-    final List<String> synonyms,
-    final List<String> antonyms,
+    final String? partOfSpeech,
+    final List<Definition>? definitions,
+    final List<String>? synonyms,
+    final List<String>? antonyms,
   }) = _$MeaningImpl;
 
   factory _Meaning.fromJson(Map<String, dynamic> json) = _$MeaningImpl.fromJson;
 
   @override
-  String get partOfSpeech;
+  String? get partOfSpeech;
   @override
-  List<Definition> get definitions;
+  List<Definition>? get definitions;
   @override
-  List<String> get synonyms;
+  List<String>? get synonyms;
   @override
-  List<String> get antonyms;
+  List<String>? get antonyms;
 
   /// Create a copy of Meaning
   /// with the given fields replaced by the non-null parameter values.

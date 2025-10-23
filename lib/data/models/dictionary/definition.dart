@@ -7,9 +7,10 @@ part 'generated/definition.g.dart';
 @freezed
 class Definition with _$Definition {
   const factory Definition({
-    @Default('') String definition,
-    @Default([]) List<String> synonyms,
-    @Default([]) List<String> antonyms,
+    String? definition,
+    List<dynamic>? synonyms,
+    List<dynamic>? antonyms,
+    String? example,
   }) = _Definition;
 
   factory Definition.fromJson(Map<String, dynamic> json) =>

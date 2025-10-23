@@ -20,27 +20,33 @@ mixin _$WordsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getListWord,
+    required TResult Function(String word) translateWord,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getListWord,
+    TResult? Function(String word)? translateWord,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListWord,
+    TResult Function(String word)? translateWord,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetListWord value) getListWord,
+    required TResult Function(_TranslateWord value) translateWord,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetListWord value)? getListWord,
+    TResult? Function(_TranslateWord value)? translateWord,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetListWord value)? getListWord,
+    TResult Function(_TranslateWord value)? translateWord,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -111,6 +117,7 @@ class _$GetListWordImpl implements _GetListWord {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getListWord,
+    required TResult Function(String word) translateWord,
   }) {
     return getListWord();
   }
@@ -119,6 +126,7 @@ class _$GetListWordImpl implements _GetListWord {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getListWord,
+    TResult? Function(String word)? translateWord,
   }) {
     return getListWord?.call();
   }
@@ -127,6 +135,7 @@ class _$GetListWordImpl implements _GetListWord {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getListWord,
+    TResult Function(String word)? translateWord,
     required TResult orElse(),
   }) {
     if (getListWord != null) {
@@ -139,6 +148,7 @@ class _$GetListWordImpl implements _GetListWord {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetListWord value) getListWord,
+    required TResult Function(_TranslateWord value) translateWord,
   }) {
     return getListWord(this);
   }
@@ -147,6 +157,7 @@ class _$GetListWordImpl implements _GetListWord {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetListWord value)? getListWord,
+    TResult? Function(_TranslateWord value)? translateWord,
   }) {
     return getListWord?.call(this);
   }
@@ -155,6 +166,7 @@ class _$GetListWordImpl implements _GetListWord {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetListWord value)? getListWord,
+    TResult Function(_TranslateWord value)? translateWord,
     required TResult orElse(),
   }) {
     if (getListWord != null) {
@@ -169,6 +181,148 @@ abstract class _GetListWord implements WordsEvent {
 }
 
 /// @nodoc
+abstract class _$$TranslateWordImplCopyWith<$Res> {
+  factory _$$TranslateWordImplCopyWith(
+    _$TranslateWordImpl value,
+    $Res Function(_$TranslateWordImpl) then,
+  ) = __$$TranslateWordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String word});
+}
+
+/// @nodoc
+class __$$TranslateWordImplCopyWithImpl<$Res>
+    extends _$WordsEventCopyWithImpl<$Res, _$TranslateWordImpl>
+    implements _$$TranslateWordImplCopyWith<$Res> {
+  __$$TranslateWordImplCopyWithImpl(
+    _$TranslateWordImpl _value,
+    $Res Function(_$TranslateWordImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of WordsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? word = null}) {
+    return _then(
+      _$TranslateWordImpl(
+        null == word
+            ? _value.word
+            : word // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$TranslateWordImpl implements _TranslateWord {
+  const _$TranslateWordImpl(this.word);
+
+  @override
+  final String word;
+
+  @override
+  String toString() {
+    return 'WordsEvent.translateWord(word: $word)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TranslateWordImpl &&
+            (identical(other.word, word) || other.word == word));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, word);
+
+  /// Create a copy of WordsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$TranslateWordImplCopyWith<_$TranslateWordImpl> get copyWith =>
+      __$$TranslateWordImplCopyWithImpl<_$TranslateWordImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getListWord,
+    required TResult Function(String word) translateWord,
+  }) {
+    return translateWord(word);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getListWord,
+    TResult? Function(String word)? translateWord,
+  }) {
+    return translateWord?.call(word);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getListWord,
+    TResult Function(String word)? translateWord,
+    required TResult orElse(),
+  }) {
+    if (translateWord != null) {
+      return translateWord(word);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetListWord value) getListWord,
+    required TResult Function(_TranslateWord value) translateWord,
+  }) {
+    return translateWord(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetListWord value)? getListWord,
+    TResult? Function(_TranslateWord value)? translateWord,
+  }) {
+    return translateWord?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetListWord value)? getListWord,
+    TResult Function(_TranslateWord value)? translateWord,
+    required TResult orElse(),
+  }) {
+    if (translateWord != null) {
+      return translateWord(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TranslateWord implements WordsEvent {
+  const factory _TranslateWord(final String word) = _$TranslateWordImpl;
+
+  String get word;
+
+  /// Create a copy of WordsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TranslateWordImplCopyWith<_$TranslateWordImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$WordsState {
   List<String> get words => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
@@ -177,6 +331,7 @@ mixin _$WordsState {
   String? get word => throw _privateConstructorUsedError;
   int get pageSize => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
+  List<DictionaryEntity> get dictionaries => throw _privateConstructorUsedError;
 
   /// Create a copy of WordsState
   /// with the given fields replaced by the non-null parameter values.
@@ -200,6 +355,7 @@ abstract class $WordsStateCopyWith<$Res> {
     String? word,
     int pageSize,
     int page,
+    List<DictionaryEntity> dictionaries,
   });
 }
 
@@ -225,6 +381,7 @@ class _$WordsStateCopyWithImpl<$Res, $Val extends WordsState>
     Object? word = freezed,
     Object? pageSize = null,
     Object? page = null,
+    Object? dictionaries = null,
   }) {
     return _then(
       _value.copyWith(
@@ -263,6 +420,11 @@ class _$WordsStateCopyWithImpl<$Res, $Val extends WordsState>
                     ? _value.page
                     : page // ignore: cast_nullable_to_non_nullable
                         as int,
+            dictionaries:
+                null == dictionaries
+                    ? _value.dictionaries
+                    : dictionaries // ignore: cast_nullable_to_non_nullable
+                        as List<DictionaryEntity>,
           )
           as $Val,
     );
@@ -286,6 +448,7 @@ abstract class _$$WordsStateImplCopyWith<$Res>
     String? word,
     int pageSize,
     int page,
+    List<DictionaryEntity> dictionaries,
   });
 }
 
@@ -310,6 +473,7 @@ class __$$WordsStateImplCopyWithImpl<$Res>
     Object? word = freezed,
     Object? pageSize = null,
     Object? page = null,
+    Object? dictionaries = null,
   }) {
     return _then(
       _$WordsStateImpl(
@@ -348,6 +512,11 @@ class __$$WordsStateImplCopyWithImpl<$Res>
                 ? _value.page
                 : page // ignore: cast_nullable_to_non_nullable
                     as int,
+        dictionaries:
+            null == dictionaries
+                ? _value._dictionaries
+                : dictionaries // ignore: cast_nullable_to_non_nullable
+                    as List<DictionaryEntity>,
       ),
     );
   }
@@ -364,7 +533,9 @@ class _$WordsStateImpl implements _WordsState {
     this.word = null,
     this.pageSize = 20,
     this.page = 1,
-  }) : _words = words;
+    final List<DictionaryEntity> dictionaries = const [],
+  }) : _words = words,
+       _dictionaries = dictionaries;
 
   final List<String> _words;
   @override
@@ -393,10 +564,18 @@ class _$WordsStateImpl implements _WordsState {
   @override
   @JsonKey()
   final int page;
+  final List<DictionaryEntity> _dictionaries;
+  @override
+  @JsonKey()
+  List<DictionaryEntity> get dictionaries {
+    if (_dictionaries is EqualUnmodifiableListView) return _dictionaries;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dictionaries);
+  }
 
   @override
   String toString() {
-    return 'WordsState(words: $words, isLoading: $isLoading, error: $error, message: $message, word: $word, pageSize: $pageSize, page: $page)';
+    return 'WordsState(words: $words, isLoading: $isLoading, error: $error, message: $message, word: $word, pageSize: $pageSize, page: $page, dictionaries: $dictionaries)';
   }
 
   @override
@@ -412,7 +591,11 @@ class _$WordsStateImpl implements _WordsState {
             (identical(other.word, word) || other.word == word) &&
             (identical(other.pageSize, pageSize) ||
                 other.pageSize == pageSize) &&
-            (identical(other.page, page) || other.page == page));
+            (identical(other.page, page) || other.page == page) &&
+            const DeepCollectionEquality().equals(
+              other._dictionaries,
+              _dictionaries,
+            ));
   }
 
   @override
@@ -425,6 +608,7 @@ class _$WordsStateImpl implements _WordsState {
     word,
     pageSize,
     page,
+    const DeepCollectionEquality().hash(_dictionaries),
   );
 
   /// Create a copy of WordsState
@@ -445,6 +629,7 @@ abstract class _WordsState implements WordsState {
     final String? word,
     final int pageSize,
     final int page,
+    final List<DictionaryEntity> dictionaries,
   }) = _$WordsStateImpl;
 
   @override
@@ -461,6 +646,8 @@ abstract class _WordsState implements WordsState {
   int get pageSize;
   @override
   int get page;
+  @override
+  List<DictionaryEntity> get dictionaries;
 
   /// Create a copy of WordsState
   /// with the given fields replaced by the non-null parameter values.

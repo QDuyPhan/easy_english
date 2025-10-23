@@ -21,8 +21,8 @@ License _$LicenseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$License {
-  String get name => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
 
   /// Serializes this License to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $LicenseCopyWith<$Res> {
   factory $LicenseCopyWith(License value, $Res Function(License) then) =
       _$LicenseCopyWithImpl<$Res, License>;
   @useResult
-  $Res call({String name, String url});
+  $Res call({String? name, String? url});
 }
 
 /// @nodoc
@@ -55,19 +55,19 @@ class _$LicenseCopyWithImpl<$Res, $Val extends License>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? name = null, Object? url = null}) {
+  $Res call({Object? name = freezed, Object? url = freezed}) {
     return _then(
       _value.copyWith(
             name:
-                null == name
+                freezed == name
                     ? _value.name
                     : name // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
             url:
-                null == url
+                freezed == url
                     ? _value.url
                     : url // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
           )
           as $Val,
     );
@@ -82,7 +82,7 @@ abstract class _$$LicenseImplCopyWith<$Res> implements $LicenseCopyWith<$Res> {
   ) = __$$LicenseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String url});
+  $Res call({String? name, String? url});
 }
 
 /// @nodoc
@@ -98,19 +98,19 @@ class __$$LicenseImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? name = null, Object? url = null}) {
+  $Res call({Object? name = freezed, Object? url = freezed}) {
     return _then(
       _$LicenseImpl(
         name:
-            null == name
+            freezed == name
                 ? _value.name
                 : name // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         url:
-            null == url
+            freezed == url
                 ? _value.url
                 : url // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
       ),
     );
   }
@@ -119,17 +119,15 @@ class __$$LicenseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$LicenseImpl implements _License {
-  const _$LicenseImpl({this.name = '', this.url = ''});
+  const _$LicenseImpl({this.name, this.url});
 
   factory _$LicenseImpl.fromJson(Map<String, dynamic> json) =>
       _$$LicenseImplFromJson(json);
 
   @override
-  @JsonKey()
-  final String name;
+  final String? name;
   @override
-  @JsonKey()
-  final String url;
+  final String? url;
 
   @override
   String toString() {
@@ -164,14 +162,15 @@ class _$LicenseImpl implements _License {
 }
 
 abstract class _License implements License {
-  const factory _License({final String name, final String url}) = _$LicenseImpl;
+  const factory _License({final String? name, final String? url}) =
+      _$LicenseImpl;
 
   factory _License.fromJson(Map<String, dynamic> json) = _$LicenseImpl.fromJson;
 
   @override
-  String get name;
+  String? get name;
   @override
-  String get url;
+  String? get url;
 
   /// Create a copy of License
   /// with the given fields replaced by the non-null parameter values.

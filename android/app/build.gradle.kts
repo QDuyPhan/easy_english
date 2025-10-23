@@ -40,6 +40,21 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    flavorDimensions "app"
+
+    productFlavors {
+        development {
+            dimension "app"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+        }
+        production {
+            dimension "app"
+            // Đối với production, chúng ta không cần thêm hậu tố
+            // applicationId và versionName sẽ lấy từ defaultConfig
+        }
+    }
 }
 
 flutter {

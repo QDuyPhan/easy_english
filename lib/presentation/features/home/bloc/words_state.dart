@@ -18,5 +18,6 @@ class WordsState with _$WordsState {
     @Default(null) String? word,
     @Default(20) int pageSize,
     @Default(1) int page,
+    @Default([]) List<DictionaryEntity> dictionaries,
   }) = _WordsState;
 }

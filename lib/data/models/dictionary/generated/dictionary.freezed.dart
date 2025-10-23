@@ -21,12 +21,12 @@ Dictionary _$DictionaryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Dictionary {
-  String get word => throw _privateConstructorUsedError;
-  String get phonetic => throw _privateConstructorUsedError;
-  List<Phonetic> get phonetics => throw _privateConstructorUsedError;
-  List<Meaning> get meanings => throw _privateConstructorUsedError;
+  String? get word => throw _privateConstructorUsedError;
+  String? get phonetic => throw _privateConstructorUsedError;
+  List<Phonetic>? get phonetics => throw _privateConstructorUsedError;
+  List<Meaning>? get meanings => throw _privateConstructorUsedError;
   License? get license => throw _privateConstructorUsedError;
-  List<String> get sourceUrls => throw _privateConstructorUsedError;
+  List<String>? get sourceUrls => throw _privateConstructorUsedError;
 
   /// Serializes this Dictionary to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,12 +46,12 @@ abstract class $DictionaryCopyWith<$Res> {
   ) = _$DictionaryCopyWithImpl<$Res, Dictionary>;
   @useResult
   $Res call({
-    String word,
-    String phonetic,
-    List<Phonetic> phonetics,
-    List<Meaning> meanings,
+    String? word,
+    String? phonetic,
+    List<Phonetic>? phonetics,
+    List<Meaning>? meanings,
     License? license,
-    List<String> sourceUrls,
+    List<String>? sourceUrls,
   });
 
   $LicenseCopyWith<$Res>? get license;
@@ -72,45 +72,45 @@ class _$DictionaryCopyWithImpl<$Res, $Val extends Dictionary>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? word = null,
-    Object? phonetic = null,
-    Object? phonetics = null,
-    Object? meanings = null,
+    Object? word = freezed,
+    Object? phonetic = freezed,
+    Object? phonetics = freezed,
+    Object? meanings = freezed,
     Object? license = freezed,
-    Object? sourceUrls = null,
+    Object? sourceUrls = freezed,
   }) {
     return _then(
       _value.copyWith(
             word:
-                null == word
+                freezed == word
                     ? _value.word
                     : word // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
             phonetic:
-                null == phonetic
+                freezed == phonetic
                     ? _value.phonetic
                     : phonetic // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
             phonetics:
-                null == phonetics
+                freezed == phonetics
                     ? _value.phonetics
                     : phonetics // ignore: cast_nullable_to_non_nullable
-                        as List<Phonetic>,
+                        as List<Phonetic>?,
             meanings:
-                null == meanings
+                freezed == meanings
                     ? _value.meanings
                     : meanings // ignore: cast_nullable_to_non_nullable
-                        as List<Meaning>,
+                        as List<Meaning>?,
             license:
                 freezed == license
                     ? _value.license
                     : license // ignore: cast_nullable_to_non_nullable
                         as License?,
             sourceUrls:
-                null == sourceUrls
+                freezed == sourceUrls
                     ? _value.sourceUrls
                     : sourceUrls // ignore: cast_nullable_to_non_nullable
-                        as List<String>,
+                        as List<String>?,
           )
           as $Val,
     );
@@ -141,12 +141,12 @@ abstract class _$$DictionaryImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    String word,
-    String phonetic,
-    List<Phonetic> phonetics,
-    List<Meaning> meanings,
+    String? word,
+    String? phonetic,
+    List<Phonetic>? phonetics,
+    List<Meaning>? meanings,
     License? license,
-    List<String> sourceUrls,
+    List<String>? sourceUrls,
   });
 
   @override
@@ -167,45 +167,45 @@ class __$$DictionaryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? word = null,
-    Object? phonetic = null,
-    Object? phonetics = null,
-    Object? meanings = null,
+    Object? word = freezed,
+    Object? phonetic = freezed,
+    Object? phonetics = freezed,
+    Object? meanings = freezed,
     Object? license = freezed,
-    Object? sourceUrls = null,
+    Object? sourceUrls = freezed,
   }) {
     return _then(
       _$DictionaryImpl(
         word:
-            null == word
+            freezed == word
                 ? _value.word
                 : word // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         phonetic:
-            null == phonetic
+            freezed == phonetic
                 ? _value.phonetic
                 : phonetic // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         phonetics:
-            null == phonetics
+            freezed == phonetics
                 ? _value._phonetics
                 : phonetics // ignore: cast_nullable_to_non_nullable
-                    as List<Phonetic>,
+                    as List<Phonetic>?,
         meanings:
-            null == meanings
+            freezed == meanings
                 ? _value._meanings
                 : meanings // ignore: cast_nullable_to_non_nullable
-                    as List<Meaning>,
+                    as List<Meaning>?,
         license:
             freezed == license
                 ? _value.license
                 : license // ignore: cast_nullable_to_non_nullable
                     as License?,
         sourceUrls:
-            null == sourceUrls
+            freezed == sourceUrls
                 ? _value._sourceUrls
                 : sourceUrls // ignore: cast_nullable_to_non_nullable
-                    as List<String>,
+                    as List<String>?,
       ),
     );
   }
@@ -215,12 +215,12 @@ class __$$DictionaryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DictionaryImpl implements _Dictionary {
   const _$DictionaryImpl({
-    this.word = "",
-    this.phonetic = "",
-    final List<Phonetic> phonetics = const [],
-    final List<Meaning> meanings = const [],
+    this.word,
+    this.phonetic,
+    final List<Phonetic>? phonetics,
+    final List<Meaning>? meanings,
     this.license,
-    final List<String> sourceUrls = const [],
+    final List<String>? sourceUrls,
   }) : _phonetics = phonetics,
        _meanings = meanings,
        _sourceUrls = sourceUrls;
@@ -229,38 +229,39 @@ class _$DictionaryImpl implements _Dictionary {
       _$$DictionaryImplFromJson(json);
 
   @override
-  @JsonKey()
-  final String word;
+  final String? word;
   @override
-  @JsonKey()
-  final String phonetic;
-  final List<Phonetic> _phonetics;
+  final String? phonetic;
+  final List<Phonetic>? _phonetics;
   @override
-  @JsonKey()
-  List<Phonetic> get phonetics {
+  List<Phonetic>? get phonetics {
+    final value = _phonetics;
+    if (value == null) return null;
     if (_phonetics is EqualUnmodifiableListView) return _phonetics;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_phonetics);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<Meaning> _meanings;
+  final List<Meaning>? _meanings;
   @override
-  @JsonKey()
-  List<Meaning> get meanings {
+  List<Meaning>? get meanings {
+    final value = _meanings;
+    if (value == null) return null;
     if (_meanings is EqualUnmodifiableListView) return _meanings;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_meanings);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   final License? license;
-  final List<String> _sourceUrls;
+  final List<String>? _sourceUrls;
   @override
-  @JsonKey()
-  List<String> get sourceUrls {
+  List<String>? get sourceUrls {
+    final value = _sourceUrls;
+    if (value == null) return null;
     if (_sourceUrls is EqualUnmodifiableListView) return _sourceUrls;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sourceUrls);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -316,29 +317,29 @@ class _$DictionaryImpl implements _Dictionary {
 
 abstract class _Dictionary implements Dictionary {
   const factory _Dictionary({
-    final String word,
-    final String phonetic,
-    final List<Phonetic> phonetics,
-    final List<Meaning> meanings,
+    final String? word,
+    final String? phonetic,
+    final List<Phonetic>? phonetics,
+    final List<Meaning>? meanings,
     final License? license,
-    final List<String> sourceUrls,
+    final List<String>? sourceUrls,
   }) = _$DictionaryImpl;
 
   factory _Dictionary.fromJson(Map<String, dynamic> json) =
       _$DictionaryImpl.fromJson;
 
   @override
-  String get word;
+  String? get word;
   @override
-  String get phonetic;
+  String? get phonetic;
   @override
-  List<Phonetic> get phonetics;
+  List<Phonetic>? get phonetics;
   @override
-  List<Meaning> get meanings;
+  List<Meaning>? get meanings;
   @override
   License? get license;
   @override
-  List<String> get sourceUrls;
+  List<String>? get sourceUrls;
 
   /// Create a copy of Dictionary
   /// with the given fields replaced by the non-null parameter values.

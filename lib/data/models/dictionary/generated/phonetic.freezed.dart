@@ -21,9 +21,9 @@ Phonetic _$PhoneticFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Phonetic {
-  String get text => throw _privateConstructorUsedError;
-  String get audio => throw _privateConstructorUsedError;
-  String get sourceUrl => throw _privateConstructorUsedError;
+  String? get text => throw _privateConstructorUsedError;
+  String? get audio => throw _privateConstructorUsedError;
+  String? get sourceUrl => throw _privateConstructorUsedError;
 
   /// Serializes this Phonetic to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $PhoneticCopyWith<$Res> {
   factory $PhoneticCopyWith(Phonetic value, $Res Function(Phonetic) then) =
       _$PhoneticCopyWithImpl<$Res, Phonetic>;
   @useResult
-  $Res call({String text, String audio, String sourceUrl});
+  $Res call({String? text, String? audio, String? sourceUrl});
 }
 
 /// @nodoc
@@ -58,27 +58,27 @@ class _$PhoneticCopyWithImpl<$Res, $Val extends Phonetic>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = null,
-    Object? audio = null,
-    Object? sourceUrl = null,
+    Object? text = freezed,
+    Object? audio = freezed,
+    Object? sourceUrl = freezed,
   }) {
     return _then(
       _value.copyWith(
             text:
-                null == text
+                freezed == text
                     ? _value.text
                     : text // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
             audio:
-                null == audio
+                freezed == audio
                     ? _value.audio
                     : audio // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
             sourceUrl:
-                null == sourceUrl
+                freezed == sourceUrl
                     ? _value.sourceUrl
                     : sourceUrl // ignore: cast_nullable_to_non_nullable
-                        as String,
+                        as String?,
           )
           as $Val,
     );
@@ -94,7 +94,7 @@ abstract class _$$PhoneticImplCopyWith<$Res>
   ) = __$$PhoneticImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String text, String audio, String sourceUrl});
+  $Res call({String? text, String? audio, String? sourceUrl});
 }
 
 /// @nodoc
@@ -111,27 +111,27 @@ class __$$PhoneticImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? text = null,
-    Object? audio = null,
-    Object? sourceUrl = null,
+    Object? text = freezed,
+    Object? audio = freezed,
+    Object? sourceUrl = freezed,
   }) {
     return _then(
       _$PhoneticImpl(
         text:
-            null == text
+            freezed == text
                 ? _value.text
                 : text // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         audio:
-            null == audio
+            freezed == audio
                 ? _value.audio
                 : audio // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
         sourceUrl:
-            null == sourceUrl
+            freezed == sourceUrl
                 ? _value.sourceUrl
                 : sourceUrl // ignore: cast_nullable_to_non_nullable
-                    as String,
+                    as String?,
       ),
     );
   }
@@ -140,20 +140,17 @@ class __$$PhoneticImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PhoneticImpl implements _Phonetic {
-  const _$PhoneticImpl({this.text = '', this.audio = '', this.sourceUrl = ''});
+  const _$PhoneticImpl({this.text, this.audio, this.sourceUrl});
 
   factory _$PhoneticImpl.fromJson(Map<String, dynamic> json) =>
       _$$PhoneticImplFromJson(json);
 
   @override
-  @JsonKey()
-  final String text;
+  final String? text;
   @override
-  @JsonKey()
-  final String audio;
+  final String? audio;
   @override
-  @JsonKey()
-  final String sourceUrl;
+  final String? sourceUrl;
 
   @override
   String toString() {
@@ -191,20 +188,20 @@ class _$PhoneticImpl implements _Phonetic {
 
 abstract class _Phonetic implements Phonetic {
   const factory _Phonetic({
-    final String text,
-    final String audio,
-    final String sourceUrl,
+    final String? text,
+    final String? audio,
+    final String? sourceUrl,
   }) = _$PhoneticImpl;
 
   factory _Phonetic.fromJson(Map<String, dynamic> json) =
       _$PhoneticImpl.fromJson;
 
   @override
-  String get text;
+  String? get text;
   @override
-  String get audio;
+  String? get audio;
   @override
-  String get sourceUrl;
+  String? get sourceUrl;
 
   /// Create a copy of Phonetic
   /// with the given fields replaced by the non-null parameter values.

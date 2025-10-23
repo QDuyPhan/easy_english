@@ -119,9 +119,9 @@ abstract class BaseDioClient {
 @injectable
 class WordsDio extends BaseDioClient {
   WordsDio(Connectivity connectivity)
-    : super(connectivity, Endpoints.urlWordsApi, {
+    : super(connectivity, const String.fromEnvironment("WORDS_BASE_URL"), {
         "Content-Type": "application/json",
-        'x-rapidapi-key': Endpoints.x_rapidapi_key,
+        'x-rapidapi-key': const String.fromEnvironment("X_RAPI_API_KEY"),
         'x-rapidapi-host': 'wordsapiv1.p.rapidapi.com',
       });
 }
@@ -129,7 +129,7 @@ class WordsDio extends BaseDioClient {
 @injectable
 class DatamuseDio extends BaseDioClient {
   DatamuseDio(Connectivity connectivity)
-    : super(connectivity, Endpoints.urlDatamuseApi, {
+    : super(connectivity, const String.fromEnvironment("DATAMUSE_BASE_URL"), {
         'Content-Type': 'application/json; charset=UTF-8',
         'accept': '*/*',
       });
@@ -138,7 +138,7 @@ class DatamuseDio extends BaseDioClient {
 @injectable
 class DictionaryDio extends BaseDioClient {
   DictionaryDio(Connectivity connectivity)
-    : super(connectivity, Endpoints.urlDictionaryApi, {
+    : super(connectivity, const String.fromEnvironment("DICTIONARY_BASE_URL"), {
         'Content-Type': 'application/json; charset=UTF-8',
         'accept': '*/*',
       });
@@ -147,7 +147,7 @@ class DictionaryDio extends BaseDioClient {
 @injectable
 class HeroKuDio extends BaseDioClient {
   HeroKuDio(Connectivity connectivity)
-    : super(connectivity, Endpoints.urlHeroKuApi, {
+    : super(connectivity, const String.fromEnvironment("HERO_KU_BASE_URL"), {
         'Content-Type': 'application/json; charset=UTF-8',
         'accept': '*/*',
       });

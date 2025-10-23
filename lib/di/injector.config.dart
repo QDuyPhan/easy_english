@@ -22,6 +22,7 @@ import '../core/utils/local_notifications_tools.dart' as _i863;
 import '../data/datasources/local/assets_data.dart' as _i481;
 import '../data/datasources/local/local_data.dart' as _i614;
 import '../data/datasources/local/them_local.dart' as _i110;
+import '../data/datasources/remote/dictionary_service.dart' as _i835;
 import '../data/datasources/remote/hero_ku_service.dart' as _i512;
 import '../data/datasources/remote/words_service.dart' as _i82;
 import '../data/repositories/dictionary_repository_impl.dart' as _i1010;
@@ -40,6 +41,8 @@ import '../domain/repositories/theme_repository.dart' as _i443;
 import '../domain/repositories/topic_repository.dart' as _i13;
 import '../domain/repositories/vocabulary_repository.dart' as _i1063;
 import '../domain/repositories/words_repository.dart' as _i20;
+import '../domain/usecases/dictionary/get_word_translate_use_case.dart'
+    as _i887;
 import '../domain/usecases/get_all_oxford_words_use_case.dart' as _i822;
 import '../domain/usecases/get_daily_words_use_case.dart' as _i246;
 import '../domain/usecases/get_dictionary_use_case.dart' as _i1030;
@@ -104,6 +107,9 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i859.WordsBloc>(() => _i859.WordsBloc());
   gh.factory<_i69.DictionaryBloc>(() => _i69.DictionaryBloc());
   gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc());
+  gh.factory<_i887.GetWordTranslateUseCase>(
+    () => _i887.GetWordTranslateUseCase(),
+  );
   gh.lazySingleton<_i501.AudioPlayer>(() => audioPlayerModule.audioPlayer());
   gh.lazySingleton<_i895.Connectivity>(() => registerModule.connectivity);
   gh.factory<_i716.WordsDio>(() => _i716.WordsDio(gh<_i895.Connectivity>()));
@@ -115,6 +121,9 @@ Future<_i174.GetIt> $initGetIt(
   );
   gh.factory<_i716.HeroKuDio>(() => _i716.HeroKuDio(gh<_i895.Connectivity>()));
   gh.lazySingleton<_i82.WordsService>(() => _i82.WordsServiceImpl());
+  gh.lazySingleton<_i835.DictionaryService>(
+    () => _i835.DictionaryServiceImpl(),
+  );
   gh.lazySingleton<_i614.LocalData>(() => _i614.LocalDataImpl());
   gh.lazySingleton<_i481.AssetsData>(() => _i481.AssetsDataImpl());
   gh.lazySingleton<_i512.HeroKuService>(() => _i512.HeroKuServiceImpl());

@@ -11,12 +11,12 @@ part 'generated/dictionary.g.dart';
 @freezed
 class Dictionary with _$Dictionary {
   const factory Dictionary({
-    @Default("") String word,
-    @Default("") String phonetic,
-    @Default([]) List<Phonetic> phonetics,
-    @Default([]) List<Meaning> meanings,
+    String? word,
+    String? phonetic,
+    List<Phonetic>? phonetics,
+    List<Meaning>? meanings,
     License? license,
-    @Default([]) List<String> sourceUrls,
+    List<String>? sourceUrls,
   }) = _Dictionary;
 
   factory Dictionary.fromJson(Map<String, dynamic> json) =>

@@ -7,9 +7,9 @@ part 'generated/phonetic.g.dart';
 @freezed
 class Phonetic with _$Phonetic {
   const factory Phonetic({
-    @Default('') String text,
-    @Default('') String audio,
-    @Default('') String sourceUrl,
+   String? text,
+   String? audio,
+   String? sourceUrl,
   }) = _Phonetic;
 
   factory Phonetic.fromJson(Map<String, dynamic> json) =>

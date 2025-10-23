@@ -2,15 +2,19 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:easy_english/di/injector.dart' as di;
+import 'package:easy_english/domain/entities/dictionary/dictionary_entity.dart';
 import 'package:easy_english/domain/entities/words/word_entity.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../core/config/app_config.dart';
 import '../../core/errors/failure.dart';
+import '../../core/mapper/dictionary/dictionary_mapper.dart';
 import '../../core/mapper/words/word_mapper.dart';
 import '../../core/utils/assets.dart';
 import '../../domain/repositories/words_repository.dart';
+import '../datasources/remote/dictionary_service.dart';
 import '../datasources/remote/words_service.dart';
+import '../models/dictionary/dictionary.dart';
 import '../models/words/word.dart';
 
 @LazySingleton(as: WordsRepository)
@@ -79,6 +83,27 @@ class WordsRepositoryImpl implements WordsRepository {
       return Right(wordEntities);
     } catch (e) {
       app_config.printLog('e', 'Failed to get words: $e');
+      return Left(Failure.network(message: 'Error: $e'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<DictionaryEntity>>> getWordTranslate(
+    String word,
+  ) async {
+    try {
+      Either<Failure, List<Dictionary>> result = await di
+          .getIt<DictionaryService>()
+          .getWordTranslate(word);
+
+      return result.fold(
+        (failure) => Left(failure),
+        (word) => Right(
+          word.map((e) => DictionaryMapper.toDictionaryEntity(e)).toList(),
+        ),
+      );
+    } catch (e) {
+      app_config.printLog('e', 'Failed to get word: $e');
       return Left(Failure.network(message: 'Error: $e'));
     }
   }
