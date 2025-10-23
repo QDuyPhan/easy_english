@@ -81,29 +81,29 @@ Future<_i174.GetIt> $initGetIt(
   final sharedPreferencesModule = _$SharedPreferencesModule();
   final audioPlayerModule = _$AudioPlayerModule();
   final registerModule = _$RegisterModule();
-  gh.factory<_i556.AppMappr>(() => _i556.AppMappr());
-  gh.factory<_i863.LocalNotificationsTools>(
-    () => _i863.LocalNotificationsTools(),
-  );
-  gh.factory<_i822.GetAllOxfordWordsUseCase>(
-    () => _i822.GetAllOxfordWordsUseCase(),
-  );
-  gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc());
-  gh.factory<_i1030.GetDictionaryUseCase>(() => _i1030.GetDictionaryUseCase());
-  gh.factory<_i69.DictionaryBloc>(() => _i69.DictionaryBloc());
   await gh.factoryAsync<_i460.SharedPreferences>(
     () => sharedPreferencesModule.prefs,
     preResolve: true,
   );
+  gh.factory<_i556.AppMappr>(() => _i556.AppMappr());
+  gh.factory<_i863.LocalNotificationsTools>(
+    () => _i863.LocalNotificationsTools(),
+  );
   gh.factory<_i553.GetWordUseCase>(() => _i553.GetWordUseCase());
-  gh.factory<_i859.WordsBloc>(() => _i859.WordsBloc());
   gh.factory<_i143.GetListWordUseCase>(() => _i143.GetListWordUseCase());
+  gh.factory<_i822.GetAllOxfordWordsUseCase>(
+    () => _i822.GetAllOxfordWordsUseCase(),
+  );
   gh.factory<_i894.FetchRandomsWordsUseCase>(
     () => _i894.FetchRandomsWordsUseCase(),
   );
+  gh.factory<_i1030.GetDictionaryUseCase>(() => _i1030.GetDictionaryUseCase());
   gh.factory<_i442.GetWordFromTopicUseCase>(
     () => _i442.GetWordFromTopicUseCase(),
   );
+  gh.factory<_i859.WordsBloc>(() => _i859.WordsBloc());
+  gh.factory<_i69.DictionaryBloc>(() => _i69.DictionaryBloc());
+  gh.factory<_i431.VocabularyBloc>(() => _i431.VocabularyBloc());
   gh.lazySingleton<_i501.AudioPlayer>(() => audioPlayerModule.audioPlayer());
   gh.lazySingleton<_i895.Connectivity>(() => registerModule.connectivity);
   gh.factory<_i716.WordsDio>(() => _i716.WordsDio(gh<_i895.Connectivity>()));
@@ -177,11 +177,11 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i280.GetTopicsUseCase>(
     () => _i280.GetTopicsUseCase(gh<_i13.TopicRepository>()),
   );
-  gh.factory<_i836.GetTopicFromJsonUseCase>(
-    () => _i836.GetTopicFromJsonUseCase(gh<_i13.TopicRepository>()),
-  );
   gh.factory<_i902.SaveTopicWordUseCase>(
     () => _i902.SaveTopicWordUseCase(gh<_i13.TopicRepository>()),
+  );
+  gh.factory<_i836.GetTopicFromJsonUseCase>(
+    () => _i836.GetTopicFromJsonUseCase(gh<_i13.TopicRepository>()),
   );
   gh.factory<_i282.TopicsBloc>(
     () => _i282.TopicsBloc(
