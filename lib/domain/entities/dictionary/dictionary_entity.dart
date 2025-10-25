@@ -13,10 +13,10 @@ class DictionaryEntity {
   DictionaryEntity({
     this.word,
     this.phonetic,
-    this.phonetics = const [],
-    this.meanings = const [],
+    this.phonetics,
+    this.meanings,
     this.license,
-    this.sourceUrls = const [],
+    this.sourceUrls,
   });
 
   DictionaryEntity copyWith({
@@ -35,36 +35,35 @@ class DictionaryEntity {
     sourceUrls: sourceUrls ?? this.sourceUrls,
   );
 
-  factory DictionaryEntity.fromJson(Map<String, dynamic> json) {
-    return DictionaryEntity(
-      word: json['word'] ?? '',
-      phonetic: json['phonetic'] ?? '',
-      phonetics:
-          json['phonetics'] != null
-              ? List<PhoneticEntity>.from(
-                json['phonetics'].map((e) => PhoneticEntity.fromJson(e)),
-              )
-              : [],
-      meanings:
-          json['meanings'] != null
-              ? List<MeaningEntity>.from(
-                json['meanings'].map((e) => MeaningEntity.fromJson(e)),
-              )
-              : [],
-      license:
-          json['license'] != null
-              ? LicenseEntity.fromJson(json['license'])
-              : null,
-      sourceUrls:
-          json['sourceUrls'] != null
-              ? List<String>.from(json["sourceUrls"].map((x) => x))
-              : [],
-    );
-  }
+  factory DictionaryEntity.fromJson(Map<String, dynamic> json) =>
+      DictionaryEntity(
+        word: json["word"] ?? '',
+        phonetic: json["phonetic"] ?? '',
+        phonetics:
+            json["phonetics"] == null
+                ? []
+                : List<PhoneticEntity>.from(
+                  json["phonetics"].map((x) => PhoneticEntity.fromJson(x)),
+                ),
+        meanings:
+            json["meanings"] == null
+                ? []
+                : List<MeaningEntity>.from(
+                  json["meanings"].map((x) => MeaningEntity.fromJson(x)),
+                ),
+        license:
+            json["license"] == null
+                ? null
+                : LicenseEntity.fromJson(json["license"]),
+        sourceUrls:
+            json["sourceUrls"] == null
+                ? []
+                : List<String>.from(json["sourceUrls"].map((x) => x)),
+      );
 
   Map<String, dynamic> toJson() => {
     'word': word ?? '',
-      'phonetic': phonetic ?? '',
+    'phonetic': phonetic ?? '',
     'phonetics': phonetics ?? [],
     'meanings': meanings ?? [],
     'license': license ?? null,

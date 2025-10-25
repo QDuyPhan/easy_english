@@ -119,14 +119,16 @@ class __$$LicenseImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$LicenseImpl implements _License {
-  const _$LicenseImpl({this.name, this.url});
+  const _$LicenseImpl({this.name = '', this.url = ''});
 
   factory _$LicenseImpl.fromJson(Map<String, dynamic> json) =>
       _$$LicenseImplFromJson(json);
 
   @override
+  @JsonKey()
   final String? name;
   @override
+  @JsonKey()
   final String? url;
 
   @override

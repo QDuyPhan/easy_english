@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:easy_english/core/config/app_config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -32,7 +31,6 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
     final result = await di.getIt<GetWordTranslateUseCase>().execute(
       event.word,
     );
-    app_config.printLog('i', 'result: ${result}');
     result.fold(
       (failure) {
         emit(state.copyWith(error: failure.message));

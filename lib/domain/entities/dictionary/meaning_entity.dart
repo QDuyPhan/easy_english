@@ -9,8 +9,8 @@ class MeaningEntity {
   MeaningEntity({
     this.partOfSpeech,
     this.definitions,
-    this.synonyms = const [],
-    this.antonyms = const [],
+    this.synonyms,
+    this.antonyms,
   });
 
   MeaningEntity copyWith({

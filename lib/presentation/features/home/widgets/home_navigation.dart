@@ -46,6 +46,7 @@ class HomeNavigation extends StatefulWidget {
 
 class _HomeNavigationState extends State<HomeNavigation> {
   late final AppLifecycleListener _appLifecycleListener;
+  Offset fabPosition = const Offset(280, 650);
 
   @override
   void initState() {
@@ -78,16 +79,25 @@ class _HomeNavigationState extends State<HomeNavigation> {
     super.dispose();
   }
 
-  Future<String> _translate(String text) async {
-    final translator = GoogleTranslator();
+  Future<String> _translate(String text, String from, String to) async {
+    final GoogleTranslator translator = GoogleTranslator();
 
     try {
-      final translation = await translator.translate(
+      final Translation translation = await translator.translate(
         text,
-        from: 'en',
-        to: 'vi',
+        from: from,
+        to: to,
       );
-      return translation.text;
+      final String translatedText = translation.text;
+      final String englishWord = (from == 'en') ? text : translatedText;
+      final String vietnameseWord = (from == 'vi') ? text : translatedText;
+
+      // if (from == 'en') {
+      //   return englishWord;
+      // } else {
+      //   return vietnameseWord;
+      // }
+      return translatedText;
     } catch (e) {
       return 'Đã xảy ra lỗi khi dịch. Vui lòng thử lại.';
     }
@@ -100,6 +110,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
     final textController = TextEditingController();
     String translatedText = '';
     bool isLoading = false;
+    String translationMode = 'en_vi';
     return showDialog(
       context: context,
       barrierDismissible: false,
@@ -111,31 +122,47 @@ class _HomeNavigationState extends State<HomeNavigation> {
               content: SingleChildScrollView(
                 child: ListBody(
                   children: <Widget>[
+                    // ## Dropdown chọn chiều dịch
+                    DropdownButtonFormField<String>(
+                      value: translationMode,
+                      items: const [
+                        DropdownMenuItem(
+                          value: 'en_vi',
+                          child: Text('Anh -> Việt'),
+                        ),
+                        DropdownMenuItem(
+                          value: 'vi_en',
+                          child: Text('Việt -> Anh'),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        setState(() {
+                          translationMode = value!;
+                        });
+                      },
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                      ),
+                    ),
+                    const SizedBox(height: 15),
                     TextField(
                       controller: textController,
-                      decoration: const InputDecoration(
-                        hintText: 'Nhập từ tiếng Anh...',
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        hintText:
+                            translationMode == 'en_vi'
+                                ? 'Nhập từ tiếng Anh...'
+                                : 'Nhập từ tiếng Việt...',
+                        border: const OutlineInputBorder(),
                       ),
                     ),
                     const SizedBox(height: 20),
                     if (isLoading)
                       const Center(child: CircularProgressIndicator())
                     else if (translatedText.isNotEmpty)
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.blue.shade50,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Text(
-                          translatedText,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.black87,
-                          ),
-                        ),
-                      ),
+                      // ## Widget hiển-thị kết-quả
+                      _buildResultWidget('', translationMode),
+                    Text(translatedText),
                   ],
                 ),
               ),
@@ -159,7 +186,10 @@ class _HomeNavigationState extends State<HomeNavigation> {
                       translatedText = '';
                     });
 
-                    final result = await _translate(textToTranslate);
+                    final String from = translationMode.split('_')[0];
+                    final String to = translationMode.split('_')[1];
+
+                    final result = await _translate(textToTranslate, from, to);
 
                     setState(() {
                       translatedText = result;
@@ -183,12 +213,97 @@ class _HomeNavigationState extends State<HomeNavigation> {
     );
   }
 
+  Widget _buildResultWidget(String result, String mode) {
+    // final sourceWord = result.sourceWord;
+    // final translatedWord = result.translatedWord;
+    // final ipa = result.ipa;
+    // final sourceAudioUrl = result.sourceAudioUrl;
+    // final translatedAudioUrl = result.translatedAudioUrl;
+
+    return BlocBuilder<WordsBloc, WordsState>(
+      builder: (context, state) {
+        return Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.indigo.shade50,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Từ gốc
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      state.dictionaries[0].word ?? '',
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.indigo,
+                      ),
+                    ),
+                  ),
+                  if (result.isNotEmpty)
+                    IconButton(
+                      icon: const Icon(Icons.volume_up, color: Colors.indigo),
+                      onPressed: () => null,
+                    ),
+                ],
+              ),
+              const SizedBox(height: 8),
+
+              // Từ dịch và phiên-âm
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          result,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        // if (ipa != null)
+                        //   Text(
+                        //     '/$ipa/',
+                        //     style: const TextStyle(
+                        //       fontSize: 16,
+                        //       fontStyle: FontStyle.italic,
+                        //     ),
+                        //   ),
+                      ],
+                    ),
+                  ),
+                  // if (translatedAudioUrl != null)
+                  //   IconButton(
+                  //     icon: const Icon(Icons.volume_up, color: Colors.indigo),
+                  //     onPressed: () => _playAudio(translatedAudioUrl),
+                  //   ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final currentRoute = GoRouter.of(context).currentRoute;
     final colorScheme = Theme.of(context).colorScheme;
     final selectedIndex = HomeNavigation.routes.indexOf(currentRoute);
     final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final bool showFab =
+        [0, 1, 2, 3].contains(widget.navigationShell.currentIndex) &&
+        HomeNavigation.routes.contains(
+          widget.navigationShell.shellRouteContext.routerState.uri.path,
+        );
 
     return MultiBlocListener(
       listeners: [
@@ -208,32 +323,56 @@ class _HomeNavigationState extends State<HomeNavigation> {
         ),
       ],
       child: Scaffold(
-        body: SafeArea(
-          child: Column(children: [Flexible(child: widget.navigationShell)]),
-        ),
-        floatingActionButton:
-            [0, 1, 2, 3].contains(widget.navigationShell.currentIndex) &&
-                    HomeNavigation.routes.contains(
-                      widget
-                          .navigationShell
-                          .shellRouteContext
-                          .routerState
-                          .uri
-                          .path,
-                    )
-                ? FloatingActionButton(
-                  onPressed: () {
-                    final wordsBloc = context.read<WordsBloc>();
-                    _showTranslationDialog(context, wordsBloc);
-                  },
-                  backgroundColor: colorScheme.primary,
-                  foregroundColor: colorScheme.onPrimary,
-                  elevation: 8.0,
-                  tooltip: 'Dịch văn bản',
-                  child: const Icon(Icons.translate),
-                )
-                : null,
+        body: Stack(
+          children: [
+            SafeArea(
+              child: Column(
+                children: [Flexible(child: widget.navigationShell)],
+              ),
+            ),
 
+            if (showFab)
+              Positioned(
+                left: fabPosition.dx,
+                top: fabPosition.dy,
+                child: Draggable(
+                  feedback: FloatingActionButton(
+                    onPressed: () {},
+                    backgroundColor: colorScheme.primary.withOpacity(0.7),
+                    foregroundColor: colorScheme.onPrimary,
+                    child: const Icon(Icons.translate),
+                  ),
+                  childWhenDragging: Container(),
+                  onDragEnd: (details) {
+                    setState(() {
+                      final Size size = MediaQuery.sizeOf(context);
+                      double newDx = details.offset.dx;
+                      double newDy = details.offset.dy;
+
+                      if (newDx < 0) newDx = 0;
+                      if (newDy < 0) newDy = 0;
+
+                      if (newDx > size.width - 56) newDx = size.width - 56;
+                      if (newDy > size.height - 56) newDy = size.height - 56;
+
+                      fabPosition = Offset(newDx, newDy);
+                    });
+                  },
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      final wordsBloc = context.read<WordsBloc>();
+                      _showTranslationDialog(context, wordsBloc);
+                    },
+                    backgroundColor: colorScheme.primary,
+                    foregroundColor: colorScheme.onPrimary,
+                    elevation: 8.0,
+                    tooltip: 'Dịch văn bản',
+                    child: const Icon(Icons.translate),
+                  ),
+                ),
+              ),
+          ],
+        ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
             splashColor: Colors.transparent,

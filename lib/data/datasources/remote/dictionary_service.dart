@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:easy_english/core/config/networking/dio_client.dart';
+import 'package:easy_english/data/models/dictionary/dictionary.dart';
 import 'package:easy_english/di/injector.dart' as di;
 import 'package:injectable/injectable.dart';
 
 import '../../../core/errors/failure.dart';
-import '../../models/dictionary/dictionary.dart';
 
 abstract class DictionaryService {
   Future<Either<Failure, List<Dictionary>>> getWordTranslate(String word);
@@ -19,8 +19,12 @@ class DictionaryServiceImpl implements DictionaryService {
   ) async {
     try {
       final response = await di.getIt<DictionaryDio>().get('/$word');
+      final rawData = response.data;
       if (response.statusCode == 200) {
-        return Right(response.data.map((e) => Dictionary.fromJson(e)).toList());
+        final list = (rawData as List<dynamic>)
+            .map((e) => Dictionary.fromJson(e as Map<String, dynamic>))
+            .toList();
+        return Right(list);
       } else {
         return Left(Failure.notFound(message: response.statusMessage ?? ''));
       }

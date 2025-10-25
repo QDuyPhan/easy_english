@@ -215,12 +215,12 @@ class __$$DictionaryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DictionaryImpl implements _Dictionary {
   const _$DictionaryImpl({
-    this.word,
-    this.phonetic,
-    final List<Phonetic>? phonetics,
-    final List<Meaning>? meanings,
+    this.word = '',
+    this.phonetic = '',
+    final List<Phonetic>? phonetics = const [],
+    final List<Meaning>? meanings = const [],
     this.license,
-    final List<String>? sourceUrls,
+    final List<String>? sourceUrls = const [],
   }) : _phonetics = phonetics,
        _meanings = meanings,
        _sourceUrls = sourceUrls;
@@ -229,11 +229,14 @@ class _$DictionaryImpl implements _Dictionary {
       _$$DictionaryImplFromJson(json);
 
   @override
+  @JsonKey()
   final String? word;
   @override
+  @JsonKey()
   final String? phonetic;
   final List<Phonetic>? _phonetics;
   @override
+  @JsonKey()
   List<Phonetic>? get phonetics {
     final value = _phonetics;
     if (value == null) return null;
@@ -244,6 +247,7 @@ class _$DictionaryImpl implements _Dictionary {
 
   final List<Meaning>? _meanings;
   @override
+  @JsonKey()
   List<Meaning>? get meanings {
     final value = _meanings;
     if (value == null) return null;
@@ -256,6 +260,7 @@ class _$DictionaryImpl implements _Dictionary {
   final License? license;
   final List<String>? _sourceUrls;
   @override
+  @JsonKey()
   List<String>? get sourceUrls {
     final value = _sourceUrls;
     if (value == null) return null;

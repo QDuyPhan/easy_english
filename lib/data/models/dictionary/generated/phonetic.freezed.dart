@@ -24,6 +24,7 @@ mixin _$Phonetic {
   String? get text => throw _privateConstructorUsedError;
   String? get audio => throw _privateConstructorUsedError;
   String? get sourceUrl => throw _privateConstructorUsedError;
+  License? get license => throw _privateConstructorUsedError;
 
   /// Serializes this Phonetic to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +41,9 @@ abstract class $PhoneticCopyWith<$Res> {
   factory $PhoneticCopyWith(Phonetic value, $Res Function(Phonetic) then) =
       _$PhoneticCopyWithImpl<$Res, Phonetic>;
   @useResult
-  $Res call({String? text, String? audio, String? sourceUrl});
+  $Res call({String? text, String? audio, String? sourceUrl, License? license});
+
+  $LicenseCopyWith<$Res>? get license;
 }
 
 /// @nodoc
@@ -61,6 +64,7 @@ class _$PhoneticCopyWithImpl<$Res, $Val extends Phonetic>
     Object? text = freezed,
     Object? audio = freezed,
     Object? sourceUrl = freezed,
+    Object? license = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -79,9 +83,28 @@ class _$PhoneticCopyWithImpl<$Res, $Val extends Phonetic>
                     ? _value.sourceUrl
                     : sourceUrl // ignore: cast_nullable_to_non_nullable
                         as String?,
+            license:
+                freezed == license
+                    ? _value.license
+                    : license // ignore: cast_nullable_to_non_nullable
+                        as License?,
           )
           as $Val,
     );
+  }
+
+  /// Create a copy of Phonetic
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LicenseCopyWith<$Res>? get license {
+    if (_value.license == null) {
+      return null;
+    }
+
+    return $LicenseCopyWith<$Res>(_value.license!, (value) {
+      return _then(_value.copyWith(license: value) as $Val);
+    });
   }
 }
 
@@ -94,7 +117,10 @@ abstract class _$$PhoneticImplCopyWith<$Res>
   ) = __$$PhoneticImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? text, String? audio, String? sourceUrl});
+  $Res call({String? text, String? audio, String? sourceUrl, License? license});
+
+  @override
+  $LicenseCopyWith<$Res>? get license;
 }
 
 /// @nodoc
@@ -114,6 +140,7 @@ class __$$PhoneticImplCopyWithImpl<$Res>
     Object? text = freezed,
     Object? audio = freezed,
     Object? sourceUrl = freezed,
+    Object? license = freezed,
   }) {
     return _then(
       _$PhoneticImpl(
@@ -132,6 +159,11 @@ class __$$PhoneticImplCopyWithImpl<$Res>
                 ? _value.sourceUrl
                 : sourceUrl // ignore: cast_nullable_to_non_nullable
                     as String?,
+        license:
+            freezed == license
+                ? _value.license
+                : license // ignore: cast_nullable_to_non_nullable
+                    as License?,
       ),
     );
   }
@@ -140,21 +172,31 @@ class __$$PhoneticImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PhoneticImpl implements _Phonetic {
-  const _$PhoneticImpl({this.text, this.audio, this.sourceUrl});
+  const _$PhoneticImpl({
+    this.text = '',
+    this.audio = '',
+    this.sourceUrl = '',
+    this.license,
+  });
 
   factory _$PhoneticImpl.fromJson(Map<String, dynamic> json) =>
       _$$PhoneticImplFromJson(json);
 
   @override
+  @JsonKey()
   final String? text;
   @override
+  @JsonKey()
   final String? audio;
   @override
+  @JsonKey()
   final String? sourceUrl;
+  @override
+  final License? license;
 
   @override
   String toString() {
-    return 'Phonetic(text: $text, audio: $audio, sourceUrl: $sourceUrl)';
+    return 'Phonetic(text: $text, audio: $audio, sourceUrl: $sourceUrl, license: $license)';
   }
 
   @override
@@ -165,12 +207,13 @@ class _$PhoneticImpl implements _Phonetic {
             (identical(other.text, text) || other.text == text) &&
             (identical(other.audio, audio) || other.audio == audio) &&
             (identical(other.sourceUrl, sourceUrl) ||
-                other.sourceUrl == sourceUrl));
+                other.sourceUrl == sourceUrl) &&
+            (identical(other.license, license) || other.license == license));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, text, audio, sourceUrl);
+  int get hashCode => Object.hash(runtimeType, text, audio, sourceUrl, license);
 
   /// Create a copy of Phonetic
   /// with the given fields replaced by the non-null parameter values.
@@ -191,6 +234,7 @@ abstract class _Phonetic implements Phonetic {
     final String? text,
     final String? audio,
     final String? sourceUrl,
+    final License? license,
   }) = _$PhoneticImpl;
 
   factory _Phonetic.fromJson(Map<String, dynamic> json) =
@@ -202,6 +246,8 @@ abstract class _Phonetic implements Phonetic {
   String? get audio;
   @override
   String? get sourceUrl;
+  @override
+  License? get license;
 
   /// Create a copy of Phonetic
   /// with the given fields replaced by the non-null parameter values.

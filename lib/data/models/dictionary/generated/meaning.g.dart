@@ -9,15 +9,18 @@ part of '../meaning.dart';
 _$MeaningImpl _$$MeaningImplFromJson(
   Map<String, dynamic> json,
 ) => _$MeaningImpl(
-  partOfSpeech: json['part_of_speech'] as String?,
+  partOfSpeech: json['part_of_speech'] as String? ?? '',
   definitions:
       (json['definitions'] as List<dynamic>?)
           ?.map((e) => Definition.fromJson(e as Map<String, dynamic>))
-          .toList(),
+          .toList() ??
+      const [],
   synonyms:
-      (json['synonyms'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      (json['synonyms'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
   antonyms:
-      (json['antonyms'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      (json['antonyms'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$$MeaningImplToJson(_$MeaningImpl instance) =>

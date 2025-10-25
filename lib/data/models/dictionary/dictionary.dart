@@ -5,18 +5,17 @@ import 'license.dart';
 import 'meaning.dart';
 
 part 'generated/dictionary.freezed.dart';
-
 part 'generated/dictionary.g.dart';
 
 @freezed
 class Dictionary with _$Dictionary {
   const factory Dictionary({
-    String? word,
-    String? phonetic,
-    List<Phonetic>? phonetics,
-    List<Meaning>? meanings,
+    @Default('') String? word,
+    @Default('') String? phonetic,
+    @Default([]) List<Phonetic>? phonetics,
+    @Default([]) List<Meaning>? meanings,
     License? license,
-    List<String>? sourceUrls,
+    @Default([]) List<String>? sourceUrls,
   }) = _Dictionary;
 
   factory Dictionary.fromJson(Map<String, dynamic> json) =>

@@ -8,13 +8,12 @@ import 'package:injectable/injectable.dart';
 
 import '../../core/config/app_config.dart';
 import '../../core/errors/failure.dart';
-import '../../core/mapper/dictionary/dictionary_mapper.dart';
+import '../../core/mapper/dictionary/dictionary_mapper.dart' show DictionaryMapper;
 import '../../core/mapper/words/word_mapper.dart';
 import '../../core/utils/assets.dart';
 import '../../domain/repositories/words_repository.dart';
 import '../datasources/remote/dictionary_service.dart';
 import '../datasources/remote/words_service.dart';
-import '../models/dictionary/dictionary.dart';
 import '../models/words/word.dart';
 
 @LazySingleton(as: WordsRepository)
@@ -92,16 +91,10 @@ class WordsRepositoryImpl implements WordsRepository {
     String word,
   ) async {
     try {
-      Either<Failure, List<Dictionary>> result = await di
-          .getIt<DictionaryService>()
-          .getWordTranslate(word);
-
-      return result.fold(
-        (failure) => Left(failure),
-        (word) => Right(
-          word.map((e) => DictionaryMapper.toDictionaryEntity(e)).toList(),
-        ),
-      );
+      final result = await di.getIt<DictionaryService>().getWordTranslate(word);
+      return result.fold((failure) => Left(failure), (word) => Right(
+        word.map((e) => DictionaryMapper.toDictionaryEntity(e)).toList(),
+      ));
     } catch (e) {
       app_config.printLog('e', 'Failed to get word: $e');
       return Left(Failure.network(message: 'Error: $e'));

@@ -1,20 +1,20 @@
 class DefinitionEntity {
   final String? definition;
-  final List<dynamic>? synonyms;
-  final List<dynamic>? antonyms;
+  final List<String>? synonyms;
+  final List<String>? antonyms;
   final String? example;
 
   DefinitionEntity({
     this.definition,
-    this.synonyms = const [],
-    this.antonyms = const [],
+    this.synonyms,
+    this.antonyms,
     this.example,
   });
 
   DefinitionEntity copyWith({
     String? definition,
-    List<dynamic>? synonyms,
-    List<dynamic>? antonyms,
+    List<String>? synonyms,
+    List<String>? antonyms,
     String? example,
   }) => DefinitionEntity(
     definition: definition ?? this.definition,
@@ -28,11 +28,11 @@ class DefinitionEntity {
       definition: json['definition'] ?? '',
       synonyms:
           json['synonyms'] != null
-              ? List<dynamic>.from(json["synonyms"].map((x) => x))
+              ? List<String>.from(json["synonyms"].map((x) => x))
               : [],
       antonyms:
           json['antonyms'] != null
-              ? List<dynamic>.from(json["antonyms"].map((x) => x))
+              ? List<String>.from(json["antonyms"].map((x) => x))
               : [],
       example: json['example'] ?? '',
     );

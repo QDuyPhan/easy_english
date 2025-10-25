@@ -162,10 +162,10 @@ class __$$MeaningImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MeaningImpl implements _Meaning {
   const _$MeaningImpl({
-    this.partOfSpeech,
-    final List<Definition>? definitions,
-    final List<String>? synonyms,
-    final List<String>? antonyms,
+    this.partOfSpeech = '',
+    final List<Definition>? definitions = const [],
+    final List<String>? synonyms = const [],
+    final List<String>? antonyms = const [],
   }) : _definitions = definitions,
        _synonyms = synonyms,
        _antonyms = antonyms;
@@ -174,9 +174,11 @@ class _$MeaningImpl implements _Meaning {
       _$$MeaningImplFromJson(json);
 
   @override
+  @JsonKey()
   final String? partOfSpeech;
   final List<Definition>? _definitions;
   @override
+  @JsonKey()
   List<Definition>? get definitions {
     final value = _definitions;
     if (value == null) return null;
@@ -187,6 +189,7 @@ class _$MeaningImpl implements _Meaning {
 
   final List<String>? _synonyms;
   @override
+  @JsonKey()
   List<String>? get synonyms {
     final value = _synonyms;
     if (value == null) return null;
@@ -197,6 +200,7 @@ class _$MeaningImpl implements _Meaning {
 
   final List<String>? _antonyms;
   @override
+  @JsonKey()
   List<String>? get antonyms {
     final value = _antonyms;
     if (value == null) return null;

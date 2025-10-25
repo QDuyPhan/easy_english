@@ -22,8 +22,8 @@ Definition _$DefinitionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Definition {
   String? get definition => throw _privateConstructorUsedError;
-  List<dynamic>? get synonyms => throw _privateConstructorUsedError;
-  List<dynamic>? get antonyms => throw _privateConstructorUsedError;
+  List<String>? get synonyms => throw _privateConstructorUsedError;
+  List<String>? get antonyms => throw _privateConstructorUsedError;
   String? get example => throw _privateConstructorUsedError;
 
   /// Serializes this Definition to a JSON map.
@@ -45,8 +45,8 @@ abstract class $DefinitionCopyWith<$Res> {
   @useResult
   $Res call({
     String? definition,
-    List<dynamic>? synonyms,
-    List<dynamic>? antonyms,
+    List<String>? synonyms,
+    List<String>? antonyms,
     String? example,
   });
 }
@@ -82,12 +82,12 @@ class _$DefinitionCopyWithImpl<$Res, $Val extends Definition>
                 freezed == synonyms
                     ? _value.synonyms
                     : synonyms // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
+                        as List<String>?,
             antonyms:
                 freezed == antonyms
                     ? _value.antonyms
                     : antonyms // ignore: cast_nullable_to_non_nullable
-                        as List<dynamic>?,
+                        as List<String>?,
             example:
                 freezed == example
                     ? _value.example
@@ -110,8 +110,8 @@ abstract class _$$DefinitionImplCopyWith<$Res>
   @useResult
   $Res call({
     String? definition,
-    List<dynamic>? synonyms,
-    List<dynamic>? antonyms,
+    List<String>? synonyms,
+    List<String>? antonyms,
     String? example,
   });
 }
@@ -146,12 +146,12 @@ class __$$DefinitionImplCopyWithImpl<$Res>
             freezed == synonyms
                 ? _value._synonyms
                 : synonyms // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
+                    as List<String>?,
         antonyms:
             freezed == antonyms
                 ? _value._antonyms
                 : antonyms // ignore: cast_nullable_to_non_nullable
-                    as List<dynamic>?,
+                    as List<String>?,
         example:
             freezed == example
                 ? _value.example
@@ -166,10 +166,10 @@ class __$$DefinitionImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DefinitionImpl implements _Definition {
   const _$DefinitionImpl({
-    this.definition,
-    final List<dynamic>? synonyms,
-    final List<dynamic>? antonyms,
-    this.example,
+    this.definition = '',
+    final List<String>? synonyms = const [],
+    final List<String>? antonyms = const [],
+    this.example = '',
   }) : _synonyms = synonyms,
        _antonyms = antonyms;
 
@@ -177,10 +177,12 @@ class _$DefinitionImpl implements _Definition {
       _$$DefinitionImplFromJson(json);
 
   @override
+  @JsonKey()
   final String? definition;
-  final List<dynamic>? _synonyms;
+  final List<String>? _synonyms;
   @override
-  List<dynamic>? get synonyms {
+  @JsonKey()
+  List<String>? get synonyms {
     final value = _synonyms;
     if (value == null) return null;
     if (_synonyms is EqualUnmodifiableListView) return _synonyms;
@@ -188,9 +190,10 @@ class _$DefinitionImpl implements _Definition {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<dynamic>? _antonyms;
+  final List<String>? _antonyms;
   @override
-  List<dynamic>? get antonyms {
+  @JsonKey()
+  List<String>? get antonyms {
     final value = _antonyms;
     if (value == null) return null;
     if (_antonyms is EqualUnmodifiableListView) return _antonyms;
@@ -199,6 +202,7 @@ class _$DefinitionImpl implements _Definition {
   }
 
   @override
+  @JsonKey()
   final String? example;
 
   @override
@@ -245,8 +249,8 @@ class _$DefinitionImpl implements _Definition {
 abstract class _Definition implements Definition {
   const factory _Definition({
     final String? definition,
-    final List<dynamic>? synonyms,
-    final List<dynamic>? antonyms,
+    final List<String>? synonyms,
+    final List<String>? antonyms,
     final String? example,
   }) = _$DefinitionImpl;
 
@@ -256,9 +260,9 @@ abstract class _Definition implements Definition {
   @override
   String? get definition;
   @override
-  List<dynamic>? get synonyms;
+  List<String>? get synonyms;
   @override
-  List<dynamic>? get antonyms;
+  List<String>? get antonyms;
   @override
   String? get example;
 

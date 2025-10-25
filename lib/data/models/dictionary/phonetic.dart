@@ -1,15 +1,17 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'generated/phonetic.freezed.dart';
+import 'license.dart';
 
+part 'generated/phonetic.freezed.dart';
 part 'generated/phonetic.g.dart';
 
 @freezed
 class Phonetic with _$Phonetic {
   const factory Phonetic({
-   String? text,
-   String? audio,
-   String? sourceUrl,
+    @Default('') String? text,
+    @Default('') String? audio,
+    @Default('') String? sourceUrl,
+    License? license,
   }) = _Phonetic;
 
   factory Phonetic.fromJson(Map<String, dynamic> json) =>
