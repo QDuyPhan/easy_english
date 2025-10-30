@@ -63,6 +63,7 @@ import '../domain/usecases/save_topic_word_use_case.dart' as _i902;
 import '../domain/usecases/search_words_use_case.dart' as _i63;
 import '../domain/usecases/words/get_list_word_use_case.dart' as _i143;
 import '../domain/usecases/words/get_word_use_case.dart' as _i553;
+import '../presentation/features/bloc/translate/translate_bloc.dart' as _i397;
 import '../presentation/features/dictionary/bloc/dictionary_bloc.dart' as _i69;
 import '../presentation/features/home/bloc/daily_words_bloc.dart' as _i531;
 import '../presentation/features/home/bloc/words_bloc.dart' as _i859;
@@ -110,6 +111,7 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i887.GetWordTranslateUseCase>(
     () => _i887.GetWordTranslateUseCase(),
   );
+  gh.factory<_i397.TranslateBloc>(() => _i397.TranslateBloc());
   gh.lazySingleton<_i501.AudioPlayer>(() => audioPlayerModule.audioPlayer());
   gh.lazySingleton<_i895.Connectivity>(() => registerModule.connectivity);
   gh.factory<_i716.WordsDio>(() => _i716.WordsDio(gh<_i895.Connectivity>()));

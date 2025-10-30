@@ -1,11 +1,11 @@
 import 'package:easy_english/core/navigation/app_route_paths.dart';
 import 'package:easy_english/core/utils/extensions/go_router_extension.dart';
+import 'package:easy_english/presentation/features/common/dialog/translate_dialog.dart';
 import 'package:easy_english/presentation/features/home/bloc/words_bloc.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:translator/translator.dart';
 
 import '../../../../core/config/app_config.dart';
 import '../../../../core/errors/failure.dart';
@@ -79,215 +79,14 @@ class _HomeNavigationState extends State<HomeNavigation> {
     super.dispose();
   }
 
-  Future<String> _translate(String text, String from, String to) async {
-    final GoogleTranslator translator = GoogleTranslator();
-
-    try {
-      final Translation translation = await translator.translate(
-        text,
-        from: from,
-        to: to,
-      );
-      final String translatedText = translation.text;
-      final String englishWord = (from == 'en') ? text : translatedText;
-      final String vietnameseWord = (from == 'vi') ? text : translatedText;
-
-      // if (from == 'en') {
-      //   return englishWord;
-      // } else {
-      //   return vietnameseWord;
-      // }
-      return translatedText;
-    } catch (e) {
-      return 'Đã xảy ra lỗi khi dịch. Vui lòng thử lại.';
-    }
-  }
-
   Future<void> _showTranslationDialog(
     BuildContext context,
-    WordsBloc wordsBloc,
   ) async {
-    final textController = TextEditingController();
-    String translatedText = '';
-    bool isLoading = false;
-    String translationMode = 'en_vi';
     return showDialog(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext dialogContext) {
-        return StatefulBuilder(
-          builder: (context, setState) {
-            return AlertDialog(
-              title: const Text('Translate'),
-              content: SingleChildScrollView(
-                child: ListBody(
-                  children: <Widget>[
-                    // ## Dropdown chọn chiều dịch
-                    DropdownButtonFormField<String>(
-                      value: translationMode,
-                      items: const [
-                        DropdownMenuItem(
-                          value: 'en_vi',
-                          child: Text('Anh -> Việt'),
-                        ),
-                        DropdownMenuItem(
-                          value: 'vi_en',
-                          child: Text('Việt -> Anh'),
-                        ),
-                      ],
-                      onChanged: (value) {
-                        setState(() {
-                          translationMode = value!;
-                        });
-                      },
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 12),
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                    TextField(
-                      controller: textController,
-                      decoration: InputDecoration(
-                        hintText:
-                            translationMode == 'en_vi'
-                                ? 'Nhập từ tiếng Anh...'
-                                : 'Nhập từ tiếng Việt...',
-                        border: const OutlineInputBorder(),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    if (isLoading)
-                      const Center(child: CircularProgressIndicator())
-                    else if (translatedText.isNotEmpty)
-                      // ## Widget hiển-thị kết-quả
-                      _buildResultWidget('', translationMode),
-                    Text(translatedText),
-                  ],
-                ),
-              ),
-              actions: [
-                TextButton(
-                  child: const Text('Hủy'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                ElevatedButton(
-                  child: const Text('Dịch'),
-                  onPressed: () async {
-                    final textToTranslate = textController.text;
-                    if (textToTranslate.isEmpty) {
-                      return;
-                    }
-
-                    setState(() {
-                      isLoading = true;
-                      translatedText = '';
-                    });
-
-                    final String from = translationMode.split('_')[0];
-                    final String to = translationMode.split('_')[1];
-
-                    final result = await _translate(textToTranslate, from, to);
-
-                    setState(() {
-                      translatedText = result;
-                      isLoading = false;
-                    });
-                    if (mounted) {
-                      wordsBloc.add(
-                        WordsEvent.translateWord(textController.text),
-                      );
-                    }
-                  },
-                ),
-              ],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-            );
-          },
-        );
-      },
-    );
-  }
-
-  Widget _buildResultWidget(String result, String mode) {
-    // final sourceWord = result.sourceWord;
-    // final translatedWord = result.translatedWord;
-    // final ipa = result.ipa;
-    // final sourceAudioUrl = result.sourceAudioUrl;
-    // final translatedAudioUrl = result.translatedAudioUrl;
-
-    return BlocBuilder<WordsBloc, WordsState>(
-      builder: (context, state) {
-        return Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: Colors.indigo.shade50,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Từ gốc
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      state.dictionaries[0].word ?? '',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.indigo,
-                      ),
-                    ),
-                  ),
-                  if (result.isNotEmpty)
-                    IconButton(
-                      icon: const Icon(Icons.volume_up, color: Colors.indigo),
-                      onPressed: () => null,
-                    ),
-                ],
-              ),
-              const SizedBox(height: 8),
-
-              // Từ dịch và phiên-âm
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          result,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        // if (ipa != null)
-                        //   Text(
-                        //     '/$ipa/',
-                        //     style: const TextStyle(
-                        //       fontSize: 16,
-                        //       fontStyle: FontStyle.italic,
-                        //     ),
-                        //   ),
-                      ],
-                    ),
-                  ),
-                  // if (translatedAudioUrl != null)
-                  //   IconButton(
-                  //     icon: const Icon(Icons.volume_up, color: Colors.indigo),
-                  //     onPressed: () => _playAudio(translatedAudioUrl),
-                  //   ),
-                ],
-              ),
-            ],
-          ),
-        );
+        return TranslateDialog();
       },
     );
   }
@@ -361,7 +160,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
                   child: FloatingActionButton(
                     onPressed: () {
                       final wordsBloc = context.read<WordsBloc>();
-                      _showTranslationDialog(context, wordsBloc);
+                      _showTranslationDialog(context);
                     },
                     backgroundColor: colorScheme.primary,
                     foregroundColor: colorScheme.onPrimary,
