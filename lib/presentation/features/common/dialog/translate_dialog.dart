@@ -21,6 +21,7 @@ class _TranslateDialogState extends State<TranslateDialog> {
   bool isLoading = false;
   String translationMode = 'en_vi';
   final AudioPlayer _player = AudioPlayer();
+  String audioUrl = '';
 
   @override
   void initState() {
@@ -96,6 +97,9 @@ class _TranslateDialogState extends State<TranslateDialog> {
                     onChanged: (value) {
                       setState(() {
                         translationMode = value!;
+                        textController.clear();
+                        translatedText = '';
+                        audioUrl = '';
                       });
                     },
                     dropdownColor: const Color(0xFF3C3C3E),
@@ -231,15 +235,27 @@ class _TranslateDialogState extends State<TranslateDialog> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           content,
-          if (translatedText.isNotEmpty && !isLoading) ...[
-            const SizedBox(height: 8),
-            IconButton(
-              icon: const Icon(Icons.volume_up_outlined, color: Colors.white70),
-              onPressed: () {
-                // _playSound(translatedText);
-              },
-            ),
-          ],
+          // if (translatedText.isNotEmpty && !isLoading && translationMode == 'vi_en')
+          //   Padding(
+          //     padding: const EdgeInsets.only(top: 8.0, left: 4.0),
+          //     child: Text(
+          //       translatedText,
+          //       style: TextStyle(
+          //         color: Colors.white70,
+          //         fontSize: 16,
+          //         fontStyle: FontStyle.italic,
+          //       ),
+          //     ),
+          //   ),
+          // if (translatedText.isNotEmpty && !isLoading && translationMode == 'vi_en') ...[
+          //   const SizedBox(height: 8),
+          //   IconButton(
+          //     icon: const Icon(Icons.volume_up_outlined, color: Colors.white70),
+          //     onPressed: () {
+          //       // _playSound(translatedText);
+          //     },
+          //   ),
+          // ],
         ],
       ),
     );
@@ -252,7 +268,7 @@ class _TranslateDialogState extends State<TranslateDialog> {
     );
 
     final phoneticsList = e.phonetics ?? [];
-    final String audioUrl =
+    audioUrl =
         phoneticsList
             .map((p) => p.audio)
             .firstWhere(
@@ -318,19 +334,16 @@ class _TranslateDialogState extends State<TranslateDialog> {
               ),
           ],
         ),
-        Row(
-          children: [
-            IconButton(
-              icon: const Icon(Icons.volume_up_outlined, color: Colors.white70),
-              onPressed:
-                  audioUrl.isNotEmpty
-                      ? () {
-                        _playSound(audioUrl);
-                      }
-                      : null,
-            ),
-          ],
-        ),
+        if (translationMode == 'en_vi')
+          IconButton(
+            icon: const Icon(Icons.volume_up_outlined, color: Colors.white70),
+            onPressed:
+                audioUrl.isNotEmpty
+                    ? () {
+                      _playSound(audioUrl);
+                    }
+                    : null,
+          ),
       ],
     );
   }

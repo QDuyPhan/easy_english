@@ -41,20 +41,35 @@ android {
         }
     }
 
-    flavorDimensions "app"
+    flavorDimensions += "app"
 
     productFlavors {
-        development {
-            dimension "app"
-            applicationIdSuffix ".dev"
-            versionNameSuffix "-dev"
+        create("development") {
+            dimension = "app"
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
         }
-        production {
-            dimension "app"
-            // Đối với production, chúng ta không cần thêm hậu tố
-            // applicationId và versionName sẽ lấy từ defaultConfig
+
+        create("production") {
+            dimension = "app"
+            // Đối với production, không cần thêm hậu tố
         }
     }
+
+//    flavorDimensions "app"
+//
+//    productFlavors {
+//        development {
+//            dimension "app"
+//            applicationIdSuffix ".dev"
+//            versionNameSuffix "-dev"
+//        }
+//        production {
+//            dimension "app"
+//            // Đối với production, chúng ta không cần thêm hậu tố
+//            // applicationId và versionName sẽ lấy từ defaultConfig
+//        }
+//    }
 }
 
 flutter {

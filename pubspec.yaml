@@ -93,6 +93,7 @@ dependencies:
   wheel_picker: ^0.2.2
   bottom_sheet: ^4.0.4
   translator: ^1.0.4+1
+  flutter_tts: ^4.2.3
   # test
 #  carousel_slider: ^5.0.0
 #  vector_math: ^2.1.4

@@ -5,6 +5,7 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   connectivity_plus
   flutter_timezone
+  flutter_tts
   share_plus
   url_launcher_windows
 )
