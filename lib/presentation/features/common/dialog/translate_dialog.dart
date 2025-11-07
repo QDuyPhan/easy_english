@@ -1,11 +1,14 @@
-import 'package:easy_english/domain/entities/dictionary/dictionary_entity.dart';
 import 'package:easy_english/presentation/features/bloc/translate/translate_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:translator/translator.dart';
 
+import '../../../../core/constants/debouncer.dart';
+import '../../../../core/constants/languages.dart';
+import '../../../../core/utils/widgets/language_picker_dialog.dart';
+import '../../../../core/utils/widgets/rounded_button.dart';
 import '../../../../di/injector.dart' as di;
 
 class TranslateDialog extends StatefulWidget {
@@ -16,24 +19,33 @@ class TranslateDialog extends StatefulWidget {
 }
 
 class _TranslateDialogState extends State<TranslateDialog> {
-  final TextEditingController textController = TextEditingController();
+  late TextEditingController _sourceController;
+  late TextEditingController _targetController;
   String translatedText = '';
   bool isLoading = false;
   String translationMode = 'en_vi';
   final AudioPlayer _player = AudioPlayer();
   String audioUrl = '';
+  late ScrollController _scrollController;
+  Language _source = Language.languages.firstWhere(
+    (element) => element.code == 'en',
+  );
+  Language _target = Language.languages.firstWhere(
+    (element) => element.code == 'vi',
+  );
+  final Debouncer _debouncer = Debouncer(delay: Duration(milliseconds: 500));
 
   @override
   void initState() {
     super.initState();
-    textController.addListener(() {
-      setState(() {});
-    });
+    _scrollController = ScrollController();
+    _sourceController = TextEditingController();
+    _targetController = TextEditingController();
   }
 
   @override
   void dispose() {
-    textController.dispose();
+    _scrollController.dispose();
     _player.stop();
     _player.dispose();
     super.dispose();
@@ -48,7 +60,7 @@ class _TranslateDialogState extends State<TranslateDialog> {
     }
   }
 
-  Future<String> _translate(String text, String from, String to) async {
+  void _translate(String text, String from, String to) async {
     final GoogleTranslator translator = GoogleTranslator();
 
     try {
@@ -58,13 +70,41 @@ class _TranslateDialogState extends State<TranslateDialog> {
         to: to,
       );
       final String translatedText = translation.text;
-      final String englishWord = (from == 'en') ? text : translatedText;
-      final String vietnameseWord = (from == 'vi') ? text : translatedText;
-
-      return translatedText;
+      _targetController.text = translatedText;
     } catch (e) {
-      return 'Đã xảy ra lỗi khi dịch. Vui lòng thử lại.';
+      _targetController.text = 'Can not translate';
+      debugPrint('skip');
     }
+  }
+
+  void _onDelete() {
+    _targetController.clear();
+    _sourceController.clear();
+  }
+
+  void _onCopy() {
+    if (_targetController.text.isEmpty) {
+      return;
+    }
+    Clipboard.setData(ClipboardData(text: _targetController.text));
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text("Copied to clipboard")));
+  }
+
+  void _onSwitch() {
+    setState(() {
+      final temp = _source;
+      _source = _target;
+      _target = temp;
+    });
+    _sourceController.text = _targetController.text;
+    _translate(_sourceController.text, _source.code, _target.code);
+  }
+
+  void _onPick(String translation) {
+    _sourceController.text = translation;
+    _translate(_sourceController.text, _source.code, _target.code);
   }
 
   @override
@@ -74,277 +114,244 @@ class _TranslateDialogState extends State<TranslateDialog> {
       child: BlocBuilder<TranslateBloc, TranslateState>(
         builder: (context, state) {
           return AlertDialog(
-            title: const Text('Translate'),
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 16,
-            ),
-            content: SingleChildScrollView(
-              child: ListBody(
-                children: [
-                  DropdownButtonFormField<String>(
-                    initialValue: translationMode,
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'en_vi',
-                        child: Text('Anh -> Việt'),
+            insetPadding: EdgeInsets.zero,
+            shadowColor: Colors.transparent,
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            content: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 600,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.surface,
+                        borderRadius: BorderRadius.circular(15),
                       ),
-                      DropdownMenuItem(
-                        value: 'vi_en',
-                        child: Text('Việt -> Anh'),
-                      ),
-                    ],
-                    onChanged: (value) {
-                      setState(() {
-                        translationMode = value!;
-                        textController.clear();
-                        translatedText = '';
-                        audioUrl = '';
-                      });
-                    },
-                    dropdownColor: const Color(0xFF3C3C3E),
-                    style: const TextStyle(color: Colors.white),
-                    iconEnabledColor: Colors.white70,
-                    decoration: const InputDecoration(
-                      labelText: 'Chế độ dịch',
-                      labelStyle: TextStyle(color: Colors.white54),
-                      border: OutlineInputBorder(),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white54),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blueAccent),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 12),
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  _buildInputArea(state.dictionaries),
-                  const SizedBox(height: 12),
-                  const Divider(color: Colors.white24),
-                  const SizedBox(height: 12),
-                  _buildOutputArea(translatedText, state.isLoading),
-                ],
-              ),
-            ),
-            actions: [
-              TextButton(
-                style: TextButton.styleFrom(foregroundColor: Colors.white70),
-                child: const Text('Hủy'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed:
-                    isLoading
-                        ? null
-                        : () async {
-                          final textToTranslate = textController.text;
-                          if (textToTranslate.isEmpty) {
-                            return;
-                          }
-
-                          final String from = translationMode.split('_')[0];
-                          final String to = translationMode.split('_')[1];
-
-                          setState(() {
-                            isLoading = true;
-                            translatedText = '';
-                          });
-
-                          final String result = await _translate(
-                            textToTranslate,
-                            from,
-                            to,
-                          );
-
-                          if (translationMode == 'en_vi') {
-                            context.read<TranslateBloc>().add(
-                              TranslateEvent.translateWord(textToTranslate),
-                            );
-                          }
-
-                          setState(() {
-                            translatedText = result;
-                            isLoading = false;
-                          });
-                        },
-                child:
-                    isLoading
-                        ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.translate),
+                              ),
+                              Text(
+                                "Translate",
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: const Icon(Icons.close),
+                              ),
+                            ],
                           ),
-                        )
-                        : const Text('Dịch'),
+                          RichText(
+                            text: TextSpan(
+                              style: Theme.of(context).textTheme.titleSmall,
+                              children: [
+                                // const TextSpan(text: "Source: "),
+                                WidgetSpan(
+                                  alignment: PlaceholderAlignment.middle,
+                                  child: RoundedButton(
+                                    expand: false,
+                                    padding: EdgeInsets.all(4.0),
+                                    borderRadius: 8,
+                                    onPressed: () {
+                                      showDialog(
+                                        context: context,
+                                        builder:
+                                            (_) => LanguagePickerDialog(
+                                              onChanged: (language) {
+                                                setState(() {
+                                                  _source = language;
+                                                });
+                                                _translate(_sourceController.text, _source.code, _target.code);
+                                              },
+                                            ),
+                                      );
+                                    },
+                                    child: Text(_source.name),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: _sourceController,
+                                  onChanged: (value) {
+                                    _debouncer(() {
+                                      _translate(_sourceController.text, _source.code, _target.code);
+                                    });
+                                  },
+                                  maxLines: 1,
+                                  onSubmitted: (value) {
+                                    _translate(_sourceController.text, _source.code, _target.code);
+                                  },
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                  decoration: InputDecoration(
+                                    hintText: "Type your translation here",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    filled: true,
+                                    fillColor:
+                                        Theme.of(
+                                          context,
+                                        ).colorScheme.primaryContainer,
+                                  ),
+                                ),
+                              ),
+                              if (_sourceController.text.isNotEmpty)
+                                IconButton(
+                                  onPressed: _onDelete,
+                                  icon: Icon(
+                                    Icons.cancel,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    size: 16,
+                                  ),
+                                ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 24.0,
+                            ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Divider(
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.primary.withAlpha(100),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: _onSwitch,
+                                  icon: Icon(
+                                    Icons.swap_vert,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Divider(
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.primary.withAlpha(100),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              style: Theme.of(context).textTheme.titleSmall,
+                              children: [
+                                // const TextSpan(text: "Target: "),
+                                WidgetSpan(
+                                  alignment: PlaceholderAlignment.middle,
+                                  child: RoundedButton(
+                                    expand: false,
+                                    padding: EdgeInsets.all(4.0),
+                                    borderRadius: 8,
+                                    onPressed: () {
+                                      showDialog(
+                                        context: context,
+                                        builder:
+                                            (_) => LanguagePickerDialog(
+                                              onChanged: (language) {
+                                                setState(() {
+                                                  _target = language;
+                                                });
+                                                _translate(_sourceController.text, _source.code, _target.code);
+                                              },
+                                            ),
+                                      );
+                                    },
+                                    child: Text(_target.name),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  enabled: false,
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                  controller: _targetController,
+                                  decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "Translation will appear here",
+                                  ),
+                                ),
+                              ),
+                              // if (state.translateSnapshot != null && state.translateSnapshot!.type != null)
+                              //   FilterChip(
+                              //     label: Text(state.translateSnapshot!.type!),
+                              //     onSelected: (value) {},
+                              //     selected: true,
+                              //     showCheckmark: false,
+                              //   ),
+                              // if ((state.translateSnapshot?.content ?? "").isNotEmpty) IconButton(
+                              //   onPressed: _onCopy,
+                              //   icon: Icon(
+                              //     Icons.copy,
+                              //     color: Theme.of(context).colorScheme.primary,
+                              //     size: 16,
+                              //   ),
+                              // )
+                            ],
+                          ),
+                          // if (state.translateSnapshot?.spelling != null)
+                          //   Text(state.translateSnapshot!.spelling!, style: Theme.of(context).textTheme.bodyMedium),
+                          const SizedBox(height: 8),
+                          RoundedButton(
+                            borderRadius: 16,
+                            child: Text("Translate"),
+                            onPressed: () {
+                              if (_sourceController.text.isEmpty) {
+                                return;
+                              }
+                              _translate(_sourceController.text, _source.code, _target.code);
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ],
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
             ),
           );
         },
       ),
-    );
-  }
-
-  Widget _buildOutputArea(String translatedText, bool isLoading) {
-    Widget content;
-
-    if (isLoading) {
-      content = Text(
-        'Đang dịch...',
-        style: TextStyle(
-          color: Colors.white54,
-          fontSize: 18.sp,
-          fontStyle: FontStyle.italic,
-        ),
-      );
-    } else if (translatedText.isEmpty) {
-      content = Text(
-        'Bản dịch',
-        style: TextStyle(
-          color: Colors.white54,
-          fontSize: 18.sp,
-          fontStyle: FontStyle.italic,
-        ),
-      );
-    } else {
-      content = Text(
-        translatedText,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 18.sp,
-          fontWeight: FontWeight.bold,
-        ),
-      );
-    }
-
-    return Container(
-      width: double.maxFinite,
-      constraints: const BoxConstraints(minHeight: 100),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          content,
-          // if (translatedText.isNotEmpty && !isLoading && translationMode == 'vi_en')
-          //   Padding(
-          //     padding: const EdgeInsets.only(top: 8.0, left: 4.0),
-          //     child: Text(
-          //       translatedText,
-          //       style: TextStyle(
-          //         color: Colors.white70,
-          //         fontSize: 16,
-          //         fontStyle: FontStyle.italic,
-          //       ),
-          //     ),
-          //   ),
-          // if (translatedText.isNotEmpty && !isLoading && translationMode == 'vi_en') ...[
-          //   const SizedBox(height: 8),
-          //   IconButton(
-          //     icon: const Icon(Icons.volume_up_outlined, color: Colors.white70),
-          //     onPressed: () {
-          //       // _playSound(translatedText);
-          //     },
-          //   ),
-          // ],
-        ],
-      ),
-    );
-  }
-
-  Widget _buildInputArea(List<DictionaryEntity> dictionaries) {
-    final e = dictionaries.firstWhere(
-      (element) => element.word == textController.text,
-      orElse: () => DictionaryEntity(),
-    );
-
-    final phoneticsList = e.phonetics ?? [];
-    audioUrl =
-        phoneticsList
-            .map((p) => p.audio)
-            .firstWhere(
-              (audio) => audio?.isNotEmpty ?? false,
-              orElse: () => '',
-            ) ??
-        '';
-
-    final String text =
-        phoneticsList
-            .map((p) => p.text)
-            .firstWhere((txt) => txt?.isNotEmpty ?? false, orElse: () => '') ??
-        '';
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextField(
-                    controller: textController,
-                    style: TextStyle(color: Colors.white, fontSize: 16.sp),
-                    maxLines: null,
-                    decoration: InputDecoration(
-                      labelText: "Nhập văn bản",
-                      labelStyle: TextStyle(
-                        color: Colors.white54,
-                        fontSize: 16.sp,
-                      ),
-                      border: const OutlineInputBorder(),
-                      enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white54),
-                      ),
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blueAccent),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  if (textController.text.isNotEmpty && text.isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0, left: 4.0),
-                      child: Text(
-                        text,
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 16,
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                    ),
-                ],
-              ),
-            ),
-            if (textController.text.isNotEmpty)
-              IconButton(
-                icon: const Icon(Icons.close, color: Colors.white54),
-                onPressed: () => textController.clear(),
-              ),
-          ],
-        ),
-        if (translationMode == 'en_vi')
-          IconButton(
-            icon: const Icon(Icons.volume_up_outlined, color: Colors.white70),
-            onPressed:
-                audioUrl.isNotEmpty
-                    ? () {
-                      _playSound(audioUrl);
-                    }
-                    : null,
-          ),
-      ],
     );
   }
 }

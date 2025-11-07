@@ -37,10 +37,12 @@ class RoundedButton extends StatelessWidget {
         overlayColor: overlayColor,
       ),
       onPressed: isDisabled ? null : onPressed,
-      child:
-          expand
-              ? Row(mainAxisAlignment: MainAxisAlignment.center, children: [child])
-              : child,
+      child: expand
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [child],
+            )
+          : child,
     );
   }
 }

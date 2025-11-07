@@ -79,9 +79,7 @@ class _HomeNavigationState extends State<HomeNavigation> {
     super.dispose();
   }
 
-  Future<void> _showTranslationDialog(
-    BuildContext context,
-  ) async {
+  Future<void> _showTranslationDialog(BuildContext context) async {
     return showDialog(
       context: context,
       barrierDismissible: false,
